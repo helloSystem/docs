@@ -6,6 +6,10 @@
 
 __hello__ (also known as __helloSystem__) is a desktop system for creators with focus on simplicity, elegance, and usability. Its design follows the "Less, but better" philosophy. It is intended as a system for "mere mortals", welcoming to switchers from the Mac. [FreeBSD](https://www.freebsd.org/) is used as the core operating system. Please refer to https://github.com/helloSystem/hello if you would like to learn more about the ideas and principles behind hello.
 
+## Contents
+
+* [Acknowledgements](acknowledgements.md)
+
 ## Status
 
 hello is currently being developed. It is not yet available for general use, but advanced users can try out continuous builds of pre-alpha ISO images that can be booted from DVD or USB storage media.
