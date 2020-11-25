@@ -9,8 +9,8 @@ set -x
 #
 # Authors: Michael Altfield <michael@michaelaltfield.net>
 # Created: 2020-07-17
-# Updated: 2020-07-17
-# Version: 0.1
+# Updated: 2020-07-17, further modified by probono
+# Version: 0.1, modified by probono
 ################################################################################
  
 ###################
@@ -18,7 +18,7 @@ set -x
 ###################
  
 apt-get update
-apt-get -y install git rsync python3-pip
+apt-get -y install git rsync python3-pip python3-setuptools
 pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark
  
 #####################
