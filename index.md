@@ -59,6 +59,6 @@ Here is what we need help with: [Issues flagged with help-wanted](https://github
 
 Maybe you'd like to look into one of these: [Issues flagged with good-first-issue](https://github.com/search?q=org%3AhelloSystem+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&type=).
 
-Please see the [CONTRIBUTING.md](https://github.com/helloSystem/hello/blob/master/CONTRIBUTING.md) for more information.
+Please see the https://github.com/helloSystem/hello/blob/master/CONTRIBUTING.md page for more information.
 
 Developers chat at `#FuryBSD` on `irc.freenode.net`. Since we are working in different timezones, do not expect immediate answers. It is best to stay connected for at least a couple of days or so.
