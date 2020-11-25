@@ -19,7 +19,7 @@ set -x
  
 apt-get update
 apt-get -y install git rsync python3-pip
-pip3 install setuptools
+pip3 install setuptools wheel
 pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark
  
 #####################
