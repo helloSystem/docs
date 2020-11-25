@@ -73,11 +73,10 @@ html_context = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-github_doc_root = 'https://github.com/' + os.environ['GITHUB_REPOSITORY'] + '/tree/main/'
-# FIXME: Extra '.md' added
+github_doc_root = 'tree/main/'
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: github_doc_root + url + '.md',
+            'url_resolver': lambda url: github_doc_root + url,
             'auto_toc_tree_section': 'Contents',
             }, True)
     app.add_transform(AutoStructify)
