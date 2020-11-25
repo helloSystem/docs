@@ -29,7 +29,7 @@ hello is known to boot to a graphical desktop on the following machines. Auxilia
 
 ## Downloading
 
-Continuous builds of pre-alpha ISO images are available for download at https://github.com/helloSystem/ISO/releases/tag/continuous-hello. Note that these get built automatically whenever source code is committed to that repository. Not every build is tested.
+Continuous builds of pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/tag/continuous-hello). Note that these get built automatically whenever source code is committed to that repository. Not every build is tested.
 
 ## Troubleshooting
 
@@ -38,11 +38,11 @@ Continuous builds of pre-alpha ISO images are available for download at https://
 
 ## Reporting bugs
 
-Please search https://github.com/helloSystem/ISO/issues for known issues. Feel free to add to existing issues or to open new issues there.
+Please search [https://github.com/helloSystem/ISO/issues](https://github.com/helloSystem/ISO/issues) for known issues. Feel free to add to existing issues or to open new issues there.
 
 ## Discussing ideas and wishlist items
 
-Please check https://github.com/helloSystem/hello fist, including the wiki at https://github.com/helloSystem/hello/wiki. Feel free to discuss ideas and wishlist items at https://github.com/helloSystem/hello/issues, but please do keep in mind that in order to achieve the intended goal of simplicity, the team needs to say "no" to most wishlist items that do not further that goal.
+Please check [https://github.com/helloSystem/hello](https://github.com/helloSystem/hello) fist, including the [wiki](https://github.com/helloSystem/hello/wiki). Feel free to discuss ideas and wishlist items at [https://github.com/helloSystem/hello/issues](https://github.com/helloSystem/hello/issues), but please do keep in mind that in order to achieve the intended goal of simplicity, the team needs to say "no" to most wishlist items that do not further that goal.
 
 ## Contributing
 
@@ -52,4 +52,6 @@ Here is what we need help with: [Issues flagged with help-wanted](https://github
 
 Maybe you'd like to look into one of these: [Issues flagged with good-first-issue](https://github.com/search?q=org%3AhelloSystem+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&type=).
 
-Please see https://github.com/helloSystem/hello/blob/master/CONTRIBUTING.md for more information.
+Please see the [CONTRIBUTING.md](https://github.com/helloSystem/hello/blob/master/CONTRIBUTING.md) for more information.
+
+Developers chat at `#FuryBSD` on `irc.freenode.net`. Since we are working in different timezones, do not expect immediate answers. It is best to stay connected for at least a couple of days or so.
