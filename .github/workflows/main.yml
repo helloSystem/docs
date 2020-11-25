@@ -20,11 +20,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      G_ACTOR: ${GITHUB_ACTOR}
-      G_REPOSITORY: ${GITHUB_REPOSITORY}
+      # G_ACTOR: ${GITHUB_ACTOR}
+      # G_REPOSITORY: ${GITHUB_REPOSITORY}
       G_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      G_SHA: ${GITHUB_SHA}
-      G_REF: ${GITHUB_REF}
+      # G_SHA: ${GITHUB_SHA}
+      # G_REF: ${GITHUB_REF}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,7 +33,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build docs
-        run: sudo -H bash -ex buildDocs.sh
+        run: sudo -E bash -ex buildDocs.sh
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
