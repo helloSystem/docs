@@ -19,8 +19,8 @@ set -x
  
 apt-get update
 apt-get -y install git rsync python3-pip
-export SETUPTOOLS_USE_DISTUTILS=stdlib # https://github.com/pypa/setuptools/issues/2353#issuecomment-684452550
-pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark setuptools
+pip3 install setuptools
+pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark
  
 #####################
 # DECLARE VARIABLES #
