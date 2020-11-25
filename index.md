@@ -33,7 +33,10 @@ hello is known to boot to a graphical desktop on the following machines. Auxilia
 
 ## Downloading
 
-Continuous builds of pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/tag/continuous-hello). Note that these get built automatically whenever source code is committed to that repository. Not every build is tested.
+Continuous builds of pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/tag/continuous-hello).
+
+``` important:: Images get built automatically whenever source code is committed. Not every build is tested.
+```
 
 ## Troubleshooting
 
