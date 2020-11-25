@@ -46,8 +46,8 @@ sphinx-build -b html . _build
 
 printenv
 
-git config --global user.name "${G_ACTOR}"
-git config --global user.email "${G_ACTOR}@users.noreply.github.com"
+git config --global user.name "${GITHUB_ACTOR}"
+git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
   
 docroot=`mktemp -d`
 rsync -av "./_build/" "${docroot}/"
@@ -56,7 +56,7 @@ pushd "${docroot}"
  
 # don't bother maintaining history; just generate fresh
 git init
-git remote add deploy "https://token:${G_TOKEN}@github.com/${G_REPOSITORY}.git"
+git remote add deploy "https://token:${G_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 git checkout -b gh-pages
  
 # add .nojekyll to the root so that github won't 404 on content added to dirs
@@ -78,7 +78,7 @@ EOF
 git add .
  
 # commit all the new files
-msg="Updating Docs for commit ${G_SHA} made on `date -d"@${SOURCE_DATE_EPOCH}" --iso-8601=seconds` from ${G_REF} by ${G_ACTOR}"
+msg="Updating Docs for commit ${GITHUB_SHA} made on `date -d"@${SOURCE_DATE_EPOCH}" --iso-8601=seconds` from ${GITHUB_REF} by ${GITHUB_ACTOR}"
 git commit -am "${msg}"
  
 # overwrite the contents of the gh-pages branch on our github.com repo
