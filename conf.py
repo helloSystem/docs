@@ -63,8 +63,8 @@ html_theme = 'sphinx_rtd_theme'
 import os
 html_context = {
   'display_github': True,
-  'github_user': os. environ['GITHUB_REPOSITORY'].split("/")[0],
-  'github_repo': os. environ['GITHUB_REPOSITORY'].split("/")[1],
+  'github_user': os.environ['GITHUB_REPOSITORY'].split("/")[0],
+  'github_repo': os.environ['GITHUB_REPOSITORY'].split("/")[1],
   'github_version': 'main/',
 }
 
@@ -73,6 +73,7 @@ html_context = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+github_doc_root = 'https://github.com/' + os.environ['GITHUB_REPOSITORY'] + '/tree/main/'
 def setup(app):
     app.add_config_value('recommonmark_config', {
             'url_resolver': lambda url: github_doc_root + url,
