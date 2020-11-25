@@ -1,6 +1,6 @@
 # hello Documentation
 
-This repository holds the documentation for hello.
+This repository builds the [documentation](https://hellosystem.github.io/docs/) for hello.
 
 It uses Sphinx, recommonmark, and GitHub Actions to produce documentation from the Markdown source files in this repository.
 
