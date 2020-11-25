@@ -60,6 +60,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md']
 html_theme = 'sphinx_rtd_theme'
 
 # Display "Edit on GitHub"
+import os
 html_context = {
   'display_github': True,
   'github_user': os. environ['GITHUB_REPOSITORY'].split("/")[0],
