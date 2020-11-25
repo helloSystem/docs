@@ -19,7 +19,7 @@ set -x
  
 apt-get update
 apt-get -y install git rsync python3-sphinx python3-sphinx-rtd-theme python3-pip
-sudo pip3 install commonmark
+pip3 install commonmark
  
 #####################
 # DECLARE VARIABLES #
