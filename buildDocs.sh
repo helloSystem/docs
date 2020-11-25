@@ -69,9 +69,7 @@ cat > README.md <<EOF
  
 Nothing to see here. The contents of this branch are essentially a cache that's not intended to be viewed on github.com.
  
-For more information on how this documentation is built using Sphinx, Read the Docs, and GitHub Actions/Pages, see:
- 
- * https://tech.michaelaltfield.net/2020/07/18/sphinx-rtd-github-pages-1
+For more information on how this documentation is built using Sphinx, Read the Docs, and GitHub Actions/Pages, see another branch in this repository.
 EOF
  
 # copy the resulting html pages built from sphinx above to our new git repo
