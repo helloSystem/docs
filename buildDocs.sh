@@ -18,8 +18,8 @@ set -x
 ###################
  
 apt-get update
-apt-get -y install git rsync python3-pip python3-setuptools
-pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark
+apt-get -y install git rsync python3-pip
+pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark setuptools
  
 #####################
 # DECLARE VARIABLES #
