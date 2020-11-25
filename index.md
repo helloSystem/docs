@@ -27,7 +27,7 @@ hello is known to boot to a graphical desktop on the following machines. Auxilia
 * VirtualBox host (on FreeBSD)
 * VMware host (on Windows)
 
-## Download
+## Downloading
 
 Continuous builds of pre-alpha ISO images are available for download at https://github.com/helloSystem/ISO/releases/tag/continuous-hello. Note that these get built automatically whenever source code is committed to that repository. Not every build is tested.
 
