@@ -65,7 +65,7 @@ html_context = {
   'display_github': True,
   'github_user': os. environ['GITHUB_REPOSITORY'].split("/")[0],
   'github_repo': os. environ['GITHUB_REPOSITORY'].split("/")[1],
-  'github_version': '/main/docs/',
+  'github_version': 'main/',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
