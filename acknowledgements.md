@@ -31,6 +31,7 @@ __[pkgdemon](https://github.com/pkgdemon)__
 __[vermaden](https://github.com/vermaden)__
 @vermaden on twitter
 * Provided helpful feedback and configuration advice
+* Configuration for tap to click and two-finger scrolling for Synaptics and Elan touchpads
 
 ## Reven Martin
 __[rekols](https://github.com/rekols)__
