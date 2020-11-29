@@ -74,23 +74,10 @@ html_context = {
 html_static_path = ['_static']
 
 github_doc_root = 'https://github.com/' + os.environ['GITHUB_REPOSITORY'] + '/tree/main/'
-
-# autodoc configuration with AutoStructify
-# https://github.com/symuvia/symupy/issues/37#issuecomment-678322450
-# See http://recommonmark.readthedocs.io/en/latest/auto_structify.html
-# See the setup function in current conf.py file in the recommonmark repo
-# https://github.com/rtfd/recommonmark/blob/master/docs/conf.py#L296
-github_doc_root = 'https://github.com/helloSystem/docs/tree/main/'
-
-# We can't rely on anchors because GitHub dynamically renders them for
-# markdown documents.
-linkcheck_anchors = False
-
 def setup(app):
     app.add_config_value('recommonmark_config', {
-        'url_resolver': lambda url: github_doc_root + url,
-        'auto_toc_tree_section': 'Contents',
-        'enable_eval_rst': True,
-        'enable_auto_doc_ref': False,
-    }, True)
+            'enable_auto_toc_tree': True,
+            'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            }, True)
     app.add_transform(AutoStructify)
