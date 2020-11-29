@@ -8,6 +8,7 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 
 ## Contents
 
+* [hello](index.md)
 * [Acknowledgements](acknowledgements.md)
 
 ## Status
