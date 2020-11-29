@@ -73,7 +73,7 @@ html_context = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-github_doc_root = '/' + os.environ['GITHUB_REPOSITORY'].split("/")[1] + '/'
+github_doc_root = 'https://' + os.environ['GITHUB_REPOSITORY'].split("/")[0] + '.github.com/' + os.environ['GITHUB_REPOSITORY'].split("/")[1] + '/'
 def setup(app):
     app.add_config_value('recommonmark_config', {
             'enable_auto_toc_tree': True,
