@@ -7,7 +7,7 @@
 __hello__ (also known as __helloSystem__) is a desktop system for creators with focus on simplicity, elegance, and usability. Its design follows the "Less, but better" philosophy. It is intended as a system for "mere mortals", welcoming to switchers from the Mac. [FreeBSD](https://www.freebsd.org/) is used as the core operating system. Please refer to https://github.com/helloSystem/hello if you would like to learn more about the ideas and principles behind hello.
 
 ``` .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: User Guide
    :hidden:
 
@@ -16,11 +16,11 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 ``` 
 
 ``` .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Developer Guide
    :hidden:
 
-   developer/*
+   developer/contributing
 ``` 
 
 ## Status
