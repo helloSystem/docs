@@ -11,8 +11,7 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 * [hello](index.md)
 * [Acknowledgements](acknowledgements.md)
 
-```
-.. toctree::
+``` .. toctree::
    :maxdepth: 1
    :caption: User Guide
 
