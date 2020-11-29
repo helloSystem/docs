@@ -11,6 +11,15 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 * [hello](index.md)
 * [Acknowledgements](acknowledgements.md)
 
+```
+.. toctree::
+   :maxdepth: 1
+   :caption: User Guide
+
+   user/interface
+   user/urls
+``` 
+
 ## Status
 
 hello is currently being developed. It is not yet available for general use, but advanced users can try out continuous builds of pre-alpha ISO images that can be booted from DVD or USB storage media.
