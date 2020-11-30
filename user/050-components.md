@@ -8,5 +8,5 @@ hello conststs of the following components, each of which are described in this 
    :maxdepth: 2
    :glob:
 
-   user/components/*
+   components/*
 ``` 
