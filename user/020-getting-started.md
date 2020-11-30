@@ -13,6 +13,8 @@ hello is currently being developed. It is not yet available for general use, but
 
 In the future, there may also be builds for other processor architectures. We would like to bring down the RAM requirement considerably.
 
+Please refer to [FreeBSD Hardware Compatibility](https://www.freebsd.org/doc/en_US.ISO8859-1/books/faq/hardware.html) for more information on individual components.
+
 ### Tested hardware
 
 hello is known to boot to a graphical desktop on the following machines. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. has not yet been tested systematically.
