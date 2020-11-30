@@ -1,12 +1,11 @@
-# Components
+# Getting to know the system
 
-hello conststs of the following components, each of which are described in this section:
+helloSystem conststs of the following key components, each of which are described in this section:
 
 ```eval_rst
 .. toctree::
-   :caption: Components
    :maxdepth: 2
    :glob:
-
+   
    components/*
 ``` 

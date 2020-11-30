@@ -6,5 +6,8 @@
    :glob:
 
    contributing
+   building
+   distributions
+   acknowledgements
    contact
 ```

@@ -27,7 +27,7 @@ __[pkgdemon](https://github.com/pkgdemon)__
 [https://www.freebsdfoundation.org/](https://www.freebsdfoundation.org/)
 * Gave permission to use the trademarks in the 'Install FreeBSD' utility
 
-## Slawomir Wojciech Wojtczak
+## Sławomir Wojciech Wojtczak
 __[vermaden](https://github.com/vermaden)__
 @vermaden on twitter
 * Provided helpful feedback and configuration advice

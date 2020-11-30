@@ -9,5 +9,4 @@
    components
    troubleshooting
    feedback
-   acknowledgements
 ```
