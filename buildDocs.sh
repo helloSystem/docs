@@ -48,9 +48,9 @@ qcollectiongenerator _build/qthelp/*.qhcp
 # Upload outputs to GitHub Releases #
 #####################################
 
-wget https://github.com/tcnksm/ghr/files/5247714/ghr.zip
-unzip ghr.zip
-./ghr -delete -t "${G_TOKEN}" -u "${GITHUB_ACTOR}" -r "${GITHUB_REPOSITORY}" -c "${GITHUB_SHA::7}" continuous _build/qthelp/*.qhc _build/epub/*.epub
+wget "https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz"
+tar xf ghr_*.tar.gz
+./ghr_*/ghr -delete -t "${G_TOKEN}" -u "${GITHUB_ACTOR}" -r "${GITHUB_REPOSITORY}" -c "${GITHUB_SHA::7}" continuous _build/qthelp/*.qhc _build/epub/*.epub
  
 #######################
 # Update GitHub Pages #
