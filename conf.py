@@ -10,11 +10,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+
+import os
+
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+
 import recommonmark
 from recommonmark.transform import AutoStructify
+
 
 # -- Project information -----------------------------------------------------
 
@@ -59,12 +63,16 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md']
 #
 html_theme = 'sphinx_rtd_theme'
 
+# specify a fallback value for local builds
+# FIXME: find a way to use relative URLs instead of absolute URLs to better support URLs
+GITHUB_REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "helloSystem/docs")
+GITHUB_REPO_OWNER, GITHUB_REPO_NAME = GITHUB_REPOSITORY.split("/")[0:2]
+
 # Display "Edit on GitHub"
-import os
 html_context = {
   'display_github': True,
-  'github_user': os.environ['GITHUB_REPOSITORY'].split("/")[0],
-  'github_repo': os.environ['GITHUB_REPOSITORY'].split("/")[1],
+  'github_user': GITHUB_REPO_OWNER,
+  'github_repo': GITHUB_REPO_NAME,
   'github_version': 'main/',
 }
 
@@ -73,11 +81,17 @@ html_context = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-github_doc_root = 'https://' + os.environ['GITHUB_REPOSITORY'].split("/")[0] + '.github.io/' + os.environ['GITHUB_REPOSITORY'].split("/")[1] + '/'
+github_doc_root = 'https://' + GITHUB_REPO_OWNER + '.github.io/' + GITHUB_REPO_NAME + '/'
+
 def setup(app):
-    app.add_config_value('recommonmark_config', {
+    app.add_config_value(
+        'recommonmark_config',
+        {
             'enable_auto_toc_tree': False,
             'url_resolver': lambda url: github_doc_root + url,
             'auto_toc_tree_section': 'Contents',
-            }, True)
+        },
+        True
+    )
+
     app.add_transform(AutoStructify)
