@@ -8,7 +8,6 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 
 ```eval_rst
 .. toctree::
-   :caption: User Guide
    :hidden:
    :maxdepth: 2
    :glob:
@@ -18,7 +17,6 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 
 ```eval_rst
 .. toctree::
-   :caption: Developer Guide
    :hidden:
    :maxdepth: 2
    :glob:
