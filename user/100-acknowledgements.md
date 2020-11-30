@@ -60,4 +60,4 @@ __[keshavbhatt](https://github.com/keshavbhatt)__
 
 ## TheAssassin
 __[TheAssassin](https://github.com/TheAssassin)__
-* Provided Sphinx evangelism and ReStructuredText help
+* Improved documentation by providing Sphinx evangelism and ReStructuredText help
