@@ -11,7 +11,7 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 
    index
    acknowledgements
-   developer/*
+   developer/contributing
 ``` 
 
 ## Status
