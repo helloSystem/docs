@@ -55,7 +55,7 @@ wget "https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_
 tar xf ghr_*.tar.gz
 GH_USER=$(echo "${GITHUB_REPOSITORY}" | cut -d "/" -f 1)
 GH_REPO=$(echo "${GITHUB_REPOSITORY}" | cut -d "/" -f 2)
-./ghr_*/ghr -delete -t "${G_TOKEN}" -u "${GH_USER}" -r "${GH_REPO}" -c "${GITHUB_SHA::7}" continuous out/
+./ghr_*/ghr -delete -t "${G_TOKEN}" -u "${GH_USER}" -r "${GH_REPO}" -c "${GITHUB_SHA}" continuous out/
  
 #######################
 # Update GitHub Pages #
