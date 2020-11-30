@@ -25,7 +25,7 @@ Select an application from "Applications", "Utilities", or "Preferences" in the 
 
 A quicker way to launch an application is to press Alt+Space, enter a few characters of the application name, select one of the matches from the list, and press the Enter key.
 
-* Shutting down
+## Shutting down
 
 To shut down your computer, select "Log Out" from the "System" menu, then click "Shut Down". You can also choose "Restart" if you want to restart your computer, or "Log Out" if you would like to log out of the current graphical session.
 
@@ -36,6 +36,3 @@ Click into the "Search in Menu" box in the menu bar, or press Alt+Space. Then en
 ## Date and time
 
 Date and time in your current timezone are displayed at the right hand side of the menu bar.
-
-
-* See date and time
