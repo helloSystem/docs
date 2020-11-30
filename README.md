@@ -6,3 +6,17 @@ It uses Sphinx, recommonmark, and GitHub Actions to produce documentation from t
 
 * https://stackoverflow.com/a/62967771
 * https://recommonmark.readthedocs.io/en/latest/
+
+## Local development server
+
+Use a local development server that regenerates the output whenever the input changes:
+
+```
+sudo pkg install -y py37-pip
+pip-3.7 install -r requirements.txt
+export GITHUB_REPOSITORY="helloSystem/docs"
+export PATH=~/.local/bin/:$PATH
+make watch
+```
+
+Now open http://127.0.0.1:8000 in a web browser. It will be regenerated and refreshed whenever one of the input files changes.
