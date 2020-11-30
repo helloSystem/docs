@@ -10,7 +10,6 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
 .. toctree::
    :maxdepth: 2
 
-   index
    acknowledgements
    developer/contributing
 ``` 
