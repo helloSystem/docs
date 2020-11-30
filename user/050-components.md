@@ -4,7 +4,7 @@ hello conststs of the following components, each of which are described in this 
 
 ```eval_rst
 .. toctree::
-   :caption: User Guide
+   :caption: Components
    :maxdepth: 2
    :glob:
 
