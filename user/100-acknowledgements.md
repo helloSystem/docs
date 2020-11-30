@@ -57,3 +57,7 @@ __[keshavbhatt](https://github.com/keshavbhatt)__
 
 ## @FreeBSDHelp on twitter
 * Reached out to FreeBSD kernel developers
+
+## TheAssassin
+__[TheAssassin](https://github.com/TheAssassin)__
+* Provided Sphinx evangelism and ReStructuredText help
