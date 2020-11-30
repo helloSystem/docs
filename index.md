@@ -1,6 +1,8 @@
+```eval_rst
 .. image:: https://raw.githubusercontent.com/helloSystem/hello/1d1e69be8a689c5e0a176df821c14f0b49b241a4/branding/hello_variation.svg
    :align: center
    :width: 300px
+```
 
 # hello
 
