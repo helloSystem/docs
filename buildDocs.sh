@@ -53,7 +53,7 @@ mkdir -p out
 cp _build/qthelp/*.qhc _build/epub/*.epub out/
 wget "https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz"
 tar xf ghr_*.tar.gz
-./ghr_*/ghr -delete -t "${G_TOKEN}" -u "${GITHUB_ACTOR}" -r "${GITHUB_REPOSITORY}" -c "${GITHUB_SHA::7}" continuous out/*
+./ghr_*/ghr -delete -t "${G_TOKEN}" -u "${GITHUB_ACTOR}" -r "${GITHUB_REPOSITORY}" -c "${GITHUB_SHA::7}" continuous out/
  
 #######################
 # Update GitHub Pages #
