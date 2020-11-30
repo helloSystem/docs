@@ -76,7 +76,7 @@ html_static_path = ['_static']
 github_doc_root = 'https://' + os.environ['GITHUB_REPOSITORY'].split("/")[0] + '.github.io/' + os.environ['GITHUB_REPOSITORY'].split("/")[1] + '/'
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'enable_auto_toc_tree': True,
+            'enable_auto_toc_tree': False,
             'url_resolver': lambda url: github_doc_root + url,
             'auto_toc_tree_section': 'Contents',
             }, True)
