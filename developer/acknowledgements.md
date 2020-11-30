@@ -1,6 +1,6 @@
 # Acknowledgements
 
-Grateful acknowledged is made to the following persons and organizations.
+Grateful acknowledgement is made to the following persons and organizations.
 
 Mentions roughly in the order of first involvement with the project.
 
