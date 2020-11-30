@@ -18,9 +18,9 @@ set -x
 ###################
  
 apt-get update
-apt-get -y install git rsync python3-pip
+apt-get -y install git rsync python3-pip qttools5-dev-tools
 pip3 install setuptools wheel
-pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark recommonmark
+pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark recommonmark sphinxcontrib-qthelp
  
 #####################
 # DECLARE VARIABLES #
@@ -36,9 +36,21 @@ export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
  
 # build our documentation with sphinx (see ./conf.py)
 # * https://www.sphinx-doc.org/en/master/usage/quickstart.html#running-the-build
-make -C . clean
-sphinx-build -b html . _build
+make clean
+make html
+make epub
+make qthelp
+qcollectiongenerator _build/qthelp/*.qhcp
+# sphinx-build -b html . _build
 # make -C ./docs html
+
+#####################################
+# Upload outputs to GitHub Releases #
+#####################################
+
+wget https://github.com/tcnksm/ghr/files/5247714/ghr.zip
+unzip ghr.zip
+./ghr -delete -t "${G_TOKEN}" -u "${GITHUB_ACTOR}" -r "${GITHUB_REPOSITORY}" -c "${GITHUB_SHA::7}" continuous _build/qthelp/*.qhc _build/epub/*.epub
  
 #######################
 # Update GitHub Pages #
