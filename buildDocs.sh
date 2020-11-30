@@ -48,6 +48,7 @@ qcollectiongenerator _build/qthelp/*.qhcp
 # Upload outputs to GitHub Releases #
 #####################################
 
+rm -rf ./out/ || true
 mkdir -p out
 cp continuous _build/qthelp/*.qhc _build/epub/*.epub out/
 wget "https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz"
