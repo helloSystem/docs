@@ -1,5 +1,7 @@
 # Menu
 
+![Menu](https://pbs.twimg.com/media/EniEQ0uXIAEA2O5?format=png)
+
 The menu bar at the top of the screen lets you perform, among others, the following functions:
 
 * Get information about your computer
