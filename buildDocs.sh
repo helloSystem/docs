@@ -18,9 +18,9 @@ set -x
 ###################
  
 apt-get update
-apt-get -y install git rsync python3-pip
+apt-get -y install git rsync python3-pip qttools5-dev-tools qt5-default qt5-qmake
 pip3 install setuptools wheel
-pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark recommonmark
+pip3 install sphinx sphinx-autobuild sphinx-rtd-theme commonmark recommonmark sphinxcontrib-qthelp
  
 #####################
 # DECLARE VARIABLES #
@@ -36,9 +36,26 @@ export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
  
 # build our documentation with sphinx (see ./conf.py)
 # * https://www.sphinx-doc.org/en/master/usage/quickstart.html#running-the-build
-make -C . clean
-sphinx-build -b html . _build
+make clean
+make html
+make epub
+make qthelp
+qcollectiongenerator _build/qthelp/*.qhcp
+# sphinx-build -b html . _build
 # make -C ./docs html
+
+#####################################
+# Upload outputs to GitHub Releases #
+#####################################
+
+rm -rf ./out/ || true
+mkdir -p out
+cp _build/qthelp/*.qhc _build/epub/*.epub out/
+wget "https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz"
+tar xf ghr_*.tar.gz
+GH_USER=$(echo "${GITHUB_REPOSITORY}" | cut -d "/" -f 1)
+GH_REPO=$(echo "${GITHUB_REPOSITORY}" | cut -d "/" -f 2)
+./ghr_*/ghr -delete -t "${G_TOKEN}" -u "${GH_USER}" -r "${GH_REPO}" -c "${GITHUB_SHA}" continuous out/
  
 #######################
 # Update GitHub Pages #
