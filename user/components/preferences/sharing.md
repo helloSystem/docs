@@ -14,7 +14,7 @@ Check the __Remote Login__ checkbox to make your computer accessible over ssh.
 
 ## Screen Sharing
 
-Check the __Screen Sharing__ checkbox to make your computer accessible through VNC over ssh and advertise it on the network. The __Screen Sharing__ checkbox will automatically be unchecked when the computer is restarted or after a connection has been made and has ended.
+Check the __Screen Sharing__ checkbox to make the screen of your computer accessible through VNC over ssh and advertise it on the network. This allows another user who has an account on your computer to view the screen, and to control the computer as if they were sitting in front of it. This can be helpful, e.g., for getting help from colleagues. The __Screen Sharing__ checkbox will automatically be unchecked when the computer is restarted or after a connection has been made and has ended.
 
 ## Accessing the screen of remote computers
 
