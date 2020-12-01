@@ -16,8 +16,6 @@
      As an end user who is using the graphical user interface exclusively, you will not need to interact with the `launch` command directly and can skip this section.
  ```
  
-
- 
  ## Background
  
  On UNIX systems, applications are typically launched by entering the name of the executable file, which is searched in a fixed list of directories determined by the `$PATH` environment variable. 
@@ -25,8 +23,10 @@
  Many graphical desktop environments use `.desktop` files to integrate applications with the system. While this has traditionally worked well for installed applications, it does not work well for dynamically changing applications that are moved in the filesystem, such as `.app` bundles or `.AppDir` directories. Also, it does not handle mutliple versions of the same application gracefully. Hence, helloSystem uses the `launch` command to launch graphical applications. This has the following advantages:
  
  * You do not need to know the path to the application to be launched, even if the applciation is not on the `$PATH`
+  * If multiple versions of an application are available on the system, the most recent one will be launched automatically (unless specified otherwise by the user) __(to be implemented)__
  * If something goes wrong and the application cannot be launched, then a graphical error message will be shown on the screen
- * If multiple versions of an application are available on the system, the most recent one will be launched automatically (unless specified otherwise by the user) __(to be implemented)__
+ 
+ ![Graphical error message if something goes wrong](https://pbs.twimg.com/media/EoLKXl7WEAAWCtQ?format=png)
  
  ## Using the `launch` command
  
