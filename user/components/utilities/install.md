@@ -8,6 +8,8 @@ The __Install FreeBSD__ utility lets you install helloSystem on your computer fr
     The utility is called  **Install FreeBSD** to signify that helloSystem contains a largely unmodified FreeBSD core operating system. It might be renamed "Install helloSystem" in the future.
 ```
 
+![Install FreeBSD](https://user-images.githubusercontent.com/2480569/93003377-7d77c480-f53e-11ea-9e2d-aed1b41a17df.png)
+
 When you install helloSystem using the __Install FreeBSD__ utility, the installed system will behave like the Live system in most aspects.
 
 ## Prerequisites
