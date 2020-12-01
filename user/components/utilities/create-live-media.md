@@ -4,6 +4,8 @@ A __Live Medium__ is a storage device that can be used to start your computer wi
 
 The __Create Live Media__ utility provides an easy and convenient way to create bootable Live Media on devices such as USB sticks. It downloads and writes Live ISOs to devices in one go.
 
+![Create Live Media](https://user-images.githubusercontent.com/2480569/100794701-3bb03900-341e-11eb-8c18-e45fc68b7dbe.png)
+
 This is useful if you are running helloSystem and would like to write a newer (or experimental) version of the system to a bootable storage device.
 
 ## Prerequisites
