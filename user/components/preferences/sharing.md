@@ -2,6 +2,8 @@
 
 The __Sharing__ preferences application lets you make your computer accessible from the network.
 
+![Sharing.app](https://pbs.twimg.com/media/EoK8buxXYAIdtvJ?format=png)
+
 ## Computer Name
 
 The __Computer Name__ (hostname) is displayed. You can change it. Changes in the Computer Name will take effect upon restarting the computer.
@@ -43,6 +45,4 @@ Log into the remote computer. Then start the Remote Desktop client as follows:
 ssvncviewer localhost
 ```
 
-``` .. note::
-    A graphical Remote Desktop client that does this automatically for you may be offered in the future.
-```
+You should now be able to see and operate the screen.
