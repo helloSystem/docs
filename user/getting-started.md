@@ -24,8 +24,12 @@ hello is known to boot to a graphical desktop on the following machines. Auxilia
 
 ### Tested virtualization environments
 
-* VirtualBox host (on FreeBSD)
-* VMware host (on Windows)
+![helloSystem on VirtualBox in BIOS EFI mode](https://user-images.githubusercontent.com/2480569/101068320-dc2a6880-3598-11eb-9304-28655c8f17a5.png)
+
+* VirtualBox host (on FreeBSD), known to work in BIOS and EFI mode
+* VMware host (on Windows), possibly only working in BIOS mode?
+
+Please report back about the results on your virtualization environment.
 
 ## Downloading
 
