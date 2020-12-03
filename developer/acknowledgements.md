@@ -20,7 +20,7 @@ __[probonopd](https://github.com/probonopd)__
 
 ## Joe Maloney
 __[pkgdemon](https://github.com/pkgdemon)__
-@FuryBSD on twitter
+malco2001 on irc.freenode.net (#FuryBSD)
 * Originally wrote the tools to create Live ISOs for FuryBSD
 
 ## FreeBSD Foundation
