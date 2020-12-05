@@ -20,7 +20,7 @@ This is a simplified description of the boot process. There may be additional as
 ### Troubleshooting
 
 * __Hangs or reboots during replicating the system image to swap-based memdisk.__ The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download
-* __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Check that `zfs.ko` and its dependencies are really loaded.
+* __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Reason unkown. Are needed kernel modules missing?
 
 ## Installed system
 
