@@ -5,6 +5,7 @@
    :maxdepth: 2
    :glob:
 
+   boot
    contributing
    building
    distributions
