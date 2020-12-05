@@ -11,11 +11,16 @@ This is a simplified description of the boot process. There may be additional as
 1. The bootloader gets loaded
 1. The bootloader loads the kernel modules that are required for the Live system boot process as specified in `overlays/boot/boot/loader.conf`. Note that the bootloader apparently is not smart enough to load the dependencies of kernel modules, so one needs to manually specify those as well. For example, `zfs.ko` up to FreeBSD 12 requires `opensolaris.ko` and from 13 onward requires `cryptodev.ko`
 1. The bootloader loads the ramdisk image `ramdisk.ufs` as specified in `overlays/boot/boot/loader.conf`. The contents of the ramdisk image are specified in `overlays/ramdisk`
-1. `init.sh` from the ramdisk image gets executed as specified in `overlays/ramdisk/init.sh`. It constructs a r/w Live filesystem tree (e.g., by copying the system image to swap-based memdisk) at `/livecd`
+1. `init.sh` from the ramdisk image gets executed as specified in `overlays/ramdisk/init.sh`. It constructs a r/w Live filesystem tree (e.g., by replicating the system image to swap-based memdisk) at `/livecd`
 1. `/usr/local/bin/furybsd-init-helper` gets executed by `init.sh` in a chroot of the live filesystem, `/livecd`. It is defined in `overlays/uzip/furybsd-live-settings/files/usr/local/bin/furybsd-init-helper` and deals with loading Xorg configuration based on the detected devices on PCI, and with loading virtualization-related drivers
 1. The `/livecd` chroot is exited
 1. `init.sh` from the ramdisk image exits
 1. `etc/rc` from the ramdisk image gets executed as specified in `overlays/ramdisk/etc/rc` (by what?). It tells the kernel to "reroot" (not "chroot") into the live filesystem, `/livecd` using `reboot -r`
+
+### Troubleshooting
+
+* __Hangs or reboots during replicating the system image to swap-based memdisk.__ The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download
+* __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Check that `zfs.ko` and its dependencies are really loaded.
 
 ## Installed system
 
