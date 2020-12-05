@@ -27,7 +27,7 @@ This is a simplified description of the boot process. There may be additional as
 
 The boot process is the regular FreeBSD boot process.
 
-## Graphical desktop boot start process
+## Graphical desktop start process
 
 1. The system is configured in `/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
 1. `slim` is configured in `/usr/local/etc/slim.conf` to start `start-hello` once the user has logged in, or if autologin has occured
