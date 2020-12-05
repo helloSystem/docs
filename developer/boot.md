@@ -2,9 +2,9 @@
 
 ## Live system
 
-The ISO contains a Live system filesystem image in uzip format. This filesystem image contains the filesystem used when running the ISO. During the Live system boot process, the image needs to get mounted and needs to get turned into a read-write filesystem so that one can make changes to the running system.
+The ISO contains a compressed Live system filesystem image in uzip format. This filesystem image contains the filesystem used when running the ISO. During the Live system boot process, the image needs to get mounted and needs to get turned into a read-write filesystem so that one can make changes to the running system.
 
-FreeBSD does not have a standard way to achieve this, so custom code has to be used.
+FreeBSD does not have a standard way to achieve this, so custom code has to be used. (The ISOs provided by the FreeBSD project do not use a compressed Live system filesystem image, and do not result in a read-write filesystem when being booted.)
 
 This is a simplified description of the boot process. There may be additional aspects which still need to be documented.
 
