@@ -18,7 +18,7 @@ This is a simplified description of the boot process. There may be additional as
 1. `etc/rc` from the ramdisk image gets executed as specified in `overlays/ramdisk/etc/rc` (by what?). It tells the kernel to "reroot" (not "chroot") into the live filesystem, `/livecd` using `reboot -r`
 1 From here on, the boot process is the regular FreeBSD boot process
 
-### Troubleshooting
+### Troubleshooting the Live system early boot process
 
 * __Hangs or reboots during replicating the system image to swap-based memdisk.__ The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download
 * __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Reason unkown. Are needed kernel modules missing?
@@ -54,3 +54,7 @@ The boot process is the regular FreeBSD boot process.
 1. The system is configured in `/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
 1. `slim` is configured in `/usr/local/etc/slim.conf` to start `start-hello` once the user has logged in, or if autologin has occured
 1. The `/usr/local/bin/start-hello` shell script starts the various components of the helloSystem desktop
+
+### Troubleshooting the graphical desktop start process
+
+* Login manager (`slim`) says __Failed to execute login command__. Check the `/usr/local/bin/start-hello` shell script.
