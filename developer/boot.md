@@ -23,6 +23,15 @@ This is a simplified description of the boot process. There may be additional as
 * __Hangs or reboots during replicating the system image to swap-based memdisk.__ The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download
 * __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Reason unkown. Are needed kernel modules missing?
 
+### Boot into verbose single-user mode
+
+If your computer hangs during booting, you can boot into __verbose single-user mode__. This allows you to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.
+
+1. For a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the __Esc__ key on your keyboard immediately when you see this
+1. Type `unset boot_mute`  and press the __Enter__ key. This disables the graphical splash screen
+1. Type `set console=text`  and press the __Enter__ key. This results in boot messages being shown on screen
+1. Type `boot -v -s` and press the __Enter__ key. This results in the system being booted in verbose single-user mode
+
 ## Installed system boot process
 
 The boot process is the regular FreeBSD boot process.
