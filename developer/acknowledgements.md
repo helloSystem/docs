@@ -61,3 +61,7 @@ __[keshavbhatt](https://github.com/keshavbhatt)__
 ## TheAssassin
 __[TheAssassin](https://github.com/TheAssassin)__
 * Improved documentation by providing Sphinx evangelism and ReStructuredText help
+
+## Leodanis Pozo Ramos
+__[lpozo](https://github.com/lpozo)__
+* Wrote tutorial and sample code that forms the basis for Calculator.app
