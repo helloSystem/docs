@@ -6,6 +6,7 @@
    :glob:
 
    boot
+   applications
    contributing
    building
    distributions
