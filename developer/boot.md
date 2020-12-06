@@ -45,10 +45,6 @@ If your computer hangs during booting, you can boot into __verbose single-user m
 
 The computer should boot into a text console rescue system in which parts of `init.sh` from the ramdisk image have run.
 
-## Installed system boot process
-
-The boot process is the regular FreeBSD boot process.
-
 ## Graphical desktop start process
 
 1. The system is configured in `/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
@@ -58,3 +54,7 @@ The boot process is the regular FreeBSD boot process.
 ### Troubleshooting the graphical desktop start process
 
 * Login manager (`slim`) says __Failed to execute login command__. Check the `/usr/local/bin/start-hello` shell script.
+
+## Installed system boot process
+
+The boot process is the regular FreeBSD boot process. Please refer to [The FreeBSD Booting Process](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/boot.html) for more information.
