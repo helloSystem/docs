@@ -73,6 +73,7 @@ To achieve this, helloSystem uses a combination of the following techniques:
 * Modify `/etc/rc.shutdown` to redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
 * Replace the `/sbin/vidcontrol` command by a dummy that does nothing to prevent error messages related to setting the resolution of the text-mode console from ending the boot splash early
 * Replace the `/etc/ttys` file with an empty file to not spawn login shells on the text-mode console
+* Commenting out the line that ends in `/dev/console` in `/etc/syslog.conf` to prevent boot from being visually interrupted by `syslog` messages
 * On the Live system, modify all scripts in the ramdisk to redirect all of their output to `/dev/null` if `boot_mute` is set to `YES`
 
 ``` .. note::
