@@ -56,3 +56,27 @@ The computer should boot into a text console rescue system in which parts of `in
 ## Installed system boot process
 
 The boot process is the regular FreeBSD boot process. Please refer to [The FreeBSD Booting Process](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/boot.html) for more information.
+
+## Boot Mute
+
+Setting `boot_mute="YES"` in `/boot/loader.conf` causes FreeBSD to show a boot splash screen instead of kernel messages during early boot. However, as soon as scripts from the ramdisk and init get executed, they tend to write output to the screen and manipulate it with `vidcontrol` and `conscontrol`, which results in the boot splash screen to disappear before the graphical desktop environment is started.
+
+Since helloSystem targets a broad audience including non-technical users, the following behavior is intended:
+* By default, show no textual boot messages
+* Upon specific request by the user, show boot messages (for debugging, development, and system administration)
+* Show a graphical splash screen during the entire boot process, all the way until the graphical desktop is started
+
+To achieve this, helloSystem uses a combination of the following techniques:
+
+* Read the `boot_mute` kernel environment variable and adjust the userland boot process accordingly
+* Modify `/etc/rc` to run `conscontrol delete ttyv0` and redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
+* Modify `/etc/rc.shutdown` to redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
+* Replace the `/sbin/vidcontrol` command by a dummy that does nothing to prevent error messages related to setting the resolution of the text-mode console from ending the boot splash early
+* Replace the `/etc/ttys` file with an empty file to not spawn login shells on the text-mode console
+* On the Live system, modify all scripts in the ramdisk to redirect all of their output to `/dev/null` if `boot_mute` is set to `YES`
+
+``` .. note::
+    Please note that if any errors are displayed on the screen during the boot process, the boot splash may still end early. In this case, the reason for the error message needs to be identified, and the message needs to be silenced.
+```
+
+To see boot messages, set `boot_mute="NO"` in `/boot/loader.conf` or at the bootloader prompt.
