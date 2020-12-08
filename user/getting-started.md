@@ -33,7 +33,7 @@ Please report back about the results on your virtualization environment.
 
 ## Downloading
 
-Continuous builds of pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/tag/continuous-hello).
+Pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/).
 
 ```eval_rst
 important:: Images get built automatically whenever source code is committed. Not every build is tested.
