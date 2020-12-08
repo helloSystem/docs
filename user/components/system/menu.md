@@ -33,7 +33,7 @@ To shut down your computer, select "Log Out" from the "System" menu, then click 
 
 ## Searching in application menus
 
-Click into the "Search in Menu" box in the menu bar, or press Alt+Space. Then enter a few characters of the menu entry you would like to execute, select one of the matches from the list, and press the Enter key.
+Click on "Search" in the menu bar, or press __Alt+Space__. Then enter a few characters of the menu entry you would like to execute, select one of the matches from the list, and press the Enter key. If only one choice remains left as you are typing, the remaining entry automatically gets selected.
 
 ## Date and time
 
