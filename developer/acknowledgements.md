@@ -65,3 +65,7 @@ __[TheAssassin](https://github.com/TheAssassin)__
 ## Leodanis Pozo Ramos
 __[lpozo](https://github.com/lpozo)__
 * Wrote tutorial and sample code that forms the basis for Calculator.app
+
+## Marcel Kaiser
+__[mrclksr](https://github.com/mrclksr)__
+* Wrote `initgfx` graphics hardware autoconfiguration
