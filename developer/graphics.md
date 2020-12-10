@@ -11,6 +11,7 @@ helloSystem uses `initgfx` for the automatic configuration of the graphics hardw
 /etc/initgfx_device.db
 /etc/initgfx_xorg.cfg
 /usr/local/nvidia/<version>/<contents of the driver tgz>
+/usr/local/etc/X11/xorg.conf.d/<dynamically generated> # defined by path_xorg_cfg_dir
 ```
 
 `initgfx` calculates a config ID which is a MD5 checksum of the output of `sysctl
@@ -40,3 +41,7 @@ By default, initgfx will try autodetection, but you can instead define a default
 If you want to create your own graphics driver settings, you can disable initgfx by adding
 
 `initgfx_enable="NO"` to `/etc/rc.conf`.
+
+## Troubleshooting
+
+If applications that are using OpenGL crash on Nvidia systems, then it may be that the Nvidia driver was correctly loaded but the wrong Xorg configuration has been loaded, not actually using the Nvidia driver. This can happen when initgfx writes the dynamically generated Xorg configuration to `path_xorg_cfg_dir` (which points to `/usr/local/etc/X11/xorg.conf.d/` by default) but other files have been placed by other packages or the user into, e.g., `/etc/X11/xorg.conf.d`. You can verify which Xorg configuration directory was used by Xorg with `cat /var/log/Xorg.0.log | grep Using.config`. Seemingly Xorg cannot combine configuration stored in multiple `xorg.conf.d` directories.
