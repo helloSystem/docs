@@ -4,7 +4,7 @@ The __Shortcut Keys__ preferences application lets you view and edit system-wide
 
 
 ``` .. note::
-    The Ctrl and Alt keys are swapped in helloSystem by default to make shortcuts feel welcoming to switchers coming from the Mac.
+    The left Ctrl and Alt keys are swapped in helloSystem by default to make shortcuts feel welcoming to switchers coming from the Mac.
 ```
 
 A __shortcut__ is a key or key combination you can press to invoke a defined action on your computer. Shortcuts can be defined by applications (per-application shortcuts), or can affect the whole system (system-wide shortcuts).
