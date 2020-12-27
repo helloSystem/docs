@@ -69,3 +69,7 @@ __[lpozo](https://github.com/lpozo)__
 ## Marcel Kaiser
 __[mrclksr](https://github.com/mrclksr)__
 * Wrote `initgfx` graphics hardware autoconfiguration
+
+## Graham Perrin
+__[grahamperrin](https://github.com/grahamperrin)__
+* Provided early testing and feedback
