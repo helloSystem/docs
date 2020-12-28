@@ -12,6 +12,6 @@ Please check [https://github.com/helloSystem/hello](https://github.com/helloSyst
 
 You can meet other helloSystem users and developers in the `#helloSystem` [Internet Relay Chat](https://en.wikipedia.org/wiki/Internet_Relay_Chat) channel at `irc.freenode.net`. 
 
-If you prefer using Matrix, then you can `/join #freenode_#helloSystem:matrix.org` from a typical Matrix client. This Matrix channel is [bridged](https://matrix.org/blog/2015/06/22/the-matrix-org-irc-bridge-now-bridges-all-of-freenode) to the IRC channel.
+If you prefer using Matrix, then you can `#helloSystem:matrix.org` from a Matrix client. This Matrix channel is [bridged](https://matrix.org/blog/2015/06/22/the-matrix-org-irc-bridge-now-bridges-all-of-freenode) to the IRC channel. Joining via Matrix has the advantage that you will see responses that you may have received while you were offline. So after asking a question, you can come back in a day or so to see if there were any responses.
 
 In any case, please stay in the channel for a few days and do not expect to receive answers immediately, since we are all volunteers.
