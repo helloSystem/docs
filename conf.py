@@ -27,7 +27,7 @@ copyright = '2020, probono'
 author = 'probono'
 
 # The full version, including alpha/beta/rc tags
-release = 'pre-alpha'
+release = 'experimental'
 
 
 # -- General configuration ---------------------------------------------------
