@@ -18,5 +18,12 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
    :maxdepth: 2
 
    user/index
+```
+
+```eval_rst
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
    developer/index
 ```
