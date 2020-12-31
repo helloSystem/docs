@@ -8,6 +8,7 @@
    boot
    graphics
    applications
+   menu
    contributing
    building
    distributions
