@@ -15,7 +15,7 @@ Please consider submitting issues and pull requests if you can contribute to thi
 ### Concepts 
 
 * __Global menubar__: A concept in user interface design where a system-wide widget on the screen displays the menu items (also known as "actions" in Qt) for all applications
-* __Menu__: The application in helloSystem that shows the global menubar
+* [__Menu__](https://github.com/helloSystem/Menu/): The application in helloSystem that shows the global menubar
 * [__Status Menu__](https://wiki.ubuntu.com/CustomStatusMenuDesignGuidelines): The term used by Canonical to describe the icons in the upper-right corner of the screen that are usually used for long-running background processes
 * [__System Tray__ = __Notification Area__](https://en.wikipedia.org/wiki/Notification_area): The term that describes the icons on the bottom-right corner of the screen on Windows
 * [__Application (Panel) Indicators__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators): Another term used by Canonical to describe __Status Menus__?
