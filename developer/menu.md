@@ -28,8 +28,10 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__Aytana__](https://wiki.ubuntu.com/Ayatana): The Buddhist term for a "sense base" or "sense sphere". A project by Canonical to improve user experience in Ubuntu. Abandoned?
 * [__Application Menu or appmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationMenu): As part of Aytana, Canonical has produced an implementation called `indicator-appmenu` which re-routes Gtk and Qt menus over `dbusmenu` so that they appear in the panel
 * [__dbusmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical implementing the transport protocol between the applications and the panel
+* [__DBusMenu protocol__](): Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: "The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit."
 * [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. The same as [`indicator-application`](https://launchpad.net/indicator-application)?
 * [__MenuModel__](): Used by Gtk
+* [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
 
 ## Libraries involved
 
@@ -56,8 +58,8 @@ Desktop Environment, but it lives on as part of the Vala project.
 * Theory of operation: Gtk module that strips menus from all Gtk
 programs, converts to them MenuModel and send to them AppMenu
 (sometimes called a global menu bar). `unity-gtk-module` is used as a backend, and thus must also be installed
-* Status: <active|retired>
-* Issues: Supposedly used by Firefox and Chrome but those applications are not functional with Menu in helloSystem yet
+* Status: active
+* Issues: Supposedly used by Firefox and Chrome but those applications are not functional with Menu in helloSystem yet. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work"
 * Installed by package: `appmenu-gtk-module`
 
 ### unity-gtk-module
@@ -74,8 +76,8 @@ tbd
 * Purpose: <tbd>
 * Theory of operation: <tbd>
 * Status: <active|retired>
-* Issues: <tbd>
-* Installed by package: In Ubuntu, `sudo apt-get install unity-gtk-module-common unity-gtk2-module unity-gtk3-module`
+* Issues: Not in ports? Is this an issue, preventing us from some applications to work properly?
+* Installed by package: Not in ports? (In Ubuntu, `sudo apt-get install unity-gtk-module-common unity-gtk2-module unity-gtk3-module`)
     
 ### libappmenu-gtk2-parser and libappmenu-gtk3-parser
 
@@ -104,13 +106,13 @@ tbd
 ```
 
 * Author: <tbd>
-* Description: <tbd>
+* Description: GLib implementation of the DBusMenu protocol
 * Bugtracker: <tbd>
 * Purpose: <tbd>
 * Theory of operation: <tbd>
 * Status: <active|retired>
 * Issues: <tbd>
-* Installed by package: `<tbd>`
+* Installed by package: `libdbusmenu`
 
 ### libdbusmenu-gtk3
 
@@ -121,13 +123,13 @@ tbd
 ```
 
 * Author: <tbd>
-* Description: <tbd>
+* Description: Gtk implementation of the DBusMenu protocol
 * Bugtracker: <tbd>
 * Purpose: <tbd>
 * Theory of operation: <tbd>
 * Status: <active|retired>
 * Issues: <tbd>
-* Installed by package: `<tbd>`
+* Installed by package: `libdbusmenu`
 
 ### libdbusmenu-qt5
 
