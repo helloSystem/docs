@@ -20,6 +20,10 @@ To provide this unified user experience, it is crucial that all applications can
 * [__System Tray__ = __Notification Area__](https://en.wikipedia.org/wiki/Notification_area): The term that describes the icons on the bottom-right corner of the screen on Windows
 * [__Application (Panel) Indicators__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators): Another term used by Canonical to describe __Status Menus__?
 
+### Specifications
+
+* [__DBusMenu protocol__](): Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export and import their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: "The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit." Possibly it has significantly evolved since then?
+
 ### Implementations
 
 Those may or may not be used in helloSystem, they are mentioned here to give an overview over the field so that technical discussions can be had.
@@ -28,7 +32,6 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__Aytana__](https://wiki.ubuntu.com/Ayatana): The Buddhist term for a "sense base" or "sense sphere". A project by Canonical to improve user experience in Ubuntu. Abandoned?
 * [__Application Menu or appmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationMenu): As part of Aytana, Canonical has produced an implementation called `indicator-appmenu` which re-routes Gtk and Qt menus over `dbusmenu` so that they appear in the panel
 * [__dbusmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical implementing the transport protocol between the applications and the panel
-* [__DBusMenu protocol__](): Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: "The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit."
 * [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. The same as [`indicator-application`](https://launchpad.net/indicator-application)?
 * [__MenuModel__](): Used by Gtk
 * [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
@@ -140,13 +143,13 @@ tbd
 ```
 
 * Author: <tbd>
-* Description: <tbd>
-* Bugtracker: <tbd>
+* Description: Qt5 implementation of the DBusMenu protocol
+* Bugtracker: https://launchpad.net/libdbusmenu-qt
 * Purpose: <tbd>
 * Theory of operation: <tbd>
-* Status: <active|retired>
+* Status: active
 * Issues: <tbd>
-* Installed by package: `<tbd>`
+* Installed by package: `libdbusmenu-qt`
 
 ### Kf5 Appmenu Plugin
 
