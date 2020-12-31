@@ -7,9 +7,9 @@ To provide this unified user experience, it is crucial that all applications can
 ## Terminology
 
 ``` .. note::
-Consistent, up-to-date documentation reagarding the subject of global menus is hard to find. 
+    Consistent, up-to-date documentation reagarding the subject of global menus is hard to find. 
 
-Please consider submitting issues and pull requests if you can contribute to this subject.
+    Please consider submitting issues and pull requests if you can contribute to this subject.
 ```
 
 ### Concepts 
@@ -35,9 +35,9 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 The following libraries are involved in allowing applications to show their menu items in the global menu.
 
 ``` .. note::
-This list is probably incomplete.
+    This list is probably incomplete.
 
-Please consider submitting issues and pull requests if you can contribute to this subject.
+    Please consider submitting issues and pull requests if you can contribute to this subject.
 ```
 
 ### libappmenu-gtk-module
