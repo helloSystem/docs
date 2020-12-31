@@ -217,3 +217,34 @@ tbd
 * Status: <active|retired>
 * Issues: Can we get it "standalone", without KDE Plasma?
 * Installed by package: `plasma5-plasma-workspace`
+
+## Debugging with Qt 5 D-Bus Viewer
+
+The __Qt 5 D-Bus Viewer__ utility may be useful in debugging global menus.
+
+
+``` .. note::
+    Please consider submitting issues and pull requests if you can contribute to this subject.
+```
+
+### Getting the menus for a Qt application knowing the Xorg window ID
+
+* Open Terminal
+* Enter `xprop`
+* Click on the Terminal window
+* We see `_KDE_NET_WM_APPMENU_OBJECT_PATH(STRING) = "/MenuBar/1"` and `_KDE_NET_WM_APPMENU_SERVICE_NAME(STRING) = ":1.59"` (actual numbers might be different from this example)
+* Open Qt 5 D-Bus Viewer
+* Under "Services", click on ":1:59", under "Methods", click on "MenuBar/", "1/"
+* __Then what? How can one get the actual menus?__
+* Which standards/specifications is this following? Is this documented somewhere?
+
+### Getting the menus for a Gtk application
+
+* Open GIMP
+* Open Qt 5 D-Bus Viewer
+* Under "Services", click on "org.gimp.GIMP.UI", under "Methods", click on "org/", "appmenu/", "gtk/", "window/", "0/", "org.gtk.Actions/", "Method: List"
+* The names of the actions in the GIMP menus appear at the bottom of the window
+* Under "Services", click on "org.gimp.GIMP.UI", under "Methods", click on "org/", "appmenu/", "gtk/", "window/", "0/", "org.gtk.Actions/", "Method: DescribeAll"
+* __Qt 5 D-Bus Viewer crashes__
+* __Then what? How can one get the actual menus?__
+* Which standards/specifications is this following? Is this documented somewhere?
