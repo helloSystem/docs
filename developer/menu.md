@@ -116,9 +116,10 @@ tbd
 ```
 
 * Author: <tbd>
-* Description: GLib implementation of the DBusMenu protocol
-* Bugtracker: <tbd>
-* Purpose: <tbd>
+* Description: GLib implementation of the DBusMenu protocol.
+* Bugtracker: https://github.com/AyatanaIndicators/libdbusmenu/
+* Purpose: "A library to allow applications to provide simple indications of
+information to be displayed to users of the application through the interface shell" ([Source](https://github.com/AyatanaIndicators/libdbusmenu/blob/master/libdbusmenu-glib/dbus-menu.xml))
 * Theory of operation: <tbd>
 * Status: <active|retired>
 * Issues: <tbd>
