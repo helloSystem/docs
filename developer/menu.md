@@ -210,8 +210,8 @@ tbd
 * Author: Kai Uwe Broulik (KDE)
 * Description: <tbd>
 * Bugtracker: https://phabricator.kde.org/D10461
-* Purpose: <tbd>. Translate between the org.gtk.Menus interface used by Gtk applications and what is needed to satisfy the KDE global menu bar? (Why does KDE need something special?)
-* Theory of operation: This application finds windows using GTK GMenu DBus interfaces and forwards them through DBusMenu. (...) LibreOffice with appmenu-gtk-module (...) Works with Gimp or Inkscape if you have appmenu-gtk-module (there's GTK2 and GTK3 variants) installed and GTK_MODULES=appmenu-gtk-module environment variable set. ([Source](https://phabricator.kde.org/transactions/detail/PHID-XACT-DREV-jz6tqizldlvwmv6/))
+* Purpose: <tbd>. Translate between the org.gtk.Menus interface used by Gtk applications and what is needed to satisfy the KDE global menu bar (and helloSystem Menu which is derived from it)? (Why does KDE need something special?)
+* Theory of operation: This application finds windows using GTK GMenu DBus interfaces and forwards them through DBusMenu. (...) LibreOffice with appmenu-gtk-module (...) Works with Gimp or Inkscape if you have appmenu-gtk-module (there's GTK2 and GTK3 variants) installed and GTK_MODULES=appmenu-gtk-module environment variable set. ([Source](https://phabricator.kde.org/transactions/detail/PHID-XACT-DREV-jz6tqizldlvwmv6/), [more information](https://blog.broulik.de/2018/03/gtk-global-menu/))
 * Status: <active|retired>
 * Issues: Can we get it "standalone", without KDE Plasma?
 * Installed by package: `plasma5-plasma-workspace`
