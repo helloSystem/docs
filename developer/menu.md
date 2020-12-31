@@ -20,9 +20,12 @@ To provide this unified user experience, it is crucial that all applications can
 * [__System Tray__ = __Notification Area__](https://en.wikipedia.org/wiki/Notification_area): The term that describes the icons on the bottom-right corner of the screen on Windows
 * [__Application (Panel) Indicators__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators): Another term used by Canonical to describe __Status Menus__?
 
-### Specifications
+### APIs
+
+APIs can be described in specifications, protocols, and interfaces.
 
 * [__DBusMenu protocol__](): Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export and import their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: "The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit." Possibly it has significantly evolved since then?
+* [__org.gtk.Menus interface__](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus): An interface defined by Gnome that "is primarily concerned with three things: communicating menus to the client, establishing links between menus and other menus, and notifying clients of changes". Note that "To do so, it employs a number of D-Bus interfaces. These interfaces are currently considered private implementation details of GApplication and subject to change - therefore they are not documented in the GIO documentation." ([Source](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus)). __How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?__
 
 ### Implementations
 
@@ -195,3 +198,20 @@ tbd
 * Status: <active|retired>
 * Issues: <tbd>
 * Installed by package: `<tbd>`
+
+## Executables involved
+
+### GMenu-DBusMenu-Proxy
+
+```
+/usr/local/bin/gmenudbusmenuproxy 
+```
+
+* Author: Kai Uwe Broulik (KDE)
+* Description: <tbd>
+* Bugtracker: https://phabricator.kde.org/D10461
+* Purpose: <tbd>. Translate between the org.gtk.Menus interface used by Gtk applications and what is needed to satisfy the KDE global menu bar? (Why does KDE need something special?)
+* Theory of operation: This application finds windows using GTK GMenu DBus interfaces and forwards them through DBusMenu. (...) LibreOffice with appmenu-gtk-module (...) Works with Gimp or Inkscape if you have appmenu-gtk-module (there's GTK2 and GTK3 variants) installed and GTK_MODULES=appmenu-gtk-module environment variable set. ([Source](https://phabricator.kde.org/transactions/detail/PHID-XACT-DREV-jz6tqizldlvwmv6/))
+* Status: <active|retired>
+* Issues: Can we get it "standalone", without KDE Plasma?
+* Installed by package: `plasma5-plasma-workspace`
