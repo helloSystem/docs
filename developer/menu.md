@@ -251,3 +251,13 @@ The __Qt 5 D-Bus Viewer__ utility may be useful in debugging global menus.
 * __Qt 5 D-Bus Viewer crashes__
 * __Then what? How can one get the actual menus?__
 * Which standards/specifications is this following? Is this documented somewhere?
+
+## Limitations
+
+Applications running as root currently cannot show global menus due to the D-Bus architecture.
+
+``` .. note::
+    Possibly some sort of proxy would be needed to allow applications that were invoked via `sudo -E` to display their menus in the global menu of the user running the desktop session.
+    
+    Please consider contributing ideas and code if you are interested in this topic.
+```
