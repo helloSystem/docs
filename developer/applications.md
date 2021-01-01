@@ -7,4 +7,6 @@ Applications specifically written for helloSystem, especially Preferences and Ut
 * Ideally written in PyQt
 * Come as simplified `.app` bundles with no external dependencies apart from what comes with helloSystem by default on the Live ISO
 
+Some of the example applications and utilities are written in Python with PyQt. This is designed to invite (power) users to have a look at the code, start to experiment, and possibly eventually contribute. Especially when used in conjunction with the simplified `.app` bundle format and with an IDE with autocompletion, this makes for a _very_ accessible development environment with _very_ low barriers to entry. No source code to search and download, no compilers, just open the `.app` bundle and start hacking away. Tiny example applications like `Log.app` and `Calendar.app` are included that anyone should be able to understand in no time.
+
 Please see [https://github.com/learnpyqt/15-minute-apps](https://github.com/learnpyqt/15-minute-apps) for what we mean by "Simple to use" and "Easy to hack on".
