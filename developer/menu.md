@@ -19,7 +19,7 @@ To provide this unified user experience, it is crucial that all applications can
 * [__Status Menu__](https://wiki.ubuntu.com/CustomStatusMenuDesignGuidelines): The term used by Canonical to describe the icons in the upper-right corner of the screen that are usually used for long-running background processes
 * [__System Tray__ = __Notification Area__](https://en.wikipedia.org/wiki/Notification_area): The term that describes the icons on the bottom-right corner of the screen on Windows
 * [__Application (Panel) Indicators__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators): Another term used by Canonical to describe __Status Menus__?
-* [__Status Notifiers__](): <tbd>
+* [__Status Notifiers__](): tbd
 
 ### APIs
 
@@ -28,7 +28,8 @@ APIs can be described in specifications, protocols, and interfaces.
 * [__DBusMenu protocol__](): Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export and import their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: "The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit." Possibly it has significantly evolved since then? According to [__@ximion__](https://github.com/ximion), DBusMenu is a spec that transfers menus to status notifiers, and in combination with `com.canonical.AppMenu.Registrar` can be used for global menus.
 * [__org.gtk.Menus interface__](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus): An interface defined by Gnome that "is primarily concerned with three things: communicating menus to the client, establishing links between menus and other menus, and notifying clients of changes". Note that "To do so, it employs a number of D-Bus interfaces. These interfaces are currently considered private implementation details of GApplication and subject to change - therefore they are not documented in the GIO documentation." ([Source](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus)). __How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?__ According to [__@ximion__](https://github.com/ximion), the `org.gtk.Menus` interface has nothing to do with DBusMenu and was only for the Gnome Shell global menu (deprecated in Gnome).  __Why was it deprecated in Gnome Shell and what is the replacement?__
 * [__com.canonical.AppMenu.Registrar D-Bus Service__](): `com.canonical.AppMenu.Registrar`, an interface to register a menu from an application's window to be displayed in another window.  This manages that association between XWindow Window IDs and the dbus address and object that provides the menu using the dbusmenu dbus interface. ([Source](https://github.com/KDE/plasma-workspace/blob/master/appmenu/com.canonical.AppMenu.Registrar.xml)). "Appmenu registrar allows other applications to access any active window's application menu tree. Such a registrar is extremely useful for, e.g. implementing global menus (application menus appear in the top panel bar of the desktop environment, and for adding an application menu browser or search engine to HUDs" ([Source](https://packages.debian.org/buster/appmenu-registrar)). __How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?__
-* [__org/appmenu D-Bus Methods__](): <tbd>
+* [__org/appmenu D-Bus Methods__](): tbd
+* [__org.kde.plasma.gmenu_dbusmenu_proxy D-Bus service__](): tbd. Translates Gtk menus to KDE-style menus?
 
 ### Implementations
 
@@ -36,7 +37,7 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 
 * __Panel__: Ubuntu calls the widget at the top of the screen the "panel". In helloSystem, the rough equivalent is __Menu__.
 * [__Aytana__](https://wiki.ubuntu.com/Ayatana): The Buddhist term for a "sense base" or "sense sphere". A project by Canonical to improve user experience in Ubuntu. Abandoned?
-* [__AyatanaIndicators__](https://github.com/AyatanaIndicators): <tbd>. A project that as of 2020 seems to be still pretty active on https://github.com/AyatanaIndicators. __With Ubuntu now using Gnome rather than Unity, what is this AytanaIndicators project doing?__
+* [__AyatanaIndicators__](https://github.com/AyatanaIndicators): tbd. A project that as of 2020 seems to be still pretty active on https://github.com/AyatanaIndicators. __With Ubuntu now using Gnome rather than Unity, what is this AytanaIndicators project doing?__
 * [__Application Menu or appmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationMenu): As part of Aytana, Canonical has produced an implementation called `indicator-appmenu` which re-routes Gtk and Qt menus over `dbusmenu` so that they appear in the panel
 * [__dbusmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical implementing the transport protocol between the applications and the panel
 * [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. The same as [`indicator-application`](https://launchpad.net/indicator-application)?
@@ -80,11 +81,11 @@ Currently __not__ used in helloSystem. Do we need it?
 tbd
 ```
 
-* Author: <tbd>
-* Description: <tbd>
-* Bugtracker: <tbd>
-* Purpose: <tbd>
-* Theory of operation: <tbd>
+* Author: tbd
+* Description: tbd
+* Bugtracker: tbd
+* Purpose: tbd
+* Theory of operation: tbd
 * Status: <active|retired>. "Unity" = Deprecated?
 * Issues: Not in ports? Is this an issue, preventing us from some applications to work properly?
 * Installed by package: Not in ports? (In Ubuntu, `sudo apt-get install unity-gtk-module-common unity-gtk2-module unity-gtk3-module`)
@@ -98,14 +99,14 @@ tbd
 /usr/local/lib/libappmenu-gtk3-parser.so.0
 ```
 
-* Author: <tbd>
-* Description: <tbd>
-* Bugtracker: <tbd>
-* Purpose: <tbd>
-* Theory of operation: <tbd>
+* Author: tbd
+* Description: tbd
+* Bugtracker: tbd
+* Purpose: tbd
+* Theory of operation: tbd
 * Status: <active|retired>
-* Issues: <tbd>
-* Installed by package: `<tbd>`
+* Issues: tbd
+* Installed by package: `tbd`
 
 ### libdbusmenu-glib
 
@@ -115,14 +116,14 @@ tbd
 /usr/local/lib/libdbusmenu-glib.so.4.0.12
 ```
 
-* Author: <tbd>
+* Author: tbd
 * Description: GLib implementation of the DBusMenu protocol.
 * Bugtracker: https://github.com/AyatanaIndicators/libdbusmenu/
 * Purpose: "A library to allow applications to provide simple indications of
 information to be displayed to users of the application through the interface shell" ([Source](https://github.com/AyatanaIndicators/libdbusmenu/blob/master/libdbusmenu-glib/dbus-menu.xml))
-* Theory of operation: <tbd>
+* Theory of operation: tbd
 * Status: <active|retired>
-* Issues: <tbd>
+* Issues: tbd
 * Installed by package: `libdbusmenu`
 
 ### libdbusmenu-gtk3
@@ -133,13 +134,13 @@ information to be displayed to users of the application through the interface sh
 /usr/local/lib/libdbusmenu-gtk3.so.4.0.12
 ```
 
-* Author: <tbd>
+* Author: tbd
 * Description: Gtk implementation of the DBusMenu protocol
-* Bugtracker: <tbd>
-* Purpose: <tbd>
-* Theory of operation: <tbd>. Why does Gtk need an extra implementation when it is already implemented in GLib (via `libdbusmenu-glib.so`) with Gtk uses?
+* Bugtracker: tbd
+* Purpose: tbd
+* Theory of operation: tbd. Why does Gtk need an extra implementation when it is already implemented in GLib (via `libdbusmenu-glib.so`) with Gtk uses?
 * Status: <active|retired>
-* Issues: <tbd>
+* Issues: tbd
 * Installed by package: `libdbusmenu`
 
 ### libdbusmenu-qt5
@@ -150,13 +151,13 @@ information to be displayed to users of the application through the interface sh
 /usr/local/lib/libdbusmenu-qt5.so.2.6.0
 ```
 
-* Author: <tbd>
+* Author: tbd
 * Description: Qt5 implementation of the DBusMenu protocol
 * Bugtracker: https://launchpad.net/libdbusmenu-qt
-* Purpose: <tbd>
-* Theory of operation: <tbd>
+* Purpose: tbd
+* Theory of operation: tbd
 * Status: active
-* Issues: <tbd>
+* Issues: tbd
 * Installed by package: `libdbusmenu-qt`
 
 ### Kf5 Appmenu Plugin
@@ -165,14 +166,14 @@ information to be displayed to users of the application through the interface sh
 /usr/local/lib/qt5/plugins/kf5/kded/appmenu.so
 ```
 
-* Author: <tbd>
-* Description: <tbd>
-* Bugtracker: <tbd>
-* Purpose: <tbd>
-* Theory of operation: <tbd>
+* Author: tbd
+* Description: tbd
+* Bugtracker: tbd
+* Purpose: tbd
+* Theory of operation: tbd
 * Status: <active|retired>
-* Issues: <tbd>
-* Installed by package: `<tbd>`
+* Issues: tbd
+* Installed by package: `tbd`
 
 ### Kf5 Plasma Applet Appmenu Plugin
 
@@ -180,14 +181,14 @@ information to be displayed to users of the application through the interface sh
 /usr/local/lib/qt5/plugins/plasma/applets/plasma_applet_appmenu.so
 ```
 
-* Author: <tbd>
-* Description: <tbd>
-* Bugtracker: <tbd>
-* Purpose: <tbd>
-* Theory of operation: <tbd>
+* Author: tbd
+* Description: tbd
+* Bugtracker: tbd
+* Purpose: tbd
+* Theory of operation: tbd
 * Status: <active|retired>
-* Issues: <tbd>
-* Installed by package: `<tbd>`
+* Issues: tbd
+* Installed by package: `tbd`
 
 ### Kf5 Plasma Private libappmenuplugin
 
@@ -195,14 +196,14 @@ information to be displayed to users of the application through the interface sh
 /usr/local/lib/qt5/qml/org/kde/plasma/private/appmenu/libappmenuplugin.so
 ```
 
-* Author: <tbd>
-* Description: <tbd>
-* Bugtracker: <tbd>
-* Purpose: <tbd>
-* Theory of operation: <tbd>
+* Author: tbd
+* Description: tbd
+* Bugtracker: tbd
+* Purpose: tbd
+* Theory of operation: tbd
 * Status: <active|retired>
-* Issues: <tbd>
-* Installed by package: `<tbd>`
+* Issues: tbd
+* Installed by package: `tbd`
 
 ## Executables involved
 
@@ -213,9 +214,9 @@ information to be displayed to users of the application through the interface sh
 ```
 
 * Author: Kai Uwe Broulik (KDE)
-* Description: <tbd>
+* Description: tbd
 * Bugtracker: https://phabricator.kde.org/D10461
-* Purpose: <tbd>. Translate between the org.gtk.Menus interface used by Gtk applications and what is needed to satisfy the KDE global menu bar (and helloSystem Menu which is derived from it)? (Why does KDE need something special?)
+* Purpose: tbd. Translate between the org.gtk.Menus interface used by Gtk applications and what is needed to satisfy the KDE global menu bar (and helloSystem Menu which is derived from it)? (Why does KDE need something special?)
 * Theory of operation: "This application finds windows using GTK GMenu DBus interfaces and forwards them through DBusMenu. (...) LibreOffice with appmenu-gtk-module (...) Works with Gimp or Inkscape if you have appmenu-gtk-module (there's GTK2 and GTK3 variants) installed and GTK_MODULES=appmenu-gtk-module environment variable set." ([Source](https://phabricator.kde.org/transactions/detail/PHID-XACT-DREV-jz6tqizldlvwmv6/), [more information](https://blog.broulik.de/2018/03/gtk-global-menu/))
 * Status: <active|retired>
 * Issues: Can we get it "standalone", without KDE Plasma?
