@@ -16,7 +16,7 @@ This is a simplified description of the boot process. There may be additional as
 1. The `/livecd` chroot is exited
 1. `init.sh` from the ramdisk image exits
 1. `etc/rc` from the ramdisk image gets executed as specified in `overlays/ramdisk/etc/rc` (by what?). It tells the kernel to "reroot" (not "chroot") into the live filesystem, `/livecd` using `reboot -r`
-1 From here on, the boot process is the regular FreeBSD boot process
+1. From here on, the boot process is the regular FreeBSD boot process
 
 ### Troubleshooting the Live system early boot process
 
