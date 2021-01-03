@@ -1,6 +1,6 @@
 # Hardware Probe
 
-The __Hardware Probe__ utility collects hardware details of your computer and can anonymously upload them to the public database at [http://bsd-hardware.info/](http://bsd-hardware.info/).
+The __Hardware Probe__ utility collects hardware details of your computer and can anonymously upload them to the public database at [bsd-hardware.info](https://bsd-hardware.info/?d=helloSystem).
 
 This can help users and operating system developers to collaboratively debug hardware related issues, check for operating system compatibility and find drivers.
 
@@ -24,4 +24,4 @@ to a publicly visible database.
 
 By uploading your hardware probe you confirm uploading of 32-byte prefix of salted SHA512 hash of MAC addresses and serial numbers to prevent duplication of computers in the database.
 
-The web service and the database are operated by https://linux-hardware.org. The authors of the graphical Hardware Probe utility are not associated with the operator of the web service. Please contact https://linux-hardware.org/index.php?view=contacts in case of questions and in case you wish accidentally submitted probes to be removed from the database.
+The web service and the database are operated by linux-hardware.org. The authors of the graphical Hardware Probe utility are not associated with the operator of the web service. Please contact https://linux-hardware.org/index.php?view=contacts in case of questions and in case you wish accidentally submitted probes to be removed from the database.
