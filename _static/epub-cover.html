@@ -1,7 +1,7 @@
-<html>
-	<head>
+{%- extends "layout.html" %}
+{%- block header %}
 		<style>
-		.vertCenter{
+		.epub-cover{
   			font-family:"Nimbus Sans", sans-serif;
   			font-size: 48;
   			font-style: normal;
@@ -20,13 +20,25 @@
   			text-indent: 0;
   			text-transform: none;
   			widows: 1;
-}
+		}
+		body{
+			background-color:grey;
+		}
 		</style>
-	</head>
-	<body style="background-color:grey;">
-		<p class="vertCenter">
-			helloSystem<br>
-			Documentation
-		</p>
-	</body>
-</html>
+{% endblock %}
+{%- block rootrellink %}{% endblock %}
+{%- block relbaritems %}{% endblock %}
+{%- block sidebarlogo %}{% endblock %}
+{%- block linktags %}{% endblock %}
+{%- block relbar1 %}{% endblock %}
+{%- block sidebar1 %}{% endblock %}
+{%- block sidebar2 %}{% endblock %}
+{%- block footer %}{% endblock %}
+
+{% block content %}
+  		<div class="epub-cover">
+    		<img src="{{ image }}" alt="Cover image" />
+    		<p><h1>{{ title }}</h1></p>
+    		<p>Documentation</p>
+  		</div>
+{% endblock %}
