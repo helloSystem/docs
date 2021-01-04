@@ -23,7 +23,7 @@ from recommonmark.transform import AutoStructify
 # -- Project information -----------------------------------------------------
 
 project = 'helloSystem'
-copyright = '2020, probono'
+copyright = '2020-2021, probono'
 author = 'probono'
 
 # The full version, including alpha/beta/rc tags
@@ -75,6 +75,12 @@ html_context = {
   'github_repo': GITHUB_REPO_NAME,
   'github_version': 'main/',
 }
+
+html_show_copyright = False
+html_show_sphinx = False
+html_logo = "_static/hello_logo.png"
+
+epub_cover = ('_static/hello_logo.png', '_static/epub-cover.html')
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
