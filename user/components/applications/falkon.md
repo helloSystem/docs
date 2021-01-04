@@ -24,3 +24,8 @@ The following search shortcuts have been predefined:
 * __`h`: Search helloSystem on GitHub.__ Example: `h keyboard`
 
 Of course you can customize these and add your own search shortcuts in Falkon.
+
+## Automatic reloading of local pages
+
+Falkon automatically refreshes the page when a local HTML document is changed.
+This makes it ideal for dynamically previewing locally edited HTML pages.
