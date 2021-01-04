@@ -9,12 +9,12 @@ The following search shortcuts have been predefined:
 ### Search Engines
 
 * __`g`: Search Google.__ Example: `g Frankfurt`
-* __`d`: Search DuckDuckGo.__ Example: `g München`
-* __`sp`: Search StartPage.__ Example: `g Hamburg`
+* __`d`: Search DuckDuckGo.__ Example: `d München`
+* __`sp`: Search StartPage.__ Example: `sp Hamburg`
 
 ### Encyclopedia
 
-* __`w`: Search Wikipedia.__ Example: `g Stuttgart`
+* __`w`: Search Wikipedia.__ Example: `w Stuttgart`
 
 ### Computer related
 
