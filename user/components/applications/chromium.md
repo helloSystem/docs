@@ -1,6 +1,6 @@
 # Chromium
 
-Chromium is an optional web browser that can be used on helloSystem.
+__Chromium__ is an optional web browser that can be used on helloSystem.
 
 Upon first start of the Chromium browser, the following extensions are automatically installed from [https://chrome.google.com/webstore/](https://chrome.google.com/webstore/) to increase privacy and convenience:
 
