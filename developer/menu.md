@@ -207,6 +207,17 @@ information to be displayed to users of the application through the interface sh
 
 ## Executables involved
 
+_To be written._
+
+## Patches needed for Firefox and Thunderbird
+
+It seems that one would need to apply these two patches from [firefox-appmenu in AUR](https://aur.archlinux.org/packages/firefox-appmenu/,https://aur.archlinux.org/cgit/aur.git/tree/unity-menubar.patch?h=firefox-appmenu):
+
+* https://aur.archlinux.org/cgit/aur.git/tree/unity-menubar.patch?h=firefox-appmenu
+* https://aur.archlinux.org/cgit/aur.git/tree/0001-Use-remoting-name-for-GDK-application-names.patch?h=firefox-appmenu
+
+_To be verified._
+
 ### GMenu-DBusMenu-Proxy
 
 ```
