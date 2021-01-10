@@ -19,7 +19,7 @@ Open the __Shortcut Keys__ preferences application to view the default system-wi
 
 Notable default shortcuts include:
 
-* Press __Alt+Space__ to __search in the Menu__ (e.g., to launch applications or to execute commands in the frontmost application)
+* Press __<kbd>Alt</kbd>+<kbd>Space</kbd>__ to __search in the Menu__ (e.g., to launch applications or to execute commands in the frontmost application)
 * Press __Ctrl+Alt+Esc__ and click on an application window to __forcefully quit an application__ that is malfunctioning
 * Press __Alt+Shift+3__ or the __PrtScn__ key on your keyboard to __take a screenshot__
 
