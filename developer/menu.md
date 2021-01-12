@@ -40,7 +40,7 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__AyatanaIndicators__](https://github.com/AyatanaIndicators): tbd. A project that as of 2020 seems to be still pretty active on https://github.com/AyatanaIndicators. __With Ubuntu now using Gnome rather than Unity, what is this AytanaIndicators project doing?__
 * [__Application Menu or appmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationMenu): As part of Aytana, Canonical has produced an implementation called `indicator-appmenu` which re-routes Gtk and Qt menus over `dbusmenu` so that they appear in the panel
 * [__dbusmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical implementing the transport protocol between the applications and the panel
-* [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. The same as [`indicator-application`](https://launchpad.net/indicator-application)?
+* [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. Needed for some applications (e.g., screenkey) to show icons in the upper right hand corner of the menu (system tray/notification area). The same as [`indicator-application`](https://launchpad.net/indicator-application)?
 * [__MenuModel__](): Used by Gtk
 * [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
 
@@ -53,6 +53,24 @@ The following libraries are involved in allowing applications to show their menu
 
     Please consider submitting issues and pull requests if you can contribute to this subject.
 ```
+
+### libappindicator
+
+```
+/usr/local/lib/libappindicator3.so.1
+/usr/local/lib/libappindicator3.so.1.0.0
+/usr/local/lib/libappindicator3.so
+/usr/local/lib/libappindicator3.a
+```
+
+* Author: Ted Gould, Canonical
+* Description: A library to allow applications to export a menu into the Unity Menu bar. Based on KSNI it also works in KDE and will fallback to generic Systray support if none of those are available.
+* Bugtracker: https://launchpad.net/libappindicator
+* Purpose: Needed for some applications (e.g., `screenkey`) to show icons in the upper right hand corner of the menu (system tray/notification area)
+* Theory of operation: tbd
+* Status: active
+* Issues: tbd
+* Installed by package: `libappindicator`
 
 ### libappmenu-gtk-module library from vala-panel-appmenu repository
 
