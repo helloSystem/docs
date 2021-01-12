@@ -23,6 +23,10 @@ This is a simplified description of the boot process. There may be additional as
 * __Hangs or reboots during replicating the system image to swap-based memdisk.__ The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download
 * __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Reason unkown. Are needed kernel modules missing?
 
+### Seeing what the system is doing while the graphical boot screen is shown
+
+When you see the graphical boot screen your can press __Esc__ and then press __Ctrl+T_ to see what it is doing at that moment in time. You can press __Ctrl+T__ repeatedly to see what is going on over time.
+
 ### Boot in verbose mode
 
 If you would like to observe the details of the boot process, you can start your computer in __verbose mode__. This allows you to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.
