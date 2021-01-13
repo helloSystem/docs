@@ -25,7 +25,7 @@ This is a simplified description of the boot process. There may be additional as
 
 ### Seeing what the system is doing while the graphical boot screen is shown
 
-When you see the graphical boot screen your can press __Esc__ and then press __Ctrl+T_ to see what it is doing at that moment in time. You can press __Ctrl+T__ repeatedly to see what is going on over time.
+While the graphical boot screen is being displayed you can press __Ctrl+T__ to see what it is doing at that moment in time. Press __Ctrl+T__ repeatedly to see what is going on over time.
 
 ### Boot in verbose mode
 
