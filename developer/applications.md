@@ -13,4 +13,4 @@ Please see [https://github.com/learnpyqt/15-minute-apps](https://github.com/lear
 
 For an introduction to [Creating GUI applications with Python & Qt5](https://www.learnpyqt.com/pyqt5-book/) you may be interested in the book with the same name by Martin Fitzpatrick. There is also a forum at [forum.learnpyqt.com](https://forum.learnpyqt.com/).
 
-![](../_static/book-pyqt5.png)
+[![](../../_images//book-pyqt5.png)](https://www.learnpyqt.com/pyqt5-book/)
