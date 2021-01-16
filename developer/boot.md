@@ -47,6 +47,12 @@ If your computer hangs during booting, you can boot into __verbose single-user m
 
 The computer should boot into a text console rescue system in which parts of `init.sh` from the ramdisk image have run.
 
+``` .. note::
+    Single-user mode on the Live system currently is for developers of the Live system only. 
+    
+    If you boot the Live system into single-user mode, then you will be dropped into a shell in the ramdisk, and you are expected to manually enter the commands required for the Live system to continue booting which would otherwise be executed by the ramdisk automatically. Specifically, you need to enter everything below the line "Running in single-user mode" in the file overlays/ramdisk/init.sh (or variants thereof). If you just exit the shell without doing this, then the system will be unable to continue booting.
+```
+
 ## Graphical desktop start process
 
 1. The system is configured in `/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
