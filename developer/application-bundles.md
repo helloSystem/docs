@@ -1,6 +1,18 @@
 # Application Bundles
 
-helloSystem uses __application bundles__ to manage native applications. Whenever possible, simplified GNUstep-style `.app` bundles are used, but ROX/AppImage-style `.AppDir` bundles are also supported. XDG-style `.desktop` files are considered legacy and should be avoided.
+helloSystem uses __application bundles__ to manage native applications. Whenever possible, application bundles are used. XDG-style `.desktop` files are considered legacy and should be avoided.
+
+## Benefits
+
+Applications stipped as application bundles can
+
+* Easily be moved around in the filesystem (relocation)
+* Easily be copied to e.g., another machine or a network share
+* Easily be copied on the local machine to get a second instance of the same application (e.g., to make changes to it while keeping the original around)
+* Easily be deleted by moving to the Trash
+* Easily be managed without the need for a package manager
+* Easily be distributed (e.g., in archives like zip files or in disk images) without the need for packaging
+* Easily be understood by switchers coming from other operating systems with similar application distribution formats
 
 ## Application bundle formats
 
