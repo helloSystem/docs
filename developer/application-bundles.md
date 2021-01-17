@@ -65,3 +65,7 @@ Docks (and other similar applciations) can find the icon that belongs to a windo
 1. From the path and the arguments figure out which element might be the relevant `.app` bundle or `.AppDir`. For example, a process might have been invoked with `sudo -E launch python3 /Applications/Some.app/Some --arguments 123`. In this case the relevant information is in a "random" location within the long list of arguments. Also consider the case `python3 /Applications/Some.app/Resources/some-executable`. In this case `some-executable` is in a subdirectory of the application bundle
 
 A rudimentary implementation of this logic is in place in Dock in the `Utils::readInfoFromPid(quint32 pid)` and `Utils::examinePotentialBundlePath(QString path)` methods, but improvements are highly welcome.
+
+## Credits
+
+* https://en.wikipedia.org/wiki/Application_directory
