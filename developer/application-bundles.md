@@ -68,4 +68,8 @@ A rudimentary implementation of this logic is in place in Dock in the `Utils::re
 
 ## Credits
 
+Application directories and applciation bundles have been used by many desktop-oriented operating systems, including RISC OS, NeXTStep/OPENSTEP, Mac OS X, and various other systems. Classic Macintosh System used single-file applications that kept resources in the Resource Fork.
+
 * https://en.wikipedia.org/wiki/Application_directory
+* http://rox.sourceforge.net/desktop/AppDirs.html
+* https://en.wikipedia.org/wiki/Resource_fork
