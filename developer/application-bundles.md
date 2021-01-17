@@ -4,7 +4,7 @@ helloSystem uses __application bundles__ to manage native applications. Whenever
 
 ## Benefits
 
-Applications stipped as application bundles can
+Applications shipped as application bundles can
 
 * Easily be moved around in the filesystem (relocation)
 * Easily be copied to e.g., another machine or a network share
