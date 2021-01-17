@@ -11,6 +11,7 @@ Applications stipped as application bundles can
 * Easily be copied on the local machine to get a second instance of the same application (e.g., to make changes to it while keeping the original around)
 * Easily be deleted by moving to the Trash
 * Easily be managed without the need for a package manager
+* Easily be modified (e.g., changing the icon) without any side effects to other parts of the system
 * Easily be distributed (e.g., in archives like zip files or in disk images) without the need for packaging
 * Easily be understood by switchers coming from other operating systems with similar application distribution formats
 
