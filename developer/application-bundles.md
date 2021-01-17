@@ -66,6 +66,11 @@ Docks (and other similar applciations) can find the icon that belongs to a windo
 
 A rudimentary implementation of this logic is in place in Dock in the `Utils::readInfoFromPid(quint32 pid)` and `Utils::examinePotentialBundlePath(QString path)` methods, but improvements are highly welcome.
 
+
+``` .. note::
+    To display the correct icons in Dock for processes running as root, users must be able to see information on processes running as root. Hence security.bsd.see_other_uids=0 must not be set in sysctl.conf for this to work.
+```
+
 ## Credits
 
 Application directories and applciation bundles have been used by many desktop-oriented operating systems, including RISC OS, NeXTStep/OPENSTEP, Mac OS X, and various other systems. Classic Macintosh System used single-file applications that kept resources in the Resource Fork.
