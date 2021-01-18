@@ -1,4 +1,4 @@
-# Archietcture
+# Architecture
 
 helloSystem is designed with simplicity in mind. Less, but better. This page describes key elements of the hello desktop. As a general rule, everything should be welcoming for Mac users but 10x as simple.
 
