@@ -88,7 +88,7 @@ Desktop Environment, but it lives on as part of the Vala project.
 programs, converts to them MenuModel and send to them AppMenu
 (sometimes called a global menu bar). `unity-gtk-module` is used as a backend, and thus must also be installed
 * Status: active
-* Issues: Supposedly used by Firefox and Chrome but those applications are not functional with Menu in helloSystem yet. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work"
+* Issues: Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity get shown in the global menu bar. Supposedly used by Firefox and Chrome but those applications are not functional with Menu in helloSystem yet. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work"
 * Installed by package: `appmenu-gtk-module`
 
 ### unity-gtk-module
