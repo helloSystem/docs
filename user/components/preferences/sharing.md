@@ -20,16 +20,13 @@ Check the __Screen Sharing__ checkbox to make the screen of your computer access
 
 ## Accessing the screen of a remote computer that has Screen Sharing enabled
 
-If Screen Sharing is active on the remote computer, then you can connect over the local area network as follows:
+If Screen Sharing is active on the remote computer, then you can use [SSVNC](http://www.karlrunge.com/x11vnc/ssvnc.html) (available for Windows, Mac OS X, and various Unix-like systems) to access the machine over the local area network.
 
-* Install the `ssvnc` package
-* On the command line, type `ssvnc-gui` and press Enter
-* Click "Find"
-* Select the computer you want to connect to from the list
-* Add `user@` before the hostname. Replace `user` with your username on the remote computer 
-* Click "Use SSH"
-* Click "Connect"
-* When promted, enter the password of your computer account on the remote computer
+In SSVNC please do: 
+* Under "VNC Host_Display" please enter: <IP Address>:0
+* Options... -> Check the "Use SSH" box and the "Unix Username & Password" box
+* Under "Unix Username" enter the username you have set when you installed helloSystem
+* Under "Unix Password" enter the password you have set when you installed helloSystem
 
 ## Accessing the screen of a remote computer that has Remote Login enabled
 
