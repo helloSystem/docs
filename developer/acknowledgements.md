@@ -23,6 +23,10 @@ __[pkgdemon](https://github.com/pkgdemon)__
 malco2001 on irc.freenode.net (#FuryBSD)
 * Originally wrote the tools to create Live ISOs for FuryBSD
 
+## Cirrus CI
+[https://cirrus-ci.com/](https://cirrus-ci.com/)
+* Providing continuous build infrastructure
+
 ## FreeBSD Foundation
 [https://www.freebsdfoundation.org/](https://www.freebsdfoundation.org/)
 * Gave permission to use the trademarks in the 'Install FreeBSD' utility
