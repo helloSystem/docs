@@ -223,6 +223,23 @@ information to be displayed to users of the application through the interface sh
 * Issues: tbd
 * Installed by package: `tbd`
 
+### wxGtk libwx_gtk3u_core
+
+```
+/usr/local/lib/libwx_gtk3u_core-3.1.so
+/usr/local/lib/libwx_gtk3u_core-3.1.so.4
+/usr/local/lib/libwx_gtk3u_core-3.1.so.4.0.0
+```
+
+* Author: wxWidgets authors
+* Description: wxWidgets is a C++ library that lets developers create applications for Windows, Mac OS X, Linux and other platforms with a single code base. On FreeBSD the Gtk toolkit is used
+* Bugtracker: https://www.wxwidgets.org/
+* Purpose: tbd
+* Theory of operation: tbd
+* Status: active
+* Issues: Requires the (undocumented?) `UBUNTU_MENUPROXY` environment variable not to be set to `0` or `<empty>`
+* Installed by package: `wx31-gtk3`
+
 ## Environment variables involved
 
 ### GTK_MODULES=appmenu-gtk-module
