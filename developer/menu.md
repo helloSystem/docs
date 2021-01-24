@@ -235,7 +235,7 @@ information to be displayed to users of the application through the interface sh
 * Description: wxWidgets is a C++ library that lets developers create applications for Windows, Mac OS X, Linux and other platforms with a single code base. On FreeBSD the Gtk toolkit is used
 * Bugtracker: https://www.wxwidgets.org/
 * Purpose: tbd
-* Theory of operation: tbd
+* Theory of operation: Applications written with wxWidgets (e.g., Audacity) use this to display their UI with Gtk on FreeBSD
 * Status: active
 * Issues: Requires the (undocumented?) `UBUNTU_MENUPROXY` environment variable not to be set to `0` or `<empty>`
 * Installed by package: `wx31-gtk3`
