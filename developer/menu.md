@@ -267,6 +267,15 @@ Audacity is an example for an application that uses `libwx_gtk3u_core-3.1.so.4`.
     Please consider submitting issues and pull requests if you know how UBUNTU_MENUPROXY is supposed to work. Is it documented?
 ```
 
+Ultimaker Cura (which does not have a working global menu integration by default) contains a note in `/usr/local/lib/python3.7/site-packages/UM/Application.py` saying
+
+```
+# For Ubuntu Unity this makes Qt use its own menu bar rather than pass it on to Unity.
+os.putenv("UBUNTU_MENUPROXY", "0")
+```
+
+Changing this to `"1"` does not make any difference for Cura, though.
+
 ## Executables involved
 
 _To be written._
