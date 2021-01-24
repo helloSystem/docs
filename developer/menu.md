@@ -223,6 +223,33 @@ information to be displayed to users of the application through the interface sh
 * Issues: tbd
 * Installed by package: `tbd`
 
+## Environment variables involved
+
+### GTK_MODULES=appmenu-gtk-module
+
+Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity get shown in the global menu bar.
+
+### UBUNTU_MENUPROXY
+
+As of 2021, the (undocumented?) `UBUNTU_MENUPROXY` environment variable is referenced in
+
+```
+/usr/local/lib/libwx_gtk3u_core-3.1.so.4.0.0
+/usr/local/lib/gtk-3.0/modules/libappmenu-gtk-module.so
+/usr/local/lib/gtk-2.0/modules/libappmenu-gtk-module.so
+```
+
+Audacity is an example for an application that uses `libwx_gtk3u_core-3.1.so.4`.
+
+* Apparently `UBUNTU_MENUPROXY` __must not__ be set to `0` or `<empty>` e.g., for Audacity to work
+* Apparently unsetting it still makes the global menu work for Audacity
+* Apparently setting it to a random value still makes the global menu work for Audacity
+* According to [this](https://github.com/electron/electron/issues/709#issuecomment-59207492), `UBUNTU_MENUPROXY` should be set to `libappmenu.so`?
+
+``` .. note::
+    Please consider submitting issues and pull requests if you know how UBUNTU_MENUPROXY is supposed to work. Is it documented?
+```
+
 ## Executables involved
 
 _To be written._
