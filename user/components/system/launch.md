@@ -37,3 +37,8 @@
  * `launch /Applications/Filer.app`
  * `launch Filer.app`
  * `launch Filer`
+ 
+Note that capitalization can have subtle effects:
+ 
+* `launch audacity` launches `audacity` from the `$PATH` if it exists anywhere on the `$PATH`
+* `launch Audacity` launches e.g., `/Applications/Audio/Audacity.app/Audacity` if it exists there or in other well-known application locations (because no `Audacity` exists anywhere on the `$PATH`)
