@@ -32,6 +32,7 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
    :maxdepth: 2
    :glob:
 
+   developer/ux-guidelines
    developer/architecture
    developer/boot
    developer/graphics
