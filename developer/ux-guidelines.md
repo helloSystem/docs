@@ -1,6 +1,6 @@
 # User Experience Guidelines
 
-Since helloSystem is intended to be friedndly and welcoming to switchers from the Mac, let's apply some of the underlying concepts and design considerations that went into the Mac. We are not aiming to create a 1:1 replica, but something that is generally consistent with the underlying general user experience (UX) philosophy, which has been openly documented.
+Since helloSystem is intended to be friendly and welcoming to switchers from the Mac, it is important to understand the underlying concepts and design considerations that went into the Mac. We are not aiming to create a 1:1 replica, but something that is generally consistent with the underlying general user experience (UX) philosophy, which has been openly documented.
 
 ## Macintosh Human Interface Guidelines
 
