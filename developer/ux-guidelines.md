@@ -10,14 +10,14 @@ What are the design principles that make user interfaces "Mac-like"? Apple spell
 
 Source: Apple Computer, Inc., 1992, Macintosh Human Interface Guidelines, First Printing, November 1992. Addison-Wesley Publishing Company. ISBN 0-201-62216-5
 
-## Global menu bar
+## Walker, N & Smelcer, 1990 (Superiority of the global menu bar)
 
 Referred to in the Macintosh Human Interface Guidelines with highest praise:
 
 > A seminal paper on why pull-down menus are superior to any other kind.
 > Everyone who designs for the screen must read this paper. Everyone who designs for the screen must read this paper.
 
-This article provides empirical evidence on the superiority of global menus.
+This paper provides empirical evidence on the superiority of global menus.
 
 > Systems that maximize the percentage of menu items with borders will have a decided
 advantage over other menu systems.
