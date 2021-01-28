@@ -14,3 +14,41 @@ Please see [https://github.com/learnpyqt/15-minute-apps](https://github.com/lear
 For an introduction to [Creating GUI applications with Python & Qt5](https://www.learnpyqt.com/pyqt5-book/) you may be interested in the book with the same name by Martin Fitzpatrick. There is also a forum at [forum.learnpyqt.com](https://forum.learnpyqt.com/).
 
 [![](https://hellosystem.github.io/docs/_static/book-pyqt5.png)](https://www.learnpyqt.com/pyqt5-book/)
+
+## Using .ui files in PyQt
+
+Using Qt Creator, you can also create and edit graphical user inferfaces for __Python__ based applications using `.ui` files. These can be used in PyQt like this:
+
+```
+#!/usr/bin/env python3
+# This Python file uses the following encoding: utf-8
+
+
+import sys
+import os
+
+
+from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtCore import QFile
+from PyQt5.uic import loadUi
+
+
+class Widget(QWidget):
+    def __init__(self):
+        super(Disks, self).__init__()
+        self.load_ui()
+
+    def load_ui(self):
+        path = os.path.join(os.path.dirname(__file__), "form.ui")
+        ui_file = QFile(path)
+        ui_file.open(QFile.ReadOnly)
+        loadUi(ui_file, self)
+        ui_file.close()
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    widget = Widget()
+    widget.show()
+    sys.exit(app.exec_())
+```
