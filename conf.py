@@ -38,7 +38,8 @@ release = 'experimental'
 extensions = [
     # Auto-generate section labels.
     'sphinx.ext.autosectionlabel',
-    'recommonmark'
+    'recommonmark',
+    'sphinx_markdown_tables'
 ]
 
 master_doc = 'index'
@@ -88,6 +89,7 @@ epub_cover = ('_static/hello_logo.png', 'epub-cover.html')
 html_static_path = ['_static']
 
 github_doc_root = 'https://' + GITHUB_REPO_OWNER + '.github.io/' + GITHUB_REPO_NAME + '/'
+
 
 def setup(app):
     app.add_config_value(

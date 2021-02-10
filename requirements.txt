@@ -9,3 +9,4 @@ sphinxext-rediraffe
 sphinx-last-updated-by-git
 recommonmark
 sphinxcontrib-qthelp
+sphinx-markdown-tables
