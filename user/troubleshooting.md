@@ -4,7 +4,7 @@
 
 ### FreeBSD logo on screen for more than five minutes
 
-It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong any you might need to restart the computer.
+It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong and you might need to restart the computer.
 
 If – after five minutes – you're reluctant to stop the computer, you can occasionally [key Ctrl-T](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) to get some information about what the computer is doing. If there is no change from one snippet to the next, across three or more snippets, you may reasonably assume that the computer needs to be restarted.
 
