@@ -4,13 +4,12 @@
 
 ### FreeBSD logo on screen for more than five minutes
 
-Something might be wrong, but relevant information is *muted* by the logo. You will probably need to stop the computer. If normal use of the power button is not effective, press and hold. 
+It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong any you might need to restart the computer.
 
-If – after five minutes – you're reluctant to stop the computer, you can occasionally [key Ctrl-T](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) to reveal isolated snippets of information. If there's no change from one snippet to the next, across three or more snippets, you may reasonably assume that a stop will be required. 
+If – after five minutes – you're reluctant to stop the computer, you can occasionally [key Ctrl-T](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) to get some information about what the computer is doing. If there is no change from one snippet to the next, across three or more snippets, you may reasonably assume that the computer needs to be restarted.
 
-For a more useful view of relevant information: 
-
-* after stopping the computer, you can [temporarily stop the muting and boot (start) the computer in verbose mode](https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode).
+* Please restart the computer. If normal use of the power button is not effective, press and hold. 
+* Then, please [start the computer in verbose mode](https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode) to see any relevant error messages that may help in resolving the issue.
 
 ### Boot stalls during `Replicate system image to swap-based memdisk`(seen during verbose boot)
 
@@ -18,15 +17,14 @@ This affects some computers with some builds of the ISO. If you encounter this i
 
 ### `login:` prompt, no desktop environment
 
-Some graphics hardware is not yet, or not easily, usable with helloSystem. Try with a different computer, or seek help.
+* Please make sure that your computer has at least 4GB of RAM. helloSystem currently needs at least this amount to be started in Live mode.
+* The graphics hardware in your computer may not yet, or not yet easily, be usable with helloSystem. Try with a different computer, or seek help.
 
 ## Other issues
 
 Use the *Search or jump to…* field at the head of the main [https://github.com/helloSystem/](https://github.com/helloSystem/) page – above the helloSystem logo. This special page allows an organisation-wide search, across all helloSystem repositories. Click in the field, then begin typing. 
 
 If your issue is not already reported, you can create a new one. 
-
-Frequently updated areas include [ISO issues](https://github.com/helloSystem/ISO/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc). 
 
 ## Getting help
 
