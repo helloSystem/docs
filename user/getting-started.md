@@ -21,6 +21,7 @@ hello is known to boot to a graphical desktop on the following machines. Auxilia
 
 * Acer Revo RL85
 * Dell Inc. OptiPlex 780
+* HP 15-f233wm laptop
 
 ### Tested virtualization environments
 
