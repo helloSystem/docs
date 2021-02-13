@@ -11,6 +11,6 @@ Additionally, the following filesystems are supported in helloSystem, but it can
 * XFS (SGI)
 * MTP (Android)
 
-Supported filesystems are automatically mounted by [automount](https://github.com/vermaden/automount).
+Supported filesystems are automatically mounted by [sysutils/automount](https://www.freshports.org/sysutils/automount/).
 
 To see how they are mounted, open the Logs utility and attach a disk.
