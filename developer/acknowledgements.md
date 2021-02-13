@@ -77,3 +77,7 @@ __[mrclksr](https://github.com/mrclksr)__
 ## Graham Perrin
 __[grahamperrin](https://github.com/grahamperrin)__
 * Provided early testing and feedback
+
+## PreyK
+__[PreyK](https://github.com/PreyK)__
+* Allowed the System menu to be dynamically rebuilt and provided fix to Zeroconf utility
