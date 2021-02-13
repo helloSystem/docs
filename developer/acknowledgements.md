@@ -80,4 +80,4 @@ __[grahamperrin](https://github.com/grahamperrin)__
 
 ## PreyK
 __[PreyK](https://github.com/PreyK)__
-* Allowed the System menu to be dynamically rebuilt and provided fix to Zeroconf utility
+* Made System menu to refresh itself automatically and provided fix to Zeroconf utility
