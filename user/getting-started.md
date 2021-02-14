@@ -19,27 +19,46 @@ Please refer to [FreeBSD Hardware Compatibility](https://www.freebsd.org/doc/en_
 
 hello is known to boot to a graphical desktop on the following machines. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. has not yet been tested systematically.
 
+helloSystem developers currently have access to the following hardware:
+
 * Acer Revo RL85
 * Dell Inc. OptiPlex 780
 
-### Tested virtualization environments
+Please contact us if you would like to sponsor the project with a hardware donation. We are especially looking for Apple and Lenovo devices from the previous generations that should be available second-hand inexpensively.
+
+### Virtualization environments
+
+Users have reported success in running helloSystem in the following virtualization environments:
 
 * VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI mode
 
 * VMware host (on Windows), possibly only working in BIOS mode?
 
-* Qemu VM, works in both BIOS and EFI modes
+* QEMU host (on Linux), works in both BIOS and EFI modes. Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet. See below for additional information
 
-You can boot and install hello in a Qemu VM. First create a disk image for it with fallocate:
+* Proxmox VE
+
+Please note:
+
+* The VM needs to be __64-bit__
+* The VM needs __at least 4 GB of RAM__
+* The boot process takes longer than you might expect; boot in verbose mode to see the details
+
+Please report back about the results on your virtualization environment.
+
+#### QEMU
+
+Create an 8 GiB (or larger) `hello.img` image file on which you can install the system:
+
 ```
 $ pwd
 /home/user
 $ mkdir -p .qemu/hello
-$ fallocate -l $(( 24*1024*1024*1024 )) .qemu/hello/hello.img
+$ fallocate -l $(( 8*1024*1024*1024 )) .qemu/hello/hello.img
 ```
-This creates a 24 GiB hello.img file where you'll install the system.
 
-To boot the hello ISO image, use the following qemu-system-x86_64 command:
+Then, boot helloSystem:
+
 ```
 qemu-system-x86_64 -machine type=q35,accel=kvm \
 -enable-kvm -cpu host -smp 2 -m 4096 \
@@ -49,31 +68,26 @@ qemu-system-x86_64 -machine type=q35,accel=kvm \
 -drive format=raw,file=${HOME}/Downloads/hello-0.4.0_0D26-FreeBSD-12.1-amd64.iso \
 -boot menu=on
 ```
-When the Qemu VM starts, press esc and select 2 to boot the iso.
 
-After you've installed hello on the disk image, you can remove the last two options from the above command.
+When QEMU starts, press `esc` and select `2` to boot the ISO.
 
-The hostfwd= option creates a port forward from your host port 5222 to the Qemu VM port 22.
+Use the __Install FreeBSD__ utility to install helloSystem do the disk image.
 
-Unfortunately the qemu-system-x86_64 USB tablet options don't work with hello so you'll need to press Ctrl+Alt+g to release the mouse pointer from the Qemu VM window.
+Then restart QEMU, you now remove the last two options from the above command.
 
-If you want to make Qemu VM full screen, press Ctrl+Alt+f.
+Notes
 
-To boot/install hello in UEFI mode, first install [OVMF Open Virtual Machine Firmware](https://github.com/tianocore/tianocore.github.io/wiki/OVMF) on your host side. The package name for Fedora 32 is edk2-ovmf.
+* The `hostfwd=` option creates a port forward from your host port `5222` to the Qemu VM port `22`.
+* Unfortunately the qemu-system-x86_64 USB tablet options do not work; you will need to press Ctrl+Alt+g to release the mouse pointer from the QEMU window
+* To make QEMU full screen, press Ctrl+Alt+F
+
+To boot/install hello in UEFI mode, first install [OVMF Open Virtual Machine Firmware](https://github.com/tianocore/tianocore.github.io/wiki/OVMF) on your host side. The package name for Fedora 32 is `edk2-ovmf`
 
 Then add these two qemu-system-x86_64 options for the Qemu VM start:
 ```
 -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
 -smbios type=0,vendor=0vendor,version=0version,date=0date,release=0.0,uefi=on \
 ```
-
-Please note:
-
-* The VM needs to be 64-bit
-* The VM needs at least 4 GB of RAM which is higher than the VirtualBox default
-* The boot process takes longer than you might expect; boot `-v` to see the details
-
-Please report back about the results on your virtualization environment.
 
 ## Downloading
 
