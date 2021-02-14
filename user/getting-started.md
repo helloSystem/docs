@@ -85,7 +85,7 @@ Notes
 
 To boot/install hello in UEFI mode, first install [OVMF Open Virtual Machine Firmware](https://github.com/tianocore/tianocore.github.io/wiki/OVMF) on your host side. The package name for Fedora 32 is `edk2-ovmf`
 
-Then add these two qemu-system-x86_64 options for the Qemu VM start:
+Then add these two `qemu-system-x86_64` options:
 ```
 -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
 -smbios type=0,vendor=0vendor,version=0version,date=0date,release=0.0,uefi=on \
