@@ -80,5 +80,5 @@ __[grahamperrin](https://github.com/grahamperrin)__
 
 ## PreyK
 __[PreyK](https://github.com/PreyK)__
-* Made System menu to refresh itself automatically and provided fix to Zeroconf utility
+* Made System menu to refresh itself automatically 
 * Fixed Menu and desktop for multi-monitor setups
