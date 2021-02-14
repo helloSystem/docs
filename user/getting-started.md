@@ -26,6 +26,8 @@ helloSystem developers currently have access to the following hardware:
 
 Please contact us if you would like to sponsor the project with a hardware donation. We are especially looking for Apple and Lenovo devices from the previous generations that should be available second-hand inexpensively.
 
+To see Hardware Probes of systems running helloSystem, please see the [helloSystem Hardware Database](http://bsd-hardware.info/?d=helloSystem&view=computers) provided by bsd-hardware.info. It is reasonable to assume that every system listed there can at least successfully boot helloSystem. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. may or may not be working.
+
 ### Virtualization environments
 
 Users have reported success in running helloSystem in the following virtualization environments:
