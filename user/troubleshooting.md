@@ -2,6 +2,16 @@
 
 ## Notable issues
 
+### 🚫 Do not upgrade packages without first locking the `hello` package
+
+Draft – offer simple guidance. Refer to https://github.com/helloSystem/ISO/issues/14#issuecomment-766393223 only if necessary. 
+
+### 🚫 Do not attempt to update or upgrade FreeBSD using freebsd-update in experimental helloSystem
+
+⚠ An upgraded system will cease to work as expected for some types of package installation/upgrade. This includes installation of Falkon. 
+
+Draft – maybe refer to https://github.com/helloSystem/Utilities/issues/33#issuecomment-779657535 or thereabouts. 
+
 ### FreeBSD logo on screen for more than five minutes
 
 It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong and you might need to restart the computer.
