@@ -4,22 +4,30 @@
 
 ### 🚫 Do not upgrade packages without first locking the `hello` package
 
-Draft – offer simple guidance. Refer to https://github.com/helloSystem/ISO/issues/14#issuecomment-766393223 only if necessary. 
+If you intend to run `pkg upgrade`, you must run this first: 
 
-### 🚫 Do not attempt to update or upgrade FreeBSD using freebsd-update in experimental helloSystem
+`sudo pkg lock hello`
 
-⚠ An upgraded system will cease to work as expected for some types of package installation/upgrade. This includes installation of Falkon. 
+A future release of helloSystem will not require this lock. 
 
-Draft – maybe refer to https://github.com/helloSystem/Utilities/issues/33#issuecomment-779657535 or thereabouts. 
+### 🚫 Do not attempt use of freebsd-update commands with experimental helloSystem 
+
+⚠ An upgrade from FreeBSD `12.1-RELEASE` will cause helloSystem to cease working as expected for some types of package installation/upgrade. This includes installation of Falkon. 
+
+Technically: [Locking out root! – UNIX Administratosphere](https://administratosphere.wordpress.com/2007/11/01/locking-out-root/) describes the approach to locking that's taken by Mac OS X, and by currently available versions of helloSystem. Whilst not problematic with Apple's operating system, this approach is troublesome in the context of helloSystem because some types of [freebsd-update(8)](https://www.freebsd.org/cgi/man.cgi?query=freebsd-update(8)) command [must be run as root](https://cgit.freebsd.org/src/tree/usr.sbin/freebsd-update/freebsd-update.sh?id=48ffe56ac5b7adb5b851d32be12b2ec0f13705a4#n553). Advanced users may choose to: 
+
+* enable the `root` user, and set a password
+
+– after which, operating system updates and upgrades may be performed without difficulty. 
 
 ### FreeBSD logo on screen for more than five minutes
 
-It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong and you might need to restart the computer.
+With some hardware – particularly where the live system is written to a USB drive that's low-spec – it can take more than five minutes to start the system in live mode. If you see the FreeBSD logo on screen for longer, then something might be wrong and you might need to stop the computer. If you're reluctant to stop the computer, you can [occasionally key](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) <kbd>Ctrl</kbd>-<kbd>T</kbd> to get some information about what the computer is doing. 
 
-If – after five minutes – you're reluctant to stop the computer, you can occasionally [key Ctrl-T](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) to get some information about what the computer is doing. If there is no change from one snippet to the next, across three or more snippets, you may reasonably assume that the computer needs to be restarted.
+If there is no change from one snippet of information to the next, across three or more snippets, you may reasonably assume that the computer must be started in a different way:
 
-* Please restart the computer. If normal use of the power button is not effective, press and hold. 
-* Then, please [start the computer in verbose mode](https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode) to see any relevant error messages that may help in resolving the issue.
+1. stop the computer – if normal use of the power button is not effective, press and hold
+2. [start in verbose mode](https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode) to view error messages that will help to explain or resolve the issue.
 
 ### Boot stalls during `Replicate system image to swap-based memdisk`(seen during verbose boot)
 
