@@ -30,6 +30,8 @@ To see Hardware Probes of systems running helloSystem, please see the [helloSyst
 
 ### Virtualization environments
 
+We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
+
 Users have reported success in running helloSystem in the following virtualization environments:
 
 * VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI mode
