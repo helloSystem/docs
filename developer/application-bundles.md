@@ -53,6 +53,18 @@ A __desktop2app__ tool ships with helloSystem that automates the creation of suc
 
 Please note that the use of wrapper bundles is discouraged and is only available as a bridge technology for backward compatibility with existing application packages.
 
+## Building application bundles
+
+Here is a real-world example on how to build an application bundle for a Qt application written in C++ using GitHub and [Cirrus CI](cirrus-ci.com):
+
+https://github.com/helloSystem/QHexEdit
+
+The application gets compiled and uploaded in a fully automated process.
+
+The resulting application bundle is provided for download in zipped form on GitHub Releases.
+
+Please see the [`.cirrus.yml`](https://github.com/helloSystem/QHexEdit/blob/main/.cirrus.yml) file for details.
+
 ## Getting application metadata for running applications
 
 Many desktop environments use XDG-style `.desktop` files to figure out which application a given window belongs to but since helloSystem is using `.app` bundles and `.AppDir` application directories this approach is not sufficient since such applications normally do not install XDG-style `.desktop` files in central locations.
