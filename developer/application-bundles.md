@@ -55,7 +55,7 @@ Please note that the use of wrapper bundles is discouraged and is only available
 
 ## Building application bundles
 
-Here is a real-world example on how to build an application bundle for a Qt application written in C++ using GitHub and [Cirrus CI](cirrus-ci.com):
+Here is a real-world example on how to build an application bundle for a Qt application written in C++ using GitHub and [Cirrus CI](https://cirrus-ci.com/):
 
 https://github.com/helloSystem/QHexEdit
 
