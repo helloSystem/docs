@@ -30,7 +30,9 @@ To see Hardware Probes of systems running helloSystem, please see the [helloSyst
 
 ### Virtualization environments
 
-We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
+``` .. note::
+    We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
+```
 
 Users have reported success in running helloSystem in the following virtualization environments:
 
@@ -38,7 +40,9 @@ Users have reported success in running helloSystem in the following virtualizati
 
 * VMware host (on Windows), possibly only working in BIOS mode?
 
-* QEMU host (on Linux), works in both BIOS and EFI modes. Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet. See below for additional information
+* QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet 
+
+* Parallels host, reported to work in EFI mode (see below)
 
 * Proxmox VE
 
@@ -92,6 +96,13 @@ Then add these two `qemu-system-x86_64` options:
 -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
 -smbios type=0,vendor=0vendor,version=0version,date=0date,release=0.0,uefi=on \
 ```
+
+#### Parallels
+
+* Select Hardware > Boot Order.
+* Expand **Advanced Settings**. Set **BIOS** to "EFI 64-bit" and in the Boot flags field, enter `vm.bios.efi=1`. 
+
+![Screenshot](https://docs.01.org/clearlinux/latest/zh_CN/_images/parallels-07.png)
 
 ## Downloading
 
