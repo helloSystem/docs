@@ -8,7 +8,7 @@ What are the design principles that make user interfaces "Mac-like"? Apple spell
 
 > If you are a designer, a human interface professional, or an engineer, this book contains information you can use to design and create products that fit the Macintosh model. It provides background information that can help you plan and make decisions about your product design. __Even if you don’t design and develop products for the Macintosh, reading this book will help you to understand the Macintosh interface.__
 
-Source: Apple Computer, Inc., 1992, Macintosh Human Interface Guidelines, First Printing, November 1992. Addison-Wesley Publishing Company. ISBN 0-201-62216-5
+Source: [Apple Computer, Inc., 1992, Macintosh Human Interface Guidelines, First Printing, November 1992. Addison-Wesley Publishing Company. ISBN 0-201-62216-5](https://dl.acm.org/doi/book/10.5555/573097)
 
 ## Walker, N & Smelcer, 1990 (Superiority of the global menu bar)
 
