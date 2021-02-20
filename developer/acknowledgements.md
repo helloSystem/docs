@@ -82,3 +82,7 @@ __[grahamperrin](https://github.com/grahamperrin)__
 __[PreyK](https://github.com/PreyK)__
 * Made System menu to refresh itself automatically 
 * Fixed Menu and desktop for multi-monitor setups
+
+## Chris Moore
+__[moochris](https://github.com/moochris)__
+* Improved Filer: Added initial 'spatial mode' option and made already-open windows come to the front rather than opening the same window multiple times
