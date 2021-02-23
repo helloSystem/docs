@@ -9,7 +9,6 @@ Additionally, the following filesystems are supported in helloSystem, but it can
 * EXT4 (Linux) _once available in quarterly packages_
 * HFS+ (Macintosh)
 * XFS (SGI)
-* MTP (Android)
 
 Supported filesystems are automatically mounted by [automount](https://github.com/vermaden/automount).
 
