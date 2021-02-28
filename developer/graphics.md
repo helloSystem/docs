@@ -42,6 +42,8 @@ If you want to create your own graphics driver settings, you can disable initgfx
 
 `initgfx_enable="NO"` to `/etc/rc.conf`.
 
+If you would like to temporarily disable the automatic graphics driver setup and use a failsafe non-accelerated driver (VESA or SCFB), then enter `set initgfx.detect.disable=1` followed by `boot` at the bootloader prompt. This can be useful e.g., in cases where the automatically detected graphics driver does not work properly on the Live system.
+
 ## Troubleshooting
 
 If applications that are using OpenGL crash on Nvidia systems, then it may be that the Nvidia driver was correctly loaded but the wrong Xorg configuration has been loaded, not actually using the Nvidia driver. This can happen when initgfx writes the dynamically generated Xorg configuration to `path_xorg_cfg_dir` (which points to `/usr/local/etc/X11/xorg.conf.d/` by default) but other files have been placed by other packages or the user into, e.g., `/etc/X11/xorg.conf.d`. You can verify which Xorg configuration directory was used by Xorg with `cat /var/log/Xorg.0.log | grep Using.config`. Seemingly Xorg cannot combine configuration stored in multiple `xorg.conf.d` directories.
