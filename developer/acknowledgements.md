@@ -27,6 +27,10 @@ malco2001 on irc.freenode.net (#FuryBSD)
 [https://cirrus-ci.com/](https://cirrus-ci.com/)
 * Providing continuous build infrastructure
 
+## Fedor Korotkov
+__[fkorotkov](https://github.com/fkorotkov)__
+* Provided helpful support concerning all things Cirrus CI
+
 ## FreeBSD Foundation
 [https://www.freebsdfoundation.org/](https://www.freebsdfoundation.org/)
 * Gave permission to use the trademarks in the 'Install FreeBSD' utility
