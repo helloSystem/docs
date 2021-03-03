@@ -91,6 +91,6 @@ __[PreyK](https://github.com/PreyK)__
 __[moochris](https://github.com/moochris)__
 * Improved Filer: Added initial 'spatial mode' option (folders open in a new window) and made already-open windows come to the front rather than opening the same window multiple times
 
-### Weblate
-[https://hosted.weblate.org/projects/hellosystem](https://hosted.weblate.org/)
+## Weblate
+[hosted.weblate.org](https://hosted.weblate.org/projects/hellosystem)
 * Providing infrastructure for crowd-sourced translations
