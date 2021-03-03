@@ -28,6 +28,13 @@ Please contact us if you would like to sponsor the project with a hardware donat
 
 To see Hardware Probes of systems running helloSystem, please see the [helloSystem Hardware Database](http://bsd-hardware.info/?d=helloSystem&view=computers) provided by bsd-hardware.info. It is reasonable to assume that every system listed there can at least successfully boot helloSystem. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. may or may not be working.
 
+### Networking hardware
+
+Not all networking devices may be supported by FreeBSD yet. In those cases, you may want to consider using a USB based networking devices. helloSystem developers currently have access to the following USB based networking devices which are known to work:
+
+* USB 802.11n WLAN Adapters based on `ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS`
+* USB Wired Ethernet Adapters based on `ID 0b95:772b ASIX Electronics Corp. AX88772B`
+
 ### Virtualization environments
 
 ``` .. note::
