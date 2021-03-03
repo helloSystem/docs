@@ -32,8 +32,8 @@ To see Hardware Probes of systems running helloSystem, please see the [helloSyst
 
 Not all networking devices may be supported by FreeBSD yet. In those cases, you may want to consider using a USB based networking devices. helloSystem developers currently have access to the following USB based networking devices which are known to work:
 
-* USB 802.11n WLAN Adapters based on `ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS`
-* USB Wired Ethernet Adapters based on `ID 0b95:772b ASIX Electronics Corp. AX88772B`
+* [USB 802.11n WLAN Adapters based on `ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS`](https://vermaden.wordpress.com/2020/10/30/realtek-usb-wifi-review/)
+* [USB Wired Ethernet Adapters based on `ID 0b95:772b ASIX Electronics Corp. AX88772B`](https://www.freebsd.org/cgi/man.cgi?query=axe)
 
 ### Virtualization environments
 
