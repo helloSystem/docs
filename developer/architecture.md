@@ -28,13 +28,13 @@ Global menu bar that displays the System menu for system-wide commands (such as 
 
 ### Dock
 
-A Dock that shows icons for running and pinned applications. (In the future it should als get an animated icon as a launching indicator for applications that are being launched but are not yet showing a window.)
+A Dock that shows icons for running and pinned applications. (In the future it should also get an animated icon as a launching indicator for applications that are being launched but are not yet showing a window.)
 
 ### `launch` command
 
 The `launch` command is used to launch applications without specifying a path to them.
 
-The `launch` command is expceted to determine the preferred instance of an application with the given name. (The `launch` command is supposed to find the _preferred_ instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the `launch` command should also get knowledge which application to open a file with.
+The `launch` command is expected to determine the preferred instance of an application with the given name. (The `launch` command is supposed to find the _preferred_ instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the `launch` command should also get knowledge which application to open a file with.
 
 Filer is supposed to launch all applications through the `launch` command. Shell scripts, `.desktop` files, etc. should be written to use the `launch` command rather than hardcoding paths to applications, where appropriate.
 
@@ -47,13 +47,13 @@ A very simple IPC mechanism should be introduced for the desktop components to t
 
 ### Applications
 
-Applications must not need to be installed. Simply downloading them, attaching an external drive containing them, or connecting to a network share containing them must be sufficient. Mutliple versions of the same application must be able to co-exist. The `launch` command is resposible to determine which one to use in cases where the user did not explicitly launch a specific instance by double-clicking it.
+Applications must not need to be installed. Simply downloading them, attaching an external drive containing them, or connecting to a network share containing them must be sufficient. Multiple versions of the same application must be able to co-exist. The `launch` command is responsible to determine which one to use in cases where the user did not explicitly launch a specific instance by double-clicking it.
 
-Custom-written applications should come as Appplication bundles whenever possible. It is accaptable for pre-existing applications to come with legacy XDG desktop files instead.
+Custom-written applications should come as Application bundles whenever possible. It is acceptable for pre-existing applications to come with legacy XDG desktop files instead.
 
 ### Utilities
 
-The system should come with some commonly used utilities, such as a Terminal application, a Process Monitor application, etc. These are just regular applications inside a 'Utilities' subdirectory. It is accaptable for pre-existing applications, preferably written in Qt.
+The system should come with some commonly used utilities, such as a Terminal application, a Process Monitor application, etc. These are just regular applications inside a 'Utilities' subdirectory. It is acceptable for pre-existing applications, preferably written in Qt.
 
 ### Preferences
 

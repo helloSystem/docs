@@ -15,7 +15,7 @@ These specifications cover technologies that are enthusiastically embraced in he
 
 This list is not exhaustive.
 
-## Conventions devloped for use in helloSystem
+## Conventions developed for use in helloSystem
 
 These conventions cover technologies that are embraced for being used in helloSystem and applications running on it.
 
