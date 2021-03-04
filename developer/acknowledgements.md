@@ -94,3 +94,9 @@ __[moochris](https://github.com/moochris)__
 ## Weblate
 [hosted.weblate.org](https://hosted.weblate.org/projects/hellosystem)
 * Providing infrastructure for crowd-sourced translations
+
+
+## Chris Rees
+__[crees](https://github.com/__crees)__
+* Made it possible to use a fixed Intel GPU driver for FreeBSD 12.2 from a private package
+* Created a package for the Falkon browser that does not pull in many KDE dependencies
