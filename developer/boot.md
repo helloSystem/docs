@@ -21,7 +21,7 @@ This is a simplified description of the boot process. There may be additional as
 ### Troubleshooting the Live system early boot process
 
 * __Hangs or reboots during replicating the system image to swap-based memdisk.__ The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download
-* __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Reason unkown. Are needed kernel modules missing?
+* __"Cannot mount tmpfs on /dev/reroot: Operation not supported by device".__ Reason unknown. Are needed kernel modules missing?
 
 ### Seeing what the system is doing while the graphical boot screen is shown
 
@@ -56,7 +56,7 @@ The computer should boot into a text console rescue system in which parts of `in
 ## Graphical desktop start process
 
 1. The system is configured in `/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
-1. `slim` is configured in `/usr/local/etc/slim.conf` to start `start-hello` once the user has logged in, or if autologin has occured
+1. `slim` is configured in `/usr/local/etc/slim.conf` to start `start-hello` once the user has logged in, or if autologin has occurred
 1. The `/usr/local/bin/start-hello` shell script starts the various components of the helloSystem desktop
 
 ### Troubleshooting the graphical desktop start process

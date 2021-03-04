@@ -18,7 +18,7 @@ A __shortcut__ is a key or key combination you can press to invoke a defined act
 The ⌘ key, also known as Command, is the key left to the spacebar on helloSystem, unless you have configured your system differently.
 
 ``` .. note::
-    The software may refer to the Comand key as "Ctrl". This is a known cosmetic issue.
+    The software may refer to the Command key as "Ctrl". This is a known cosmetic issue.
 ```
 
 ## Default shortcuts
