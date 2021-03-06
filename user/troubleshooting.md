@@ -22,6 +22,21 @@ This affects some computers with some (~ out of 10) builds of the ISO. If you en
 * Please make sure that your computer has at least 4GB of RAM. helloSystem currently needs at least this amount to be started in Live mode.
 * The graphics hardware in your computer may not yet, or not yet easily, be usable with helloSystem. Try with a different computer, or seek help.
 
+## Debugging application issues
+
+When debugging application issues, it can be helpful to see what an application is actually doing. For example, if we are interested in which libaries with "menu" in their name `firefox` is loading, we can run
+
+```
+LD_DEBUG=libs firefox 2>&1 | grep -i menu
+```
+
+Or, if we are interested in which activities with "menu" in their name `firefox` is doing, we can run
+
+```
+sudo sysctl security.bsd.unprivileged_proc_debug=1
+truss firefox 2>&1 | grep -e menu 
+```
+
 ## Other issues
 
 Use the *Search or jump to…* field at the head of the main [https://github.com/helloSystem/](https://github.com/helloSystem/) page – above the helloSystem logo. This special page allows an organisation-wide search, across all helloSystem repositories. Click in the field, then begin typing. 
