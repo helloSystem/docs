@@ -65,6 +65,29 @@ The resulting application bundle is provided for download in zipped form on GitH
 
 Please see the [`.cirrus.yml`](https://github.com/helloSystem/QHexEdit/blob/main/.cirrus.yml) file for details.
 
+### Making an application load privately bundled libraries
+
+If an application is supposed to load privately bundled libraries, one must patch it so that it loads privately bundled libraries from a path relative to itself (`$ORIGIN`) rather than from `/usr/local/lib`:
+
+```
+sed -i -e 's|/usr/local/lib|$ORIGIN/../lib|g' usr/local/bin/falkon
+ln -s usr/local/lib .
+rm usr/local/bin/falkon-e
+```
+
+This works because by coincidence the string `/usr/local/lib` has the exact same length as `$ORIGIN/../lib`. If this was not the case, one would need to either specifiy the rpath at compilation time, or use a tool such as `patchelf`.
+
+### Avoiding absolute paths
+
+For an application to be fully relocateable in the filesystem, one must take care that no absolute paths to data files (e.g., those in `/usr/share/<APPNAME>` get compiled in.
+
+In Qt applications, void [`QStringList QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);`](http://doc.qt.io/qt-5/qstandardpaths.html). According to the [Qt documentation](http://doc.qt.io/qt-5/qstandardpaths.html), this resolves to `"~/.local/share/<APPNAME>", "/usr/local/share/<APPNAME>", "/usr/share/<APPNAME>"` but clearly `/usr` is not where these things are located in an `.app` bundle.
+
+Instead, use [`QString QCoreApplication::applicationDirPath()`](http://doc.qt.io/qt-5/qcoreapplication.html#applicationDirPath) and construct a _relative_ path to `../share/<APPNAME>` from there.
+
+For an example, see:
+https://github.com/KaidanIM/Kaidan/commit/da38011b55a1aa5d17764647ecd699deb4be437f
+
 ## Getting application metadata for running applications
 
 Many desktop environments use XDG-style `.desktop` files to figure out which application a given window belongs to but since helloSystem is using `.app` bundles and `.AppDir` application directories this approach is not sufficient since such applications normally do not install XDG-style `.desktop` files in central locations.
