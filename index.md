@@ -38,6 +38,7 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
    developer/architecture
    developer/boot
    developer/graphics
+   developer/binary-compatibility
    developer/applications
    developer/application-bundles
    developer/menu
