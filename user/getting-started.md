@@ -10,7 +10,7 @@ hello is currently being developed. It is not yet available for general use, but
 * 4 GiB RAM (system memory for physical and viritualized installs)
 * VGA capable of 1024x768 screen resolution
 * Either a CD/DVD drive or a USB port for booting the installer media
-* On non-Macintosh hardware, [Raspberry Pi keyboard](https://static.raspberrypi.org/files/product-briefs/210108_Product_Brief_Keyboard_and_Mouse.pdf) is recommended as it allows the keyboard and system language to be detected automatically if it is attached while the system is starting up. On Macintosh hardware, the `prev-lang:kbd` EFI variable is usually set and is used to detect the keyboard and system language
+* On non-Macintosh hardware, a [Raspberry Pi keyboard](https://static.raspberrypi.org/files/product-briefs/210108_Product_Brief_Keyboard_and_Mouse.pdf) is recommended as it allows the keyboard and system language to be detected automatically if it is attached while the system is starting up. On Macintosh hardware, the `prev-lang:kbd` EFI variable is usually set and is used to detect the keyboard and system language. Note that the key left to the space bar is used as the Command key (Alt key on PC keyboards, Apple key on Apple keyboards).
 
 In the future, there may also be builds for other processor architectures. We would like to bring down the RAM requirement considerably.
 
