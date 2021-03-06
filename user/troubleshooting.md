@@ -13,7 +13,9 @@ If – after five minutes – you're reluctant to stop the computer, you can occ
 
 ### Boot stalls during `Replicate system image to swap-based memdisk`(seen during verbose boot)
 
-This affects some computers with some builds of the ISO. If you encounter this issue with your computer, please await the next ISO or try with a different computer. 
+You may also see the error message `md1.uzip: UZIP(zlib) inflate() failed`. 
+
+This affects some computers with some (~ out of 10) builds of the ISO. If you encounter this issue with your computer, please __retry with the next build of the ISO__ or try with a different computer. 
 
 ### `login:` prompt, no desktop environment
 
