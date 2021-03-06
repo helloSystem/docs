@@ -23,7 +23,7 @@ Build on the `.0` minor version for each still-supported major version of FreeBS
  The Kernel Binary Interface (KBI) defines which kernel extensions can run on which systems.
  
 ``` .. note::
-    Sectino to be written. Pull requests welcome.
+    Section to be written. Pull requests welcome.
 ```
   
   * Normally, kernel extensions compiled on one major version of FreeBSD are expected to run on subsequent minor versions of the same major version of FreeBSD. However, there are notable exceptions such as the `i915kms` package that contains the Intel GPU driver.
@@ -43,3 +43,4 @@ Build on the `.0` minor version for each still-supported major version of FreeBS
  ## References
  
  * https://wiki.freebsd.org/BinaryCompatibility describes best practices for maintaining binary compatibility in FreeBSD
+ * [i915kms package breaks on 12.2-RELEASE](https://forums.freebsd.org/threads/i915kms-package-breaks-on-12-2-release-workaround-build-from-ports.77501/)
