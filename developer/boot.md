@@ -17,6 +17,8 @@ This is a simplified description of the boot process. There may be additional as
 1. `init.sh` from the ramdisk image exits
 1. `etc/rc` from the ramdisk image gets executed as specified in `overlays/ramdisk/etc/rc` (by what?). It tells the kernel to "reroot" (not "chroot") into the live filesystem, `/livecd` using `reboot -r`
 1. From here on, the boot process is the regular FreeBSD boot process
+1. `/usr/local/etc/rc.d/localize` runs `/usr/local/sbin/localize` which tries to determine the language of the keyboard, and by proxy, of the system. This currently supports the official Raspberry Pi keyboard and Apple computers which store the keyboard and system language in the `prev-lang:kbd` EFI variable
+1. The `slim` session manager (login window) is started; when the user is loggen in, it starts the script `/usr/local/bin/start-hello` which starts the desktop session
 
 ### Troubleshooting the Live system early boot process
 
