@@ -4,7 +4,7 @@ Since helloSystem is intended to be friendly and welcoming to switchers from the
 
 ## Macintosh Human Interface Guidelines
 
-What are the design principles that make user interfaces "Mac-like"? Apple spelled them out for us publicly 30 years ago in a book, the Macintosh Human Interface Guidelines. Besides descrbing what makes user interfaces "Mac-like", the book also explains general concepts like how to perform user testing.
+What are the design principles that make user interfaces "Mac-like"? Apple spelled them out for us publicly 30 years ago in a book, the Macintosh Human Interface Guidelines. Besides describing what makes user interfaces "Mac-like", the book also explains general concepts like how to perform user testing.
 
 > If you are a designer, a human interface professional, or an engineer, this book contains information you can use to design and create products that fit the Macintosh model. It provides background information that can help you plan and make decisions about your product design. __Even if you don’t design and develop products for the Macintosh, reading this book will help you to understand the Macintosh interface.__
 
