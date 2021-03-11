@@ -34,7 +34,7 @@ A Dock that shows icons for running and pinned applications. (In the future it s
 
 The `launch` command is used to launch applications without specifying a path to them.
 
-The `launch` command is expected to determine the preferred instance of an application with the given name. (The `launch` command is supposed to find the _preferred_ instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the `launch` command should also get knowledge which application to open a file with.
+The `launch` command is expected to determine the preferred instance of an application with the given name. (The `launch` command is supposed to find the _preferred_ instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the `launch` command should also gain knowledge of which application to open a file with.
 
 Filer is supposed to launch all applications through the `launch` command. Shell scripts, `.desktop` files, etc. should be written to use the `launch` command rather than hardcoding paths to applications, where appropriate.
 
