@@ -16,7 +16,9 @@ Binary compatibility is an important concept in software engineering. It allows 
  
 ### Recommendation for building binary compatible applications
 
-Build on the `.0` minor version for each still-supported major version of FreeBSD, using `quarterly` or older packages. This should allow the application to run on all still-supported FreeBSD releases.
+Build on the `.0` minor version for each still-supported major version of FreeBSD, using `release_0`, `release_1`, `release_2`,... but __NOT__ `quarterly`, `latest` packages as those are moving targets which will vanish over time.
+
+This should allow the application to run on all still-supported FreeBSD releases.
  
  ## Kernel module compatibility
  
