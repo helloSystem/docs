@@ -28,7 +28,22 @@ This is a simplified description of the boot process. There may be additional as
 
 ### Seeing what the system is doing while the graphical boot screen is shown
 
-While the graphical boot screen is being displayed you can press __Ctrl+T__ to see what it is doing at that moment in time. Press __Ctrl+T__ repeatedly to see what is going on over time.
+While the graphical boot screen is being displayed you can press __Ctrl+T__ to see what it is doing at that moment in time.  By keeping __Ctrl+T__ __pressed down__ you can see what is going on over time. By then pressing __ScrLk__, you can use __PgUp__ and __PgDn__ to scroll around.
+
+The following information will be printed to the screen for the most relevant process based on recency and CPU usage (as decided by `proc_compare()`): 
+
+* `load:` and the 1 minute load average of the system
+* `cmd:` and process name of the most relevant process
+* Process ID (PID) of that process
+* State of that process in  `[]`. FreeBSD specific wait states are explained in https://wiki.freebsd.org/WaitChannels
+* Real (r), User (u), and System (s) times ([Source](https://stackoverflow.com/a/556411))
+  * Real is wall clock time - time from start to finish of the call. This is all elapsed time including time slices used by other processes and time the process spends blocked (for example if it is waiting for I/O to complete)
+  * User is the amount of CPU time spent in user-mode code (outside the kernel) _within_ the process. This is only actual CPU time used in executing the process. Other processes and time the process spends blocked do not count towards this figure
+  * Sys is the amount of CPU time spent _in the kernel for the process_. This means executing CPU time spent in system calls within the kernel, as opposed to library code, which is still running in user-space
+* CPU usage in percent 
+* Resident set size (RSS), the amount of memory occupied in RAM by the most relevant process
+
+Example: `load: 0.62  cmd: sleep 1739 [nanslp] 2.97r 0.00u 0.00s 0% 2168k`
 
 ### Boot in verbose mode
 
