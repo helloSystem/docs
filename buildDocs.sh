@@ -37,7 +37,8 @@ export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
 # build our documentation with sphinx (see ./conf.py)
 # * https://www.sphinx-doc.org/en/master/usage/quickstart.html#running-the-build
 make clean
-make html
+# make html
+make dirhtml
 make epub
 make qthelp
 qcollectiongenerator _build/qthelp/*.qhcp
