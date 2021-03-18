@@ -88,3 +88,19 @@ As a result we have a patch:
    }
    else
 ```
+
+## Making packages
+
+Optionally, make packages for the ports. Note that `make build` needs to have run already before this step.
+
+```
+# Library
+cd /usr/ports/x11-toolkits/qtermwidget/
+sudo make package
+ls work/pkg
+
+# Application
+cd /usr/ports/x11/qterminal
+sudo make package
+ls work/pkg
+```
