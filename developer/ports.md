@@ -128,7 +128,7 @@ First, prepare the Ports environment:
 
 ```
 sudo bash
-pkg install portlint
+pkg install portlint subversion
 echo DEVELOPER=yes >> /etc/make.conf
 portsnap fetch extract update # Run this from time to time
 ```
@@ -239,3 +239,11 @@ make deinstall
 None of these must produce errors. See [3.4. Testing the Port](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/porting-testing.html) for details.
 
 At this point it may be a good idea to have an experienced FreeBSD Ports developer have a look at your new port.
+
+Once everything looks good, prepare a `.shar` file for submitting it to https://bugs.freebsd.org/submit/:
+
+```
+rm -rf work/
+cd ..
+tar cf  fluxengine.shar --format shar fluxengine
+```
