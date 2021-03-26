@@ -117,7 +117,7 @@ ls work/pkg
 
 ## Creating a port from scratch
 
-The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/quick-porting.html#porting-makefile) is the authoritative source on how to write Ports. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
+The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/quick-porting.html#porting-makefile) is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
 
 
 ``` .. note::
@@ -182,6 +182,7 @@ Notes
 * See [5.2. Naming](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/makefile-naming.html) for naming and versioning conventions
 * The lines must be in a defined order. Run `portlint` to get information on this and re-order until it no longer complains
 * Run `make stage-qa` to find out dependencies
+* The `do-install` section is needed in this example because there is no `make install` in the original software's Makefile
 
 Create `pkg-descr` based on the description on the GitHub [README.md](https://github.com/davidgiven/fluxengine):
 
@@ -236,3 +237,5 @@ make deinstall
 ```
 
 None of these must produce errors. See [3.4. Testing the Port](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/porting-testing.html) for details.
+
+At this point it may be a good idea to have an experienced FreeBSD Ports developer have a look at your new port.
