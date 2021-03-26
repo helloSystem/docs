@@ -114,3 +114,125 @@ cd /usr/ports/x11/qterminal
 sudo make package
 ls work/pkg
 ```
+
+## Creating a port from scratch
+
+The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/quick-porting.html#porting-makefile) is the authoritative source on how to write Ports. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
+
+
+``` .. note::
+    This section is a work in progress. Corrections are welcome.
+```
+
+First, prepare the Ports environment:
+
+```
+sudo bash
+pkg install portlint
+echo DEVELOPER=yes >> /etc/make.conf
+portsnap fetch extract update # Run this from time to time
+```
+
+Next, create a directory for the new port:
+
+```
+mkdir /usr/ports/sysutils/fluxengine
+cd /usr/ports/sysutils/fluxengine
+```
+
+Create `Makefile` with the following content:
+
+```
+# $FreeBSD$
+
+PORTNAME=       fluxengine
+DISTVERSION=    572
+CATEGORIES=     sysutils
+
+MAINTAINER=     probono@puredarwin.org
+COMMENT=        USB floppy disk interface for reading and writing non-PC disk formats
+
+LICENSE=        MIT
+
+LIB_DEPENDS=    libsqlite3.so:databases/sqlite3 \
+                libstdc++.so:lang/gcc9
+
+BUILD_DEPENDS=  ninja:devel/ninja
+
+USES=           gmake
+
+USE_GITHUB=     yes
+GH_ACCOUNT=     davidgiven
+GH_TAGNAME=     61ff48c
+
+PLIST_FILES=    bin/brother120tool \
+                bin/brother240tool \
+                bin/fluxengine
+
+do-install:
+        ${INSTALL_PROGRAM} ${WRKSRC}/brother120tool ${STAGEDIR}${PREFIX}/bin/
+        ${INSTALL_PROGRAM} ${WRKSRC}/brother240tool ${STAGEDIR}${PREFIX}/bin/
+        ${INSTALL_PROGRAM} ${WRKSRC}/fluxengine ${STAGEDIR}${PREFIX}/bin/
+
+.include <bsd.port.mk>
+```
+
+Notes
+* See `ls /usr/ports/` for possible categories, such as `sysutils`
+* See [5.2. Naming](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/makefile-naming.html) for naming and versioning conventions
+* The lines must be in a defined order. Run `portlint` to get information on this and re-order until it no longer complains
+* Run `make stage-qa` to find out dependencies
+
+Create `pkg-descr` based on the description on the GitHub [README.md](https://github.com/davidgiven/fluxengine):
+
+```
+The FluxEngine is a very cheap USB floppy disk interface capable of
+reading and writing exotic non-PC floppy disk formats.
+It allows you to use a conventional PC drive to accept Amiga disks,
+CLV Macintosh disks, bizarre 128-sector CP/M disks,
+and other weird and bizarre formats.
+ :
+The hardware consists of a single, commodity part with a floppy drive
+connector soldered onto it. No ordering custom boards,
+no fiddly surface mount assembly, and no fuss:
+nineteen simpler solder joints and you're done.
+
+WWW: http://cowlark.com/fluxengine/
+```
+
+Notes
+* For details please refer to [3.2. Writing the Description Files](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/porting-desc.html).
+
+Create the checksum file by running
+
+```
+ALLOW_UNSUPPORTED_SYSTEM=YES make makesum
+```
+
+Check the Makefile with
+
+```
+portlint
+```
+
+and correct any mistakes it reports, then repeat.
+
+Once `portlint` says `looks fine`, try to build by running
+
+```
+ALLOW_UNSUPPORTED_SYSTEM=YES make
+```
+
+Note that the compilation will fail. This is because in this case the application needs to be built with `gmake` rather than `make`.
+
+Run tests
+
+```
+make stage
+make stage-qa
+make package
+make install
+make deinstall
+```
+
+None of these must produce errors. See [3.4. Testing the Port](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/porting-testing.html) for details.
