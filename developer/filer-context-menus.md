@@ -338,6 +338,7 @@ Another choice might also be:
 
 </table>
 
+
 ## Profile definition
 
 Profile is identified by its _profile_id_, as an ASCII string.
@@ -471,6 +472,7 @@ Defaults to empty: the command will be executed as the current user.</td>
 </tbody>
 
 </table>
+
 
 ## Menu definition
 
@@ -640,6 +642,7 @@ Actions or menus not identified here, or not identified as subitems of a menu or
 </tbody>
 
 </table>
+
 
 ## Conditions
 
@@ -965,6 +968,7 @@ Defaults to an empty list (do not care of capabilities).
 </tbody>
 
 </table>
+
 
 ## Parameters
 
@@ -1362,6 +1366,7 @@ ignored else</td>
 </tbody>
 
 </table>
+
 
 ## Building the whole hierarchy
 
