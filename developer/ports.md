@@ -117,7 +117,7 @@ ls work/pkg
 
 ## Creating a port from scratch
 
-The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/quick-porting.html#porting-makefile) is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
+The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/) is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
 
 
 ``` .. note::
