@@ -4,8 +4,13 @@ It is possible to extend Filer context menu items by writing files that conform 
 
 ``` .. note::
     Filer inherits its DES-EMA implementation from PCManFM, but may use a different format in the future.
-It still needs to be verified which portions have actually been implemented in Filer, so currently this page describes functionality which may or may not be implemented in Filer. Corrections are welcome.
+    
+    It still needs to be verified which portions have actually been implemented in Filer, so currently this page describes functionality which may or may not be implemented in Filer. Corrections are welcome.
 ```
+
+Changes take effect after a restart of Filer. To restart Filer:
+1. Press Ctrl+Alt+Esc and click on the Desktop to force-quit it
+2. Press Alt+F2 and enter `launch Filer --desktop` to start it again
 
 ## Examples
 
