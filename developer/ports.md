@@ -127,7 +127,7 @@ The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en/books/porters-handbo
 First, prepare the Ports environment:
 
 ```
-sudo bash
+sudo su
 pkg install portlint subversion
 echo DEVELOPER=yes >> /etc/make.conf
 portsnap fetch extract update # Run this from time to time
