@@ -117,7 +117,7 @@ ls work/pkg
 
 ## Creating a port from scratch
 
-The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/) is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
+The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en/books/porters-handbook/) is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
 
 
 ``` .. note::
@@ -179,7 +179,7 @@ do-install:
 
 Notes
 * See `ls /usr/ports/` for possible categories, such as `sysutils`
-* See [5.2. Naming](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/makefile-naming.html) for naming and versioning conventions
+* See [5.2. Naming](https://docs.freebsd.org/en/books/porters-handbook/makefile-naming.html) for naming and versioning conventions
 * The lines must be in a defined order. Run `portlint` to get information on this and re-order until it no longer complains
 * Run `make stage-qa` to find out dependencies
 * The `do-install` section is needed in this example because there is no `make install` in the original software's Makefile
@@ -202,7 +202,7 @@ WWW: http://cowlark.com/fluxengine/
 ```
 
 Notes
-* For details please refer to [3.2. Writing the Description Files](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/porting-desc.html).
+* For details please refer to [3.2. Writing the Description Files](https://docs.freebsd.org/en/books/porters-handbook/porting-desc.html).
 
 Create the checksum file by running
 
@@ -236,7 +236,7 @@ make install
 make deinstall
 ```
 
-None of these must produce errors. See [3.4. Testing the Port](https://docs.freebsd.org/en_US.ISO8859-1/books/porters-handbook/porting-testing.html) for details.
+None of these must produce errors. See [3.4. Testing the Port](https://docs.freebsd.org/en/books/porters-handbook/porting-testing.html) for details.
 
 At this point it may be a good idea to have an experienced FreeBSD Ports developer have a look at your new port.
 
