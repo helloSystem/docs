@@ -58,6 +58,7 @@ Please note:
 
 * The VM needs to be __64-bit__
 * The VM needs __at least 4 GB of RAM__
+* The VM needs __at least 2 CPU cores__
 * The boot process takes longer than you might expect; boot in verbose mode to see the details
 * For best results set **EFI/UEFI** boot mode (not BIOS)
 
