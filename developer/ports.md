@@ -188,7 +188,7 @@ Notes
 * See `ls /usr/ports/` for possible categories, such as `sysutils`
 * See [5.2. Naming](https://docs.freebsd.org/en/books/porters-handbook/makefile-naming.html) for naming and versioning conventions
 * The lines must be in a defined order. Run `portlint` to get information on this and re-order until it no longer complains
-* Run `make stage-qa` to find out dependencies
+* Run `make stage-qa` to find out dependencies. Using something like `make stage-qa 2>&1 | grep "you need" | sort | uniq | cut -d " " -f 4` can speed this up
 * The `do-install` section is needed in this example because there is no `make install` in the original software's Makefile
 
 Create `pkg-descr` based on the description on the GitHub [README.md](https://github.com/davidgiven/fluxengine):
