@@ -25,6 +25,12 @@ sudo portsnap fetch update
 sudo portsnap extract
 ```
 
+If you are running an end-of-life FreeBSD version such as 12.1, you also need to
+
+```
+export ALLOW_UNSUPPORTED_SYSTEM=1
+```
+
 ## Building the port without changes
 
 Build the port without changes first to ensure it builds and works as expected.
@@ -34,11 +40,11 @@ Build the port without changes first to ensure it builds and works as expected.
 # NOTE: Applications that have a library that is used by nothing but that application are just
 # annoying because now you have to deal with two entities rather than one
 cd /usr/ports/x11-toolkits/qtermwidget/
-MAKE_JOBS_UNSAFE=yes ALLOW_UNSUPPORTED_SYSTEM=1 sudo -E make -j4
+MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
 # Build the application
 cd /usr/ports/x11/qterminal
-QTermWidget5_DIR=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/cmake/qtermwidget5/  MAKE_JOBS_UNSAFE=yes ALLOW_UNSUPPORTED_SYSTEM=1 sudo -E make -j4
+QTermWidget5_DIR=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/cmake/qtermwidget5/  MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
 # Run the application with the changed library
 LD_LIBRARY_PATH=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/ /usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
@@ -70,7 +76,7 @@ sudo make makepatch
 
 # Build the library again
 # sudo make clean # Run this only if the next line does nothing
-MAKE_JOBS_UNSAFE=yes ALLOW_UNSUPPORTED_SYSTEM=1 sudo -E make -j4
+MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
 # Run the application with the changed library
 LD_LIBRARY_PATH=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/ /usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
@@ -128,6 +134,7 @@ First, prepare the Ports environment:
 
 ```
 sudo su
+export ALLOW_UNSUPPORTED_SYSTEM=YES
 pkg install portlint subversion
 echo DEVELOPER=yes >> /etc/make.conf
 portsnap fetch extract update # Run this from time to time
@@ -207,7 +214,7 @@ Notes
 Create the checksum file by running
 
 ```
-ALLOW_UNSUPPORTED_SYSTEM=YES make makesum
+make makesum
 ```
 
 Check the Makefile with
@@ -221,7 +228,7 @@ and correct any mistakes it reports, then repeat.
 Once `portlint` says `looks fine`, try to build by running
 
 ```
-ALLOW_UNSUPPORTED_SYSTEM=YES make
+make
 ```
 
 Note that the compilation will fail. This is because in this case the application needs to be built with `gmake` rather than `make`.
