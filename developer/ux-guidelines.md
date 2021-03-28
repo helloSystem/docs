@@ -27,3 +27,7 @@ average distance required to reach the top of a 19 inch diagonal screen, yet the
 more efficient to place menus at the top of the window
 
 Source: Walker, N & Smelcer, JB 1990, A comparison of selection times from walking and pull-down menus. in JC Chew & J Whiteside (eds), Proceedings of the SIGCHI Conference on Human Factors in Computing Systems, CHI 1990. Association for Computing Machinery, pp. 221-225, 1990 SIGCHI Conference on Human Factors in Computing Systems, CHI 1990, Seattle, United States, 4/1/90. https://dl.acm.org/doi/pdf/10.1145/97243.97277
+
+## Avoiding configuration options
+
+Configuration options add complexity to software, increase the test matrix, and make software harder to support (e.g., over the phone) because no two systems behave exactly the same way depending on how they were configured. Hence in helloSystem we want to avoid unnecessary user-facing configuration options whenever possible. But in return, we take great care to set sensible defaults and make things "just work" as expected (in line with our design objectives) out of the box, without the need for configuration.
