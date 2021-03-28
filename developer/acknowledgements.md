@@ -101,4 +101,4 @@ __[moochris](https://github.com/moochris)__
 __[crees](https://github.com/__crees)__
 * Made it possible to use a fixed Intel GPU driver for FreeBSD 12.2 from a private package
 * Created a package for the Falkon browser that does not pull in many KDE dependencies
-* Helped updating required FreeBSD ports
+* Updated required FreeBSD ports and helped writing new ports
