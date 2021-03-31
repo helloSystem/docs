@@ -11,7 +11,7 @@ Binary compatibility is an important concept in software engineering. It allows 
  The Application Binary Interface (ABI) defines which applications can run on which systems. The two main factors in determining application compatibility are the FreeBSD version (e.g., `12.x`) and the version of packages (e.g., `quarterly`).
  
  * Applications compiled on one major version of FreeBSD are expected to run on subsequent minor versions of the same major version of FreeBSD if the packages of the dependencies on the target system are no older than on the build system. __Example:__ An application compiled on FreeBSD 12.0 is expected to run on FreeBSD 12.1 and 12.2 if the packages of the dependencies on the target system are no older than on the build system 
- * Applications compiled on one major version of FreeBSD are expected to run on subsequent major versions of FreeBSD if compatiblity libraries are installed. __Example:__ An application compiled on FreeBSD 3.2 is expected to run on FreeBSD 14 if compatiblity libraries are installed.
+ * Applications compiled on one major version of FreeBSD are expected to run on subsequent major versions of FreeBSD if compatiblity libraries are installed. __Example:__ An application compiled on FreeBSD 3.2 is expected to run on FreeBSD 14 if compatibility libraries are installed. __But__ this is what happens when you try to install a package built on FreeBSD 12 on a FreeBSD 13 machine: `pkg-static: wrong architecture: FreeBSD:12:amd64 instead of FreeBSD:13:amd64`; apparently `pkg` does not make use of the combatibility assumption.
  
  
 ### Recommendation for building binary compatible applications
