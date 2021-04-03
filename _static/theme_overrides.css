@@ -129,6 +129,7 @@ div[class^="highlight"] pre {
         padding: unset;
         background: inherit;
         font-size: 85%;
+	font-family: "Courier New", Courier, monospace
     }
 
     .rst-content tt.literal,.rst-content tt.literal,.rst-content code.literal {
