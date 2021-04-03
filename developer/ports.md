@@ -29,6 +29,8 @@ If you are running an end-of-life FreeBSD version such as 12.1, you also need to
 
 ```
 export ALLOW_UNSUPPORTED_SYSTEM=1
+# Or in csh
+setenv ALLOW_UNSUPPORTED_SYSTEM YES
 ```
 
 ## Building the port without changes
@@ -135,6 +137,8 @@ First, prepare the Ports environment:
 ```
 sudo su
 export ALLOW_UNSUPPORTED_SYSTEM=YES
+# or on csh
+setenv ALLOW_UNSUPPORTED_SYSTEM YES
 pkg install portlint subversion
 echo DEVELOPER=yes >> /etc/make.conf
 portsnap fetch extract update # Run this from time to time
