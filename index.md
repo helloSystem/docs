@@ -50,6 +50,7 @@ __hello__ (also known as __helloSystem__) is a desktop system for creators with 
    developer/tracing
    developer/localization
    developer/ports
+   developer/base
    developer/distributions
    developer/acknowledgements
    developer/contact
