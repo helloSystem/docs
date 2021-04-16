@@ -282,6 +282,8 @@ The Falkon browser can be launched on a Raspberry Pi 4 with 512 MB RAM, but tryi
     Please let us know the results with Raspberry Pi models that have more memory.
 ```
 
+How do projects like https://github.com/TOLDOTECHNIK/buildroot-webkit manage to do web browsing and video playing in a browser on the Raspberry Pi?
+
 ``` .. note::
     Please let us know if you know how to use RAM compression on FreeBSD.
 ```
