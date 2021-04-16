@@ -1,6 +1,6 @@
 # Raspberry Pi
 
-![](https://pbs.twimg.com/media/EzHBt3WXEAMq1Un?format=jpg&name=small)
+![](https://camo.githubusercontent.com/9e96cf15fbd387092abc4fd6ede84e29cee79892d4d912d0a44b63ca7fe8cb5e/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f457a48427433575845414d7131556e3f666f726d61743d6a7067266e616d653d736d616c6c)
 
 Although we are currently not providing installation images for Raspberry Pi, we are investigating whether doing so would be feasible and beneficial.
 
