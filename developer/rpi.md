@@ -1,8 +1,12 @@
 # Raspberry Pi
 
+![](https://pbs.twimg.com/media/EzHBt3WXEAMq1Un?format=jpg&name=small)
+
 Although we are currently not providing installation images for Raspberry Pi, we are investigating whether doing so would be feasible and beneficial.
 
-__NOTE:__ This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject
+``` .. note::
+    This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject.
+```
 
 This page describes how to run the main components of helloSystem (referred to collectively as helloDesktop) on Raspberry Pi 3 and Raspberry Pi 4 devices, starting with the official FreeBSD 13 image that does not even contain Xorg.
 
@@ -32,7 +36,9 @@ framebuffer_height=1080
 disable_overscan=1
 ```
 
-__NOTE:__ Please let us know if you know how to get screen resolution autodetection working on FreeBSD with Raspberry Pi
+``` .. note::
+    Please let us know if you know how to get screen resolution autodetection working on FreeBSD with Raspberry Pi
+```
 
 ## Booting into the system
 
@@ -108,7 +114,9 @@ ln -s /usr/local/bin/filer-qt /usr/local/bin/Filer # Workaround for the 'launch'
 cd ../../
 ```
 
-__NOTE:__ It seems like Filer refuses to start if D-Bus is missing. We should change it so that it can also work without D-Bus and at prints a clear warning if D-Bus is missing. Currently all you see if D-Bus is missing is the following: `** (process:3691): WARNING **:  The directory '~/Templates' doesn't exist, ignoring it`, and then Filer exits
+``` .. note::
+    It seems like Filer refuses to start if D-Bus is missing. We should change it so that it can also work without D-Bus and at prints a clear warning if D-Bus is missing. Currently all you see if D-Bus is missing is the following: '** (process:3691): WARNING **:  The directory '~/Templates' doesn't exist, ignoring it', and then Filer exits.
+```
 
 ### Dock
 
@@ -176,7 +184,9 @@ Proceed similarly for the cursor theme, wallpaper, applications from the helloSy
 
 Install every package that is not commented out in https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/packages.hello that are installable.
 
-__NOTE:__ Not every package will be installable. This probably means that the package in question has not been compiled for the `aarch64` architecture on FreeBSD 13 yet.
+``` .. note::
+    Not every package will be installable. This probably means that the package in question has not been compiled for the `aarch64` architecture on FreeBSD 13 yet.
+```
 
 To enable `automount`, run `service devd restart`.
 
@@ -190,11 +200,13 @@ cp -Rfv ISO/overlays/uzip/openbox-theme/files/ /
 cp -Rfv ISO/overlays/uzip/mountarchive/files/ / 
 ```
 
-__NOTE:__ If we provided the temporary packages that are used in the helloSystem ISO build process for download, then one could just install those instead of having to do the above
+``` .. note::
+    If we provided the temporary packages that are used in the helloSystem ISO build process for download, then one could just install those instead of having to do the above
+```
 
 ### Editing start-hello
 
-Edit the `start-hello` script
+Edit the `start-hello` script to use the `launch` command instead of hardcoding `/Applications/...`.
 
 ```
 #################################
@@ -222,7 +234,9 @@ cp -r /home/user/.config/* .config/
 
 ## Known issues
 
-__NOTE:__ Any help in improving the situation is appreciated.
+``` .. note::
+    Any help in improving the situation is appreciated.
+```
 
 ### Missing login window
 
@@ -232,7 +246,9 @@ The `slim` package is missing, hence we don't have a login window at the moment.
 
 We could not get drop shadows to work yet.
 
-__NOTE:__ Please let us know if you know how to enable compositing on FreeBSD on the Raspberry Pi
+``` .. note::
+    Please let us know if you know how to enable compositing on FreeBSD on the Raspberry Pi.
+```
 
 ### Lacking functionality due to missing packages
 
@@ -262,6 +278,10 @@ What is supposed to provide `/var/run/dbus/system_bus_socket` and why are we mis
 
 The Falkon browser can be launched on a Raspberry Pi 4 with 512 MB RAM, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash, presumably due to a lack of memory.
 
-__NOTE:__ Please let us know the results with Raspberry Pi models that have more memory
+``` .. note::
+    Please let us know the results with Raspberry Pi models that have more memory.
+```
 
-__NOTE:__ Please let us know if you know how to use RAM compression on FreeBSD
+``` .. note::
+    Please let us know if you know how to use RAM compression on FreeBSD.
+```
