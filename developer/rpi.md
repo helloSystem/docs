@@ -201,8 +201,18 @@ cp -Rfv ISO/overlays/uzip/mountarchive/files/ /
 ```
 
 ``` .. note::
-    If we provided the temporary packages that are used in the helloSystem ISO build process for download, then one could just install those instead of having to do the above
+    If we provided the temporary packages that are used in the helloSystem ISO build process for download, then one could just install those instead of having to do the above.
 ```
+
+## Adjusting fstab
+
+Edit `/etc/fstab` to look like this:
+
+```
+/dev/mmcsd0s2a  /       ufs     rw      0       0
+```
+
+Otherwise the root device may not be found upon reboot.
 
 ### Editing start-hello
 
