@@ -315,3 +315,7 @@ If yes, then we should do something like this as early in the boot process as po
 ``` .. note::
     Please let us know if you know how to use RAM compression on FreeBSD.
 ```
+
+``` .. note::
+    Do not use ZFS on memory-constrained machines.
+```
