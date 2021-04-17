@@ -297,6 +297,8 @@ The Falkon browser can be launched on a Raspberry Pi 4 with 1 GB RAM, but trying
 
 How do projects like the official Raspberry Pi OS (Debian based desktop) manage to do web browsing and video playing in a browser on the Raspberry Pi?
 
+### RAM compression
+
 On Linux, there is also __zram__ which is enabled by default on Android and Chromium OS. Did anything ever come out of https://wiki.freebsd.org/SummerOfCode2019Projects/VirtualMemoryCompression?
 
 macOS also does RAM compression when memory is getting low: https://www.lifewire.com/understanding-compressed-memory-os-x-2260327.
