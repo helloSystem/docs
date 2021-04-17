@@ -255,13 +255,9 @@ Also see: https://papers.freebsd.org/2019/bsdcan/vadot-adventure_in_drmland/
 
 The `slim` package is missing, hence we don't have a login window at the moment.
 
-### Missing drop shadows
+### Missing Zeroconf
 
-We could not get drop shadows to work yet.
-
-``` .. note::
-    Please let us know if you know how to enable compositing on FreeBSD on the Raspberry Pi.
-```
+`avahi-daemon` seems not to be available for `aarch64` yet, preventing services from being announced and being browsed.
 
 ### Lacking functionality due to missing packages
 
