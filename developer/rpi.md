@@ -241,7 +241,6 @@ cp -r /home/user/.config/* .config/
 ### No 3D graphics and video acceleration
 
 * Very low FPS video
-* No drop shadows rendered by a compositor
 * No 3D acceleration
 
 Not sure whether `vc4-kms-v3d` is usable with FreeBSD.
