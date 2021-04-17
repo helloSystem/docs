@@ -214,6 +214,15 @@ Edit `/etc/fstab` to look like this:
 
 Otherwise the root device may not be found upon reboot.
 
+### Enabling D-Bus and Avahi
+
+Zeroconf  does not work if `/usr/local/bin/dbus-daemon --system` is not running. hence add the following lines to `/etc/rc.conf' to enable it:
+
+```
+dbus_enable="YES"
+avahi_enable="YES" 
+```
+
 ### Editing start-hello
 
 Edit the `start-hello` script to use the `launch` command instead of hardcoding `/Applications/...`.
@@ -266,24 +275,6 @@ Also see: https://papers.freebsd.org/2019/bsdcan/vadot-adventure_in_drmland/
 ### Missing login window
 
 The `slim` package is missing, hence we don't have a login window at the moment.
-
-### Zeroconf may need some work
-
-`avahi-daemon` does not run if `/usr/local/bin/dbus-daemon --system` is not running, due to
-
-```
-dbus_bus_get_private(): Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
-WARNING: Failed to contact D-Bus daemon.
-avahi-daemon 0.8 exiting.
-```
-
-Something (most likely `/usr/local/etc/rc.d/dbus`) is supposed to start `/usr/local/bin/dbus-daemon --system` as root, which in turn creates  `/var/run/dbus/system_bus_socket`.
-
-Add the following lines to `/etc/rc.conf' to enable it:
-
-```
-dbus_enable="YES"
-```
 
 ### Web browser
 
