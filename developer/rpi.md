@@ -238,6 +238,18 @@ cp -r /home/user/.config/* .config/
     Any help in improving the situation is appreciated.
 ```
 
+### No 3D graphics and video acceleration
+
+* Very low FPS video
+* No drop shadows rendered by a compositor
+* No 3D acceleration
+
+Not sure whether `vc4-kms-v3d` is usable with FreeBSD.
+
+``` .. note::
+    Any help in improving Raspberry Pi graphics on FreeBSD appreciated.
+```
+
 ### Missing login window
 
 The `slim` package is missing, hence we don't have a login window at the moment.
