@@ -249,6 +249,8 @@ Not sure whether `vc4-kms-v3d` is usable with FreeBSD.
     Any help in improving Raspberry Pi graphics on FreeBSD appreciated.
 ```
 
+Also see: https://papers.freebsd.org/2019/bsdcan/vadot-adventure_in_drmland/
+
 ### Missing login window
 
 The `slim` package is missing, hence we don't have a login window at the moment.
