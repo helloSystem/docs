@@ -303,17 +303,15 @@ macOS also does RAM compression when memory is getting low: https://www.lifewire
 
 Windows also does RAM compression: https://www.tenforums.com/windows-10-news/17993-windows-10-memory-compression.html.
 
-Will this work?
+The following seems to "work" but can make the Raspberry Pi unacceptably slow:
 
 ```
-mdconfig -a -t malloc -o compress -o reserve -s 512m -u 7
+mdconfig -a -t malloc -o compress -o reserve -s 700m -u 7
 swapon /dev/md7
 ```
 
-If yes, then we should do something like this as early in the boot process as possible with as much RAM as possible.
-
 ``` .. note::
-    Please let us know if you know how to use RAM compression on FreeBSD.
+    Please let us know if you know how to properly use RAM compression on FreeBSD.
 ```
 
 ``` .. note::
