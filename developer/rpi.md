@@ -221,7 +221,9 @@ echo start-hello > ~/.xinitrc
 killall Xorg
 ```
 
-Type `startx` to start an Xorg session; it should now load a helloDesktop session
+Type `startx` to start an Xorg session; it should now load a helloDesktop session.
+
+Sometimes it does not load all the way, in this case it is necessary to start xterm (right-click the desktop) and invoke `start-hello` from there again. The reason for this is unknown.
 
 ### Adding a user
 
