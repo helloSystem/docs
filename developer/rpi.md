@@ -299,6 +299,8 @@ How do projects like the official Raspberry Pi OS (Debian based desktop) manage 
 
 On Linux, there is also __zram__ which is enabled by default on Android and Chromium OS. Did anything ever come out of https://wiki.freebsd.org/SummerOfCode2019Projects/VirtualMemoryCompression?
 
+macOS also does RAM compression when memory is getting low: https://www.lifewire.com/understanding-compressed-memory-os-x-2260327
+
 ``` .. note::
     Please let us know if you know how to use RAM compression on FreeBSD.
 ```
