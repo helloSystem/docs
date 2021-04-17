@@ -255,7 +255,7 @@ Also see: https://papers.freebsd.org/2019/bsdcan/vadot-adventure_in_drmland/
 
 The `slim` package is missing, hence we don't have a login window at the moment.
 
-### Missing Zeroconf
+### Zeroconf may need some work
 
 `avahi-daemon` does not run if `/usr/local/bin/dbus-daemon --system` is not running, due to
 
