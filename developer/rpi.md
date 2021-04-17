@@ -265,8 +265,13 @@ WARNING: Failed to contact D-Bus daemon.
 avahi-daemon 0.8 exiting.
 ```
 
-Something (what?) is supposed to start `/usr/local/bin/dbus-daemon --system` as root, which in turn creates  `/var/run/dbus/system_bus_socket`.
-D-Bus is so complicated and undocumented (when not used with `systemd`).
+Something (most likely `/usr/local/etc/rc.d/dbus`) is supposed to start `/usr/local/bin/dbus-daemon --system` as root, which in turn creates  `/var/run/dbus/system_bus_socket`.
+
+Add the following lines to `/etc/rc.conf' to enable it:
+
+```
+dbus_enable="YES"
+```
 
 ### Web browser
 
