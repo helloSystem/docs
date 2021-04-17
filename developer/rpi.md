@@ -289,7 +289,19 @@ What is supposed to provide `/var/run/dbus/system_bus_socket` and why are we mis
 
 ### Web browser
 
-The Falkon browser can be launched on a Raspberry Pi 4 with 1 GB RAM, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash, presumably due to a lack of memory.
+The Falkon browser can be launched on a Raspberry Pi 4 with 1 GB RAM, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash, possibly due to a lack of memory:
+
+```
+# cat /root/.config/falkon/crashlog/Crash-2021-04-17T10:21:20.txt
+Time: Sa. Apr. 17 10:21:20 2021
+Qt version: 5.15.2 (compiled with 5.15.2)
+Falkon version: 3.1.0
+Rendering engine: QtWebEngine
+
+============== BACKTRACE ==============
+#0: 0x213810 <???> at /usr/local/bin/falkon
+#1: 0x499b4994 <_pthread_sigmask+0x524> at /lib/libthr.so.3
+```
 
 ``` .. note::
     Please let us know the results with Raspberry Pi models that have more memory.
