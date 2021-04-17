@@ -257,29 +257,16 @@ The `slim` package is missing, hence we don't have a login window at the moment.
 
 ### Missing Zeroconf
 
-`avahi-daemon` seems not to run due to the D-Bus issue below.
-
-### D-Bus issues
-
-Something is not quite right:
+`avahi-daemon` does not run if `/usr/local/bin/dbus-daemon --system` is not running, due to
 
 ```
-root@generic:~ # /usr/local/sbin/avahi-daemon
-Found user 'avahi' (UID 558) and group 'avahi' (GID 558).
-Successfully dropped root privileges.
-avahi-daemon 0.8 starting up.
-WARNING: No NSS support for mDNS detected, consider installing nss-mdns!
 dbus_bus_get_private(): Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
 WARNING: Failed to contact D-Bus daemon.
 avahi-daemon 0.8 exiting.
 ```
 
-D-Bus is so complicated.
-What is supposed to provide `/var/run/dbus/system_bus_socket` and why are we missing it?
-
-``` .. note::
-    Please let us know if you know how to get D-Bus working properly.
-```
+Something (what?) is supposed to start `/usr/local/bin/dbus-daemon --system` as root, which in turn creates  `/var/run/dbus/system_bus_socket`.
+D-Bus is so complicated and undocumented (when not used with `systemd`).
 
 ### Web browser
 
