@@ -257,13 +257,7 @@ The `slim` package is missing, hence we don't have a login window at the moment.
 
 ### Missing Zeroconf
 
-`avahi-daemon` seems not to be available for `aarch64` yet, preventing services from being announced and being browsed.
-
-### Lacking functionality due to missing packages
-
-Due to missing packages in FreeBSD for `aarch64`, some functionality is currently unavailable, including:
-* Global keyboard shortcuts
-* Screenshots
+`avahi-daemon` seems not to run due to the D-Bus issue below.
 
 ### D-Bus issues
 
@@ -282,6 +276,10 @@ avahi-daemon 0.8 exiting.
 
 D-Bus is so complicated.
 What is supposed to provide `/var/run/dbus/system_bus_socket` and why are we missing it?
+
+``` .. note::
+    Please let us know if you know how to get D-Bus working properly.
+```
 
 ### Web browser
 
