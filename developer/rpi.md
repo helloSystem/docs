@@ -276,7 +276,7 @@ What is supposed to provide `/var/run/dbus/system_bus_socket` and why are we mis
 
 ### Web browser
 
-The Falkon browser can be launched on a Raspberry Pi 4 with 512 MB RAM, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash, presumably due to a lack of memory.
+The Falkon browser can be launched on a Raspberry Pi 4 with 1 GB RAM, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash, presumably due to a lack of memory.
 
 ``` .. note::
     Please let us know the results with Raspberry Pi models that have more memory.
