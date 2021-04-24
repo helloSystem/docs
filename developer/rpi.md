@@ -87,7 +87,7 @@ cd ../../
 ### Menu
 
 ```
-pkg install -y git-lite cmake pkgconf qt5-qmake qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem libdbusmenu-qt5
+pkg install -y git-lite cmake pkgconf qt5-qmake qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem libdbusmenu-qt5 qt5-concurrent qt5-quickcontrols2
 git clone https://github.com/helloSystem/Menu
 cd Menu
 mkdir build
