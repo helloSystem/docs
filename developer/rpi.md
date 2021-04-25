@@ -4,6 +4,8 @@
 
 Although we are currently not providing installation images for Raspberry Pi, we are investigating whether doing so would be feasible and beneficial.
 
+The same insructions are roughly applicable to other aarch64 based systems such as rk3399 ones like the PineBook Pro and the [pine64 rockpro64_rk3399](https://bsd-hardware.info/?id=board:pine64-pinebook-pro-rk3399) as well.
+
 ``` .. note::
     This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject.
 ```
@@ -278,7 +280,7 @@ The `slim` package is missing, hence we don't have a login window at the moment.
 
 ### Web browser
 
-The Falkon browser can be launched on a Raspberry Pi 4 with 1 GB RAM, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash, possibly due to a lack of memory:
+The Falkon browser can be launched, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash:
 
 ```
 # cat /root/.config/falkon/crashlog/Crash-2021-04-17T10:21:20.txt
@@ -293,7 +295,7 @@ Rendering engine: QtWebEngine
 ```
 
 ``` .. note::
-    Please let us know the results with Raspberry Pi models that have more memory.
+    The exact same crash also happens on a RockPro64 with 4GB of RAM.
 ```
 
 How do projects like the official Raspberry Pi OS (Debian based desktop) manage to do web browsing and video playing in a browser on the Raspberry Pi?
