@@ -53,7 +53,7 @@ We will be doing all subsequent steps on the Raspberry Pi system itself since we
 * Power on the Raspberry Pi
 * After some time you should land in a login screen
 * Log in with `root`, password `root`
-* Install some basic software with `pkg install -y xorg xterm nano openbox fluxbox`
+* Install some basic software with `pkg install -y xorg xterm nano openbox fluxbox git-lite`
 
 __NOTE:__ `fluxbox` is not strictly needed and can be removed later on, but it gives us a graphical desktop session while we are working on installing helloDesktop
 
@@ -89,7 +89,7 @@ cd ../../
 ### Menu
 
 ```
-pkg install -y git-lite cmake pkgconf qt5-qmake qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem libdbusmenu-qt5 qt5-concurrent qt5-quickcontrols2
+pkg install -y cmake pkgconf qt5-qmake qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem libdbusmenu-qt5 qt5-concurrent qt5-quickcontrols2
 git clone https://github.com/helloSystem/Menu
 cd Menu
 mkdir build
@@ -131,7 +131,8 @@ cd build
 cmake ..
 make -j4
 make install
-ln -s /usr/local/bin/cyber-dock /usr/local/bin/Dock # Workaround for the 'launch' command to find it
+# Currently Dock is installed to /usr/bin/cyber-dock. In the future is should be in /usr/local/bin/.
+ln -s /usr/bin/cyber-dock /usr/local/bin/Dock # Workaround for the 'launch' command to find it
 cd ../../
 ```
 
@@ -146,13 +147,13 @@ pkg install -y libqtxdg
 cmake ..
 make -j4
 make install
-cp stylesheet.qss /usr/local/etc/xdg/
+cp ../stylesheet.qss /usr/local/etc/xdg/
 cd ../../
 ```
 
 ### Icons and other assets
 
-Install icons and other helloSystem assets that are not packaged as FreeBSD packages (yet). It is easiest to run `bash`, then `export uzip=/`, and then run the corresponding sections of https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/script.hello. Here are some examples.
+Install icons and other helloSystem assets that are not packaged as FreeBSD packages (yet). It is easiest to run `bash`, then `export uzip=/`, and then run the corresponding sections of [script.hello](https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/script.hello). Here are some examples.
 
 For the system icons:
 
@@ -184,10 +185,19 @@ Proceed similarly for the cursor theme, wallpaper, applications from the helloSy
 
 ### Installing required packages
 
-Install every package that is not commented out in https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/packages.hello that are installable.
+Install every package that is not commented out in [packages.hello](https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/packages.hello) that are installable.
 
 ``` .. note::
     Not every package will be installable. This probably means that the package in question has not been compiled for the `aarch64` architecture on FreeBSD 13 yet.
+```
+
+You can use this script to automatically install all listed packages:
+
+```sh
+url="https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/packages.hello"
+curl -fsS $url | egrep -v '^#' | while read line ; do
+  pkg install -y -U $line || echo "[error] $line cannot be installed"
+done
 ```
 
 To enable `automount`, run `service devd restart`.
@@ -225,13 +235,16 @@ dbus_enable="YES"
 avahi_enable="YES" 
 ```
 
+and then start it `service dbus start`.
+
 ### Editing start-hello
 
 Edit the `start-hello` script to use the `launch` command instead of hardcoding `/Applications/...`.
 
 ```
 #################################
-# Details to be inserted here
+# Details to be inserted here.
+# This script is work in progress.
 #################################
 ```
 
@@ -321,4 +334,12 @@ swapon /dev/md7
 
 ``` .. note::
     Do not use ZFS on memory-constrained machines.
+```
+
+### Missing icons
+
+Set `QT_QPA_PLATFORMTHEME` env variable before staring Xorg session.
+
+```
+setenv QT_QPA_PLATFORMTHEME panda
 ```
