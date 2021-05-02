@@ -70,7 +70,7 @@ This can be used for a Live ISO like this:
 
 * The r/o image must have as much free space as you would like to have on the combined device. This can be achieved, e.g., like this: `makefs -b 20% -f 20% /usr/local/furybsd/cdroot/data/system.ufs /usr/local/furybsd/uzip` which will add an extra 20% of free space to the main filesystem image
 * The free space is compressed very efficiently when the image is compressed with `geom_uzip`. This can be achieved, e.g., like this: `mkuzip -o /usr/local/furybsd/cdroot/data/system.uzip /usr/local/furybsd/cdroot/data/system.ufs`
-* The uncompressed r/o image and the r/w device need to be the exact same size in bytes. Assuming variable `${x}` holds the size of the uncompressed r/o image in bytes, a matching r/w device with the same size in bytes can be created using `mdconfig -a -t swap -s ${x}b -u 2` (note the `b` suffix to the `-s` option)
+* The uncompressed r/o image and the r/w device need to be the exact same size in bytes. Assuming variable `${x}` holds the size of the uncompressed r/o image in bytes, a matching r/w device with the same size in bytes can be created using `mdconfig -a -t swap -s ${x}b -u 2` (note the `b` suffix to the `-s` option). If this is not done correctly, we get the `geom: mediasize mismatch` error
 
 You can have an [md(4)](https://www.freebsd.org/cgi/man.cgi?md%284%29) device be of size 3GB without it consuming 3GB of RAM.
 This is valid for vnode-backed md devices, swap-backed md devices and malloc-backed when the `reserve` option to [mdconfig(8)](https://www.freebsd.org/cgi/man.cgi?mdconfig(8)) isn't used.
