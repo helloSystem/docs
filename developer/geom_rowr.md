@@ -101,14 +101,14 @@ sysctl kern.module_path=/sysroot/boot/kernel
 
 ### ZFS
 
-With ZFS there is a problem unrelated to the `geom_uzip` code. When ZFS performs discovery of devices which are part of a zpool, the read-only device could be found before the combined rowr device which leads to inability to import the pool read-write.
+With ZFS there is a problem unrelated to the `geom_rowr` code. When ZFS performs discovery of devices which are part of a zpool, the read-only device could be found before the combined rowr device which leads to inability to import the pool read-write.
 
 (TODO: Insert tested workaround here)
 
 ## License
 
 ```
-geom_rowr.ko, geom_rowr.so: Copyright (c) 2021, Jordan Gordeev <jgordeev@dir.bg>
+geom_rowr.ko, geom_rowr.so: Copyright (c) 2021, Jordan Gordeev
 ```
 
 The author states that once the code reaches a certain level of maturity, it will be published under the license used by the FreeBSD project.
