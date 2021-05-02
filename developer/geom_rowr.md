@@ -3,7 +3,7 @@
 The `geom_rowr` kernel module for FreeBSD makes a read-only device writable by combining it with a read-write device.
 
 ``` .. note::
-    The `geom_rowr` kernel module is currently under development and is being tested for adoption in helloSystem.
+    This kernel module is currently under development and is being tested for adoption in helloSystem.
 ```
 
 ## Use case
