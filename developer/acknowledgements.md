@@ -102,3 +102,6 @@ __[crees](https://github.com/__crees)__
 * Made it possible to use a fixed Intel GPU driver for FreeBSD 12.2 from a private package
 * Created a package for the Falkon browser that does not pull in many KDE dependencies
 * Updated required FreeBSD ports and helped writing new ports
+
+## Jordan Gordeev
+* Wrote `geom_rowr` FreeBSD kernel module to combine a read-only with a read-write device
