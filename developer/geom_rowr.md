@@ -2,6 +2,10 @@
 
 The `geom_rowr` kernel module for FreeBSD makes a read-only device writable by combining it with a read-write device.
 
+``` .. note::
+    The `geom_rowr` kernel module is currently under development and is being tested for adoption in helloSystem.
+```
+
 ## Use case
 
 When creating a Live ISO, we want to use a read-only filesystem (that can reside on a medium that is physically read-only, such as a DVD) but make it appear to the system as if it was read-write (since some parts of the system may not work on a read-only system).
