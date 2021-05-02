@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting started &mdash; helloSystem experimental documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting to know the system" href="components.html" />
+    <link rel="prev" title="hello" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> helloSystem
+          
+
+          
+            
+            <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#status">Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tested-hardware">Tested hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#networking-hardware">Networking hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualization-environments">Virtualization environments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#qemu">QEMU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallels">Parallels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#downloading">Downloading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contact.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/helloSystem/docs/blob/main/user/getting-started.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="status">
+<h2>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h2>
+<p>hello is currently being developed. It is not yet available for general use, but advanced users can try out continuous builds of pre-alpha ISO images that can be booted from DVD or USB storage media.</p>
+</div>
+<div class="section" id="system-requirements">
+<h2>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>2 GHz dual core Intel/ARM 64-bit processor</p></li>
+<li><p>4 GiB RAM (system memory for physical and viritualized installs)</p></li>
+<li><p>VGA capable of 1024x768 screen resolution</p></li>
+<li><p>Either a CD/DVD drive or a USB port for booting the installer media</p></li>
+<li><p>On non-Macintosh hardware, a <a class="reference external" href="https://static.raspberrypi.org/files/product-briefs/210108_Product_Brief_Keyboard_and_Mouse.pdf">Raspberry Pi keyboard</a> is recommended as it allows the keyboard and system language to be detected automatically if it is attached while the system is starting up. On Macintosh hardware, the <code class="docutils literal notranslate"><span class="pre">prev-lang:kbd</span></code> EFI variable is usually set and is used to detect the keyboard and system language. Note that the key left to the space bar is used as the Command key (Alt key on PC keyboards, Apple key on Apple keyboards).</p></li>
+</ul>
+<p>In the future, there may also be builds for other processor architectures. We would like to bring down the RAM requirement considerably.</p>
+<p>Please refer to <a class="reference external" href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/faq/hardware.html">FreeBSD Hardware Compatibility</a> for more information on individual components.</p>
+<div class="section" id="tested-hardware">
+<h3>Tested hardware<a class="headerlink" href="#tested-hardware" title="Permalink to this headline">¶</a></h3>
+<p>hello is known to boot to a graphical desktop on the following machines. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. has not yet been tested systematically.</p>
+<p>helloSystem developers currently have access to the following hardware:</p>
+<ul class="simple">
+<li><p>Acer Revo RL85</p></li>
+<li><p>Dell Inc. OptiPlex 780</p></li>
+</ul>
+<p>Please contact us if you would like to sponsor the project with a hardware donation. We are especially looking for Apple and Lenovo devices from the previous generations that should be available second-hand inexpensively.</p>
+<p>To see Hardware Probes of systems running helloSystem, please see the <a class="reference external" href="http://bsd-hardware.info/?d=helloSystem&amp;view=computers">helloSystem Hardware Database</a> provided by bsd-hardware.info. It is reasonable to assume that every system listed there can at least successfully boot helloSystem. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. may or may not be working.</p>
+</div>
+<div class="section" id="networking-hardware">
+<h3>Networking hardware<a class="headerlink" href="#networking-hardware" title="Permalink to this headline">¶</a></h3>
+<p>Not all networking devices may be supported by FreeBSD yet. In those cases, you may want to consider using a USB based networking devices. helloSystem developers currently have access to the following USB based networking devices which are known to work:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vermaden.wordpress.com/2020/10/30/realtek-usb-wifi-review/">USB 802.11n WLAN Adapters based on <code class="docutils literal notranslate"><span class="pre">ID</span> <span class="pre">0bda:8176</span> <span class="pre">Realtek</span> <span class="pre">Semiconductor</span> <span class="pre">Corp.</span> <span class="pre">RTL8188CUS</span></code></a></p></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=axe">USB Wired Ethernet Adapters based on <code class="docutils literal notranslate"><span class="pre">ID</span> <span class="pre">0b95:772b</span> <span class="pre">ASIX</span> <span class="pre">Electronics</span> <span class="pre">Corp.</span> <span class="pre">AX88772B</span></code></a></p></li>
+</ul>
+</div>
+<div class="section" id="virtualization-environments">
+<h3>Virtualization environments<a class="headerlink" href="#virtualization-environments" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend running helloSystem on real hardware (“bare metal”) if possible. This should give you the best possible performance and hardware support.</p>
+</div>
+<p>Users have reported success in running helloSystem in the following virtualization environments:</p>
+<ul class="simple">
+<li><p>VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI mode</p></li>
+<li><p>VMware host (on Windows), possibly only working in BIOS mode?</p></li>
+<li><p>QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet</p></li>
+<li><p>Parallels host, reported to work in EFI mode (see below)</p></li>
+<li><p>Proxmox VE</p></li>
+</ul>
+<p>Please note:</p>
+<ul class="simple">
+<li><p>The VM needs to be <strong>64-bit</strong></p></li>
+<li><p>The VM needs <strong>at least 4 GB of RAM</strong></p></li>
+<li><p>The VM needs <strong>at least 2 CPU cores</strong></p></li>
+<li><p>The boot process takes longer than you might expect; boot in verbose mode to see the details</p></li>
+<li><p>For best results set <strong>EFI/UEFI</strong> boot mode (not BIOS)</p></li>
+</ul>
+<p>Please report back about the results on your virtualization environment.</p>
+<div class="section" id="qemu">
+<h4>QEMU<a class="headerlink" href="#qemu" title="Permalink to this headline">¶</a></h4>
+<p>Create an 8 GiB (or larger) <code class="docutils literal notranslate"><span class="pre">hello.img</span></code> image file on which you can install the system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+/home/user
+$ mkdir -p .qemu/hello
+$ fallocate -l $(( 8*1024*1024*1024 )) .qemu/hello/hello.img
+</pre></div>
+</div>
+<p>Then, boot helloSystem:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>qemu-system-x86_64 -machine type=q35,accel=kvm \
+-enable-kvm -cpu host -smp 2 -m 4096 \
+-device virtio-net,netdev=vmnic -netdev user,id=vmnic,hostfwd=tcp::5222-:22 \
+-vga std -soundhw hda -no-quit \
+-drive format=raw,file=${HOME}/.qemu/hello/hello.img \
+-drive format=raw,file=${HOME}/Downloads/hello-0.4.0_0D26-FreeBSD-12.1-amd64.iso \
+-boot menu=on
+</pre></div>
+</div>
+<p>When QEMU starts, press <code class="docutils literal notranslate"><span class="pre">esc</span></code> and select <code class="docutils literal notranslate"><span class="pre">2</span></code> to boot the ISO.</p>
+<p>Use the <strong>Install FreeBSD</strong> utility to install helloSystem do the disk image.</p>
+<p>Then restart QEMU, you now remove the last two options from the above command.</p>
+<p>Notes</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">hostfwd=</span></code> option creates a port forward from your host port <code class="docutils literal notranslate"><span class="pre">5222</span></code> to the Qemu VM port <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p></li>
+<li><p>Unfortunately the qemu-system-x86_64 USB tablet options do not work; you will need to press Ctrl+Alt+g to release the mouse pointer from the QEMU window</p></li>
+<li><p>To make QEMU full screen, press Ctrl+Alt+F</p></li>
+</ul>
+<p>To boot/install hello in UEFI mode, first install <a class="reference external" href="https://github.com/tianocore/tianocore.github.io/wiki/OVMF">OVMF Open Virtual Machine Firmware</a> on your host side. The package name for Fedora 32 is <code class="docutils literal notranslate"><span class="pre">edk2-ovmf</span></code></p>
+<p>Then add these two <code class="docutils literal notranslate"><span class="pre">qemu-system-x86_64</span></code> options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">bios</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">edk2</span><span class="o">/</span><span class="n">ovmf</span><span class="o">/</span><span class="n">OVMF_CODE</span><span class="o">.</span><span class="n">fd</span> \
+<span class="o">-</span><span class="n">smbios</span> <span class="nb">type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vendor</span><span class="o">=</span><span class="mi">0</span><span class="n">vendor</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="mi">0</span><span class="n">version</span><span class="p">,</span><span class="n">date</span><span class="o">=</span><span class="mi">0</span><span class="n">date</span><span class="p">,</span><span class="n">release</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">uefi</span><span class="o">=</span><span class="n">on</span> \
+</pre></div>
+</div>
+</div>
+<div class="section" id="parallels">
+<h4>Parallels<a class="headerlink" href="#parallels" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Select Hardware &gt; Boot Order.</p></li>
+<li><p>Expand <strong>Advanced Settings</strong>. Set <strong>BIOS</strong> to “EFI 64-bit” and in the Boot flags field, enter <code class="docutils literal notranslate"><span class="pre">vm.bios.efi=1</span></code>.</p></li>
+</ul>
+<p><img alt="Screenshot" src="https://docs.01.org/clearlinux/latest/zh_CN/_images/parallels-07.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="downloading">
+<h2>Downloading<a class="headerlink" href="#downloading" title="Permalink to this headline">¶</a></h2>
+<p>Pre-alpha ISO images are available for download <a class="reference external" href="https://github.com/helloSystem/ISO/releases/">here</a>.</p>
+<p>important:: Images get built automatically whenever source code is committed. Not every build is tested.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="components.html" class="btn btn-neutral float-right" title="Getting to know the system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="hello" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

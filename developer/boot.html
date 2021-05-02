@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Boot process &mdash; helloSystem experimental documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="geom_rowr kernel module" href="geom_rowr.html" />
+    <link rel="prev" title="Architecture" href="architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> helloSystem
+          
+
+          
+            
+            <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Boot process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#live-system-early-boot-process">Live system early boot process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-the-live-system-early-boot-process">Troubleshooting the Live system early boot process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown">Seeing what the system is doing while the graphical boot screen is shown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boot-in-verbose-mode">Boot in verbose mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boot-into-verbose-single-user-mode">Boot into verbose single-user mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#graphical-desktop-start-process">Graphical desktop start process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-the-graphical-desktop-start-process">Troubleshooting the graphical desktop start process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installed-system-boot-process">Installed system boot process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boot-mute">Boot Mute</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Boot process</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/boot.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="boot-process">
+<h1>Boot process<a class="headerlink" href="#boot-process" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="live-system-early-boot-process">
+<h2>Live system early boot process<a class="headerlink" href="#live-system-early-boot-process" title="Permalink to this headline">¶</a></h2>
+<p>The ISO contains a compressed Live system filesystem image in uzip format. This filesystem image contains the filesystem used when running the ISO. During the Live system boot process, the image needs to get mounted and needs to get turned into a read-write filesystem so that one can make changes to the running system.</p>
+<p>FreeBSD does not have a standard way to achieve this, so custom code has to be used. (The ISOs provided by the FreeBSD project do not use a compressed Live system filesystem image, and do not result in a read-write filesystem when being booted.)</p>
+<p>This is a simplified description of the boot process. There may be additional aspects which still need to be documented.</p>
+<ol class="simple">
+<li><p>The bootloader gets loaded</p></li>
+<li><p>The bootloader loads the kernel modules that are required for the Live system boot process as specified in <code class="docutils literal notranslate"><span class="pre">overlays/boot/boot/loader.conf</span></code>. Note that the bootloader apparently is not smart enough to load the dependencies of kernel modules, so one needs to manually specify those as well. For example, <code class="docutils literal notranslate"><span class="pre">zfs.ko</span></code> up to FreeBSD 12 requires <code class="docutils literal notranslate"><span class="pre">opensolaris.ko</span></code> and from 13 onward requires <code class="docutils literal notranslate"><span class="pre">cryptodev.ko</span></code></p></li>
+<li><p>The bootloader loads the ramdisk image <code class="docutils literal notranslate"><span class="pre">ramdisk.ufs</span></code> as specified in <code class="docutils literal notranslate"><span class="pre">overlays/boot/boot/loader.conf</span></code> under <code class="docutils literal notranslate"><span class="pre">mfsroot_name</span></code>. The contents of the ramdisk image are specified in <code class="docutils literal notranslate"><span class="pre">overlays/ramdisk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init.sh</span></code> from the ramdisk image gets executed as requested by <code class="docutils literal notranslate"><span class="pre">overlays/boot/boot/loader.conf</span></code> under <code class="docutils literal notranslate"><span class="pre">init_script</span></code> and specified in <code class="docutils literal notranslate"><span class="pre">overlays/ramdisk/init.sh</span></code>. It constructs a r/w Live filesystem tree (e.g., by replicating the system image to swap-based memdisk) at <code class="docutils literal notranslate"><span class="pre">/livecd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/usr/local/bin/furybsd-init-helper</span></code> gets executed by <code class="docutils literal notranslate"><span class="pre">init.sh</span></code> in a chroot of the live filesystem, <code class="docutils literal notranslate"><span class="pre">/livecd</span></code>. It is defined in <code class="docutils literal notranslate"><span class="pre">overlays/uzip/furybsd-live-settings/files/usr/local/bin/furybsd-init-helper</span></code> and deals with loading Xorg configuration based on the detected devices on PCI, and with loading virtualization-related drivers</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">/livecd</span></code> chroot is exited</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">init.sh</span></code> from the ramdisk image exits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">etc/rc</span></code> from the ramdisk image gets executed as specified in <code class="docutils literal notranslate"><span class="pre">overlays/ramdisk/etc/rc</span></code> (by what?). It tells the kernel to “reroot” (not “chroot”) into the live filesystem, <code class="docutils literal notranslate"><span class="pre">/livecd</span></code> using <code class="docutils literal notranslate"><span class="pre">reboot</span> <span class="pre">-r</span></code></p></li>
+<li><p>From here on, the boot process is the regular FreeBSD boot process with the following particularities:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/rc.d/initgfx</span></code> detects the GPU and loads the appropriate drivers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/usr/local/etc/rc.d/localize</span></code> runs <code class="docutils literal notranslate"><span class="pre">/usr/local/sbin/localize</span></code> which tries to determine the language of the keyboard, and by proxy, of the system. This currently supports the official Raspberry Pi keyboard and Apple computers which store the keyboard and system language in the <code class="docutils literal notranslate"><span class="pre">prev-lang:kbd</span></code> EFI variable</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">slim</span></code> session manager (login window) is started; when the user is loggen in, it starts the script <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/start-hello</span></code> which starts the desktop session and sets the keyboard and system language based on the information provided by <code class="docutils literal notranslate"><span class="pre">localize</span></code> in an earlier step</p></li>
+</ol>
+<div class="section" id="troubleshooting-the-live-system-early-boot-process">
+<h3>Troubleshooting the Live system early boot process<a class="headerlink" href="#troubleshooting-the-live-system-early-boot-process" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Hangs or reboots during replicating the system image to swap-based memdisk.</strong> The ISO is damaged. About one out of 10 builds of the ISO have this issue. Simply build a new ISO or wait for the next ISO to be available for download</p></li>
+<li><p><strong>“Cannot mount tmpfs on /dev/reroot: Operation not supported by device”.</strong> Reason unknown. Are needed kernel modules missing?</p></li>
+</ul>
+</div>
+<div class="section" id="seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown">
+<h3>Seeing what the system is doing while the graphical boot screen is shown<a class="headerlink" href="#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown" title="Permalink to this headline">¶</a></h3>
+<p>While the graphical boot screen is being displayed you can press <strong>Ctrl+T</strong> to see what it is doing at that moment in time.  By keeping <strong>Ctrl+T</strong> <strong>pressed down</strong> you can see what is going on over time. By then pressing <strong>ScrLk</strong>, you can use <strong>PgUp</strong> and <strong>PgDn</strong> to scroll around.</p>
+<p>The following information will be printed to the screen for the most relevant process based on recency and CPU usage (as decided by <code class="docutils literal notranslate"><span class="pre">proc_compare()</span></code>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">load:</span></code> and the 1 minute load average of the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmd:</span></code> and process name of the most relevant process</p></li>
+<li><p>Process ID (PID) of that process</p></li>
+<li><p>State of that process in  <code class="docutils literal notranslate"><span class="pre">[]</span></code>. FreeBSD specific wait states are explained in https://wiki.freebsd.org/WaitChannels</p></li>
+<li><p>Real (r), User (u), and System (s) times (<a class="reference external" href="https://stackoverflow.com/a/556411">Source</a>)</p>
+<ul>
+<li><p>Real is wall clock time - time from start to finish of the call. This is all elapsed time including time slices used by other processes and time the process spends blocked (for example if it is waiting for I/O to complete)</p></li>
+<li><p>User is the amount of CPU time spent in user-mode code (outside the kernel) <em>within</em> the process. This is only actual CPU time used in executing the process. Other processes and time the process spends blocked do not count towards this figure</p></li>
+<li><p>Sys is the amount of CPU time spent <em>in the kernel for the process</em>. This means executing CPU time spent in system calls within the kernel, as opposed to library code, which is still running in user-space</p></li>
+</ul>
+</li>
+<li><p>CPU usage in percent</p></li>
+<li><p>Resident set size (RSS), the amount of memory occupied in RAM by the most relevant process</p></li>
+</ul>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">load:</span> <span class="pre">0.62</span>&#160; <span class="pre">cmd:</span> <span class="pre">sleep</span> <span class="pre">1739</span> <span class="pre">[nanslp]</span> <span class="pre">2.97r</span> <span class="pre">0.00u</span> <span class="pre">0.00s</span> <span class="pre">0%</span> <span class="pre">2168k</span></code></p>
+</div>
+<div class="section" id="boot-in-verbose-mode">
+<h3>Boot in verbose mode<a class="headerlink" href="#boot-in-verbose-mode" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to observe the details of the boot process, you can start your computer in <strong>verbose mode</strong>. This allows you to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.</p>
+<ol class="simple">
+<li><p>While the bootloader is running, keep the <strong>Backspace</strong> key pressed until you see an <code class="docutils literal notranslate"><span class="pre">OK</span></code> prompt (alternatively, for a short time during boot, it says <code class="docutils literal notranslate"><span class="pre">Hit</span> <span class="pre">[Enter]</span> <span class="pre">to</span> <span class="pre">boot</span> <span class="pre">immediately,</span> <span class="pre">or</span> <span class="pre">any</span> <span class="pre">other</span> <span class="pre">key</span> <span class="pre">for</span> <span class="pre">command</span> <span class="pre">prompt.</span></code>. Press the <strong>Esc</strong> key on your keyboard immediately when you see this)</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">boot_mute</span></code>  and press the <strong>Enter</strong> key. This disables the graphical splash screen and results in boot messages being shown</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">boot</span> <span class="pre">-v</span></code> and press the <strong>Enter</strong> key. This results in the system being booted in verbose mode</p></li>
+</ol>
+<p>The computer should boot into a graphical desktop.</p>
+</div>
+<div class="section" id="boot-into-verbose-single-user-mode">
+<h3>Boot into verbose single-user mode<a class="headerlink" href="#boot-into-verbose-single-user-mode" title="Permalink to this headline">¶</a></h3>
+<p>If your computer hangs during booting, you can boot into <strong>verbose single-user mode</strong>. This allows advanced users, administrators, and developers to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.</p>
+<ol class="simple">
+<li><p>While the bootloader is running, keep the <strong>Backspace</strong> key pressed until you see an <code class="docutils literal notranslate"><span class="pre">OK</span></code> prompt (alternatively, for a short time during boot, it says <code class="docutils literal notranslate"><span class="pre">Hit</span> <span class="pre">[Enter]</span> <span class="pre">to</span> <span class="pre">boot</span> <span class="pre">immediately,</span> <span class="pre">or</span> <span class="pre">any</span> <span class="pre">other</span> <span class="pre">key</span> <span class="pre">for</span> <span class="pre">command</span> <span class="pre">prompt.</span></code>. Press the <strong>Esc</strong> key on your keyboard immediately when you see this)</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">boot_mute</span></code>  and press the <strong>Enter</strong> key. This disables the graphical splash screen and results in boot messages being shown</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">boot</span> <span class="pre">-v</span> <span class="pre">-s</span></code> and press the <strong>Enter</strong> key. This results in the system being booted in verbose single-user mode</p></li>
+</ol>
+<p>The computer should boot into a text console rescue system in which parts of <code class="docutils literal notranslate"><span class="pre">init.sh</span></code> from the ramdisk image have run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Single-user mode on the Live system currently is for developers of the Live system only.</p>
+<p>If you boot the Live system into single-user mode, then you will be dropped into a shell in the ramdisk, and you are expected to manually enter the commands required for the Live system to continue booting which would otherwise be executed by the ramdisk automatically. Specifically, you need to enter everything below the line “Running in single-user mode” in the file overlays/ramdisk/init.sh (or variants thereof). If you just exit the shell without doing this, then the system will be unable to continue booting.</p>
+</div>
+</div>
+</div>
+<div class="section" id="graphical-desktop-start-process">
+<h2>Graphical desktop start process<a class="headerlink" href="#graphical-desktop-start-process" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>The system is configured in <code class="docutils literal notranslate"><span class="pre">/etc/rc.conf</span></code> to start the <code class="docutils literal notranslate"><span class="pre">slim</span></code> login manager. This also results in Xorg being started</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slim</span></code> is configured in <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/slim.conf</span></code> to start <code class="docutils literal notranslate"><span class="pre">start-hello</span></code> once the user has logged in, or if autologin has occurred</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/start-hello</span></code> shell script starts the various components of the helloSystem desktop</p></li>
+</ol>
+<div class="section" id="troubleshooting-the-graphical-desktop-start-process">
+<h3>Troubleshooting the graphical desktop start process<a class="headerlink" href="#troubleshooting-the-graphical-desktop-start-process" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Login manager (<code class="docutils literal notranslate"><span class="pre">slim</span></code>) says <strong>Failed to execute login command</strong>. Check the <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/start-hello</span></code> shell script.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installed-system-boot-process">
+<h2>Installed system boot process<a class="headerlink" href="#installed-system-boot-process" title="Permalink to this headline">¶</a></h2>
+<p>The boot process is the regular FreeBSD boot process. Please refer to <a class="reference external" href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/boot.html">The FreeBSD Booting Process</a> for more information.</p>
+</div>
+<div class="section" id="boot-mute">
+<h2>Boot Mute<a class="headerlink" href="#boot-mute" title="Permalink to this headline">¶</a></h2>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">boot_mute=&quot;YES&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">/boot/loader.conf</span></code> causes FreeBSD to show a boot splash screen instead of kernel messages during early boot. However, as soon as scripts from the ramdisk and init get executed, they tend to write output to the screen and manipulate it with <code class="docutils literal notranslate"><span class="pre">vidcontrol</span></code> and <code class="docutils literal notranslate"><span class="pre">conscontrol</span></code>, which results in the boot splash screen to disappear before the graphical desktop environment is started.</p>
+<p>Since helloSystem targets a broad audience including non-technical users, the following behavior is intended:</p>
+<ul class="simple">
+<li><p>By default, show no textual boot messages</p></li>
+<li><p>Upon specific request by the user, show boot messages (for debugging, development, and system administration)</p></li>
+<li><p>Show a graphical splash screen during the entire boot process, all the way until the graphical desktop is started</p></li>
+</ul>
+<p>To achieve this, helloSystem uses a combination of the following techniques:</p>
+<ul class="simple">
+<li><p>Read the <code class="docutils literal notranslate"><span class="pre">boot_mute</span></code> kernel environment variable and adjust the userland boot process accordingly</p></li>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">/etc/rc</span></code> to run <code class="docutils literal notranslate"><span class="pre">conscontrol</span> <span class="pre">delete</span> <span class="pre">ttyv0</span></code> and redirect all of its output to <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> if <code class="docutils literal notranslate"><span class="pre">boot_mute</span></code> is set to <code class="docutils literal notranslate"><span class="pre">YES</span></code></p></li>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">/etc/rc.shutdown</span></code> to redirect all of its output to <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> if <code class="docutils literal notranslate"><span class="pre">boot_mute</span></code> is set to <code class="docutils literal notranslate"><span class="pre">YES</span></code></p></li>
+<li><p>Replace the <code class="docutils literal notranslate"><span class="pre">/sbin/vidcontrol</span></code> command by a dummy that does nothing to prevent error messages related to setting the resolution of the text-mode console from ending the boot splash early</p></li>
+<li><p>Replace the <code class="docutils literal notranslate"><span class="pre">/etc/ttys</span></code> file with an empty file to not spawn login shells on the text-mode console</p></li>
+<li><p>Commenting out the line that ends in <code class="docutils literal notranslate"><span class="pre">/dev/console</span></code> in <code class="docutils literal notranslate"><span class="pre">/etc/syslog.conf</span></code> to prevent boot from being visually interrupted by <code class="docutils literal notranslate"><span class="pre">syslog</span></code> messages</p></li>
+<li><p>On the Live system, modify all scripts in the ramdisk to redirect all of their output to <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> if <code class="docutils literal notranslate"><span class="pre">boot_mute</span></code> is set to <code class="docutils literal notranslate"><span class="pre">YES</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that if any errors are displayed on the screen during the boot process, the boot splash may still end early. In this case, the reason for the error message needs to be identified, and the message needs to be silenced.</p>
+</div>
+<p>To see boot messages, set <code class="docutils literal notranslate"><span class="pre">boot_mute=&quot;NO&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">/boot/loader.conf</span></code> or at the bootloader prompt.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="geom_rowr.html" class="btn btn-neutral float-right" title="geom_rowr kernel module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="architecture.html" class="btn btn-neutral float-left" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Working with FreeBSD Ports &mdash; helloSystem experimental documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with the FreeBSD base system" href="base.html" />
+    <link rel="prev" title="Localization" href="localization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> helloSystem
+          
+
+          
+            
+            <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with FreeBSD Ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-ports-tree">Installing the ports tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-port-without-changes">Building the port without changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-changes-to-the-port">Making changes to the port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-packages">Making packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-port-from-scratch">Creating a port from scratch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Working with FreeBSD Ports</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/ports.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-freebsd-ports">
+<h1>Working with FreeBSD Ports<a class="headerlink" href="#working-with-freebsd-ports" title="Permalink to this headline">¶</a></h1>
+<p>In some situations it may be necessary to make changes to existing software that comes in FreeBSD packages.
+This section describes how to make such changes using an example.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you would like to make a small change to the source code of software that comes as a FreeBSD package. Since packages are built from FreeBSD Ports, you need to modify the corresponding FreeBSD port.</p>
+<p>Here is a real-life example on how to do that:</p>
+<p>https://github.com/lxqt/qterminal/issues/474 can be fixed by changing a few lines in</p>
+<p>https://github.com/lxqt/qtermwidget/blob/059d832086facb19035a07d975ea4fd05d36b1ec/lib/TerminalDisplay.cpp#L3206</p>
+<p>Here is how to do it using FreeBSD Ports:</p>
+</div>
+<div class="section" id="installing-the-ports-tree">
+<h2>Installing the ports tree<a class="headerlink" href="#installing-the-ports-tree" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately one has to download/update the whole ports tree, containing all available ports, even if one just wants to make a change to one or a few of the ports.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">portsnap</span> <span class="n">fetch</span>
+<span class="n">sudo</span> <span class="n">portsnap</span> <span class="n">fetch</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">portsnap</span> <span class="n">extract</span>
+</pre></div>
+</div>
+<p>If you are running an end-of-life FreeBSD version such as 12.1, you also need to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ALLOW_UNSUPPORTED_SYSTEM</span><span class="o">=</span><span class="mi">1</span>
+<span class="c1"># Or in csh</span>
+<span class="n">setenv</span> <span class="n">ALLOW_UNSUPPORTED_SYSTEM</span> <span class="n">YES</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-the-port-without-changes">
+<h2>Building the port without changes<a class="headerlink" href="#building-the-port-without-changes" title="Permalink to this headline">¶</a></h2>
+<p>Build the port without changes first to ensure it builds and works as expected.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the library</span>
+<span class="c1"># NOTE: Applications that have a library that is used by nothing but that application are just</span>
+<span class="c1"># annoying because now you have to deal with two entities rather than one</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">toolkits</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">/</span>
+<span class="n">MAKE_JOBS_UNSAFE</span><span class="o">=</span><span class="n">yes</span> <span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+
+<span class="c1"># Build the application</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">/</span><span class="n">qterminal</span>
+<span class="n">QTermWidget5_DIR</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">toolkits</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">stage</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">qtermwidget5</span><span class="o">/</span>  <span class="n">MAKE_JOBS_UNSAFE</span><span class="o">=</span><span class="n">yes</span> <span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+
+<span class="c1"># Run the application with the changed library</span>
+<span class="n">LD_LIBRARY_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">toolkits</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">stage</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">/</span><span class="n">qterminal</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">stage</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">qterminal</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-changes-to-the-port">
+<h2>Making changes to the port<a class="headerlink" href="#making-changes-to-the-port" title="Permalink to this headline">¶</a></h2>
+<p>Now make changes to the port.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the ports system you cannot just change the source code because it would be overwritten during the build process.</p>
+</div>
+<p>You first need to make a copy of the source code, then make the changes in the copy, then create a patch that will get applied automatically at build time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy the file to be changed</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">toolkits</span><span class="o">/</span><span class="n">qtermwidget</span>
+<span class="n">sudo</span> <span class="n">cp</span> <span class="n">work</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">-*/</span><span class="n">lib</span><span class="o">/</span><span class="n">TerminalDisplay</span><span class="o">.</span><span class="n">cpp</span> <span class="n">work</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">-*/</span><span class="n">lib</span><span class="o">/</span><span class="n">TerminalDisplay</span><span class="o">.</span><span class="n">cpp</span><span class="o">.</span><span class="n">orig</span>
+
+<span class="c1"># Make the change in the library</span>
+<span class="n">sudo</span> <span class="n">nano</span> <span class="n">work</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">-*/</span><span class="n">lib</span><span class="o">/</span><span class="n">TerminalDisplay</span><span class="o">.</span><span class="n">cpp</span>
+        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">);</span>
+        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">urlText</span><span class="p">;</span>
+        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">);</span>
+        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+
+<span class="c1"># Make a patch</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">makepatch</span>
+
+<span class="c1"># Build the library again</span>
+<span class="c1"># sudo make clean # Run this only if the next line does nothing</span>
+<span class="n">MAKE_JOBS_UNSAFE</span><span class="o">=</span><span class="n">yes</span> <span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+
+<span class="c1"># Run the application with the changed library</span>
+<span class="n">LD_LIBRARY_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">toolkits</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">stage</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">/</span><span class="n">qterminal</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">stage</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">qterminal</span>
+</pre></div>
+</div>
+<p>As a result we have a patch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cat</span> <span class="n">files</span><span class="o">/</span><span class="n">patch</span><span class="o">-</span><span class="n">lib_TerminalDisplay</span><span class="o">.</span><span class="n">cpp</span>
+<span class="o">---</span> <span class="n">lib</span><span class="o">/</span><span class="n">TerminalDisplay</span><span class="o">.</span><span class="n">cpp</span><span class="o">.</span><span class="n">orig</span>        <span class="mi">2020</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">03</span> <span class="mi">08</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">26</span> <span class="n">UTC</span>
+<span class="o">+++</span> <span class="n">lib</span><span class="o">/</span><span class="n">TerminalDisplay</span><span class="o">.</span><span class="n">cpp</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">3099</span><span class="p">,</span><span class="mi">10</span> <span class="o">+</span><span class="mi">3099</span><span class="p">,</span><span class="mi">10</span> <span class="o">@@</span> <span class="n">void</span> <span class="n">TerminalDisplay</span><span class="p">::</span><span class="n">dropEvent</span><span class="p">(</span><span class="n">QDropEvent</span><span class="o">*</span> <span class="n">event</span><span class="p">)</span>
+         <span class="o">//</span> <span class="n">without</span> <span class="n">quoting</span> <span class="n">them</span> <span class="p">(</span><span class="n">this</span> <span class="n">only</span> <span class="n">affects</span> <span class="n">paths</span> <span class="k">with</span> <span class="n">spaces</span> <span class="ow">in</span><span class="p">)</span>
+         <span class="o">//</span><span class="n">urlText</span> <span class="o">=</span> <span class="n">KShell</span><span class="p">::</span><span class="n">quoteArg</span><span class="p">(</span><span class="n">urlText</span><span class="p">);</span>
+ 
+<span class="o">-</span>        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">urlText</span><span class="p">;</span>
+<span class="o">-</span>
+<span class="o">-</span>        <span class="k">if</span> <span class="p">(</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">urls</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+<span class="o">-</span>            <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+<span class="o">+</span>        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="o">+</span>        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">urlText</span><span class="p">;</span> 
+<span class="o">+</span>        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="o">+</span>        <span class="n">dropText</span> <span class="o">+=</span> <span class="n">QLatin1Char</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
+     <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="k">else</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-packages">
+<h2>Making packages<a class="headerlink" href="#making-packages" title="Permalink to this headline">¶</a></h2>
+<p>Optionally, make packages for the ports. Note that <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code> needs to have run already before this step.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Library</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">-</span><span class="n">toolkits</span><span class="o">/</span><span class="n">qtermwidget</span><span class="o">/</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">package</span>
+<span class="n">ls</span> <span class="n">work</span><span class="o">/</span><span class="n">pkg</span>
+
+<span class="c1"># Application</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">x11</span><span class="o">/</span><span class="n">qterminal</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">package</span>
+<span class="n">ls</span> <span class="n">work</span><span class="o">/</span><span class="n">pkg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-port-from-scratch">
+<h2>Creating a port from scratch<a class="headerlink" href="#creating-a-port-from-scratch" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/">FreeBSD Porter’s Handbook</a> is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is a work in progress. Corrections are welcome.</p>
+</div>
+<p>First, prepare the Ports environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">su</span>
+<span class="n">export</span> <span class="n">ALLOW_UNSUPPORTED_SYSTEM</span><span class="o">=</span><span class="n">YES</span>
+<span class="c1"># or on csh</span>
+<span class="n">setenv</span> <span class="n">ALLOW_UNSUPPORTED_SYSTEM</span> <span class="n">YES</span>
+<span class="n">pkg</span> <span class="n">install</span> <span class="n">portlint</span> <span class="n">subversion</span>
+<span class="n">echo</span> <span class="n">DEVELOPER</span><span class="o">=</span><span class="n">yes</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">make</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">portsnap</span> <span class="n">fetch</span> <span class="n">extract</span> <span class="n">update</span> <span class="c1"># Run this from time to time</span>
+</pre></div>
+</div>
+<p>Next, create a directory for the new port:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">sysutils</span><span class="o">/</span><span class="n">fluxengine</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">sysutils</span><span class="o">/</span><span class="n">fluxengine</span>
+</pre></div>
+</div>
+<p>Create <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># $FreeBSD$
+
+PORTNAME=       fluxengine
+DISTVERSION=    572
+CATEGORIES=     sysutils
+
+MAINTAINER=     probono@puredarwin.org
+COMMENT=        USB floppy disk interface for reading and writing non-PC disk formats
+
+LICENSE=        MIT
+
+LIB_DEPENDS=    libsqlite3.so:databases/sqlite3 \
+                libstdc++.so:lang/gcc9
+
+BUILD_DEPENDS=  ninja:devel/ninja
+
+USES=           gmake
+
+USE_GITHUB=     yes
+GH_ACCOUNT=     davidgiven
+GH_TAGNAME=     61ff48c
+
+PLIST_FILES=    bin/brother120tool \
+                bin/brother240tool \
+                bin/fluxengine
+
+do-install:
+        ${INSTALL_PROGRAM} ${WRKSRC}/brother120tool ${STAGEDIR}${PREFIX}/bin/
+        ${INSTALL_PROGRAM} ${WRKSRC}/brother240tool ${STAGEDIR}${PREFIX}/bin/
+        ${INSTALL_PROGRAM} ${WRKSRC}/fluxengine ${STAGEDIR}${PREFIX}/bin/
+
+.include &lt;bsd.port.mk&gt;
+</pre></div>
+</div>
+<p>Notes</p>
+<ul class="simple">
+<li><p>See <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/usr/ports/</span></code> for possible categories, such as <code class="docutils literal notranslate"><span class="pre">sysutils</span></code></p></li>
+<li><p>See <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/makefile-naming.html">5.2. Naming</a> for naming and versioning conventions</p></li>
+<li><p>The lines must be in a defined order. Run <code class="docutils literal notranslate"><span class="pre">portlint</span></code> to get information on this and re-order until it no longer complains</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">stage-qa</span></code> to find out dependencies. Using something like <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">stage-qa</span> <span class="pre">2&gt;&amp;1</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;you</span> <span class="pre">need&quot;</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d</span> <span class="pre">&quot;</span> <span class="pre">&quot;</span> <span class="pre">-f</span> <span class="pre">4</span></code> can speed this up</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">do-install</span></code> section is needed in this example because there is no <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> in the original software’s Makefile</p></li>
+</ul>
+<p>Create <code class="docutils literal notranslate"><span class="pre">pkg-descr</span></code> based on the description on the GitHub <a class="reference external" href="https://github.com/davidgiven/fluxengine">README.md</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">FluxEngine</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">very</span> <span class="n">cheap</span> <span class="n">USB</span> <span class="n">floppy</span> <span class="n">disk</span> <span class="n">interface</span> <span class="n">capable</span> <span class="n">of</span>
+<span class="n">reading</span> <span class="ow">and</span> <span class="n">writing</span> <span class="n">exotic</span> <span class="n">non</span><span class="o">-</span><span class="n">PC</span> <span class="n">floppy</span> <span class="n">disk</span> <span class="n">formats</span><span class="o">.</span>
+<span class="n">It</span> <span class="n">allows</span> <span class="n">you</span> <span class="n">to</span> <span class="n">use</span> <span class="n">a</span> <span class="n">conventional</span> <span class="n">PC</span> <span class="n">drive</span> <span class="n">to</span> <span class="n">accept</span> <span class="n">Amiga</span> <span class="n">disks</span><span class="p">,</span>
+<span class="n">CLV</span> <span class="n">Macintosh</span> <span class="n">disks</span><span class="p">,</span> <span class="n">bizarre</span> <span class="mi">128</span><span class="o">-</span><span class="n">sector</span> <span class="n">CP</span><span class="o">/</span><span class="n">M</span> <span class="n">disks</span><span class="p">,</span>
+<span class="ow">and</span> <span class="n">other</span> <span class="n">weird</span> <span class="ow">and</span> <span class="n">bizarre</span> <span class="n">formats</span><span class="o">.</span>
+ <span class="p">:</span>
+<span class="n">The</span> <span class="n">hardware</span> <span class="n">consists</span> <span class="n">of</span> <span class="n">a</span> <span class="n">single</span><span class="p">,</span> <span class="n">commodity</span> <span class="n">part</span> <span class="k">with</span> <span class="n">a</span> <span class="n">floppy</span> <span class="n">drive</span>
+<span class="n">connector</span> <span class="n">soldered</span> <span class="n">onto</span> <span class="n">it</span><span class="o">.</span> <span class="n">No</span> <span class="n">ordering</span> <span class="n">custom</span> <span class="n">boards</span><span class="p">,</span>
+<span class="n">no</span> <span class="n">fiddly</span> <span class="n">surface</span> <span class="n">mount</span> <span class="n">assembly</span><span class="p">,</span> <span class="ow">and</span> <span class="n">no</span> <span class="n">fuss</span><span class="p">:</span>
+<span class="n">nineteen</span> <span class="n">simpler</span> <span class="n">solder</span> <span class="n">joints</span> <span class="ow">and</span> <span class="n">you</span><span class="s1">&#39;re done.</span>
+
+<span class="n">WWW</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">cowlark</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">fluxengine</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Notes</p>
+<ul class="simple">
+<li><p>For details please refer to <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/porting-desc.html">3.2. Writing the Description Files</a>.</p></li>
+</ul>
+<p>Create the checksum file by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">makesum</span>
+</pre></div>
+</div>
+<p>Check the Makefile with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">portlint</span>
+</pre></div>
+</div>
+<p>and correct any mistakes it reports, then repeat.</p>
+<p>Once <code class="docutils literal notranslate"><span class="pre">portlint</span></code> says <code class="docutils literal notranslate"><span class="pre">looks</span> <span class="pre">fine</span></code>, try to build by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span>
+</pre></div>
+</div>
+<p>Note that the compilation will fail. This is because in this case the application needs to be built with <code class="docutils literal notranslate"><span class="pre">gmake</span></code> rather than <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
+<p>Run tests</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">stage</span>
+<span class="n">make</span> <span class="n">stage</span><span class="o">-</span><span class="n">qa</span>
+<span class="n">make</span> <span class="n">package</span>
+<span class="n">make</span> <span class="n">install</span>
+<span class="n">make</span> <span class="n">deinstall</span>
+</pre></div>
+</div>
+<p>None of these must produce errors. See <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/porting-testing.html">3.4. Testing the Port</a> for details.</p>
+<p>At this point it may be a good idea to have an experienced FreeBSD Ports developer have a look at your new port.</p>
+<p>Once everything looks good, prepare a <code class="docutils literal notranslate"><span class="pre">.shar</span></code> file for submitting it to https://bugs.freebsd.org/submit/:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">work</span><span class="o">/</span>
+<span class="n">cd</span> <span class="o">..</span>
+<span class="n">tar</span> <span class="n">cf</span>  <span class="n">fluxengine</span><span class="o">.</span><span class="n">shar</span> <span class="o">--</span><span class="nb">format</span> <span class="n">shar</span> <span class="n">fluxengine</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="base.html" class="btn btn-neutral float-right" title="Working with the FreeBSD base system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="localization.html" class="btn btn-neutral float-left" title="Localization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
