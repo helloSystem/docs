@@ -68,8 +68,9 @@ This can be used for a Live ISO like this:
 
 ### Device size
 
-* The r/o device must have as much free space as you would like to have on the combined device (The free space can be compressed very efficiently by `geom_uzip`)
-* The r/o and the r/w image need to be the exact same size in bytes
+* The r/o device must have as much free space as you would like to have on the combined device. This can be achieved, e.g., like this: `makefs -b 20% -f 20% /usr/local/furybsd/cdroot/data/system.ufs /usr/local/furybsd/uzip` which will add an extra 20% of free space to the main filesystem image
+* The free space is compressed very efficiently when the image is compressed with `geom_uzip`. This can be achieved, e.g., like this: `mkuzip -o /usr/local/furybsd/cdroot/data/system.uzip /usr/local/furybsd/cdroot/data/system.ufs`
+* The uncompressed r/o image and the r/w image need to be the exact same size in bytes
 
 You can have an [md(4)](https://www.freebsd.org/cgi/man.cgi?md%284%29) device be of size 3GB without it consuming 3GB of RAM.
 This is valid for vnode-backed md devices, swap-backed md devices and malloc-backed when the `reserve` option to [mdconfig(8)](https://www.freebsd.org/cgi/man.cgi?mdconfig(8)) isn't used.
