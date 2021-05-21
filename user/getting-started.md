@@ -128,8 +128,8 @@ Then add these two `qemu-system-x86_64` options:
 
 ## Downloading
 
-Pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/).
+ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/).
 
 ```eval_rst
-important:: Images get built automatically whenever source code is committed. Not every build is tested.
+important:: Images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
 ```
