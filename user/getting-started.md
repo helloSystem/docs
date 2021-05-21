@@ -114,6 +114,18 @@ Then add these two `qemu-system-x86_64` options:
 
 ![Screenshot](https://docs.01.org/clearlinux/latest/zh_CN/_images/parallels-07.png)
 
+#### Proxmox VE
+
+* Memory: 4GB (not ballooned)
+* Processors: 2 (1 socket 2 cores)
+* BIOS: OVMF (UEFI)
+* Display: VMWare Compatible (vmware) [seems to be limited to 800x600 pixels resolution]
+* Machine: Default (i440fx)
+* SCSI Controller: VirtIO SCSI
+* CD Drive: helloSystem ISO
+* Hard Disk: At least 8GB Raw
+* Network Device: vmxnet3
+
 ## Downloading
 
 Pre-alpha ISO images are available for download [here](https://github.com/helloSystem/ISO/releases/).
