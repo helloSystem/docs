@@ -41,9 +41,9 @@ __[vermaden](https://github.com/vermaden)__
 * Provided helpful feedback and configuration advice
 * Configuration for tap to click and two-finger scrolling for Synaptics and Elan touchpads
 
-## Reven Martin
+## Reven Martin ([CutefishOS](https://cutefishos.com/))
 __[rekols](https://github.com/rekols)__
-@revenmartin on twitter
+@revenmartin on twitter, @cutefishos on twitter
 * Originally wrote Panda Status Bar, which the hello Menu is based on
 * Originally wrote Cyber Dock, which the hello Dock is based on
 
