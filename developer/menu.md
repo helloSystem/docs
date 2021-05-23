@@ -44,6 +44,7 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. Needed for some applications (e.g., screenkey) to show icons in the upper right hand corner of the menu (system tray/notification area). The same as [`indicator-application`](https://launchpad.net/indicator-application)?
 * [__MenuModel__](): Used by Gtk
 * [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
+* [DBusKit](https://github.com/mszoek/airyx/tree/main/DBusKit): Airyx DBusKit implements a subset of D-Bus needed to support sending menus of AppKit applications to the global menu bar
 
 ## Libraries involved
 
