@@ -27,7 +27,7 @@ copyright = '2020-2021, probono'
 author = 'probono'
 
 # The full version, including alpha/beta/rc tags
-release = 'experimental'
+release = '' # 'experimental' # We don't want this in the HTML title
 
 
 # -- General configuration ---------------------------------------------------
