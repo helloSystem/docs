@@ -68,9 +68,8 @@ sudo cp work/qtermwidget-*/lib/TerminalDisplay.cpp work/qtermwidget-*/lib/Termin
 
 # Make the change in the library
 sudo nano work/qtermwidget-*/lib/TerminalDisplay.cpp
-        dropText += QLatin1Char('\'');
-        dropText += urlText;
-        dropText += QLatin1Char('\'');
+        QChar q(QLatin1Char('\''));
+        dropText += q + QString(urlText).replace(q, QLatin1String("'\\''")) + q;
         dropText += QLatin1Char(' ');
 
 # Make a patch
@@ -90,21 +89,17 @@ As a result we have a patch:
 % cat files/patch-lib_TerminalDisplay.cpp
 --- lib/TerminalDisplay.cpp.orig        2020-11-03 08:19:26 UTC
 +++ lib/TerminalDisplay.cpp
-@@ -3099,10 +3099,10 @@ void TerminalDisplay::dropEvent(QDropEvent* event)
+@@ -3099,7 +3099,9 @@ void TerminalDisplay::dropEvent(QDropEvent* event)
          // without quoting them (this only affects paths with spaces in)
          //urlText = KShell::quoteArg(urlText);
  
 -        dropText += urlText;
--
--        if ( i != urls.count()-1 )
--            dropText += QLatin1Char(' ');
-+        dropText += QLatin1Char('\'');
-+        dropText += urlText; 
-+        dropText += QLatin1Char('\'');
++        QChar q(QLatin1Char('\''));
++        dropText += q + QString(urlText).replace(q, QLatin1String("'\\''")) + q;
 +        dropText += QLatin1Char(' ');
-     }
-   }
-   else
+ 
+         if ( i != urls.count()-1 )
+             dropText += QLatin1Char(' ');
 ```
 
 ## Making packages
