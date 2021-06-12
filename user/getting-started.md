@@ -128,10 +128,10 @@ Then add these two `qemu-system-x86_64` options:
 
 ## Downloading
 
-The **helloSystem 0.5.0 ** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.5.0).
+The **helloSystem 0.5.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.5.0).
 
 Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
 
-```eval_rst
-important:: Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
+``` .. important::
+    Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
 ```
