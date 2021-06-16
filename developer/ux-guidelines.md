@@ -15,7 +15,7 @@ Source: [Apple Computer, Inc., 1992, Macintosh Human Interface Guidelines, First
 Referred to in the Macintosh Human Interface Guidelines with highest praise:
 
 > A seminal paper on why pull-down menus are superior to any other kind.
-> Everyone who designs for the screen must read this paper. Everyone who designs for the screen must read this paper.
+> Everyone who designs for the screen must read this paper.
 
 This paper provides empirical evidence on the superiority of global menus.
 
