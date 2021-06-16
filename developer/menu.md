@@ -346,3 +346,8 @@ Applications running as root currently cannot show global menus due to the D-Bus
     
     Please consider contributing ideas and code if you are interested in this topic.
 ```
+
+## Implementations for other desktop systems
+
+* [Fildem](https://github.com/gonzaarcr/Fildem) for GNOME
+* [CutefishOS](https://twitter.com/cutefishos/status/1401420887568441345)
