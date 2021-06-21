@@ -1,6 +1,6 @@
 # Desktop
 
-The __Desktop__ preferences application allows you do customize the behavior of your computer's desktop.
+The __Desktop__ preferences application allows you to customize the behavior of your computer's desktop.
 
 ## Background
 
