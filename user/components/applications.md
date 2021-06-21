@@ -4,7 +4,9 @@ Most applications in helloSystem come in the form of __application bundles__. An
 
 ![Viewing the contents of an application bundle](https://pbs.twimg.com/media/EoK9u7vXUAAJFPn?format=png)
 
-helloSystem comes with the following applications, each of which are described in this section:
+helloSystem comes with some applications out of the box, and some applications need to be downloaded before they can be used.
+
+You find the applications in the menu under "System -> Applications", and in the `/Applications` folder on your hard disk, although they can also be placed in other locations if you so desire.
 
 ```eval_rst
 .. toctree::
