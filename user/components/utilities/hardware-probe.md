@@ -15,9 +15,7 @@ Private information (including the username, machine's hostname, IP addresses, M
 The tool uploads 32-byte prefix of salted SHA512 hash of MAC addresses/UUIDs and serial numbers to properly identify unique computers and hard drives. All the data is uploaded securely via HTTPS.
 
 ``` .. note::
-    By using this utility to upload your hardware probe, you agree that
-information about your hardware will be uploaded
-to a publicly visible database.
+    By using this utility to upload your hardware probe, you agree that information about your hardware will be uploaded to a publicly visible database.
 
     Do not use this utility if you do not agree with this.
 ```
