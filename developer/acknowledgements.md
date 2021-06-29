@@ -98,10 +98,14 @@ __[moochris](https://github.com/moochris)__
 * Providing infrastructure for crowd-sourced translations
 
 ## Chris Rees
-__[crees](https://github.com/__crees)__
+__[crees](https://github.com/crees)__
 * Made it possible to use a fixed Intel GPU driver for FreeBSD 12.2 from a private package
 * Created a package for the Falkon browser that does not pull in many KDE dependencies
 * Updated required FreeBSD ports and helped writing new ports
 
 ## Jordan Gordeev
 * Wrote `geom_rowr` FreeBSD kernel module to combine a read-only with a read-write device
+
+## Jesper Schmitz Mouridsen
+__[jsm222](https://github.com/jsm222)__
+* Packaging helloDesktop components for FreeBSD Ports
