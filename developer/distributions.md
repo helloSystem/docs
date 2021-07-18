@@ -8,4 +8,9 @@ __Please do not try to include helloSystem in third-party distributions.__ While
 
 __Please do not call your derivatives "hello" or "helloSystem"__. In order to keep support and maintenance burden low, please give clearly distinguishable names to your derivatives.
 
+You may want to include the desktop components of helloSystem, the helloDesktop "Desktop Environment" (collection of individual components, really).
+
+For example, work is being done to bring the helloDesktop components to FreeBSD:
+https://wiki.freebsd.org/helloDesktop
+
 Please do not hesitate to contact the team if you have questions regarding this policy.
