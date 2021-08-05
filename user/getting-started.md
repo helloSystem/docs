@@ -119,12 +119,14 @@ Then add these two `qemu-system-x86_64` options:
 * Memory: 4GB (not ballooned)
 * Processors: 2 (1 socket 2 cores)
 * BIOS: OVMF (UEFI)
-* Display: VMWare Compatible (vmware) [seems to be limited to 800x600 pixels resolution]
-* Machine: Default (i440fx)
+* Display: Default (VGA)
+* Machine: q35
 * SCSI Controller: VirtIO SCSI
 * CD Drive: helloSystem ISO
 * Hard Disk: At least 8GB Raw
-* Network Device: vmxnet3
+* Network Device: VirtIO
+
+To set resolution, press F2 at boot to access OVMF settings. Select 'Device Manager > OVMF Platform Configuration > Change Preferred', save and reboot.
 
 ## Downloading
 
