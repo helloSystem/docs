@@ -228,7 +228,7 @@ Otherwise the root device may not be found upon reboot.
 
 ### Enabling D-Bus and Avahi
 
-Zeroconf  does not work if `/usr/local/bin/dbus-daemon --system` is not running. hence add the following lines to `/etc/rc.conf' to enable it:
+Filer does not launch and Zeroconf does not work if `/usr/local/bin/dbus-daemon --system` is not running. Hence add the following lines to `/etc/rc.conf' to enable it:
 
 ```
 dbus_enable="YES"
