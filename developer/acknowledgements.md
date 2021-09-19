@@ -114,3 +114,8 @@ __[jsm222](https://github.com/jsm222)__
 __[s199p.wa1k9k](https://github.com/s199pwa1k9r)__
 @S199pWa1k9r on twitter
 * Packaging helloDesktop components for FreeBSD Ports on aarch64
+
+## Zoë Knox
+__[mszoek](https://github.com/mszoek)__
+@thatzoek on twitter
+* Implemented `org.freedesktop.FileManager1` API in Filer
