@@ -109,3 +109,8 @@ __[crees](https://github.com/crees)__
 ## Jesper Schmitz Mouridsen
 __[jsm222](https://github.com/jsm222)__
 * Packaging helloDesktop components for FreeBSD Ports
+
+## Sergey Tyuryukanovc
+__[s199p.wa1k9k](https://github.com/s199pwa1k9r)__
+@S199pWa1k9r on twitter
+* Packaging helloDesktop components for FreeBSD Ports on aarch64
