@@ -121,7 +121,7 @@ Then add these two `qemu-system-x86_64` options:
 * BIOS: OVMF (UEFI)
 * Display: Default (VGA)
 * Machine: q35
-* SCSI Controller: VirtIO SCSI
+* SATA Controller: VirtIO SATA for attaching virtual disk to (to install the system on)
 * CD Drive: helloSystem ISO
 * Hard Disk: At least 8GB Raw
 * Network Device: VirtIO
