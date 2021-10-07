@@ -14,6 +14,10 @@ Translation happens on [Weblate](https://hosted.weblate.org/engage/hellosystem/)
 
 ## Making strings available for translation
 
+### Qt
+
+Follow the best practices for internationalization of Qt projects. To be documented.
+
 ### Python
 
 To make new strings available for translation, a developer runs in the respective application directory:
