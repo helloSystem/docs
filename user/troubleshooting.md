@@ -45,4 +45,4 @@ If your issue is not already reported, you can create a new one.
 
 ## Getting help
 
-Please [contact us](https://hellosystem.github.io/docs/developer/contact.html). 
+Please participate in our [discussion forum](https://github.com/helloSystem/hello/discussions) or [contact us](https://hellosystem.github.io/docs/developer/contact.html). 
