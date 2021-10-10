@@ -12,7 +12,7 @@
 
 __helloSystem__ is a desktop system for creators with a focus on simplicity, elegance, and usability. Its design follows the "Less, but better" philosophy. It is intended as a system for "mere mortals", welcoming to switchers from the Mac. [FreeBSD](https://www.freebsd.org/) is used as the core operating system. Please refer to [https://github.com/helloSystem/hello](https://github.com/helloSystem/hello) if you would like to learn more about the ideas and principles behind hello.
 
-![Screenshot](https://github.com/helloSystem/hello/blob/master/screenshots/20210611-desktop-0.5.png?raw=true)
+![Screenshot](https://raw.githubusercontent.com/helloSystem/hello/1db268eb69c8c45909d1dc0f642395b5f948a338/screenshots/20211002-desktop-0.6.png)
 
 ```eval_rst
 .. toctree::
