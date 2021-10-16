@@ -130,7 +130,7 @@ To set resolution, press F2 at boot to access OVMF settings. Select 'Device Mana
 
 ## Downloading
 
-The **helloSystem 0.5.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.5.0).
+The **helloSystem 0.6.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.6.0).
 
 Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
 
