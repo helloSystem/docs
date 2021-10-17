@@ -803,7 +803,7 @@ Some of well-known mimetypes include:
 *   when used alone as in `*;`, _i.e._ when used as a group wildcard without subgroup,
 *   when used as the subgroup wildcard, after the `/` character, as in `image/*`.
 
-Defaults to `*;`, which happends to be exactly equivalent to `all/all` or to `all/*`.
+Defaults to `*;`, which happens to be exactly equivalent to `all/all` or to `all/*`.
 
 <table border="0">
 
