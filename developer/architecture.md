@@ -57,4 +57,4 @@ The system should come with some commonly used utilities, such as a Terminal app
 
 ### Preferences
 
-The system should come with some commonly used preference panels, such as for configuring the system language, OpenZFS Boot Environments, etc. These are just regular applications inside a 'Preferences' subdirectory. These should be super simple, "minimal viable" applications. It is expected that many will need to be written from scratch, but it is accaptable to re-use pre-existing applications, preferably written in Qt.
+The system should come with some commonly used preference panels, such as for configuring the system language, OpenZFS Boot Environments, etc. These are just regular applications inside a 'Preferences' subdirectory. These should be super simple, "minimal viable" applications. It is expected that many will need to be written from scratch, but it is acceptable to re-use pre-existing applications, preferably written in Qt.
