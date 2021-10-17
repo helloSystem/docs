@@ -106,7 +106,7 @@ This specification also defines how these actions may be gathered and ordered in
 A menu is defined by:
 
 * its displayable part: label, tooltip, icon
-* conditions which are to be met in order the menu, and recursively all of its subitems, be actuelly displayed in the Filer context menu
+* conditions which are to be met in order the menu, and recursively all of its subitems, be actually displayed in the Filer context menu
 * the ordered list of the items in the menu.
 
 #### Conditions
