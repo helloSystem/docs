@@ -487,7 +487,7 @@ But, where an action is intended to eventually execute a command, a menu is just
 
 In order to be valid, a menu must have a non-empty name, and include at least one valid subitem.
 
-It is the responsability of the implementation to ensure that the displayed menus are relevant, _i.e._ not empty, with no separator at the begin or the end of the menu, with no double separator, etc.
+It is the responsibility of the implementation to ensure that the displayed menus are relevant, _i.e._ not empty, with no separator at the begin or the end of the menu, with no double separator, etc.
 
 As stated
 
