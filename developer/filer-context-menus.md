@@ -1375,7 +1375,7 @@ ignored else</td>
 
 ## Building the whole hierarchy
 
-The processus described here is only a sort of meta-algorithm, whose only goal is to better specify how the menus and actions should be layouted in the final hierarchy.
+The processus described here is only a sort of meta-algorithm, whose only goal is to better specify how the menus and actions should be laid out in the final hierarchy.
 
 The implementer might take advantage of preparing once the whole hierarchy of the menus and actions:
 
