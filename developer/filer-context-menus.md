@@ -1040,7 +1040,7 @@ Example:
 > 
 > Nonetheless, mixing singular and plural forms, though we warn against, is not an error. As a counter example, there may be some situations where a command-line of the form `echo %B %d` would be useful. In that case, the following command would be run:  
 > `echo pierre paul jacques /data`  
-> It is left as an exercize for the reader to find a use case.
+> It is left as an exercise for the reader to find a use case.
 
 The word "first" in the following table makes so reference to the case where the singular form parameter is used in a plural form command. We recall one more time that which is the "first" element is not specified, and, most probably, rather unpredictable.
 
