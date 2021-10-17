@@ -697,7 +697,7 @@ Defaults to show anywhere.</td>
 
 <td>`TryExec`</td>
 
-<td>Fromn [DES](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html): path to an executable file on disk used to determine if some program is actually installed. If the path is not an absolute path, the file is looked up in the $PATH environment variable. If the file is not found or is not executable, this condition evals to `false`.  
+<td>From [DES](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html): path to an executable file on disk used to determine if some program is actually installed. If the path is not an absolute path, the file is looked up in the $PATH environment variable. If the file is not found or is not executable, this condition evals to `false`.  
 Defaults to successful.</td>
 
 <td>string</td>
