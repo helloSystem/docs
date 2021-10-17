@@ -9,4 +9,4 @@ Upon first start of the Chromium browser, the following extensions are automatic
 
 You can uninstall those extensions at any time from within Chromium.
 
-If wou would like Chromium not to install those extensions from the Chrome Web Store in the first place, remove the files in `/usr/local/share/chromium/extensions/*.json` prior to launching Chromium for the first time.
+If you would like Chromium not to install those extensions from the Chrome Web Store in the first place, remove the files in `/usr/local/share/chromium/extensions/*.json` prior to launching Chromium for the first time.
