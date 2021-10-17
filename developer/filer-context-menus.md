@@ -939,7 +939,7 @@ Please note that each element of the specified list must be considered as ANDed,
 Capabilities have to be chosen between following predefined ones:
 
 *   `Owner`: current user is the owner of the selected items
-*   `Readable`: selected items are readable by user (probably more usefull when negated)
+*   `Readable`: selected items are readable by user (probably more useful when negated)
 *   `Writable`: selected items are writable by user
 *   `Executable`: selected items are executable by user
 *   `Local`: selected items are local
