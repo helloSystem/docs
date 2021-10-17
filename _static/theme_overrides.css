@@ -53,7 +53,7 @@ div[class^="highlight"] pre {
     line-height: normal;
 }
 
-/* Keep fields from being strangely far apart due to inheirited table CSS. */
+/* Keep fields from being strangely far apart due to inherited table CSS. */
 .rst-content table.field-list th.field-name {
     padding-top: 1px;
     padding-bottom: 1px;
