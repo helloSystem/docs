@@ -22,7 +22,7 @@ When you install helloSystem using the __Install FreeBSD__ utility, the installe
 
 Start your computer from a helloSystem Live Medium. Open the __Install FreeBSD__ utility and follow the instructions on screen.
 
-The installer starts by presenting a summary of FreeBSD. Click on "Continue". To install the software, you must agree to the terms of the software license agreemement. Click on "Continue" to proceed. Click on a destination disk on which the operating system should be installed. A warning will inform you that the entire disk will be erased. Confirm whether you want to do this by clicking on the appropriate button.
+The installer starts by presenting a summary of FreeBSD. Click on "Continue". To install the software, you must agree to the terms of the software license agreement. Click on "Continue" to proceed. Click on a destination disk on which the operating system should be installed. A warning will inform you that the entire disk will be erased. Confirm whether you want to do this by clicking on the appropriate button.
 
 ``` .. warning::
     The **Install FreeBSD** utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.
