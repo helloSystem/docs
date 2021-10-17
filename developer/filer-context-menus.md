@@ -743,7 +743,7 @@ Defaults to successful.
 <td>`ShowIfTrue`</td>
 
 <td>A command which, when executed, should output a string on stdout.  
-The item will be candidate if the outputed string is equal to `true`.  
+The item will be candidate if the outputted string is equal to `true`.  
 Example: `[ -r %d/.svn/entries ] && echo \"true\`  
 Defaults to successful.  
 
