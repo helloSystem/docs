@@ -7,7 +7,7 @@ To provide this unified user experience, it is crucial that all applications can
 ## Terminology
 
 ``` .. note::
-    Consistent, up-to-date documentation reagarding the subject of global menus is hard to find. 
+    Consistent, up-to-date documentation regarding the subject of global menus is hard to find. 
 
     Please consider submitting issues and pull requests if you can contribute to this subject.
 ```
