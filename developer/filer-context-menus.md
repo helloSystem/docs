@@ -1383,7 +1383,7 @@ The implementor might take advantage of preparing once the whole hierarchy of th
 *   to identify and eliminate duplicate _desktop_file_id_s,
 *   to eliminate invalid menus and actions.
 
-1.  as described in desktop_file_ids and invalid `.desktop` files; implentation so obtains a flat list of menus or actions;  
+1.  as described in desktop_file_ids and invalid `.desktop` files; implementation so obtains a flat list of menus or actions;  
 
 2.  recursively build the hierarchy; this merely consists in the build of the hierarchy as a tree of menus and actions, where each _desktop_file_id_ addressed as the subitem of a menu consumes this same id from the flat list
     *   if the level-zero order (which is not specified here, but see desktop_file_id addressed in the level zero consumes this same id from the flat list;
