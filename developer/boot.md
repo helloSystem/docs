@@ -19,7 +19,7 @@ This is a simplified description of the boot process. There may be additional as
 1. From here on, the boot process is the regular FreeBSD boot process with the following particularities:
 1. `/etc/rc.d/initgfx` detects the GPU and loads the appropriate drivers
 3. `/usr/local/etc/rc.d/localize` runs `/usr/local/sbin/localize` which tries to determine the language of the keyboard, and by proxy, of the system. This currently supports the official Raspberry Pi keyboard and Apple computers which store the keyboard and system language in the `prev-lang:kbd` EFI variable
-4. The `slim` session manager (login window) is started; when the user is loggen in, it starts the script `/usr/local/bin/start-hello` which starts the desktop session and sets the keyboard and system language based on the information provided by `localize` in an earlier step
+4. The `slim` session manager (login window) is started; when the user is logged in, it starts the script `/usr/local/bin/start-hello` which starts the desktop session and sets the keyboard and system language based on the information provided by `localize` in an earlier step
 
 ### Troubleshooting the Live system early boot process
 
