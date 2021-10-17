@@ -1377,7 +1377,7 @@ ignored else</td>
 
 The processus described here is only a sort of meta-algorithm, whose only goal is to better specify how the menus and actions should be layouted in the final hierarchy.
 
-The implementor might take advantage of preparing once the whole hierarchy of the menus and actions:
+The implementer might take advantage of preparing once the whole hierarchy of the menus and actions:
 
 *   to minimize the time spent in the parsing of all files;
 *   to identify and eliminate duplicate _desktop_file_id_s,
