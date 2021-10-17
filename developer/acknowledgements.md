@@ -69,6 +69,7 @@ __[keshavbhatt](https://github.com/keshavbhatt)__
 ## TheAssassin
 __[TheAssassin](https://github.com/TheAssassin)__
 * Improved documentation by providing Sphinx evangelism and ReStructuredText help
+* Helped with CMake and Qt translations
 
 ## Leodanis Pozo Ramos
 __[lpozo](https://github.com/lpozo)__
