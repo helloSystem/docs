@@ -879,7 +879,7 @@ Defaults to `>0`.</td>
 <td>`Schemes`</td>
 
 <td>The list of schemes the selection must satisfy in order the item be selected.  
-Exemples of well-known schemes are:  
+Examples of well-known schemes are:  
 
 *   `file`
 *   `sftp`
