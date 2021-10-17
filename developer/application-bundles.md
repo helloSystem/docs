@@ -75,7 +75,7 @@ ln -s usr/local/lib .
 rm usr/local/bin/falkon-e
 ```
 
-This works because by coincidence the string `/usr/local/lib` has the exact same length as `$ORIGIN/../lib`. If this was not the case, one would need to either specifiy the rpath at compilation time, or use a tool such as `patchelf`.
+This works because by coincidence the string `/usr/local/lib` has the exact same length as `$ORIGIN/../lib`. If this was not the case, one would need to either specify the rpath at compilation time, or use a tool such as `patchelf`.
 
 ### Avoiding absolute paths
 
