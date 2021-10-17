@@ -1399,7 +1399,7 @@ After this built phase, the resultant tree only contains valid (before runtime p
 So, menus or actions may appear at the level zero of the whole hierarchy for only two reasons:
 
 1.  because they are explicitly addressed by the level-zero configuration, if the implementation defines it; this may concern menus and actions;
-2.  because these items were not adressed by any menu (but this may only concern actions).
+2.  because these items were not addressed by any menu (but this may only concern actions).
 
 ## The level-zero case
 
