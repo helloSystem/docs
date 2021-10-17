@@ -1,6 +1,6 @@
 # Boot Environments 
 
-_Boot Environments_ are bootable clones of snapshots of the working system. Boot Environments allow you to create a safe failback Boot Environment before upgrading or making major changes to the system.
+_Boot Environments_ are bootable clones of snapshots of the working system. Boot Environments allow you to create a safe fallback Boot Environment before upgrading or making major changes to the system.
 
 Other applications may create Boot Environments automatically before performing critical operations such as major operating system upgrades.
 
