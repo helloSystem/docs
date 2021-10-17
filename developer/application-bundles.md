@@ -92,7 +92,7 @@ https://github.com/KaidanIM/Kaidan/commit/da38011b55a1aa5d17764647ecd699deb4be43
 
 Many desktop environments use XDG-style `.desktop` files to figure out which application a given window belongs to but since helloSystem is using `.app` bundles and `.AppDir` application directories this approach is not sufficient since such applications normally do not install XDG-style `.desktop` files in central locations.
 
-Docks (and other similar applciations) can find the icon that belongs to a window on the screen by the following procedure:
+Docks (and other similar applications) can find the icon that belongs to a window on the screen by the following procedure:
 
 1. Get the Window IDs of the windows on the screen from Xorg (to simulate this, you can use the `xprop` tool)
 1. Get the process ID (PID) that has launched the window with this ID from the `_NET_WM_PID` property of the Xorg window
@@ -108,7 +108,7 @@ A rudimentary implementation of this logic is in place in Dock in the `Utils::re
 
 ## Credits
 
-Application directories and applciation bundles have been used by many desktop-oriented operating systems, including RISC OS, NeXTStep/OPENSTEP, Mac OS X, and various other systems. Classic Macintosh System used single-file applications that kept resources in the Resource Fork.
+Application directories and application bundles have been used by many desktop-oriented operating systems, including RISC OS, NeXTStep/OPENSTEP, Mac OS X, and various other systems. Classic Macintosh System used single-file applications that kept resources in the Resource Fork.
 
 * https://en.wikipedia.org/wiki/Application_directory
 * http://rox.sourceforge.net/desktop/AppDirs.html
