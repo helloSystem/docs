@@ -79,7 +79,7 @@ This works because by coincidence the string `/usr/local/lib` has the exact same
 
 ### Avoiding absolute paths
 
-For an application to be fully relocateable in the filesystem, one must take care that no absolute paths to data files (e.g., those in `/usr/share/<APPNAME>` get compiled in.
+For an application to be fully relocatable in the filesystem, one must take care that no absolute paths to data files (e.g., those in `/usr/share/<APPNAME>` get compiled in.
 
 In Qt applications, void [`QStringList QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);`](http://doc.qt.io/qt-5/qstandardpaths.html). According to the [Qt documentation](http://doc.qt.io/qt-5/qstandardpaths.html), this resolves to `"~/.local/share/<APPNAME>", "/usr/local/share/<APPNAME>", "/usr/share/<APPNAME>"` but clearly `/usr` is not where these things are located in an `.app` bundle.
 
