@@ -6,6 +6,13 @@ Once you have installed the system to the hard disk in your computer, or an exte
     This utility is currently in  **Developer Preview** status and is intended for developers and testers. Only use it if you have a backup of your system or if you are running on a test system that you can set up from scratch if needed.
 ```
 
+This utility
+* Updates the FreeBSD operating system components (kernel and userland)
+* Updates all FreeBSD Packages
+* Currently does _not_ update any applications that came with helloSystem as native application bundles
+
+![](https://user-images.githubusercontent.com/2480569/137626617-ffa339e5-5633-4fa4-84a5-9dd9c7f4b966.png)
+
 ## Testing 
 
 Please follow this exact procedure when testing the Update utility:
