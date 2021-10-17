@@ -1,6 +1,6 @@
 # Create Live Media
 
-A __Live Medium__ is a storage device that can be used to start your computer with the helloSystem without having to install helloSystem to the internal storage of the computer. It allows you to try out helloSystem without making any changes to the software installed on your computer. Almost all functionality of helloSystem is available in Live mode, with very few exceptions. Changes being made, including files created, will be discarded when the system is shut down or retarted.
+A __Live Medium__ is a storage device that can be used to start your computer with the helloSystem without having to install helloSystem to the internal storage of the computer. It allows you to try out helloSystem without making any changes to the software installed on your computer. Almost all functionality of helloSystem is available in Live mode, with very few exceptions. Changes being made, including files created, will be discarded when the system is shut down or restarted.
 
 The __Create Live Media__ utility provides an easy and convenient way to create bootable Live Media on devices such as USB sticks. It downloads and writes Live ISOs to devices in one go.
 
