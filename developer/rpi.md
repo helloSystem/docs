@@ -4,7 +4,7 @@
 
 Although we are currently not providing installation images for Raspberry Pi, we are investigating whether doing so would be feasible and beneficial.
 
-The same insructions are roughly applicable to other aarch64 based systems such as rk3399 ones like the PineBook Pro and the [pine64 rockpro64_rk3399](https://bsd-hardware.info/?id=board:pine64-pinebook-pro-rk3399) as well.
+The same instructions are roughly applicable to other aarch64 based systems such as rk3399 ones like the PineBook Pro and the [pine64 rockpro64_rk3399](https://bsd-hardware.info/?id=board:pine64-pinebook-pro-rk3399) as well.
 
 ``` .. note::
     This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject.

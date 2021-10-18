@@ -22,7 +22,7 @@
  
  Many graphical desktop environments use `.desktop` files to integrate applications with the system. While this has traditionally worked well for installed applications, it does not work well for dynamically changing applications that are moved in the filesystem, such as `.app` bundles or `.AppDir` directories. Also, it does not handle multiple versions of the same application gracefully. Hence, helloSystem uses the `launch` command to launch graphical applications. This has the following advantages:
  
- * You do not need to know the path to the application to be launched, even if the applciation is not on the `$PATH`
+ * You do not need to know the path to the application to be launched, even if the application is not on the `$PATH`
   * If multiple versions of an application are available on the system, the most recent one will be launched automatically (unless specified otherwise by the user) __(to be implemented)__
  * If something goes wrong and the application cannot be launched, then a graphical error message will be shown on the screen
  

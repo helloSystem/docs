@@ -17,7 +17,7 @@ For an introduction to [Creating GUI applications with Python & Qt5](https://www
 
 ## Using .ui files in PyQt
 
-Using Qt Creator, you can also create and edit graphical user inferfaces for __Python__ based applications using `.ui` files. These can be used in PyQt like this:
+Using Qt Creator, you can also create and edit graphical user interfaces for __Python__ based applications using `.ui` files. These can be used in PyQt like this:
 
 ```
 #!/usr/bin/env python3

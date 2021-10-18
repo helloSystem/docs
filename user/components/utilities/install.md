@@ -22,7 +22,7 @@ When you install helloSystem using the __Install FreeBSD__ utility, the installe
 
 Start your computer from a helloSystem Live Medium. Open the __Install FreeBSD__ utility and follow the instructions on screen.
 
-The installer starts by presenting a summary of FreeBSD. Click on "Continue". To install the software, you must agree to the terms of the software license agreemement. Click on "Continue" to proceed. Click on a destination disk on which the operating system should be installed. A warning will inform you that the entire disk will be erased. Confirm whether you want to do this by clicking on the appropriate button.
+The installer starts by presenting a summary of FreeBSD. Click on "Continue". To install the software, you must agree to the terms of the software license agreement. Click on "Continue" to proceed. Click on a destination disk on which the operating system should be installed. A warning will inform you that the entire disk will be erased. Confirm whether you want to do this by clicking on the appropriate button.
 
 ``` .. warning::
     The **Install FreeBSD** utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.
@@ -38,7 +38,7 @@ In the next step, you will create an account for the main user of the computer. 
 * The field __Username__ will be automatically populated with a suggested username. It must not contain any special characters such as blanks. You can override the suggested default if you like. Example: `jdoe`
 * Enter a password into the __Password__ field. Repeat the same password in the __Retype Password__ field. These fields can be left blank if you prefer not to use a password, but this will mean that anyone with access to your computer will be able to log in, and you will not be able to log in over the network
 * The field __Computer Name__ will be automatically populated with a suggested computer name (hostname). This name will be used to identify your computer on the local area network. It must not contain any special characters such as blanks. You can override the suggested default if you like. Example: `Johns-TravelMate-B117-M`
-* Check the checkbox __Enable users to log in over the network (ssh)__ if you would like to allow accessing the computer remotely. By default, this requires a passwort to be set for the computer account
+* Check the checkbox __Enable users to log in over the network (ssh)__ if you would like to allow accessing the computer remotely. By default, this requires a password to be set for the computer account
 * Check the checkbox __Set time zone based on current location__ if you would like timezone on the installed system to be set automatically. This feature requires an active internet connection
 
 Click "Continue" to proceed. The system will be installed to the selected disk. This process typically takes a couple of minutes depending on your system configuration, during which a progress bar will be shown.

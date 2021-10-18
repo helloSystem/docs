@@ -8,7 +8,7 @@ The __Remote Assistance__ utility allows a peer on the Internet to access and co
 
 ## Receiving Remote Assistance
 
-To get help form a peer, open the Remote Assistance utility. Once a connection has been made, a long string (the ID) is shown on the screen. This string has also been copied to the clipbord. Give that string to your remote peer, e.g., by pasting it into a mail or chat window.
+To get help form a peer, open the Remote Assistance utility. Once a connection has been made, a long string (the ID) is shown on the screen. This string has also been copied to the clipboard. Give that string to your remote peer, e.g., by pasting it into a mail or chat window.
 
 Once your peer has successfully connected, they will be able to see and operate anything on your screen, and to connect to any ports that may be open on your machine.
 

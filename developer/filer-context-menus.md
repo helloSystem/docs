@@ -106,7 +106,7 @@ This specification also defines how these actions may be gathered and ordered in
 A menu is defined by:
 
 * its displayable part: label, tooltip, icon
-* conditions which are to be met in order the menu, and recursively all of its subitems, be actuelly displayed in the Filer context menu
+* conditions which are to be met in order the menu, and recursively all of its subitems, be actually displayed in the Filer context menu
 * the ordered list of the items in the menu.
 
 #### Conditions
@@ -487,7 +487,7 @@ But, where an action is intended to eventually execute a command, a menu is just
 
 In order to be valid, a menu must have a non-empty name, and include at least one valid subitem.
 
-It is the responsability of the implementation to ensure that the displayed menus are relevant, _i.e._ not empty, with no separator at the begin or the end of the menu, with no double separator, etc.
+It is the responsibility of the implementation to ensure that the displayed menus are relevant, _i.e._ not empty, with no separator at the begin or the end of the menu, with no double separator, etc.
 
 As stated
 
@@ -697,7 +697,7 @@ Defaults to show anywhere.</td>
 
 <td>`TryExec`</td>
 
-<td>Fromn [DES](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html): path to an executable file on disk used to determine if some program is actually installed. If the path is not an absolute path, the file is looked up in the $PATH environment variable. If the file is not found or is not executable, this condition evals to `false`.  
+<td>From [DES](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html): path to an executable file on disk used to determine if some program is actually installed. If the path is not an absolute path, the file is looked up in the $PATH environment variable. If the file is not found or is not executable, this condition evals to `false`.  
 Defaults to successful.</td>
 
 <td>string</td>
@@ -743,7 +743,7 @@ Defaults to successful.
 <td>`ShowIfTrue`</td>
 
 <td>A command which, when executed, should output a string on stdout.  
-The item will be candidate if the outputed string is equal to `true`.  
+The item will be candidate if the outputted string is equal to `true`.  
 Example: `[ -r %d/.svn/entries ] && echo \"true\`  
 Defaults to successful.  
 
@@ -803,7 +803,7 @@ Some of well-known mimetypes include:
 *   when used alone as in `*;`, _i.e._ when used as a group wildcard without subgroup,
 *   when used as the subgroup wildcard, after the `/` character, as in `image/*`.
 
-Defaults to `*;`, which happends to be exactly equivalent to `all/all` or to `all/*`.
+Defaults to `*;`, which happens to be exactly equivalent to `all/all` or to `all/*`.
 
 <table border="0">
 
@@ -879,7 +879,7 @@ Defaults to `>0`.</td>
 <td>`Schemes`</td>
 
 <td>The list of schemes the selection must satisfy in order the item be selected.  
-Exemples of well-known schemes are:  
+Examples of well-known schemes are:  
 
 *   `file`
 *   `sftp`
@@ -939,7 +939,7 @@ Please note that each element of the specified list must be considered as ANDed,
 Capabilities have to be chosen between following predefined ones:
 
 *   `Owner`: current user is the owner of the selected items
-*   `Readable`: selected items are readable by user (probably more usefull when negated)
+*   `Readable`: selected items are readable by user (probably more useful when negated)
 *   `Writable`: selected items are writable by user
 *   `Executable`: selected items are executable by user
 *   `Local`: selected items are local
@@ -1040,7 +1040,7 @@ Example:
 > 
 > Nonetheless, mixing singular and plural forms, though we warn against, is not an error. As a counter example, there may be some situations where a command-line of the form `echo %B %d` would be useful. In that case, the following command would be run:  
 > `echo pierre paul jacques /data`  
-> It is left as an exercize for the reader to find a use case.
+> It is left as an exercise for the reader to find a use case.
 
 The word "first" in the following table makes so reference to the case where the singular form parameter is used in a plural form command. We recall one more time that which is the "first" element is not specified, and, most probably, rather unpredictable.
 
@@ -1375,15 +1375,15 @@ ignored else</td>
 
 ## Building the whole hierarchy
 
-The processus described here is only a sort of meta-algorythm, whose only goal is to better specify how the menus and actions should be layouted in the final hierarchy.
+The processus described here is only a sort of meta-algorithm, whose only goal is to better specify how the menus and actions should be laid out in the final hierarchy.
 
-The implementor might take advantage of preparing once the whole hierarchy of the menus and actions:
+The implementer might take advantage of preparing once the whole hierarchy of the menus and actions:
 
 *   to minimize the time spent in the parsing of all files;
 *   to identify and eliminate duplicate _desktop_file_id_s,
 *   to eliminate invalid menus and actions.
 
-1.  as described in desktop_file_ids and invalid `.desktop` files; implentation so obtains a flat list of menus or actions;  
+1.  as described in desktop_file_ids and invalid `.desktop` files; implementation so obtains a flat list of menus or actions;  
 
 2.  recursively build the hierarchy; this merely consists in the build of the hierarchy as a tree of menus and actions, where each _desktop_file_id_ addressed as the subitem of a menu consumes this same id from the flat list
     *   if the level-zero order (which is not specified here, but see desktop_file_id addressed in the level zero consumes this same id from the flat list;
@@ -1399,7 +1399,7 @@ After this built phase, the resultant tree only contains valid (before runtime p
 So, menus or actions may appear at the level zero of the whole hierarchy for only two reasons:
 
 1.  because they are explicitly addressed by the level-zero configuration, if the implementation defines it; this may concern menus and actions;
-2.  because these items were not adressed by any menu (but this may only concern actions).
+2.  because these items were not addressed by any menu (but this may only concern actions).
 
 ## The level-zero case
 

@@ -24,7 +24,7 @@ This affects some computers with some (~ out of 10) builds of the ISO. If you en
 
 ## Debugging application issues
 
-When debugging application issues, it can be helpful to see what an application is actually doing. For example, if we are interested in which libaries with "menu" in their name `firefox` is loading, we can run
+When debugging application issues, it can be helpful to see what an application is actually doing. For example, if we are interested in which libraries with "menu" in their name `firefox` is loading, we can run
 
 ```
 LD_DEBUG=libs firefox 2>&1 | grep -i menu
