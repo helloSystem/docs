@@ -282,6 +282,12 @@ Changing this to `"1"` does not make any difference for Cura, though.
 
 _To be written._
 
+## Chromium, Chrome
+
+https://github.com/chromium/chromium/blob/master/chrome/browser/ui/views/frame/dbus_appmenu.cc suggests that there is global menu support in the Chromium source code.
+
+https://github.com/chromium/chromium/blob/72ceeed2ebcd505b8d8205ed7354e862b871995e/chrome/browser/ui/views/frame/browser_desktop_window_tree_host_linux.cc#L32-L47 seems to suggest that it can be activated by enabling `USE_DBUS_MENU` in the FreeBSD Ports [Makefile](https://github.com/freebsd/freebsd-ports/blob/main/www/chromium/Makefile).
+
 ## Patches needed for Firefox and Thunderbird
 
 Firefox and Thunderbird need substantial source code patches to make global menus work:
