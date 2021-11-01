@@ -38,14 +38,23 @@ setenv ALLOW_UNSUPPORTED_SYSTEM YES
 Build the port without changes first to ensure it builds and works as expected.
 
 ```
+cd /usr/ports/x11-toolkits/qtermwidget/
+
+# Install all build-time dependencies from packages
+make build-depends-list | cut -c 12- | xargs pkg install -y
+
 # Build the library
 # NOTE: Applications that have a library that is used by nothing but that application are just
 # annoying because now you have to deal with two entities rather than one
-cd /usr/ports/x11-toolkits/qtermwidget/
 MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
-# Build the application
+# Now, the application itself
 cd /usr/ports/x11/qterminal
+
+# Install all build-time dependencies from packages
+make build-depends-list | cut -c 12- | xargs pkg install -y
+
+# Build the application
 QTermWidget5_DIR=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/cmake/qtermwidget5/  MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
 # Run the application with the changed library
