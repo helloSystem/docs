@@ -14,7 +14,7 @@ In helloSystem, many tasks are done in the Filer that would require extra tools 
 
 ## Launching applications
 
-To launch an application, double-click it in Filer. In case you double-click on a binary that is lacking the execute permission, a dialog will ask you whether you would like to make the binary executable.
+To launch an application, double-click it in Filer (you can also use the `⌘O` shortcut to open an application, or press `⌘↓`). In case you double-click on a binary that is lacking the execute permission, a dialog will ask you whether you would like to make the binary executable.
 
 ## Making applications available to the system
 
@@ -31,3 +31,13 @@ To remove an application from the system, move it to the Trash.
 Computers on the local area network that are offering access via  SFTP are automatically discovered and are shown in the "Network" area of Filer. Double-click on a network directory to access it. You will be asked to provide valid credentials (username, password) of an account on the remote computer. For this to work, computers need to provide SFTP services and announce them over dns-sd (Zeroconf, Bonjour).
 
 It is also possible to access files on computers that are not on the local area network. To do so, enter `sftp://hostname.tld` in the address bar of Filer and press the Enter key.
+
+## Keyboard shortcuts
+
+In addition to the shortcuts documented in the menus, the following shortcuts exist when Filer is running in Spatial Mode (which is the default on helloSystem):
+
+* `⌘↓`: Open the selected application, file, or folder
+* `⌘↑`: Go up one folder
+* `⌘⇧O`: Open the selected application, file, or folder, and close the current window
+* `⌘⇧↓`: Open the selected application, file, or folder, and close the current window
+* `⌘⇧↑`: Go up one folder, and close the current window
