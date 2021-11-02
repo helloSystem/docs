@@ -7,7 +7,7 @@ Once you have installed the system to the hard disk in your computer, or an exte
 ```
 
 This utility
-* Creates a new Boot Environment (bootable partial snapshot). __This is not a replacement for a backup.__
+* Creates a new Boot Environment (bootable partial snapshot). __This is not a full replacement for a backup__ but should allow you to roll back to the state before the update, should something go wrong
 * Updates the FreeBSD operating system components (kernel and userland)
 * Updates all FreeBSD Packages
 * Currently does _not_ update any applications that came with helloSystem as native application bundles
