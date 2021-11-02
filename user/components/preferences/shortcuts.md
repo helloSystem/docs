@@ -18,7 +18,7 @@ A __shortcut__ is a key or key combination you can press to invoke a defined act
 The ⌘ key, also known as Command, is the key left to the spacebar on helloSystem, unless you have configured your system differently.
 
 ``` .. note::
-    The software may refer to the Command key as "Ctrl". This is a known cosmetic issue.
+    Non-native software may refer to the Command key as "Ctrl". This is a known cosmetic issue.
 ```
 
 ## Default shortcuts
@@ -27,14 +27,14 @@ Open the __Shortcut Keys__ preferences application to view the default system-wi
 
 Notable default shortcuts include:
 
-* Press __⌘+Space__ to __search in the Menu__ (e.g., to launch applications or to execute commands in the frontmost application)
-* Press __Ctrl+⌘+Esc__ and click on an application window to __forcefully quit an application__ that is malfunctioning
-* Press __⌘+Shift+3__ or the __PrtScn__ key on your keyboard to __take a screenshot__
-* Press __Ctrl-⌘-H__ to go to the Home folder
-* Press __Ctrl-⌘-A__ to go to the Applications folder
-* Press __Ctrl-⌘-A__ to go to the Utilities folder
-* Press __Ctrl-⌘-T__ to go open a terminal
-* Press __Ctrl-⌘-I__ to open the internet browser
+* Press `⌘Space` to __search in the Menu__ (e.g., to launch applications or to execute commands in the frontmost application)
+* Press `Ctrl⌘Esc` and click on an application window to __forcefully quit an application__ that is malfunctioning
+* Press `⌘⇧3` or the __PrtScn__ key on your keyboard to __take a screenshot__
+* Press `⌘⇧H` to go to the Home folder
+* Press `⌘⇧A` to go to the Applications folder
+* Press `⌘⇧U` to go to the Utilities folder
+* Press `Ctrl⌘T` to open a Terminal
+* Press `Ctrl⌘I` to open the internet browser
 
 This list is not exhaustive.
 
