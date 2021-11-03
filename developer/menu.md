@@ -242,6 +242,10 @@ information to be displayed to users of the application through the interface sh
 * Issues: Requires the (undocumented?) `UBUNTU_MENUPROXY` environment variable not to be set to `0` or `<empty>`
 * Installed by package: `wx31-gtk3`
 
+## Files involved
+
+`/usr/local/share/dbus-1/interfaces/com.canonical.AppMenu.Registrar.xml` (comes with the `plasma5-plasma-workspace` package). Unclear whether it is needed for the correct functioning of Global Menus (or for some applications to detect that they are running on a system that is capable of displaying them). Unclear what it is needed for. Unclear how multiple packages could provide this file (if more than one package is installed on the system that contains an application that can display the Global Menu).
+
 ## Environment variables involved
 
 ### GTK_MODULES=appmenu-gtk-module
