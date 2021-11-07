@@ -107,9 +107,10 @@ __[crees](https://github.com/crees)__
 ## Jordan Gordeev
 * Wrote `geom_rowr` FreeBSD kernel module to combine a read-only with a read-write device
 
-## Jesper Schmitz Mouridsen
+## Jesper Schmitz Mouridsen (jsmdk)
 __[jsm222](https://github.com/jsm222)__
 * Packaging helloDesktop components for FreeBSD Ports
+* Fix for the Global Menu in Chrome and Firefox
 
 ## Sergey Tyuryukanov
 __[s199p.wa1k9k](https://github.com/s199pwa1k9r)__
