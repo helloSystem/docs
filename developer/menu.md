@@ -90,7 +90,7 @@ Desktop Environment, but it lives on as part of the Vala project.
 programs, converts to them MenuModel and send to them AppMenu
 (sometimes called a global menu bar). `unity-gtk-module` is used as a backend, and thus must also be installed
 * Status: active
-* Issues: Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity get shown in the global menu bar. Supposedly used by Firefox and Chrome but those applications are not functional with Menu in helloSystem yet. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work"
+* Issues: Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity get shown in the global menu bar. Supposedly used by Firefox and Chrome. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work"
 * Installed by package: `appmenu-gtk-module`
 
 ### unity-gtk-module
@@ -289,9 +289,9 @@ _To be written._
 
 ### Chromium, Chrome
 
-https://github.com/chromium/chromium/blob/master/chrome/browser/ui/views/frame/dbus_appmenu.cc suggests that there is global menu support in the Chromium source code.
+WIP fix for Chrome and Firefox, thanks Jesper Schmitz Mouridsen (jsmdk):
 
-https://github.com/chromium/chromium/blob/72ceeed2ebcd505b8d8205ed7354e862b871995e/chrome/browser/ui/views/frame/browser_desktop_window_tree_host_linux.cc#L32-L47 seems to suggest that it can be activated by enabling `USE_DBUS_MENU` in the FreeBSD Ports [Makefile](https://github.com/freebsd/freebsd-ports/blob/main/www/chromium/Makefile).
+https://github.com/helloSystem/Menu/commit/999bf5d976b1c403159863ffc4af830b0d6a5669#diff-a048e15ab96b177a59f13528cad22fa877f6e175730b7fad7fed6f6a4e8a5e7b
 
 ### Patches needed for Firefox and Thunderbird
 
@@ -299,6 +299,8 @@ Firefox and Thunderbird need substantial source code patches to make global menu
 
 * https://aur.archlinux.org/cgit/aur.git/tree/unity-menubar.patch?h=firefox-appmenu. See https://github.com/airyxos/Firefox_app for a FreeBSD implementation
 * https://aur.archlinux.org/cgit/aur.git/tree/0001-Use-remoting-name-for-GDK-application-names.patch?h=firefox-appmenu
+
+The above fix is also needed.
 
 ### GMenu-DBusMenu-Proxy
 
