@@ -16,7 +16,31 @@ In the future, there may also be builds for other processor architectures. We wo
 
 Please refer to [FreeBSD Hardware Compatibility](https://www.freebsd.org/doc/en_US.ISO8859-1/books/faq/hardware.html) for more information on individual components.
 
-### Tested hardware
+## Downloading
+
+The **helloSystem 0.6.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.6.0).
+
+Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
+
+``` .. important::
+    Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
+```
+
+## Creating Live Media
+
+The ISO file needs to be written to a device, e.g., to a USB stick, in order to a computer being able to start from it. This will overwrite and destroy all data on that device.
+
+helloSystem comes with a __Create Live Media__ utility that allows to write ISO files to a device easily.
+
+If you are not running helloSystem yet or would like to use the command line, the following command should work on all BSD flavors:
+
+```
+sudo dd if=<path to ISO file> of=/dev/daX bs=4m status=progress
+```
+
+On GNU-style systems (e.g., most Linux distributions), `status=progress` does not work and can be left away.
+
+## Tested hardware
 
 hello is known to boot to a graphical desktop on the following machines. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. has not yet been tested systematically.
 
@@ -36,7 +60,7 @@ Not all networking devices may be supported by FreeBSD yet. In those cases, you 
 * [USB 802.11n WLAN Adapters based on `ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS`](https://vermaden.wordpress.com/2020/10/30/realtek-usb-wifi-review/)
 * [USB Wired Ethernet Adapters based on `ID 0b95:772b ASIX Electronics Corp. AX88772B`](https://www.freebsd.org/cgi/man.cgi?query=axe)
 
-### Virtualization environments
+## Virtualization environments
 
 ``` .. note::
     We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
@@ -127,13 +151,3 @@ Then add these two `qemu-system-x86_64` options:
 * Network Device: VirtIO
 
 To set resolution, press F2 at boot to access OVMF settings. Select 'Device Manager > OVMF Platform Configuration > Change Preferred', save and reboot.
-
-## Downloading
-
-The **helloSystem 0.6.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.6.0).
-
-Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
-
-``` .. important::
-    Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
-```
