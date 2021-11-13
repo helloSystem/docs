@@ -27,6 +27,18 @@ driver depending on whether the system was booted via BIOS or EFI.
 
 [Source](https://github.com/nomadbsd/NomadBSD/commit/a346f134aaca1cdc164346f63808abdb4d8919e3)
 
+If everything goes well, then after running `sudo sysctl initgfx start` you should have (example: Nvidia):
+
+```
+% cat /usr/local/etc/X11/xorg.conf.d/00-video-initgfx.conf 
+Section "Device"
+    Identifier    "NVIDIA CARD"
+    VendorName    "NVIDIA Corporation"
+    Driver        "nvidia"
+    BusID         "PCI:1:0:0"
+EndSection
+```
+
 ## Disabling the graphics driver menu
 
 If you want to disable the graphics driver menu, add
@@ -47,3 +59,14 @@ If you would like to temporarily disable the automatic graphics driver setup and
 ## Troubleshooting
 
 If applications that are using OpenGL crash on Nvidia systems, then it may be that the Nvidia driver was correctly loaded but the wrong Xorg configuration has been loaded, not actually using the Nvidia driver. This can happen when initgfx writes the dynamically generated Xorg configuration to `path_xorg_cfg_dir` (which points to `/usr/local/etc/X11/xorg.conf.d/` by default) but other files have been placed by other packages or the user into, e.g., `/etc/X11/xorg.conf.d`. You can verify which Xorg configuration directory was used by Xorg with `cat /var/log/Xorg.0.log | grep Using.config`. Seemingly Xorg cannot combine configuration stored in multiple `xorg.conf.d` directories.
+
+## Nvidia drivers
+
+Different versions of the Nvidia drivers exist. Unfortunately the latest version does not support all the earlier GPUs, so multiple versions of the Nvidia drivers are shipped with helloSystem to cover both new and older Nvidia GPUs. `initgfx` should automatically select a version suitable for the hardware in the computer.
+
+To check this:
+
+```
+% cat /etc/rc.conf | grep initgfx_kmods
+initgfx_kmods="/usr/local/nvidia/390/boot/modules/nvidia.ko /usr/local/nvidia/390/boot/modules/nvidia-modeset.ko"
+```
