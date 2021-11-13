@@ -1,5 +1,9 @@
 # Boot process
 
+``` .. note::
+    This page describes helloSystem boot process up to 0.6.0. Starting with version 0.7.0, helloSystem will use a completely different live system boot process. This page needs to be updated accordingly.
+```
+
 ## Live system early boot process
 
 The ISO contains a compressed Live system filesystem image in uzip format. This filesystem image contains the filesystem used when running the ISO. During the Live system boot process, the image needs to get mounted and needs to get turned into a read-write filesystem so that one can make changes to the running system.
