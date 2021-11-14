@@ -109,8 +109,9 @@ __[crees](https://github.com/crees)__
 
 ## Jesper Schmitz Mouridsen (jsmdk)
 __[jsm222](https://github.com/jsm222)__
-* Packaging helloDesktop components for FreeBSD Ports
+* Packaging helloDesktop components for FreeBSD Ports ([details](https://wiki.freebsd.org/helloDesktop))
 * Fix for the Global Menu in Chrome and Firefox
+* Added patches to Firefox and Thunderbird Ports for global menu support
 
 ## Sergey Tyuryukanov
 __[s199p.wa1k9k](https://github.com/s199pwa1k9r)__
