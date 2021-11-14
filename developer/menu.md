@@ -309,7 +309,7 @@ helloSystem versions 0.7.0 and up come with this repository enabled. To enable i
 ```
 cat > /usr/local/etc/pkg/repos/helloDesktop.conf <<\EOF
 helloDesktop: {
-        url: "pkg+http://build.schmitz.computer/packages/122amd64-quarterly",
+        url: "pkg+http://build.schmitz.computer/packages/${ABI}-mozillapatched",
         mirror_type: "srv",
         enabled: yes,
         signature_type: "pubkey",
