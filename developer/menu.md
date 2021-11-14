@@ -313,12 +313,12 @@ helloDesktop: {
         mirror_type: "srv",
         enabled: yes,
         signature_type: "pubkey",
-        pubkey: "/usr/local/etc/ssl/certs/poudriere.cert",
+        pubkey: "/usr/local/etc/ssl/certs/jsm222.cert",
         priority: 100
 }
 EOF
 
-cat > /usr/local/etc/ssl/certs/poudriere.cert <<\EOF
+cat > /usr/local/etc/ssl/certs/jsm222.cert <<\EOF
 -----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5gEt92AHUkYkZH2Q2nP3
 2/Wu7gxbMEno5iqi1ea327lHmhJB18E0mW9dKYgxz74PbbTAmyaMdY4G1vn3cStp
