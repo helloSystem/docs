@@ -304,6 +304,50 @@ FreeBSD Ports files for patched Firefox and Thunderbird by Jesper Schmitz Mourid
 
 Packages of patched Firefox and Thunderbird are available at http://build.schmitz.computer/packages/122amd64-quarterly (see https://wiki.freebsd.org/helloDesktop for details).
 
+To use this repository:
+
+```
+cat > /usr/local/etc/pkg/repos/helloDesktop.conf <<\EOF
+helloDesktop: {
+        url: "pkg+http://build.schmitz.computer/packages/122amd64-quarterly",
+        mirror_type: "srv",
+        enabled: yes,
+        signature_type: "pubkey",
+        pubkey: "/usr/local/etc/ssl/certs/poudriere.cert",
+        priority: 100
+}
+EOF
+
+cat > /usr/local/etc/ssl/certs/poudriere.cert <<\EOF
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5gEt92AHUkYkZH2Q2nP3
+2/Wu7gxbMEno5iqi1ea327lHmhJB18E0mW9dKYgxz74PbbTAmyaMdY4G1vn3cStp
+jKVnrOCsNboaZ1L6riYFTjZX0pVAQYdtblCNjTf92X1kk8Yp1jy3baH8s19IKVWD
+jX+2j33BOjRH3jbiLxdPu51wPItDUM4UU+mdrMH2+RgHjVX3ZkgRe/bYxMgrYBQg
+roEwp0Pv9DbDQ0Vx3qIBJahQ7zfDCWZI1urr85/kM58KXYLt1YHW+vRd3scOm1IE
+mRON0zVO2f8+obzy3lLNnZj/XIWxh+LNI4kmmdoHMksysYtrRz1bpcnsY8qOe4g3
+X7q+i8k0JaaMwwD9YvKf6HyQ09rFt3WqV2AAOwR0835oHxCENJJFcoUCMCaKjNSF
+OZyuYKKPqSm8BKj/QaoXBIF1fQJBJzrINYSUj4/M6TWKVTSO8H4s+eiqfD7FYJ3h
+jSZ2ubydtTOef1Tk79OVoo8Ns7FqzCK7ffOvELxuY2OMDIKrw0sCfpkI9uM5Dfrr
+rYXn4dwvZLwB+tnBbKBXIfjAvwqjHeWfzqgUHSk/Slqh7UEYL+BnLfHxLMVN0Omk
+gFM24eVEKju1PHkBDHVAD+NGfq4g/hcbAbcrtjxDrs1ztdwjtCJmFNcEYFjz0DRc
+q9cTv5oaRy9FQy0NdGwGuqUCAwEAAQ==
+-----END PUBLIC KEY-----
+EOF
+
+sudo pkg install firefox thunderbird
+```
+
+Since the helloDesktop repository has `priority: 100`, you should see:
+
+```
+New packages to be INSTALLED:
+        firefox-94.0.1_1,2 [helloDesktop]
+        thunderbird: 91.3.0_1 [helloDesktop]
+```
+
+Note the `helloDesktop`, indicating that these packages will be installed from the helloDesktop repository provided by [__jsm222__](https://github.com/jsm222/) rather than from the FreeBSD repository. In general, we aim to use software that is in the official FreeBSD packages, so we hope that those ports will be upstreamed.
+
 ### GMenu-DBusMenu-Proxy
 
 ```
