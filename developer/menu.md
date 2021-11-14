@@ -304,7 +304,7 @@ FreeBSD Ports files for patched Firefox and Thunderbird by Jesper Schmitz Mourid
 
 Packages of patched Firefox and Thunderbird are available at http://build.schmitz.computer/packages/122amd64-quarterly (see https://wiki.freebsd.org/helloDesktop for details).
 
-To use this repository:
+helloSystem versions 0.7.0 and up come with this repository enabled. To enable it manually:
 
 ```
 cat > /usr/local/etc/pkg/repos/helloDesktop.conf <<\EOF
