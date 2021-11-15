@@ -16,6 +16,8 @@ If the user tells the system to perform the monkey patching, the early boot scri
 
 ## Creating the monkey patch volume
 
+![image](https://user-images.githubusercontent.com/2480569/141862072-250f4d58-b5a5-4857-9bd0-70651690796e.png)
+
 * Format a USB stick with the FAT32 (`msdosfs`) file system
 * The volume must have the name ("filesystem label") `MONKEYPATCH`
 * There must be a `monkeypatch.sh` file that will be run by `#!/bin/sh`
