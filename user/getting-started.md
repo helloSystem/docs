@@ -89,7 +89,7 @@ Users have reported success in running helloSystem in the following virtualizati
 
 * VMware host (on Windows), possibly only working in BIOS mode?
 
-* QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet 
+* QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet
 
 * Parallels host, reported to work in EFI mode (see below)
 
@@ -105,7 +105,7 @@ Please note:
 
 Please report back about the results on your virtualization environment.
 
-#### QEMU
+### QEMU
 
 Create an 8 GiB (or larger) `hello.img` image file on which you can install the system:
 
@@ -143,19 +143,20 @@ Notes
 To boot/install hello in UEFI mode, first install [OVMF Open Virtual Machine Firmware](https://github.com/tianocore/tianocore.github.io/wiki/OVMF) on your host side. The package name for Fedora 32 is `edk2-ovmf`
 
 Then add these two `qemu-system-x86_64` options:
+
 ```
 -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
 -smbios type=0,vendor=0vendor,version=0version,date=0date,release=0.0,uefi=on \
 ```
 
-#### Parallels
+### Parallels
 
 * Select Hardware > Boot Order.
-* Expand **Advanced Settings**. Set **BIOS** to "EFI 64-bit" and in the Boot flags field, enter `vm.bios.efi=1`. 
+* Expand **Advanced Settings**. Set **BIOS** to "EFI 64-bit" and in the Boot flags field, enter `vm.bios.efi=1`.
 
 ![Screenshot](https://docs.01.org/clearlinux/latest/zh_CN/_images/parallels-07.png)
 
-#### Proxmox VE
+### Proxmox VE
 
 * Memory: 4GB (not ballooned)
 * Processors: 2 (1 socket 2 cores)
