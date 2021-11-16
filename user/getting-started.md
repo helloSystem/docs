@@ -40,6 +40,23 @@ sudo dd if=<path to ISO file> of=/dev/daX bs=4m status=progress
 
 On GNU-style systems (e.g., most Linux distributions), `status=progress` does not work and can be left away.
 
+## Ventoy
+
+[Ventoy](https://github.com/ventoy/Ventoy/) is a tool that lets you boot the operating systems of multiple ISO files that are residing on the same disk, without the need to write the ISO to a physical device. Starting with version 1.0.62, Ventoy can boot helloSystem 0.7.0 and later.
+
+If you are not running helloSystem yet, then please refer to the Ventoy documentation on how to create a bootable Ventoy disk (that you put your ISOs on) using Windows or Linux.
+
+If you are already running helloSystem and would like to create a bootable Ventoy disk, please follow these steps instead since the Ventoy installation instructions since the Ventoy documentation only describes installation using Windows and Linux:
+
+![image](https://user-images.githubusercontent.com/2480569/142038823-d7413735-73d9-44b4-84e5-c50768c2f271.png)
+
+1. Run The __Create Live Media__ utility in helloSystem
+2. From the drop-down menu, select __Ventoy__. Select the latest version (at least 1.0.62), and create a Ventoy Live medium (a 1 GB USB stick is sufficient for this)
+3. Boot from the Ventoy Live medium you just created, and use it to install Ventoy to a disk (a SSD with hundreds of GB of space is recommended if you want to store hundreds of different operating system ISOs)
+4. At this point, you don't need the Ventoy Live medium anymore (the 1 GB USB stick)
+5. Put one or more helloSystem ISOs (and potentially ISOs of other operating systems supported by Ventoy) onto the Ventoy disk (the one with hundreds of GB of space)
+6. Once a new version of Ventoy comes out, put the latest Ventoy Live ISO onto your Ventoy disk, just like any other operating system ISO. Boot it to update the Ventoy installation on the Ventoy disk itself (yes, it can update the disk it is running from)
+
 ## Tested hardware
 
 hello is known to boot to a graphical desktop on the following machines. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. has not yet been tested systematically.
