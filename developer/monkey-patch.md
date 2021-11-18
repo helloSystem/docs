@@ -47,4 +47,9 @@ echo "HELLO DEVELOPERS"
 # This should be done only in rare cases since it destroys
 # the helloSystem zero-text boot experience
 echo "HELLO MERE MORTALS" > /dev/console
+
+# Override a file in the running system from the MONKEYPATCH volume
+HERE="$(dirname "$(readlink -f "${0}")")"
+cp ${HERE}/mount_md /usr/local/sbin/mount_md
+chmod +x /usr/local/sbin/mount_md
 ```
