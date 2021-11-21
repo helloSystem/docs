@@ -2,6 +2,8 @@
 
 The __Hardware Probe__ utility collects hardware details of your computer and can anonymously upload them to the public database at [bsd-hardware.info](https://bsd-hardware.info/?d=helloSystem).
 
+![](https://user-images.githubusercontent.com/2480569/103484839-12564480-4df2-11eb-8c57-d6ee6ef48e2b.png)
+
 This can help users and operating system developers to collaboratively debug hardware related issues, check for operating system compatibility and find drivers.
 
 You will get a permanent probe URL to view and share collected information.
