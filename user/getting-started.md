@@ -77,6 +77,8 @@ Not all networking devices may be supported by FreeBSD yet. In those cases, you 
 * [USB 802.11n WLAN Adapters based on `ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS`](https://vermaden.wordpress.com/2020/10/30/realtek-usb-wifi-review/)
 * [USB Wired Ethernet Adapters based on `ID 0b95:772b ASIX Electronics Corp. AX88772B`](https://www.freebsd.org/cgi/man.cgi?query=axe)
 
+Detailed information on #FreeBSD wireless network card compatibility is available at [https://wiki.freebsd.org/dev](https://wiki.freebsd.org/dev).
+
 ## Virtualization environments
 
 ``` .. note::
