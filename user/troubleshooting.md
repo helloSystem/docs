@@ -11,11 +11,23 @@ If – after five minutes – you're reluctant to stop the computer, you can occ
 * Please restart the computer. If normal use of the power button is not effective, press and hold. 
 * Then, please [start the computer in verbose mode](https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode) to see any relevant error messages that may help in resolving the issue.
 
-### Boot stalls during `Replicate system image to swap-based memdisk`(seen during verbose boot)
+### Boot stalls with black screen
 
-You may also see the error message `md1.uzip: UZIP(zlib) inflate() failed`. 
+This means that Xorg has been started but for some reason the login manager `slim` or the helloDesktop startup script `start-hello` cannot run.
 
-This affects some computers with some (~ out of 10) builds of the ISO. If you encounter this issue with your computer, please __retry with the next build of the ISO__ or try with a different computer. 
+* Boot in verbose mode
+* Press Ctrl+Alt+F2
+* Log in
+* `sudo killall Xorg`
+* `sudo service dbus restart`
+* `sudo service slim restart`
+
+If this does not work:
+
+* `sudo killall Xorg`
+* `startx`
+* In XTerm, `sudo liveuser` (or the username you chose)
+* `start-hello`
 
 ### `login:` prompt, no desktop environment
 
