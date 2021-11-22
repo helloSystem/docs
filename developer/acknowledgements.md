@@ -122,3 +122,7 @@ __[s199p.wa1k9k](https://github.com/s199pwa1k9r)__
 __[mszoek](https://github.com/mszoek)__
 @thatzoek on twitter
 * Implemented `org.freedesktop.FileManager1` API in Filer
+
+## alphamodh0
+__[alphamodh0](https://github.com/alphamodh0)__
+* Translated helloSystem to Spanish
