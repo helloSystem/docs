@@ -53,3 +53,16 @@ HERE="$(dirname "$(readlink -f "${0}")")"
 cp ${HERE}/mount_md /usr/local/sbin/mount_md
 chmod +x /usr/local/sbin/mount_md
 ```
+
+* There must be a `monkeypatch.sh` file that will be run by `#!/bin/sh`
+
+## Booting a Live ISO running a different `init_script`
+
+If you would like to test changes to `/boot/init_script` on the ISO without having to re-create it and without having to write the ISO to a device, you can use the `monkey_patch_init_script` feature:
+
+* Boot the ISO but interrupt the bootloader by pressing the Esc key
+* At the boot prompt, enter: `set monkey_patch_init_script=YES`
+* Optionally, use `unset BOOT_MUTE` so that you can see messages on the screen during boot
+* Start the system by entering `boot`
+
+The code inside the file `init_script` on the volume called `MONKEYPATCH` will be executed instead of `/boot/init_script` on the ISO.
