@@ -132,7 +132,7 @@ qemu-system-x86_64 -machine type=q35,accel=kvm \
 
 When QEMU starts, press `esc` and select `2` to boot the ISO.
 
-Use the __Install FreeBSD__ utility to install helloSystem do the disk image.
+Use the __Install FreeBSD__ utility (System -> Applications -> Utilities -> Install FreeBSD) to install helloSystem to the disk image.
 
 Then restart QEMU, you now remove the last two options from the above command.
 
