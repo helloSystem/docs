@@ -126,3 +126,7 @@ __[mszoek](https://github.com/mszoek)__
 ## alphamodh0
 __[alphamodh0](https://github.com/alphamodh0)__
 * Translated helloSystem to Spanish
+
+## Sebastian Birnbach
+[https://zweibruecken-ip.de/](https://zweibruecken-ip.de/)
+* Donated a Mac mini (Mid 2010) (`Macmini4,1`) to the helloSystem Hardware Test Zoo
