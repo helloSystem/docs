@@ -1,5 +1,7 @@
 # Developer Tools
 
+Starting with helloSystem 0.7.0, compilers, headers, `.o` files and other files for developers are not shipped on the helloSystem Live ISO by default in order to reduce the ISO size. You need to install the Developer Tools from `developer.img` which is a separate download from the same location you obtained the Live ISO (e.g., for 0.7.0, this is https://github.com/helloSystem/ISO/releases/tag/r0.7.0).
+
 The __Developer__ folder in the __Applications__ folder contains useful development tools for use with helloSystem.
 
 * __PyCharm CE__: A powerful integrated development environment (IDE) for the Python language which is used for
