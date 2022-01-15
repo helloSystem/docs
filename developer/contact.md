@@ -2,7 +2,7 @@
 
 ## Discussions
 
-The helloSystems [Discussions](https://github.com/helloSystem/hello/discussions/) forum is a great place to interact with helloSystem users and developers.
+The helloSystem [Discussions](https://github.com/helloSystem/hello/discussions/) forum is a great place to interact with helloSystem users and developers. If you have questions, feel free to ask in "Q&A". If you are running helloSystem, we'd be happy to hear from you in the "Show and tell" section.
 
 ## Chat
 
