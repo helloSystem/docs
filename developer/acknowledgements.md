@@ -130,3 +130,7 @@ __[alphamodh0](https://github.com/alphamodh0)__
 ## Sebastian Birnbach
 [https://zweibruecken-ip.de/](https://zweibruecken-ip.de/)
 * Donated a Mac mini (Mid 2010) (`Macmini4,1`) to the helloSystem Hardware Test Zoo
+
+## Luna Jernberg
+__[bittin](https://github.com/bittin)__
+* Translated helloSystem installer to Swedish
