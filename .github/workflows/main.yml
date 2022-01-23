@@ -26,8 +26,8 @@ jobs:
 
       - name: Build docs
         run: sudo -E bash -ex buildDocs.sh
-      - name: Deploy EPUB (only when building from master branch)
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: Deploy EPUB (only when building from main branch)
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
           bash ./upload.sh _build/epub/*
