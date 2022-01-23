@@ -19,9 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       G_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Build docs
         run: sudo -E bash -ex buildDocs.sh
+      - name: Deploy EPUB (only when building from master branch)
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash ./upload.sh _build/epub/*
