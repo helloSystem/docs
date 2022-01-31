@@ -38,6 +38,10 @@ fluidsynth -m oss -a oss SoundFont.sf2
 
 Unfortunately, not all applications on FreeBSD can use `/dev/umidi*` device nodes directly in this way. Hence there are other methods to access MIDI controllers. which one you need to use depends on what methods the application in question supports.
 
+``` .. note::
+    Applications cannot access /dev/umidi* directly while alsa-seq-server is running.
+```
+
 ## Using OSS Raw-MIDI (Open Sound System)
 
 Supposedly applications can use "OSS Raw-MIDI (Open Sound System)" to talk to MIDI controllers.
