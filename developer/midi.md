@@ -4,8 +4,10 @@ Over a decade ago, someone [wrote](https://forums.freebsd.org/threads/alsa-midi-
 
 > The main problem with anything midi and jack (in fact anything more complex than using simple audio in or audio out) under FreeBSD, is that I haven't found out how to configure things. A complete writeup (for a non-musician) about how to configure a system which use jack would be nice.
 
+This page describes how to use USB based hardware MIDI controllers (e.g., keyboards), with helloSystem and FreeBSD.
+
 ``` .. note::
-    This page describes how to use USB based hardware MIDI controllers (e.g., keyboards), with helloSystem and FreeBSD. It is a work in progress. Please consider contributing additions and corrections.
+    It is a work in progress. Please consider contributing additions and corrections.
 ```
 
 ## Using /dev/umidi*
@@ -60,6 +62,10 @@ sudo alsa-seq-server -d /dev/umidi*
 ```
 
 and then run the application.
+
+``` .. note::
+    alsa-seq-server was recently updated so that one can run it as a service which will automatically make all MIDI devices available without having to run one instance per MIDI device. The change should appear in FreeBSD packages (and thus in helloSystem) starting in Q2/2022.
+```
 
 ### Testing
 
