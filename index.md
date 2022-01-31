@@ -45,6 +45,7 @@ __helloSystem__ is a desktop system for creators with a focus on simplicity, ele
    developer/menu
    developer/filer-context-menus
    developer/developer-tools
+   developer/midi
    developer/specifications
    developer/contributing
    developer/building
