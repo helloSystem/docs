@@ -6,7 +6,7 @@ hello is currently being developed. It is not yet available for general use, but
 
 ## System requirements
 
-* 2 GHz dual core Intel/ARM 64-bit processor
+* 2 GHz dual core Intel/AMD 64-bit processor
 * 2 GiB RAM system memory (4 GiB recommended; before 0.7.0: 4 GiB minimum)
 * VGA capable of 1024x768 screen resolution
 * Either a CD/DVD drive or a USB port for booting the installer media
