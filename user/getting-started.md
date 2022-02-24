@@ -170,7 +170,7 @@ Then add these two `qemu-system-x86_64` options:
 
 To set resolution, press F2 at boot to access OVMF settings. Select 'Device Manager > OVMF Platform Configuration > Change Preferred', save and reboot.
 
-### VM Ware Workstation 
+### VMware Workstation 
 Tested on VMware Workstation 16.2.1
 
 > :warning: **Installation Issue** <br/>For best results while installing, please set your CPU to 1 socket, and no more than 4 cores.<br />After installation, you can set the CPU socket and core count to your desire.
