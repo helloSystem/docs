@@ -22,9 +22,9 @@ The **helloSystem 0.7.0** ISO image is available for download [here](https://git
 
 Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
 
-``` .. important::
-    Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
-```
+
+> :warning: **Important** <br/>Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
+
 
 ## Creating Live Media
 
@@ -81,15 +81,13 @@ Detailed information on #FreeBSD wireless network card compatibility is availabl
 
 ## Virtualization environments
 
-``` .. note::
-    We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
-```
+> :warning: **Note**: <br/>We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
 
 Users have reported success in running helloSystem in the following virtualization environments:
 
-* VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI mode
+* VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI modes
 
-* VMware host (on Windows), possibly only working in BIOS mode?
+* VMware Workstation works in BIOS and EFI modes (see below)
 
 * QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet
 
@@ -171,3 +169,15 @@ Then add these two `qemu-system-x86_64` options:
 * Network Device: VirtIO
 
 To set resolution, press F2 at boot to access OVMF settings. Select 'Device Manager > OVMF Platform Configuration > Change Preferred', save and reboot.
+
+### VMware Workstation 
+Tested on VMware Workstation 16.2.1
+
+> :warning: **Installation Issue** <br/>For best results while installing, please set your CPU to 1 socket, and no more than 4 cores.<br />After installation, you can set the CPU socket and core count to your desire.
+
+* Memory: 4GB 
+* Processors: 4 (1 socket, 4 cores)
+* Hard Disk: At least 8GB 
+* Guest Operating System Version: FreeBSD 12 64-bit
+
+
