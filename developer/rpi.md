@@ -6,9 +6,7 @@ Although we are currently not providing installation images for Raspberry Pi, we
 
 The same instructions are roughly applicable to other aarch64 based systems such as rk3399 ones like the PineBook Pro and the [pine64 rockpro64_rk3399](https://bsd-hardware.info/?id=board:pine64-pinebook-pro-rk3399) as well.
 
-``` .. note::
-    This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject.
-```
+> __Note:__ This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject.
 
 This page describes how to run the main components of helloSystem (referred to collectively as helloDesktop) on Raspberry Pi 3 and Raspberry Pi 4 devices, starting with the official FreeBSD 13 image that does not even contain Xorg.
 
@@ -25,21 +23,44 @@ If there is enough interest, we might eventually provide readymade helloSystem i
 * Keyboard and mouse (we recommend the official Raspberry Pi keyboard since helloSystem can automatically detect its language)
 * Ethernet (WLAN is not yet covered on this page)
 
-## Preparing
+## Optional hardware
+
+* SATA SSD drive (not NVME)
+
+## Preparing an SD card
 
 * Install the official FreeBSD 13 image (not FreeBSD 14) to a microSD card
 * Copy this file to the microSD card you are running the Raspberry Pi from. You will need it because you will not have an internet browser at hand
-* Edit `config.txt` in the `MSDOSBOOT` partition to contain the correct resolution for your screen. Apparently the screen resolution is not autodetected on the Raspberry Pi?
+* Edit `config.txt` in the `MSDOSBOOT` partition to contain the correct resolution for your screen.
 
 ```
 hdmi_safe=0
-framebuffer_width=1920
-framebuffer_height=1080
 disable_overscan=1
+display_auto_detect=1
+max_framebuffer_width=3840
+max_framebuffer_height=2160
+max_framebuffers=2
+gpu_mem=512
+
+[pi4]
+dtoverlay=vc4-kms-v3d-pi4
 ```
 
 ``` .. note::
-    Please let us know if you know how to get screen resolution autodetection working on FreeBSD with Raspberry Pi
+If, for some reason, the display does not work, simply remove or comment out the `max_framebuffer*` lines and replace them with the following:
+```
+```
+framebuffer_width=<display resolution width>
+framebuffer_height=<display resolution height>
+```
+
+## Preparing a bootable SSD drive (optional but recommended)
+
+* [Update your firmware if USB boot is not working](https://www.raspberrystreet.com/learn/how-to-boot-raspberrypi-from-usb-ssd)
+* Follow the instructions in the SD card section, but write the image to your SSD
+
+``` .. note::
+The Raspberry Pi 4/400 doesn't have a PCIe bus, so booting off an NVMe drive over USB protocol is not supported by the hardware. You will need to use a SATA SSD. This works for either M.2 or traditional drive form factors.
 ```
 
 ## Booting into the system
@@ -48,14 +69,16 @@ We will be doing all subsequent steps on the Raspberry Pi system itself since we
 
 * Insert the microSD card into the Raspberry Pi
 * Attach keyboard and mouse (we recommend the official Raspberry Pi keyboard since helloSystem can automatically detect its language)
-* Attach the display (on the Raspberry Pi 4, the display needs to be attached to the HDMI port next to the USB type C power port)
+* Attach the display (If you don't see anything, DO NOT power off your machine. Simply switch the HDMI port.)
 * Attach Ethernet
 * Power on the Raspberry Pi
-* After some time you should land in a login screen
+* After some time, you should land in a login screen
 * Log in with `root`, password `root`
 * Install some basic software with `pkg install -y xorg xterm nano openbox fluxbox git-lite`
 
-__NOTE:__ `fluxbox` is not strictly needed and can be removed later on, but it gives us a graphical desktop session while we are working on installing helloDesktop
+``` .. note::
+`fluxbox` is not strictly needed and can be removed later on, but it gives us a graphical desktop session while we are working on installing helloDesktop
+```
 
 ## Starting a graphical session
 
@@ -70,6 +93,12 @@ Doing it like this is the easiest way since the display `DISPLAY` environment va
 
 ## Compiling and installing helloDesktop core components
 
+### Install prerequisites
+    
+```
+pkg install -y cmake pkgconf qt5-qmake qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem libdbusmenu-qt5 qt5-concurrent qt5-quickcontrols2 libfm libqtxdg wget
+```
+    
 ### launch
 
 The `launch` command is central to helloSystem and is used to launch applications throughout the system.
@@ -89,7 +118,6 @@ cd ../../
 ### Menu
 
 ```
-pkg install -y cmake pkgconf qt5-qmake qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem libdbusmenu-qt5 qt5-concurrent qt5-quickcontrols2
 git clone https://github.com/helloSystem/Menu
 cd Menu
 mkdir build
@@ -108,7 +136,6 @@ git clone https://github.com/helloSystem/Filer
 cd Filer/
 mkdir build
 cd build/
-pkg install -y libfm
 cmake ..
 make -j4
 make install
@@ -117,9 +144,9 @@ cd ../../
 ```
 
 ``` .. note::
-    It seems like Filer refuses to start if D-Bus is missing. We should change it so that it can also work without D-Bus and at prints a clear warning if D-Bus is missing. Currently all you see if D-Bus is missing is the following: '** (process:3691): WARNING **:  The directory '~/Templates' doesn't exist, ignoring it', and then Filer exits.
+It seems like Filer refuses to start if D-Bus is missing. We should change it so that it can also work without D-Bus and at prints a clear warning if D-Bus is missing. Currently all you see if D-Bus is missing is the following: '** (process:3691): WARNING **:  The directory '~/Templates' doesn't exist, ignoring it', and then Filer exits.
 ```
-
+ 
 ### Dock
 
 ```
@@ -143,7 +170,6 @@ git clone https://github.com/helloSystem/QtPlugin
 cd QtPlugin/
 mkdir build
 cd build/
-pkg install -y libqtxdg
 cmake ..
 make -j4
 make install
@@ -158,7 +184,6 @@ Install icons and other helloSystem assets that are not packaged as FreeBSD pack
 For the system icons:
 
 ```
-pkg install -y wget
 wget -c -q http://archive.ubuntu.com/ubuntu/pool/universe/x/xubuntu-artwork/xubuntu-icon-theme_16.04.2_all.deb
 tar xf xubuntu-icon-theme_16.04.2_all.deb
 tar xf data.tar.xz
@@ -268,28 +293,62 @@ cp /home/user/.openbox* .
 cp -r /home/user/.config/* .config/
 ```
 
+## Improving system performance
+
+### Setting up SWAP for greater system memory capabilities
+
+``` .. note::
+    While this will work on an SD card, it will be slow and wear out your drive quickly. Take it from me, SD cards SUCK for quick memory page access. It is highly recommended to use a SATA SSD when using SWAP. This section was adapted from [a guide on nixCraft](https://www.cyberciti.biz/faq/create-a-freebsd-swap-file/). It goes into more detail and even breifly covers encryption.
+```
+
+* Create a SWAP file using
+```
+# dd if=/dev/zero of=/swap bs=1M count=8192
+```
+``` .. note::
+This will create a swap file holding up to 8192 MB (8 GB) of memory. To go much further beyond that would recommend some further tweaking. 8 GB should be more than enough. It's easy enough to convert what you want in GB to MB, but for the sake of convenience, multiply how much memory you want in gigabytes (GB) by 1024. For example, if you wanted 4 GB, you'd do 4*1024=4096.
+```
+* Run `# chmod 0600 /swap` to give it the correct permissions.
+* Edit /etc/fstab and append the following line:
+```
+md42	none	swap	sw,file=/swap	0	0
+```
+* Run `# swapon -aq` to immediately enable SWAP
+* Run `$ swapinfo -k` to verify that it's been attached correctly
+
+### Overclocking your system
+
+With an SSD, SWAP, and several GPU enhancements enabled, you should immediately notice a speed boost. This will give you a much better development system and may even replace your desktop. However, you can quickly and easily take it a step further by overclocking your system. Please note, overclocking can lead to reduced hardware lifespan and can cause permenant damage. That said, I've found that a decent heat sing and a good fan go the trick. This is necessary as not having a somewhat competatant cooling solution will bite you in the ass. If you let it heat too much, it will thermal throttle and kill your performance. Do keep in mind, you need a good power supply to run this thing, especially overclocked. A Raspberry Pi power supply is a little different than a normal phone charger by design. Your new iPhone or MacBook charger probably won't cut it. I'd recommend getting the [official Rasbperry Pi power supply](https://www.amazon.com/Raspberry-Power-Supply-USB-C-Listed/dp/B07Z8P61DQ), manufactured by the Rasbperry Pi Foundation or whatever. Ir's OEM, it's good. Another great option is the [Argon ONE](https://www.amazon.com/Argon-Raspberry-Supply-Listed-Adapter/dp/B07TW4Q693) power supply.
+
+Overclocking is inherently dangerous as you are pushing the device beyond the intended spec. However, it is a very simple and robust machine that will most likely experience no ussues doing this. The Raspberry Pi is very affordable and modular, making the risk of hardware failure less of an issue. The main board can easily be swapped out and EEPROM flashed and you have your whole system back. There's a hard limit to how far you can push your Pi, so don't even worry about overdoing it. No 8 GHz liquid nitrogen overclocks I'm afraid.
+
+To overclock you Raspberry Pi 4 to the max, edit `/boot/msdos/config.txt` and append the following:
+
+```
+over_voltage=6
+arm_freq=2147
+gpu_freq=700
+```
+
+2147 MHz is the maximum the device can go. Unlike Raspberry Pi OS, FreeBSD will boot even if you set these values higher. Even though you can set it higher, I can see no difference, even at 3000. You can set the gpu_freq up to "900" before it refuses to boot on FreeBSD. However, I can't tell if it is actually working or not. Even if you can push it past its limits, you will probaby see diminishing returns. In the event that you actually can overclock it to these badass levels, I'd recommend investing in a monster CPU cooler, maybe even running liquid cooling or higher as 2147 MHz is already pretty warm.
+
 ## Known issues
 
 ``` .. note::
     Any help in improving the situation is appreciated.
 ```
 
-### No 3D graphics and video acceleration
-
-* Very low FPS video
-* No 3D acceleration
-
 Not sure whether `vc4-kms-v3d` is usable with FreeBSD.
-
-``` .. note::
-    Any help in improving Raspberry Pi graphics on FreeBSD appreciated.
-```
 
 Also see: https://papers.freebsd.org/2019/bsdcan/vadot-adventure_in_drmland/
 
 ### Missing login window
 
 The `slim` package is missing, hence we don't have a login window at the moment.
+
+``` .. note::
+    Web browser performance may be improved and the following issues may not be relevant anymore. This will require more user feedback and testing.
+```
 
 ### Web browser
 
@@ -310,8 +369,6 @@ Rendering engine: QtWebEngine
 ``` .. note::
     The exact same crash also happens on a RockPro64 with 4GB of RAM.
 ```
-
-How do projects like the official Raspberry Pi OS (Debian based desktop) manage to do web browsing and video playing in a browser on the Raspberry Pi?
 
 ### RAM compression
 
