@@ -65,6 +65,7 @@ helloSystem developers currently have access to the following hardware:
 
 * Acer Revo RL85
 * Dell Inc. OptiPlex 780
+* HP 15-f233wm laptop
 
 Please contact us if you would like to sponsor the project with a hardware donation. We are especially looking for Apple and Lenovo devices from the previous generations that should be available second-hand inexpensively.
 
