@@ -298,6 +298,9 @@ Firefox and Thunderbird need substantial source code patches to make global menu
 * https://aur.archlinux.org/cgit/aur.git/tree/unity-menubar.patch?h=firefox-appmenu. See https://github.com/airyxos/Firefox_app for a FreeBSD implementation
 * https://aur.archlinux.org/cgit/aur.git/tree/0001-Use-remoting-name-for-GDK-application-names.patch?h=firefox-appmenu
 
+For Firefox, this topic is being discussed upstream:
+https://bugzilla.mozilla.org/show_bug.cgi?id=1419151
+
 FreeBSD Ports files for patched Firefox and Thunderbird by Jesper Schmitz Mouridsen ([__jsm222__](https://github.com/jsm222/)) are available at
 * https://github.com/jsm222/helloDesktop/tree/main/www/firefox
 * https://github.com/jsm222/helloDesktop/tree/main/mail/thunderbird
