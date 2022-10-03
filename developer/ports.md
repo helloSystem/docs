@@ -21,9 +21,13 @@ Unfortunately one has to download/update the whole ports tree, containing all av
 
 ```
 sudo portsnap fetch
-sudo portsnap fetch update
 sudo portsnap extract
+
+# Or (if you already had it before)
+sudo portsnap fetch update
 ```
+
+__Question:__ Can we use git for `/usr/ports` instead?
 
 If you are running an end-of-life FreeBSD version such as 12.1, you also need to
 
