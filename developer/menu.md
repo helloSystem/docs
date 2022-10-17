@@ -41,7 +41,7 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__AyatanaIndicators__](https://ayatanaindicators.github.io/): "The Ayatana Indicators project is the continuation of Application Indicators, a technology developed by Canonical for the Unity desktop. Application Indicators are a GNOME implementation of the StatusNotifierItem Specification (SNI) that was originally submitted to freedesktop.org by KDE. The Ayatana Indicator project intends to become the new upstream for application indicators and associated projects with a focus on making Ayatana Indicators a desktop agnostic technology.". With Ubuntu now using GNOME rather than Unity, it is no longer developed by Canonical. UBports, MATE and XFCE are adopting AyatanaIndicators and Ubuntu are starting to migrate to it in 21.04. Some people say  that StatusNotifierItems should be preferred since they are already more widely supported across the various desktops
 * [__Application Menu or appmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationMenu): As part of Aytana, Canonical has produced an implementation called `indicator-appmenu` which re-routes Gtk and Qt menus over `dbusmenu` so that they appear in the panel
 * [__dbusmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical implementing the transport protocol between the applications and the panel
-* [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. Needed for some applications (e.g., screenkey) to show icons in the upper right hand corner of the menu (system tray/notification area). The same as [`indicator-application`](https://launchpad.net/indicator-application)?
+* [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. Needed for some applications (e.g., screenkey) to show icons in the upper right hand corner of the menu (system tray/notification area). The same as [`indicator-application`](https://launchpad.net/indicator-application)? According to @sunweaver, libappindicator is unmaintained as of late 2022 and [libayatana-appindicator](https://github.com/AyatanaIndicators/libayatana-appindicator) is the current upstream
 * [__MenuModel__](): Used by Gtk
 * [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
 * [__Airyx DBusKit__](https://github.com/mszoek/airyx/tree/main/DBusKit): Airyx DBusKit implements a subset of D-Bus needed to support sending menus of **AppKit** applications to the global menu bar
@@ -106,7 +106,7 @@ tbd
 * Bugtracker: tbd
 * Purpose: tbd
 * Theory of operation: tbd
-* Status: <active|retired>. "Unity" = Deprecated?
+* Status: <active|retired>. "Unity" = Deprecated? According to @sunweaver, unity-gtk-module is (sort of) unmaintained as of late 2022 and [appmenu-gtk-module](https://gitlab.com/vala-panel-project/vala-panel-appmenu/-/tree/master/subprojects/appmenu-gtk-module) is a more active alternative
 * Issues: Not in ports? Is this an issue, preventing us from some applications to work properly?
 * Installed by package: Not in ports? (In Ubuntu, `sudo apt-get install unity-gtk-module-common unity-gtk2-module unity-gtk3-module`)
     
