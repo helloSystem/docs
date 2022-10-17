@@ -45,6 +45,7 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__MenuModel__](): Used by Gtk
 * [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
 * [__Airyx DBusKit__](https://github.com/mszoek/airyx/tree/main/DBusKit): Airyx DBusKit implements a subset of D-Bus needed to support sending menus of **AppKit** applications to the global menu bar
+* [__GNUstep libs-dbuskit__](https://github.com/gnustep/libs-dbuskit): The DBusKit framework provides GNUstep Objective-C applications with bindings for the D-Bus inter-process communication system
 
 ## Libraries involved
 
