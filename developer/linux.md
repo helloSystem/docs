@@ -23,7 +23,7 @@ sudo chroot /compat/alpine
 In the chroot, execute
 
 ```
-apk add --no-cache qt5-qtbase-dev kwindowsystem-dev git cmake musl-dev alpine-sdk nano
+apk add --no-cache qt5-qtbase-dev kwindowsystem-dev git cmake musl-dev alpine-sdk clang nano
 git clone https://github.com/helloSystem/launch
 cd launch/
 mkdir build
@@ -36,4 +36,8 @@ After you are done,
 
 ```
 sudo service alpine onestop
+```
+
+``` .. note::
+    If the compiler crashes, make sure that /usr/bin/clang++ is being used rather than /usr/bin/c++. This can be checked in CMakeCache.txt.
 ```
