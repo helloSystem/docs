@@ -13,7 +13,7 @@ To verify that the code builds on Linux without needing a different development 
 ```
 sudo service linux stop
 sudo service debian stop
-sudo service alpine start
+sudo service alpine onestart
 sudo chroot /compat/alpine
 ```
 
@@ -29,3 +29,8 @@ cmake ..
 make -j $(nproc)
 ```
 
+After you are done, 
+
+```
+sudo service alpine onestop
+```
