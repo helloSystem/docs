@@ -10,6 +10,9 @@ However, developers may want to verify that the code is reasonably platform inde
 
 To verify that the code builds on Linux without needing a different development machine, one can use an Alpine Linux chroot in FreeBSD.
 
+Beginning with build 0H165, helloSystem ships with an [alpine rc.d script](https://github.com/helloSystem/ISO/blob/experimental/overlays/uzip/hello/files/usr/local/etc/rc.d/alpine).
+When started for the first time, this downloads a minimal root filesystem.
+
 ```
 sudo service linux stop
 sudo service debian stop
