@@ -17,7 +17,7 @@ When started for the first time, this downloads a minimal root filesystem.
 sudo service linux stop
 sudo service debian stop
 sudo service alpine onestart
-sudo chroot /compat/alpine
+sudo chroot /compat/alpine /bin/sh
 ```
 
 In the chroot, execute
