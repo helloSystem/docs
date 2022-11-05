@@ -3,7 +3,10 @@
 helloSystem is designed for use with helloSystem, which is based on FreeBSD.
 
 However, developers may want to verify that the code is reasonably platform independent by building on Linux from time to time.
-That the code build does not necessarily mean that it works properly on Linux or that all features are implemented for Linux.
+
+``` .. note::
+    That the code build does not necessarily mean that it works properly on Linux or that all features are implemented for Linux.
+```
 
 To verify that the code builds on Linux without needing a different development machine, one can use an Alpine Linux chroot in FreeBSD.
 
