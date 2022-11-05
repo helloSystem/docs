@@ -23,7 +23,7 @@ sudo chroot /compat/alpine
 In the chroot, execute
 
 ```
-apk add --no-cache qt5-qtbase-dev kwindowsystem-dev git cmake alpine-sdk nano
+apk add --no-cache qt5-qtbase-dev kwindowsystem-dev git cmake musl-dev alpine-sdk nano
 git clone https://github.com/helloSystem/launch
 cd launch/
 mkdir build
