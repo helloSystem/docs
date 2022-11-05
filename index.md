@@ -55,6 +55,7 @@ __helloSystem__ is a desktop system for creators with a focus on simplicity, ele
    developer/ports
    developer/base
    developer/rpi
+   developer/linux
    developer/distributions
    developer/acknowledgements
    developer/contact
