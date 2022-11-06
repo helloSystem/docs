@@ -15,19 +15,11 @@ https://github.com/lxqt/qtermwidget/blob/059d832086facb19035a07d975ea4fd05d36b1e
 
 Here is how to do it using FreeBSD Ports:
 
-## Installing the ports tree
-
-Unfortunately one has to download/update the whole ports tree, containing all available ports, even if one just wants to make a change to one or a few of the ports.
+## Pulling the ports tree
 
 ```
-sudo portsnap fetch
-sudo portsnap extract
-
-# Or (if you already had it before)
-sudo portsnap fetch update
+sudo git clone https://git.freebsd.org/ports.git /usr/ports --depth=1
 ```
-
-__Question:__ Can we use git for `/usr/ports` instead?
 
 If you are running an end-of-life FreeBSD version such as 12.1, you also need to
 
