@@ -43,7 +43,7 @@ Now make changes to the command line tool.
 cd /usr/src/usr.sbin/efivar/
 rm efivar.c
 # From https://reviews.freebsd.org/D29620
-wget "https://reviews.freebsd.org/file/data/qquakxqeqeeepcbml5cy/PHID-FILE-ryp4c3imjqswnsjqiip3/usr.sbin_efivar_efivar.c" -O efivar.c
+wget "https://reviews.freebsd.org/file/data/yytb47lr5cxaijaaupeh/PHID-FILE-gihl33z7feu4dagjxjgz/usr.sbin_efivar_efivar.c" -O efivar.c
 make
 /usr/obj/usr/src/amd64.amd64/usr.sbin/efivar/efivar
 ```
