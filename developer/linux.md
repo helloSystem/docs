@@ -80,6 +80,7 @@ Run Alpine Linux, e.g., in VirtualBox on helloSystem, or on real hardware.
 * `rc-update add sddm` and `rc-service sddm start`
 * Log into a KDE Plasma session on Alpine Linux. __Important:__ Select X11 session. Wayland doesn't work smoothly
 * Optionally, install VirtualBox related guest packages using `apk search` and `apk add`
+* `sudo su` to become root (there is no `sudo` configured on Alpine Linux by default)
 * Build and `make install` the three core components of helloDesktop (launch, Menu, and Filer) as above
 * From within the running KDE Plasma session, you can switch to the minimal helloDesktop with
 
@@ -93,3 +94,11 @@ killall plasmashell
 ```
 
 Menu shoud work including full text search in the filesystem.
+
+The result will look somewhat like this:
+
+![Screenshot](https://user-images.githubusercontent.com/2480569/200421869-96f81c37-0785-4416-ae43-bee920dd6a3e.png)
+
+``` .. note::
+    That the code runs does not necessarily mean that it works properly on Linux or that all features are implemented for Linux. Please keep in mind that for the best desktop experience, you should be using helloSystem which helloDesktop has been designed for.
+```
