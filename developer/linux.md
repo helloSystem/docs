@@ -70,11 +70,18 @@ sudo service alpine onestop
 
 ## Running helloDesktop on Linux
 
-The three core components of helloDesktop are launch, Menu, and Filer.
+Run Alpine Linux, e.g., in VirtualBox on helloSystem, or on real hardware.
 
-Build and `make install` them as above.
-
-Then log into a KDE Plasma session on Alpine Linux. From the running KDE Plasma session, you can switch to helloDesktop using
+* Download ISO from https://alpinelinux.org/downloads/, "Standard"
+* User `root`, no password is the default
+* Install to to a hard disk using the `setup-alpine` command, need to use a classic ("sys mode") installation
+* Enable community repo by  `sed -i -e 's|^#||g' /etc/apk/repositories`
+* Install KDE Plasma using `setup-desktop`; set up a user
+* `rc-update add sddm` and `rc-service sddm start`
+* Log into a KDE Plasma session on Alpine Linux. __Important:__ Select X11 session. Wayland doesn't work smoothly
+* Optionally, install VirtualBox related guest packages using `apk search` and `apk add`
+* Build and `make install` the three core components of helloDesktop (launch, Menu, and Filer) as above
+* From within the running KDE Plasma session, you can switch to the minimal helloDesktop with
 
 ```
 #!/bin/sh
@@ -84,3 +91,5 @@ sleep 1
 launch Filer &
 killall plasmashell
 ```
+
+Menu shoud work including full text search in the filesystem.
