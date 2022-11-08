@@ -136,12 +136,8 @@ First, prepare the Ports environment:
 
 ```
 sudo su
-export ALLOW_UNSUPPORTED_SYSTEM=YES
-# or on csh
-setenv ALLOW_UNSUPPORTED_SYSTEM YES
-pkg install portlint subversion
+pkg install portlint
 echo DEVELOPER=yes >> /etc/make.conf
-portsnap fetch extract update # Run this from time to time
 ```
 
 Next, create a directory for the new port:
@@ -195,7 +191,7 @@ to create that file. Check and edit it by hand, especially the first line.
 Notes
 * See `ls /usr/ports/` for possible categories, such as `sysutils`
 * See [5.2. Naming](https://docs.freebsd.org/en/books/porters-handbook/makefile-naming.html) for naming and versioning conventions
-* The lines must be in a defined order. Run `portlint` to get information on this and re-order until it no longer complains
+* The lines must be in a defined order. Run `portlint` to get information on this. When `portlint` complains about `appears out-of-order`, the blocks and lines in the `Makefile` need to be reshuffled to match the order described at [https://docs.freebsd.org/en/books/porters-handbook/order/](https://docs.freebsd.org/en/books/porters-handbook/order/).
 * Run `make stage-qa` to find out dependencies. Using something like `make stage-qa 2>&1 | grep "you need" | sort | uniq | cut -d " " -f 4` can speed this up
 * The `do-install` section is needed in this example because there is no `make install` in the original software's Makefile
 
