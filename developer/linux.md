@@ -27,32 +27,27 @@ In the chroot, build the essential helloSystem components
 ```
 # launch, open, and other essential command line tools that are required
 git clone https://github.com/helloSystem/launch
-apk add qt5-qtbase-dev kwindowsystem-dev git cmake musl-dev alpine-sdk clang nano
 mkdir -p launch/build
 cd launch/build
+grep ^apk ../README.md | sh
 cmake ..
 sudo make -j $(nproc) install
 cd ../../
 
 # Menu
 git clone https://github.com/helloSystem/Menu
-sudo pkg install -y cmake pkgconf qt5-x11extras qt5-qmake qt5-widgets \
-qt5-buildtools kf5-kdbusaddons kf5-kwindowsystem kf5-baloo libdbusmenu-qt5 \
-qt5-concurrent qt5-qtmultimedia-dev libfm-extra-dev menu-cache-dev
 mkdir -p Menu/build
 cd Menu/build
+grep ^apk ../README.md | sh
 cmake ..
 sudo make -j $(nproc) install
 cd ../../
 
 # Filer
 git clone https://github.com/helloSystem/Filer
-apk add apk add qt5-qtbase-dev kwindowsystem-dev qt5-qttools-dev \
-qt5-qtmultimedia-dev libfm-dev menu-cache-dev libfm-extra-dev \
-kdbusaddons-dev baloo-dev xcb-util-wm-dev libdbusmenu-qt-dev git cmake musl-dev \
-
 mkdir -p Filer/build
 cd Filer/build
+grep ^apk ../README.md | sh
 cmake ..
 sudo make -j $(nproc) install
 cd ../../
