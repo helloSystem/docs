@@ -97,3 +97,15 @@ The result will look somewhat like this:
 ``` .. note::
     That the code runs does not necessarily mean that it works properly on Linux or that all features are implemented for Linux. Please keep in mind that for the best desktop experience, you should be using helloSystem which helloDesktop has been designed for.
 ```
+
+## Building and running helloDesktop on Raspberry Pi
+
+Loosely follow https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi (not all commands seem to be working exactly as written anymore), but also create "Linux Swap" partition. Alternatively, in the running Alpine Linux system
+
+```
+fallocate -l 8G /swapfile
+mkswap /swapfile
+swapon /swapfile
+```
+
+to have enough RAM or else the compilation will be killed (at least on the 1GB and less RAM models).
