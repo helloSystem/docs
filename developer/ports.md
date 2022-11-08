@@ -176,10 +176,6 @@ USE_GITHUB=     yes
 GH_ACCOUNT=     davidgiven
 GH_TAGNAME=     61ff48c
 
-PLIST_FILES=    bin/brother120tool \
-                bin/brother240tool \
-                bin/fluxengine
-
 do-install:
         ${INSTALL_PROGRAM} ${WRKSRC}/brother120tool ${STAGEDIR}${PREFIX}/bin/
         ${INSTALL_PROGRAM} ${WRKSRC}/brother240tool ${STAGEDIR}${PREFIX}/bin/
@@ -187,6 +183,14 @@ do-install:
 
 .include <bsd.port.mk>
 ```
+
+Run 
+
+```
+make makeplist > pkg-plist
+```
+
+to create that file. Check and edit it by hand, especially the first line.
 
 Notes
 * See `ls /usr/ports/` for possible categories, such as `sysutils`
