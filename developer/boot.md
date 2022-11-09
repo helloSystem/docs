@@ -1,10 +1,66 @@
 # Boot process
 
+## Speeding up the boot process
+
+As a desktop-centric system, helloSystem should bring up a graphical desktop as soon as possible, and delay starting up other services such as the network beyond that point. Unfortunately, in the FreeBSD default configuration this is the other way around, and the graphical desktop will only start after the network has been configured, the time has been set using NTP, etc.
+
+While it would be possible to change the order of the scripts in `/etc/rc.d` and `/usr/local/etc/rc.d`, those changes might get overwritten with subsequent FreeBSD or package updates. Hence, we should never edit startup scripts provided by FreeBSD or packages.
+
+Instead, we can disable the services in question so that they don't get started as part of the normal FreeBSD boot sequence, and start them later in the boot process (after the graphical session has been started) using a custom start script.
+
 ``` .. note::
-    This page describes helloSystem boot process up to 0.6.0. Starting with version 0.7.0, helloSystem will use a completely different live system boot process. This page needs to be updated accordingly.
+    The following instructions are DANGEROUS and can potentially lead to a system that cannot boot into a graphical desktop if things go wrong. This is currently only for developers and experienced users who know how to handle such situations. Future versions of helloSystem may come with this already set up.
 ```
 
+To do this, create a Boot Environment that you can roll back to in case things go wrong.
+
+Then create the following `/usr/local/etc/rc.d/late-start` script:
+
+```
+#!/bin/sh
+
+# PROVIDE: late-start
+# REQUIRE: slim
+
+PATH=$PATH:/usr/sbin
+export PATH
+
+. /etc/rc.subr
+
+name="late"
+start_cmd="${name}_start"
+
+# NOTE: devd needs to stay enabled in early boot
+# so that we have a working mouse pointer as soon as Xorg is started
+
+SERVICES="setup-mouse webcamd vboxservice dsbdriverd netif routing defaultroute avahi-daemon clear-tmp cupsd ntpdate smartd sshd"
+
+late_start()
+{
+    service devd restart # For networking; invokes dhcpd
+    for SERVICE in {$SERVICES} ; do
+        service "${SERVICE}" onestart
+    done
+}
+
+load_rc_config $name
+run_rc_command "$1"
+```
+
+Disable the services in question with
+
+```
+SERVICES="setup-mouse webcamd vboxservice dsbdriverd netif routing defaultroute avahi-daemon clear-tmp cupsd ntpdate smartd sshd"
+for SERVICE in {$SERVICES} ; do service "${SERVICE}" disable ; done
+```
+
+Reboot.
+
 ## Live system early boot process
+
+``` .. note::
+    This section describes helloSystem boot process up to 0.6.0. Starting with version 0.7.0, helloSystem will use a completely different live system boot process. This page needs to be updated accordingly.
+```
 
 The ISO contains a compressed Live system filesystem image in uzip format. This filesystem image contains the filesystem used when running the ISO. During the Live system boot process, the image needs to get mounted and needs to get turned into a read-write filesystem so that one can make changes to the running system.
 
