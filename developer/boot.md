@@ -83,7 +83,7 @@ Check which services are still enabled, should now be treatly reduced:
 /etc/rc.conf:zfs_enable="YES"
 ```
 
-Reboot.
+Reboot. The graphical desktop (including a usable mouse pointer) should appear ~10 seconds faster, but the network will start to work only after ~10 seconds.
 
 ## Live system early boot process
 
