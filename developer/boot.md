@@ -48,25 +48,27 @@ SERVICES="setup-mouse webcamd vboxservice dsbdriverd netif routing defaultroute 
 late_start()
 {
     service devd restart # For networking; invokes dhcpd
-    for SERVICE in {$SERVICES} ; do
-        service "${SERVICE}" onestart
+    for SERVICE in $SERVICES ; do
+        service "$SERVICE" onestart
     done
 }
 
 late_disable_early_services()
 {
-    for SERVICE in {$SERVICES} ; do
-        service "${SERVICE}" disable
+    for SERVICE in $SERVICES ; do
+        service "$SERVICE" disable
     done
 }
 
 load_rc_config $name
 run_rc_command "$1"
+
 ```
 
 Disable the services in question with
 
 ```
+sudo chmod +x /usr/local/etc/rc.d/late-start
 sudo service late-start disable_early_services
 ```
 
