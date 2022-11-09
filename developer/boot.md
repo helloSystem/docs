@@ -70,6 +70,19 @@ Disable the services in question with
 sudo service late-start disable_early_services
 ```
 
+Check which services are still enabled, should now be treatly reduced:
+
+```
+% grep -r 'enable="YES"' /etc/rc.conf*
+/etc/rc.conf:autofs_enable="YES"
+/etc/rc.conf:clear_tmp_enable="YES"
+/etc/rc.conf:dbus_enable="YES"
+/etc/rc.conf:initgfx_enable="YES"
+/etc/rc.conf:load_acpi_enable="YES"
+/etc/rc.conf:slim_enable="YES"
+/etc/rc.conf:zfs_enable="YES"
+```
+
 Reboot.
 
 ## Live system early boot process
