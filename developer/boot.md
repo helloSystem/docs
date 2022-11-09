@@ -18,6 +18,7 @@ In `/etc/rc.conf`, set
 ```
 defaultroute_carrier_delay="0"
 defaultroute_delay="0"
+background_dhclient="YES"
 ```
 
 Then create the following `/usr/local/etc/rc.d/late-start` script:
