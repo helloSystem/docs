@@ -14,6 +14,12 @@ Instead, we can disable the services in question so that they don't get started 
 
 To do this, create a Boot Environment that you can roll back to in case things go wrong.
 
+In `/etc/rc.conf`, set
+```
+defaultroute_carrier_delay="0"
+defaultroute_delay="0"
+```
+
 Then create the following `/usr/local/etc/rc.d/late-start` script:
 
 ```
@@ -30,6 +36,9 @@ export PATH
 name="late"
 start_cmd="${name}_start"
 
+extra_commands="disable_early_services"
+disable_early_services_cmd="${name}_disable_early_services"
+
 # NOTE: devd needs to stay enabled in early boot
 # so that we have a working mouse pointer as soon as Xorg is started
 
@@ -43,6 +52,13 @@ late_start()
     done
 }
 
+late_disable_early_services()
+{
+    for SERVICE in {$SERVICES} ; do
+        service "${SERVICE}" disable
+    done
+}
+
 load_rc_config $name
 run_rc_command "$1"
 ```
@@ -50,8 +66,7 @@ run_rc_command "$1"
 Disable the services in question with
 
 ```
-SERVICES="setup-mouse webcamd vboxservice dsbdriverd netif routing defaultroute avahi-daemon clear-tmp cupsd ntpdate smartd sshd"
-for SERVICE in {$SERVICES} ; do service "${SERVICE}" disable ; done
+sudo service late-start disable_early_services
 ```
 
 Reboot.
