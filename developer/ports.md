@@ -270,7 +270,7 @@ git pull
 cd x11/qterminal
 ```
 
-Change  `PORTVERSION=    1.2.0` to `PORTVERSION=    1.2.0`. Turns out that one has to update `x11-toolkits/qtermwidget` and `devel/lxqt-build-tools` too for it to compile.
+Change  `PORTVERSION=    1.1.0` to `PORTVERSION=    1.2.0`. Turns out that one has to update `x11-toolkits/qtermwidget` and `devel/lxqt-build-tools` too for it to compile.
 
 ```
 portlint # Fix errors, if any
