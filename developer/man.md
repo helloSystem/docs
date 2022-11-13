@@ -3,7 +3,7 @@
 Command line tools should be shipped with man pages.
 
 ``` .. note::
-    To make fullest use of all features, man pages should be written in their native markup language.
+    To make fullest use of all features, man pages should be written in their native markup language, mdoc.
     
     However, this has a quite steep learning curve, so the following can be used to get started quickly.
 ```
@@ -26,12 +26,14 @@ To convert man to txt:
 
 ## Order of sections
 
+For more information, see [`man mdoc`](https://www.freebsd.org/cgi/man.cgi?mdoc).
+
 * `PROGNAME section`
 * `NAME`
 * `LIBRARY`
 * `SYNOPSIS`
 * `DESCRIPTION`
-* `ARGUMENTS`
+* `CONTEXT`
 * `IMPLEMENTATION NOTES`
 * `RETURN VALUES`
 * `ENVIRONMENT`
