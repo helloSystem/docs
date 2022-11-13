@@ -2,6 +2,12 @@
 
 Command line tools should be shipped with man pages.
 
+``` .. note::
+    To make fullest use of all features, man pages should be written in their native markup language.
+    
+    However, this has a quite steep learning curve, so the following can be used to get started quickly.
+```
+
 One way to create man pages from Markdown is by using `pandoc`
 and the template from https://github.com/pragmaticlinuxblog/pandocmanpage.
 
@@ -25,6 +31,7 @@ To convert man to txt:
 * `LIBRARY`
 * `SYNOPSIS`
 * `DESCRIPTION`
+* `ARGUMENTS`
 * `IMPLEMENTATION NOTES`
 * `RETURN VALUES`
 * `ENVIRONMENT`
