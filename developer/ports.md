@@ -258,3 +258,42 @@ rm -rf work/
 cd ..
 tar cf  fluxengine.shar --format shar fluxengine
 ```
+
+## Updating existing ports
+
+This real-life example shows how to update a port, e.g., `x11/qterminal`.
+
+```
+sudo su
+cd /usr/ports
+git pull
+cd x11/qterminal
+```
+
+Change  `PORTVERSION=    1.2.0` to `PORTVERSION=    1.2.0`. Turns out that one has to update `x11-toolkits/qtermwidget` and `devel/lxqt-build-tools` too for it to compile.
+
+```
+portlint # Fix errors, if any
+rm pkg-plist
+make clean
+make package reinstall
+make makeplist > pkg-plist
+nano pkg-plist # Remove first line and check the others
+make clean
+make package reinstall
+```
+
+Finally, once everything is tested, create separate patches for each port with
+```
+cd /usr/ports
+git diff -U999999 x11/qterminal > /home/user/Desktop/x11_qterminal.diff
+git diff -U999999 devel/lxqt-build-tools > /home/user/Desktop/devel_lxqt-build-tools.diff
+git diff -U999999 x11-toolkits/qtermwidget > /home/user/Desktop/x11-toolkits_qtermwidget.diff
+```
+
+Go to https://reviews.freebsd.org/differential/, click "Create Diff", can log in using GitHub credentials, subject `devel/lxqt-build-tools: Update to 0.12.0`, under "Reviewers" add the maintainer.
+
+Result:
+* https://reviews.freebsd.org/D37378
+* https://reviews.freebsd.org/D37379
+* https://reviews.freebsd.org/D37380
