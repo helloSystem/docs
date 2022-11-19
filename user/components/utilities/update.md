@@ -19,7 +19,7 @@ This utility
 Please follow this exact procedure when testing the Update utility:
 
 * Install a helloSystem 0.7.0 pre-release build to hard disk.
-* Open QTerminal and run `sudo pkg lock --yes automount slim gvfs dejavu liberation-fonts-ttf`. This step is __important__ because otherwise the update will overwrite carefully crafted helloSystem customizations. (There may be more packages that need to be locked as well.)
+* Open QTerminal and run `sudo pkg lock --yes automount slim dejavu liberation-fonts-ttf`. This step is __important__ because otherwise the update will overwrite carefully crafted helloSystem customizations. (There may be more packages that need to be locked as well.)
 * Run the __Update__ utility and follow the on-screen instructions.
 * Once the update has completed, restart your computer to make full use of the updated software.
 * Run the __Boot Environments__ preferences application and check that there is a boot environment that you can switch back to in the case you are not satisfied with the updated system. 
