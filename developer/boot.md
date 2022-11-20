@@ -135,7 +135,7 @@ to watch `start-hello.original` run in a graphical terminal.
 
 ![image](https://user-images.githubusercontent.com/2480569/202913068-5399a4fa-cefc-4ffc-ba24-9b752d6a4cff.png)
 
-Here you can see what goes wrong, if anything...
+Here you can see what goes wrong, if anything... and then you can create, e.g., a replacement `start-hello` script that gets loaded with Monkey Patching.
 
 ## Live system early boot process
 
