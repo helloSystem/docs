@@ -27,6 +27,7 @@ Minimal requirements:
 ./Application.app
 ./Application.app/Application <-- (link to) the executable to be launched when Application.app is double clicked
 ./Application.app/Resources/Application.png <-- the application icon (png format)
+./Application.app/Resources/can-open <-- optional, MIME types the application can open, separated by `;`
 ```
 
 In order to realize the full intended functionality, additional metadata may be required (such as localized application name, version, supported file formats, etc.). Possibly the GNUstep metadata format is sufficient for this.
