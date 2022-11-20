@@ -113,7 +113,11 @@ Enter `exit` to contine. The system will boot to the second stage Live system pr
 
 At this point, the system has been made partly writable by the `init_script`. To see the messages, you can press the ScrLk key on your keyboard and then use the arrow up and arrow down keys on your keyboard. Then press the ScrLk key again.
 
-Hit the Enter key on your keyboard, then enter `exit` to contine. The system will boot into the graphical desktop.
+Hit the Enter key on your keyboard.
+
+Here you can make changes to files like `/usr/local/bin/start-hello`. For example, you can add `xterm &` near the top to get a rescue graphical terminal that can help you debug the later stages of the boot process, when Xorg has started and is executing `start-hello`.
+
+Then enter `exit` to contine. The system will boot into the graphical desktop.
 
 ## Live system early boot process
 
