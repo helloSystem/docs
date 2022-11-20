@@ -87,6 +87,29 @@ Check which services are still enabled, should now be treatly reduced:
 
 Reboot. The graphical desktop (including a usable mouse pointer) should appear ~10 seconds faster, but the network will start to work only after ~10 seconds.
 
+## Debugging the live system boot process
+
+Press the Backspace key on your keyboard during early boot until you see the `OK` prompt.
+
+![bootloader](https://user-images.githubusercontent.com/2480569/202910570-9bcc21c5-d9f4-4c3f-b8c0-b07b7e36f35e.png)
+
+Enter
+
+```
+unset boot_mute
+boot -s
+```
+
+to boot in single user mode. The system will boot to the first stage Live system prompt:
+
+![livefirstsingleprompt](https://user-images.githubusercontent.com/2480569/202910574-22c0e284-8717-4ae0-9489-68cc23995e1d.png)
+
+Enter `exit` to contine. The system will boot to the second stage Live system prompt:
+
+![livesecondsingleprompt](https://user-images.githubusercontent.com/2480569/202910576-e4253133-8544-4566-8b8e-8c0895f63edd.png)
+
+Hit the Enter key on your keyboard, then enter `exit` to contine. The system will boot into the graphical desktop.
+
 ## Live system early boot process
 
 ``` .. note::
