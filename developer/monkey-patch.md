@@ -48,13 +48,29 @@ echo "HELLO DEVELOPERS"
 # the helloSystem zero-text boot experience
 echo "HELLO MERE MORTALS" > /dev/console
 
+# Give users a chance to see the message
+sleep 1
+
 # Override a file in the running system from the MONKEYPATCH volume
 HERE="$(dirname "$(readlink -f "${0}")")"
 cp ${HERE}/mount_md /usr/local/sbin/mount_md
 chmod +x /usr/local/sbin/mount_md
 ```
 
-* There must be a `monkeypatch.sh` file that will be run by `#!/bin/sh`
+A particularly effective way to debug the late boot process (after Xorg has started) is:
+
+```
+mv /usr/local/bin/start-hello /usr/local/bin/start-hello.real
+cat > /usr/local/bin/start-hello <<\EOF
+#!/bin/sh
+
+xterm -maximized start-hello.real
+# xterm -maximized
+EOF
+chmod +x /usr/local/bin/start-hello*
+```
+
+This will allow you to see the commands in `start-hello.real` as they are executed.
 
 ## Booting a Live ISO running a different `init_script`
 
