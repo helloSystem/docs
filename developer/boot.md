@@ -87,7 +87,9 @@ Check which services are still enabled, should now be treatly reduced:
 
 Reboot. The graphical desktop (including a usable mouse pointer) should appear ~10 seconds faster, but the network will start to work only after ~10 seconds.
 
-## Debugging the live system boot process
+## Debugging the Live system boot process
+
+The following has been tested on experimental helloSystem 0.8.0 builds.
 
 Press the Backspace key on your keyboard during early boot until you see the `OK` prompt.
 
@@ -104,9 +106,12 @@ to boot in single user mode. The system will boot to the first stage Live system
 
 ![livefirstsingleprompt](https://user-images.githubusercontent.com/2480569/202910574-22c0e284-8717-4ae0-9489-68cc23995e1d.png)
 
+At this point, the Live system has not been made writable yet.
 Enter `exit` to contine. The system will boot to the second stage Live system prompt:
 
 ![livesecondsingleprompt](https://user-images.githubusercontent.com/2480569/202910576-e4253133-8544-4566-8b8e-8c0895f63edd.png)
+
+At this point, the system has been made partly writable by the `init_script`. To see the messages, you can press the ScrLk key on your keyboard and then use the arrow up and arrow down keys on your keyboard. Then press the ScrLk key again.
 
 Hit the Enter key on your keyboard, then enter `exit` to contine. The system will boot into the graphical desktop.
 
