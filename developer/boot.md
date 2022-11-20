@@ -98,7 +98,6 @@ Press the Backspace key on your keyboard during early boot until you see the `OK
 Enter
 
 ```
-unset boot_mute
 boot -s
 ```
 
@@ -115,9 +114,24 @@ At this point, the system has been made partly writable by the `init_script`. To
 
 Hit the Enter key on your keyboard.
 
-Here you can make changes to files like `/usr/local/bin/start-hello`. For example, you can add `xterm &` near the top to get a rescue graphical terminal that can help you debug the later stages of the boot process, when Xorg has started and is executing `start-hello`.
+Here you can make changes to files like `/usr/local/bin/start-hello`. 
+
+For example, you can
+
+```
+mv /usr/local/bin/start-hello /usr/local/bin/start-hello.original
+ln -sf /usr/local/bin/xterm /usr/local/bin/start-hello
+```
 
 Then enter `exit` to contine. The system will boot into the graphical desktop.
+
+If you have made the above changes, you can run
+
+```
+sh -x /usr/local/bin/start-hello.original
+```
+
+to watch `start-hello.original` run in a graphical terminal.
 
 ## Live system early boot process
 
