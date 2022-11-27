@@ -134,3 +134,7 @@ __[alphamodh0](https://github.com/alphamodh0)__
 ## Luna Jernberg
 __[bittin](https://github.com/bittin)__
 * Translated helloSystem installer to Swedish
+
+## Framework Computer Inc
+__[FrameworkComputer](https://github.com/FrameworkComputer)__
+* Donated a Framework Mainboard through the Developer Mainboard Program
