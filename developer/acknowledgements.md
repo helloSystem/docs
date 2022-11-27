@@ -137,4 +137,4 @@ __[bittin](https://github.com/bittin)__
 
 ## Framework Computer Inc
 __[FrameworkComputer](https://github.com/FrameworkComputer)__
-* Donated a Framework Mainboard through the Developer Mainboard Program
+* Donated a Framework Mainboard (i5-1135G7) through the Developer Mainboard Program
