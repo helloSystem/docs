@@ -89,24 +89,6 @@ Instead, use [`QString QCoreApplication::applicationDirPath()`](http://doc.qt.io
 For an example, see:
 https://github.com/KaidanIM/Kaidan/commit/da38011b55a1aa5d17764647ecd699deb4be437f
 
-## Getting application metadata for running applications
-
-Many desktop environments use XDG-style `.desktop` files to figure out which application a given window belongs to but since helloSystem is using `.app` bundles and `.AppDir` application directories this approach is not sufficient since such applications normally do not install XDG-style `.desktop` files in central locations.
-
-Docks (and other similar applications) can find the icon that belongs to a window on the screen by the following procedure:
-
-1. Get the Window IDs of the windows on the screen from Xorg (to simulate this, you can use the `xprop` tool)
-1. Get the process ID (PID) that has launched the window with this ID from the `_NET_WM_PID` property of the Xorg window
-1. Get the path of the executable and its arguments that launched this PID from the operating system, e.g., using `/proc/$PID/cmdline` (Linux) or the `procstat` command (FreeBSD)
-1. From the path and the arguments figure out which element might be the relevant `.app` bundle or `.AppDir`. For example, a process might have been invoked with `sudo -E launch python3 /Applications/Some.app/Some --arguments 123`. In this case the relevant information is in a "random" location within the long list of arguments. Also consider the case `python3 /Applications/Some.app/Resources/some-executable`. In this case `some-executable` is in a subdirectory of the application bundle
-
-A rudimentary implementation of this logic is in place in Dock in the `Utils::readInfoFromPid(quint32 pid)` and `Utils::examinePotentialBundlePath(QString path)` methods, but improvements are highly welcome.
-
-
-``` .. note::
-    To display the correct icons in Dock for processes running as root, users must be able to see information on processes running as root. Hence security.bsd.see_other_uids=0 must not be set in sysctl.conf for this to work.
-```
-
 ## Credits
 
 Application directories and application bundles have been used by many desktop-oriented operating systems, including RISC OS, NeXTStep/OPENSTEP, Mac OS X, and various other systems. Classic Macintosh System used single-file applications that kept resources in the Resource Fork.
