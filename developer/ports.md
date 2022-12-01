@@ -297,3 +297,5 @@ Result:
 * https://reviews.freebsd.org/D37378
 * https://reviews.freebsd.org/D37379
 * https://reviews.freebsd.org/D37380
+
+If a reviewer requires changes to be made, make the changes and upload (paste) a new diff (like the original diff; not a "diff of the diff"!) by clicking on "Update Diff" on the respective Phabricator page, e.g., https://reviews.freebsd.org/D37378.
