@@ -18,9 +18,9 @@ set -x
 ###################
  
 apt-get update
-apt-get -y install git rsync python3-pip qttools5-dev-tools qt5-default qt5-qmake
+apt-get -y install git rsync python3-pip # qttools5-dev-tools qt5-default qt5-qmake
 pip3 install setuptools wheel
-pip3 install docutils==0.16 sphinx sphinx-autobuild sphinx-rtd-theme commonmark recommonmark sphinxcontrib-qthelp sphinx-markdown-tables markdown!=3.3.5
+pip3 install docutils==0.16 sphinx sphinx-autobuild sphinx-rtd-theme commonmark recommonmark sphinx-markdown-tables markdown!=3.3.5 # sphinxcontrib-qthelp
 # markdown!=3.3.5 = Workaround for ryanfox/sphinx-markdown-tables#34
 
 #####################
