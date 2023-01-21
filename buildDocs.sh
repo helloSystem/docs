@@ -41,7 +41,7 @@ make clean
 make html
 make epub
 make qthelp
-qcollectiongenerator _build/qthelp/*.qhcp
+# qcollectiongenerator _build/qthelp/*.qhcp
 # sphinx-build -b html . _build
 # make -C ./docs html
 
