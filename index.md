@@ -5,7 +5,7 @@
 ```
 
 ```eval_rst
-.. centered:: Willkommen • Welcome • Bienvenue • Benvenuto • Bienvenido • ようこそ • Mabuhay • Välkommen • Добро пожаловать • Hoş geldiniz • Bonvenon • 歡迎
+.. centered:: Willkommen • Welcome • Bienvenue • Benvenuto • Bienvenido • ようこそ • Mabuhay • Tervetuloa • Välkommen • Добро пожаловать • Hoş geldiniz • Bonvenon • 歡迎
 ```
 
 # hello
