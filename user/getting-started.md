@@ -18,7 +18,7 @@ Please refer to [FreeBSD Hardware Compatibility](https://www.freebsd.org/doc/en_
 
 ## Downloading
 
-The **helloSystem 0.7.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.7.0).
+The **helloSystem 0.8.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.8.0).
 
 Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
 
