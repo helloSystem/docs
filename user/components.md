@@ -2,10 +2,12 @@
 
 helloSystem consists of the following key components, each of which are described in this section:
 
-```eval_rst
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   
-   components/*
-``` 
+
+```{toctree}
+---
+maxdepth: 2
+glob: true
+---
+
+components/*
+```

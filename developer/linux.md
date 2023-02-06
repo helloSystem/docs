@@ -4,9 +4,9 @@ helloSystem is designed for use with helloSystem, which is based on FreeBSD.
 
 However, developers may want to verify that the code is reasonably platform independent by building on Linux from time to time.
 
-``` .. note::
-    That the code build does not necessarily mean that it works properly on Linux or that all features are implemented for Linux.
-```
+:::{note}
+That the code build does not necessarily mean that it works properly on Linux or that all features are implemented for Linux.
+:::
 
 ## Building in a chroot on a FreeBSD host
 
@@ -15,53 +15,53 @@ To verify that the code builds on Linux without needing a different development 
 Beginning with build 0H165, helloSystem ships with an [alpine rc.d script](https://github.com/helloSystem/ISO/blob/experimental/overlays/uzip/hello/files/usr/local/etc/rc.d/alpine).
 When started for the first time, this downloads a minimal root filesystem.
 
-```
-sudo service linux stop
-sudo service debian stop
-sudo service alpine onestart
-sudo chroot /compat/alpine /bin/sh
+```console
+$ sudo service linux stop
+$ sudo service debian stop
+$ sudo service alpine onestart
+$ sudo chroot /compat/alpine /bin/sh
 ```
 
 In the chroot, build the essential helloSystem components
 
-```
-# launch, open, and other essential command line tools that are required
-git clone https://github.com/helloSystem/launch
-mkdir -p launch/build
-cd launch/build
-grep ^apk ../README.md | sh
-cmake ..
-sudo make -j $(nproc) install
-cd ../../
+```console
+// launch, open, and other essential command line tools that are required
+$ git clone https://github.com/helloSystem/launch
+$ mkdir -p launch/build
+$ cd launch/build
+$ grep ^apk ../README.md | sh
+$ cmake ..
+$ sudo make -j $(nproc) install
+$ cd ../../
 
-# Menu
-git clone https://github.com/helloSystem/Menu
-mkdir -p Menu/build
-cd Menu/build
-grep ^apk ../README.md | sh
-cmake ..
-sudo make -j $(nproc) install
-cd ../../
+// Menu
+$ git clone https://github.com/helloSystem/Menu
+$ mkdir -p Menu/build
+$ cd Menu/build
+$ grep ^apk ../README.md | sh
+$ cmake ..
+$ sudo make -j $(nproc) install
+$ cd ../../
 
-# Filer
-git clone https://github.com/helloSystem/Filer
-mkdir -p Filer/build
-cd Filer/build
-grep ^apk ../README.md | sh
-cmake ..
-sudo make -j $(nproc) install
-cd ../../
+// Filer
+$ git clone https://github.com/helloSystem/Filer
+$ mkdir -p Filer/build
+$ cd Filer/build
+$ grep ^apk ../README.md | sh
+$ cmake ..
+$ sudo make -j $(nproc) install
+$ cd ../../
 ```
 
 After you are done, 
 
-```
-sudo service alpine onestop
+```console
+$ sudo service alpine onestop
 ```
 
-``` .. note::
-    If the compiler crashes, make sure that /usr/bin/clang++ is being used rather than /usr/bin/c++. This can be edited in CMakeCache.txt.
-```
+:::{note}
+If the compiler crashes, make sure that {file}`/usr/bin/clang++` is being used rather than {file}`/usr/bin/c++`. This can be edited in CMakeCache.txt.
+:::
 
 ## Running helloDesktop on Linux
 
@@ -73,13 +73,16 @@ Run Alpine Linux, e.g., in VirtualBox on helloSystem, or on real hardware.
 * Enable community repo by  `sed -i -e 's|^#||g' /etc/apk/repositories`
 * Install KDE Plasma using `setup-desktop`; set up a user
 * `rc-update add sddm` and `rc-service sddm start`
-* Log into a KDE Plasma session on Alpine Linux. __Important:__ Select X11 session. Wayland doesn't work smoothly
+* Log into a KDE Plasma session on Alpine Linux.
+    :::{important}
+    Select X11 session. Wayland doesn't work smoothly
+    :::
 * Optionally, install VirtualBox related guest packages using `apk search` and `apk add`
 * `sudo su` to become root (there is no `sudo` configured on Alpine Linux by default)
 * Build and `make install` the three core components of helloDesktop (launch, Menu, and Filer) as above
 * From within the running KDE Plasma session, you can switch to the minimal helloDesktop with
 
-```
+```sh
 #!/bin/sh
 
 launch Menu &
@@ -94,18 +97,18 @@ The result will look somewhat like this:
 
 ![Screenshot](https://user-images.githubusercontent.com/2480569/200421869-96f81c37-0785-4416-ae43-bee920dd6a3e.png)
 
-``` .. note::
-    That the code runs does not necessarily mean that it works properly on Linux or that all features are implemented for Linux. Please keep in mind that for the best desktop experience, you should be using helloSystem which helloDesktop has been designed for.
-```
+:::{note}
+That the code runs does not necessarily mean that it works properly on Linux or that all features are implemented for Linux. Please keep in mind that for the best desktop experience, you should be using helloSystem which helloDesktop has been designed for.
+:::
 
 ## Building and running helloDesktop on Raspberry Pi
 
-Loosely follow https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi (not all commands seem to be working exactly as written anymore), but also create "Linux Swap" partition. Alternatively, in the running Alpine Linux system
+Loosely follow <https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi> (not all commands seem to be working exactly as written anymore), but also create "Linux Swap" partition. Alternatively, in the running Alpine Linux system
 
-```
-fallocate -l 8G /swapfile
-mkswap /swapfile
-swapon /swapfile
+```console
+# fallocate -l 8G /swapfile
+# mkswap /swapfile
+# swapon /swapfile
 ```
 
 to have enough RAM or else the compilation will be killed (at least on the 1GB and less RAM models).

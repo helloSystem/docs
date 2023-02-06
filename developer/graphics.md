@@ -6,7 +6,7 @@ helloSystem uses `initgfx` for the automatic configuration of the graphics hardw
 
 `initgfx` consists of the following files and directories:
 
-```
+```text
 /etc/rc.d/initgfx
 /etc/initgfx_device.db
 /etc/initgfx_xorg.cfg
@@ -29,8 +29,8 @@ driver depending on whether the system was booted via BIOS or EFI.
 
 If everything goes well, then after running `sudo sysctl initgfx start` you should have (example: Nvidia):
 
-```
-% cat /usr/local/etc/X11/xorg.conf.d/00-video-initgfx.conf 
+```console
+$ cat /usr/local/etc/X11/xorg.conf.d/00-video-initgfx.conf 
 Section "Device"
     Identifier    "NVIDIA CARD"
     VendorName    "NVIDIA Corporation"
@@ -66,7 +66,7 @@ Different versions of the Nvidia drivers exist. Unfortunately the latest version
 
 To check this:
 
-```
-% cat /etc/rc.conf | grep initgfx_kmods
+```console
+$ cat /etc/rc.conf | grep initgfx_kmods
 initgfx_kmods="/usr/local/nvidia/390/boot/modules/nvidia.ko /usr/local/nvidia/390/boot/modules/nvidia-modeset.ko"
 ```

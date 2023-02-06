@@ -2,9 +2,9 @@
 
 The `geom_rowr` kernel module for FreeBSD makes a read-only device writable by combining it with a read-write device.
 
-``` .. note::
-    This kernel module is currently under development and is being tested for adoption in helloSystem.
-```
+:::{note}
+This kernel module is currently under development and is being tested for adoption in helloSystem.
+:::
 
 ## Use case
 
@@ -27,33 +27,33 @@ As a result, immediately after creating the combined device, it appears to conta
 
 Execute the following commands as root:
 
-```
-# Prepare filesystem image
-dd if=/dev/zero of=test.img bs=1M count=512
-mdconfig -a -t vnode -f test.img -u 9
-newfs /dev/md9
-mount /dev/md9 /mnt
-# Populate the filesystem
-cp -R /boot/ /mnt
-umount /mnt
-mdconfig -d -u 9
+```console
+// Prepare filesystem image
+# dd if=/dev/zero of=test.img bs=1M count=512
+# mdconfig -a -t vnode -f test.img -u 9
+# newfs /dev/md9
+# mount /dev/md9 /mnt
+// Populate the filesystem
+# cp -R /boot/ /mnt
+# umount /mnt
+# mdconfig -d -u 9
 
-# Load kernel module
-kldload ./geom_rowr.ko
-# prepare the read-only device md0 
-mdconfig -a -t vnode -o readonly -f test.img -u 0
-# prepare the read-write device md1
-mdconfig -a -t swap -s 512M -u 1
-# Make sure the geom(8) tool will find the .so
-cp geom_rowr.so /lib/geom
-# Create the new device that combines md0 and md1
-geom rowr create rowr0 md0 md1
-mount /dev/rowr0 /mnt
+// Load kernel module
+# kldload ./geom_rowr.ko
+// prepare the read-only device md0 
+# mdconfig -a -t vnode -o readonly -f test.img -u 0
+// prepare the read-write device md1
+# mdconfig -a -t swap -s 512M -u 1
+// Make sure the geom(8) tool will find the .so
+# cp geom_rowr.so /lib/geom
+// Create the new device that combines md0 and md1
+# geom rowr create rowr0 md0 md1
+# mount /dev/rowr0 /mnt
 
-# See that the files are already there
-ls /mnt
-# make changes to the filesystem to see that it is read-write
-mv /mnt/*.4th /mnt/lua; rm /mnt/pxeboot
+// See that the files are already there
+# ls /mnt
+// make changes to the filesystem to see that it is read-write
+# mv /mnt/*.4th /mnt/lua; rm /mnt/pxeboot
 ```
 
 ## Use in the Live ISO boot process
@@ -81,22 +81,22 @@ A swap-backed `md` device consumes close to zero memory when created and grows i
 
 Because `reroot` cannot be made to work with `geom_rowr` at this time, we need to use `chroot`. 
 
-When using `chroot`, some kernel modules that load firmware (e.g., for Intel WLAN drivers) fail to load the firmware if the places where kernel modules are located - `/boot/kernel` and `/boot/modules` - will look differently inside vs. outside the chroot.
+When using `chroot`, some kernel modules that load firmware (e.g., for Intel WLAN drivers) fail to load the firmware if the places where kernel modules are located - {file}`/boot/kernel` and {file}`/boot/modules` - will look differently inside vs. outside the chroot.
 
 This can be fixed.
 
 Recommended way (to be tested):
 
-Provided that `ramdisk.ufs` does not contain `/boot`, create a symlink on `ramdisk.ufs` from `/boot` to `/sysroot/boot`. The symlink can be made at image creation time or by a script that runs at runtime. This combined with the *default* `kern.module_path` should be enough to create a common view between the kernel and chrooted userland utilities. The places where kernel modules are located - `/boot/kernel` and `/boot/modules` - will look the same inside and outside of the chroot.
+Provided that `ramdisk.ufs` does not contain {file}`/boot`, create a symlink on `ramdisk.ufs` from {file}`/boot` to {file}`/sysroot/boot`. The symlink can be made at image creation time or by a script that runs at runtime. This combined with the *default* `kern.module_path` should be enough to create a common view between the kernel and chrooted userland utilities. The places where kernel modules are located - {file}`/boot/kernel` and {file}`/boot/modules` - will look the same inside and outside of the chroot.
 
 Alternative way (known to work):
 
-```
-mkdir -p /sysroot/sysroot/boot # Needed?
-mount -t nullfs /sysroot/boot /sysroot/sysroot/boot # Needed?
+```console
+# mkdir -p /sysroot/sysroot/boot # Needed?
+# mount -t nullfs /sysroot/boot /sysroot/sysroot/boot # Needed?
 
-echo "==> Set kernel module path for chroot"
-sysctl kern.module_path=/sysroot/boot/kernel
+# echo "==> Set kernel module path for chroot"
+# sysctl kern.module_path=/sysroot/boot/kernel
 ```
 
 ### ZFS
@@ -107,7 +107,7 @@ With ZFS there is a problem unrelated to the `geom_rowr` code. When ZFS performs
 
 ## License
 
-```
+```text
 geom_rowr.ko, geom_rowr.so: Copyright (c) 2021, Jordan Gordeev
 ```
 

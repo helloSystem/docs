@@ -12,4 +12,4 @@ In this section of the __Desktop__ preferences application, you can select a fon
 
 ## Advanced
 
-Under the __advanced__ tab of the __Desktop__ preferences application, advanced users can adjust additional aspects of the behavior of the desktop. Most users should leave the defaults. This tab may go away in a future version.
+Under the {guilabel}`advanced` tab of the __Desktop__ preferences application, advanced users can adjust additional aspects of the behavior of the desktop. Most users should leave the defaults. This tab may go away in a future version.

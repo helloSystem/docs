@@ -21,28 +21,28 @@ However, it is also possible to build the ISO locally, which is especially handy
 
 ## Building the Live ISO
 
-```
-sudo pkg install -y pkg git-lite zsync wget sha bash zip devel/py-xdg librsvg2 ca_root_nss
-git clone https://github.com/helloSystem/ISO
-cd ISO
-sudo ./build.sh hello
+```console
+$ sudo pkg install -y pkg git-lite zsync wget sha bash zip devel/py-xdg librsvg2 ca_root_nss
+$ git clone https://github.com/helloSystem/ISO
+$ cd ISO
+$ sudo ./build.sh hello
 ```
 
-The resulting Live ISO will be located at `/usr/local/furybsd/iso/`.
+The resulting Live ISO will be located at {file}`/usr/local/furybsd/iso/`.
 
 ## Writing Live Media to USB drive
 
-```
-sudo dd if=/usr/local/furybsd/iso/FuryBSD-12.1-XFCE.iso of=/dev/daX bs=4m status=progress
+```console
+$ sudo dd if=/usr/local/furybsd/iso/FuryBSD-12.1-XFCE.iso of=/dev/daX bs=4m status=progress
 ```
 
 Replace `daX` with the respective device name.
 
-``` .. warning::
-    This will overwrite the entire contents of the selected device. Take extra caution when determining the device name.
-    
-    This operation cannot be undone.
-```
+:::{warning}
+This will overwrite the entire contents of the selected device. Take extra caution when determining the device name.
+
+This operation cannot be undone.
+:::
 
 For end users, there is the __Create Live Media__ application that can conveniently download and write Live Media with a graphical user interface.
 
@@ -50,9 +50,9 @@ For end users, there is the __Create Live Media__ application that can convenien
 
 You can use the `cdrecord` command line tool to burn Live Media to DVD.
 
-```
-pkg install cdrtools
-cdrecord /usr/local/furybsd/iso/<filename>.iso
+```console
+# pkg install cdrtools
+# cdrecord /usr/local/furybsd/iso/<filename>.iso
 ```
 
 ## Customizing the Live ISO
@@ -83,10 +83,10 @@ Configuration is applied using _transient packages_ that get generated on-the-fl
 * Overlays for the initial ramdisk are stored in `overlays/ramdisk`
 * Overlays for the main filesystem are stored in `overlays/uzip/<overlay>/files/`. Note that to be included in a build, the overlay called `<overlay>` must be listed in `settings/overlays.<name>`. Substitute `<name>` with `hello` or one of the desktop environments mentioned above.
 
-For example, a file that is supposed to appear in `/usr/local/bin/app` on the main filesystem could be stored in `overlays/uzip/hello/files/usr/local/bin/app`.
+For example, a file that is supposed to appear in {file}`/usr/local/bin/app` on the main filesystem could be stored in {file}`overlays/uzip/hello/files/usr/local/bin/app`.
 
 ### Customizing the build script
 
-If a file called `settings/script.<name>` exists, then it will be executed during the build. Substitute `<name>` with `hello` or one of the desktop environments mentioned above. For building helloSystem, `settings/script.hello` performs actions such as installing applications that are not coming from FreeBSD packages, setting the wallpaper, installing fonts that are not coming from FreeBSD, and so on.
+If a file called {file}`settings/script.<name>` exists, then it will be executed during the build. Substitute `<name>` with `hello` or one of the desktop environments mentioned above. For building helloSystem, {file}`settings/script.hello` performs actions such as installing applications that are not coming from FreeBSD packages, setting the wallpaper, installing fonts that are not coming from FreeBSD, and so on.
 
 All desktop-specific build steps should go into this file.

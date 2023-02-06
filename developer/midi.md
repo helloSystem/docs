@@ -6,41 +6,41 @@ Over a decade ago, someone [wrote](https://forums.freebsd.org/threads/alsa-midi-
 
 This page describes how to use USB based hardware MIDI controllers (e.g., keyboards), with helloSystem and FreeBSD.
 
-``` .. note::
-    It is a work in progress. Please consider contributing additions and corrections.
-```
+:::{note}
+It is a work in progress. Please consider contributing additions and corrections.
+:::
 
 ## Using /dev/umidi*
 
-Whenever a USB based hardware MIDI controller is plugged into the computer, a `/dev/umidi*` device node is created automatically.
+Whenever a USB based hardware MIDI controller is plugged into the computer, a {file}`/dev/umidi*` device node is created automatically.
 
 ### Testing
 
 To test whether input from the MIDI controller arrives, run in a Terminal window:
 
-```
-midicat -d -q rmidi/0.0 -o /dev/null
+```console
+$ midicat -d -q rmidi/0.0 -o /dev/null
 ```
 
 As you play some notes on the MIDI controller, you should see MIDI messages appear on the screen. After verifying that this works, exit `midicat`.
 
-Some applications can use `/dev/umidi*` device nodes directly. Some expect the device node to be at `/dev/midi` though, so you need to create a symlink there manually.
+Some applications can use {file}`/dev/umidi*` device nodes directly. Some expect the device node to be at {file}`/dev/midi` though, so you need to create a symlink there manually.
 
 ### Example application
 
 For example, the `fluidsynth` command line tool, can use hardware MIDI controllers in this way directly:
 
-```
-sudo pkg install -y fluidsynth musescore
-sudo ln -sf /dev/umidi*.0 /dev/midi
-fluidsynth -m oss -a oss SoundFont.sf2
+```console
+$ sudo pkg install -y fluidsynth musescore
+$ sudo ln -sf /dev/umidi*.0 /dev/midi
+$ fluidsynth -m oss -a oss SoundFont.sf2
 ```
 
-Unfortunately, not all applications on FreeBSD can use `/dev/umidi*` device nodes directly in this way. Hence there are other methods to access MIDI controllers. which one you need to use depends on what methods the application in question supports.
+Unfortunately, not all applications on FreeBSD can use {file}`/dev/umidi*` device nodes directly in this way. Hence there are other methods to access MIDI controllers. which one you need to use depends on what methods the application in question supports.
 
-``` .. note::
-    Applications cannot access /dev/umidi* directly while alsa-seq-server is running.
-```
+:::{note}
+Applications cannot access /dev/umidi* directly while alsa-seq-server is running.
+:::
 
 ## Using OSS Raw-MIDI (Open Sound System)
 
@@ -60,23 +60,23 @@ Some applications can use `alsa-seq-server` to access MIDI controllers. For some
 
 In order for applications that use `alsa-seq-server` to talk to your MIDI controller, run
 
-```
-sudo pkg install alsa-seq-server alsa-utils
-sudo alsa-seq-server -d /dev/umidi*
+```console
+$ sudo pkg install alsa-seq-server alsa-utils
+$ sudo alsa-seq-server -d /dev/umidi*
 ```
 
 and then run the application.
 
-``` .. note::
-    alsa-seq-server was recently updated so that one can run it as a service which will automatically make all MIDI devices available without having to run one instance per MIDI device. The change should appear in FreeBSD packages (and thus in helloSystem) starting in Q2/2022.
-```
+:::{note}
+alsa-seq-server was recently updated so that one can run it as a service which will automatically make all MIDI devices available without having to run one instance per MIDI device. The change should appear in FreeBSD packages (and thus in helloSystem) starting in Q2/2022.
+:::
 
 ### Testing
 
 To test whether input from the MIDI controller arrives, run in a separate Terminal:
 
-```
-aseqdump -p 0
+```console
+$ aseqdump -p 0
 Waiting for data. Press Ctrl+C to end.
 Source  Event                  Ch  Data
 ```
@@ -89,7 +89,7 @@ An example application that can use `alsa-seq-server` to talk to MIDI controller
 
 Recompiling LMMS from FreeBSD Ports with the following change regarding `WANT_ALSA`  in the `Makefile` allows one to use `alsa-seq-server` to talk to MIDI controllers:
 
-```
+```text
 CMAKE_OFF=      WANT_CALF WANT_CAPS WANT_CMT WANT_SWH WANT_STK \
                 WANT_TAP WANT_VST
 CMAKE_ON=       WANT_QT5 WANT_ALSA
@@ -101,7 +101,7 @@ To use it, select "ALSA-Sequencer (Advanced Linux Sound Architecture)" from the 
 
 If you see
 
-```
+```console
 ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
 cannot open sequencer: No such file or directory
 ```

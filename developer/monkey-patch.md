@@ -4,9 +4,9 @@ Starting with helloSystem 0.7.0 it is possible to [monkey patch](https://en.wiki
 
 With that, it allows for a very rapid development-test cycle for Live ISOs.
 
-``` .. note::
-    This feature is currently under active development and its usage is still subject to change.
-```
+:::{note}
+This feature is currently under active development and its usage is still subject to change.
+:::
 
 ## Theory of operation
 
@@ -33,7 +33,9 @@ The code inside the file `monkeypatch.sh` on the volume called `MONKEYPATCH` wil
 
 ## Example `monkeypatch.sh` file
 
-```
+```shell
+#!/bin/sh
+
 # Write a file
 echo "HELLO MONKEY" > /tmp/MONKEY_WAS_HERE
 
@@ -59,26 +61,26 @@ chmod +x /usr/local/sbin/mount_md
 
 A particularly effective way to debug the late boot process (after Xorg has started) is:
 
-```
-mv /usr/local/bin/start-hello /usr/local/bin/start-hello.real
-cat > /usr/local/bin/start-hello <<\EOF
+```sh
+$ mv /usr/local/bin/start-hello /usr/local/bin/start-hello.real
+$ cat > /usr/local/bin/start-hello << EOF
 #!/bin/sh
 
 xterm -maximized start-hello.real
 # xterm -maximized
 EOF
-chmod +x /usr/local/bin/start-hello*
+$ chmod +x /usr/local/bin/start-hello*
 ```
 
 This will allow you to see the commands in `start-hello.real` as they are executed.
 
 ## Booting a Live ISO running a different `init_script`
 
-If you would like to test changes to `/boot/init_script` on the ISO without having to re-create it and without having to write the ISO to a device, you can use the `monkey_patch_init_script` feature:
+If you would like to test changes to {file}`/boot/init_script` on the ISO without having to re-create it and without having to write the ISO to a device, you can use the `monkey_patch_init_script` feature:
 
-* Boot the ISO but interrupt the bootloader by pressing the Esc key
+* Boot the ISO but interrupt the bootloader by pressing the {kbd}`Esc` key
 * At the boot prompt, enter: `set monkey_patch_init_script=YES`
 * Optionally, use `unset BOOT_MUTE` so that you can see messages on the screen during boot
 * Start the system by entering `boot`
 
-The code inside the file `init_script` on the volume called `MONKEYPATCH` will be executed instead of `/boot/init_script` on the ISO.
+The code inside the file `init_script` on the volume called `MONKEYPATCH` will be executed instead of {file}`/boot/init_script` on the ISO.

@@ -23,8 +23,9 @@ The **helloSystem 0.8.0** ISO image is available for download [here](https://git
 Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
 
 
-> :warning: **Important** <br/>Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
-
+:::{important}
+Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
+:::
 
 ## Creating Live Media
 
@@ -34,8 +35,8 @@ helloSystem comes with a __Create Live Media__ utility that allows to write ISO 
 
 If you are not running helloSystem yet or would like to use the command line, the following command should work on all BSD flavors:
 
-```
-sudo dd if=<path to ISO file> of=/dev/daX bs=4m status=progress
+```console
+$ sudo dd if=<path to ISO file> of=/dev/daX bs=4m status=progress
 ```
 
 On GNU-style systems (e.g., most Linux distributions), `status=progress` does not work and can be left away.
@@ -81,18 +82,16 @@ Detailed information on #FreeBSD wireless network card compatibility is availabl
 
 ## Virtualization environments
 
-> :warning: **Note**: <br/>We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
+:::{note}
+We recommend running helloSystem on real hardware ("bare metal") if possible. This should give you the best possible performance and hardware support.
+:::
 
 Users have reported success in running helloSystem in the following virtualization environments:
 
 * VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI modes
-
 * VMware Workstation works in BIOS and EFI modes (see below)
-
 * QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet
-
 * Parallels host, reported to work in EFI mode (see below)
-
 * Proxmox VE
 
 Please note:
@@ -109,7 +108,7 @@ Please report back about the results on your virtualization environment.
 
 Create an 8 GiB (or larger) `hello.img` image file on which you can install the system:
 
-```
+```console
 $ pwd
 /home/user
 $ mkdir -p .qemu/hello
@@ -118,8 +117,8 @@ $ fallocate -l $(( 8*1024*1024*1024 )) .qemu/hello/hello.img
 
 Then, boot helloSystem:
 
-```
-qemu-system-x86_64 -machine type=q35,accel=kvm \
+```console
+$ qemu-system-x86_64 -machine type=q35,accel=kvm \
 -enable-kvm -cpu host -smp 2 -m 4096 \
 -device virtio-net,netdev=vmnic -netdev user,id=vmnic,hostfwd=tcp::5222-:22 \
 -vga std -soundhw hda -no-quit \
@@ -144,7 +143,7 @@ To boot/install hello in UEFI mode, first install [OVMF Open Virtual Machine Fir
 
 Then add these two `qemu-system-x86_64` options:
 
-```
+```text
 -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
 -smbios type=0,vendor=0vendor,version=0version,date=0date,release=0.0,uefi=on \
 ```
@@ -173,11 +172,15 @@ To set resolution, press F2 at boot to access OVMF settings. Select 'Device Mana
 ### VMware Workstation 
 Tested on VMware Workstation 16.2.1
 
-> :warning: **Installation Issue** <br/>For best results while installing, please set your CPU to 1 socket, and no more than 4 cores.<br />After installation, you can set the CPU socket and core count to your desire.
+:::{admonition} Installation issue 
+:class: warning
+
+For best results while installing, please set your CPU to 1 socket, and no more than 4 cores
+
+After installation, you can set the CPU socket and core count to your desire.
+:::
 
 * Memory: 4GB 
 * Processors: 4 (1 socket, 4 cores)
 * Hard Disk: At least 8GB 
 * Guest Operating System Version: FreeBSD 12 64-bit
-
-
