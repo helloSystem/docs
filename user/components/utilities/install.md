@@ -4,9 +4,9 @@ Once you have tried out helloSystem from the live medium, you may want to instal
 
 The __Install FreeBSD__ utility lets you install helloSystem on your computer from a running Live system.
 
-``` .. note::
-    The utility is called  **Install FreeBSD** to signify that helloSystem contains a largely unmodified FreeBSD core operating system. It might be renamed "Install helloSystem" in the future.
-```
+:::{note}
+The utility is called  **Install FreeBSD** to signify that helloSystem contains a largely unmodified FreeBSD core operating system. It might be renamed "Install helloSystem" in the future.
+:::
 
 ![Install FreeBSD](https://user-images.githubusercontent.com/2480569/93003377-7d77c480-f53e-11ea-9e2d-aed1b41a17df.png)
 
@@ -24,11 +24,11 @@ Start your computer from a helloSystem Live Medium. Open the __Install FreeBSD__
 
 The installer starts by presenting a summary of FreeBSD. Click on "Continue". To install the software, you must agree to the terms of the software license agreement. Click on "Continue" to proceed. Click on a destination disk on which the operating system should be installed. A warning will inform you that the entire disk will be erased. Confirm whether you want to do this by clicking on the appropriate button.
 
-``` .. warning::
-    The **Install FreeBSD** utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.
+:::{warning}
+The **Install FreeBSD** utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.
     
-    This operation cannot be undone.
-```
+This operation cannot be undone.
+:::
 
 If you are really sure that you have selected the correct device, click "Continue". 
 

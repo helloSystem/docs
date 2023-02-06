@@ -2,9 +2,9 @@
 
 Once you have installed the system to the hard disk in your computer, or an externally attached storage device, you may want to keep it recent by running the __Update__ utility from time to time.
 
-``` .. note::
-    This utility is currently in  **Developer Preview** status and is intended for developers and testers. Only use it if you have a backup of your system or if you are running on a test system that you can set up from scratch if needed.
-```
+:::{note}
+This utility is currently in  **Developer Preview** status and is intended for developers and testers. Only use it if you have a backup of your system or if you are running on a test system that you can set up from scratch if needed.
+:::
 
 This utility
 * Creates a new Boot Environment (bootable partial snapshot). __This is not a full replacement for a backup__ but should allow you to roll back to the state before the update, should something go wrong

@@ -2,9 +2,9 @@
 
 The __Remote Assistance__ utility allows a peer on the Internet to access and control your computer using the encrypted peer-to-peer Tox protocol. This can be helpful, e.g., to receive help from a friend.
 
-``` .. warning::
-    Running the **Remote Assistance** utility will give your peer access to the screen, mouse, and keyboard of your computer, and read-write to any ports that may be open on your machine. Only share the ID with people you trust.
-```
+:::{warning}
+Running the **Remote Assistance** utility will give your peer access to the screen, mouse, and keyboard of your computer, and read-write to any ports that may be open on your machine. Only share the ID with people you trust.
+:::
 
 ## Receiving Remote Assistance
 

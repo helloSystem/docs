@@ -15,20 +15,20 @@ In order to create a Live medium, you need
 * A fast internet connection (a typical download is around 2 GiB)
 * A suitable external storage device, e.g., a USB3 device. USB2 devices can be used but performance may be degraded. On some systems, other storage media such as SD cards or microSD cards can be used. Consult the documentation that came with your computer to determine which type of media can be used to start your computer.
 
-``` .. note::
-    The **Create Live Media** utility cannot be used on other operating systems such as Windows, Linux, or macOS.
-    
-    If you would like to create Live Media for helloSystem using one of those operating systems, you can use applications that can write images to USB storage devices, such as [balenaEtcher](https://www.balena.io/etcher/).
-```
+:::{note}
+The **Create Live Media** utility cannot be used on other operating systems such as Windows, Linux, or macOS.
+
+If you would like to create Live Media for helloSystem using one of those operating systems, you can use applications that can write images to USB storage devices, such as [balenaEtcher](https://www.balena.io/etcher/).
+:::
 
 ## Downloading and writing Live Media
 
 The __Create Live Media__ utility downloads and writes a Live ISO image in one go to a storage medium. Open the __Create Live Media__ utility and follow the instructions on screen.
 
-``` .. warning::
-    The **Create Live Media** utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.
-    
-    This operation cannot be undone.
-```
+:::{warning}
+The **Create Live Media** utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.
+
+This operation cannot be undone.
+:::
 
 Once the image has been written to the device successfully, you can restart your computer to start from the Live Medium, or remove the device and insert it into another computer to start that computer from the Live Medium.
