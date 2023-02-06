@@ -23,7 +23,7 @@ helloSystem supports simplified GNUstep-style `.app` bundles.
 
 Minimal requirements:
 
-```
+```text
 ./Application.app
 ./Application.app/Application <-- (link to) the executable to be launched when Application.app is double clicked
 ./Application.app/Resources/Application.png <-- the application icon (png format)
@@ -38,7 +38,7 @@ helloSystem supports simplified ROX-style `.AppDir` bundles.
 
 Minimal requirements:
 
-```
+```text
 ./Application.AppDir
 ./Application.AppDir/AppRun <-- (link to) the executable to be launched when Application.app is double clicked
 ./Application.AppDir/.DirIcon <-- the application icon (png format)
@@ -70,10 +70,10 @@ Please see the [`.cirrus.yml`](https://github.com/helloSystem/QHexEdit/blob/main
 
 If an application is supposed to load privately bundled libraries, one must patch it so that it loads privately bundled libraries from a path relative to itself (`$ORIGIN`) rather than from `/usr/local/lib`:
 
-```
-sed -i -e 's|/usr/local/lib|$ORIGIN/../lib|g' usr/local/bin/falkon
-ln -s usr/local/lib .
-rm usr/local/bin/falkon-e
+```console
+$ sed -i -e 's|/usr/local/lib|$ORIGIN/../lib|g' usr/local/bin/falkon
+$ ln -s usr/local/lib .
+$ rm usr/local/bin/falkon-e
 ```
 
 This works because by coincidence the string `/usr/local/lib` has the exact same length as `$ORIGIN/../lib`. If this was not the case, one would need to either specify the rpath at compilation time, or use a tool such as `patchelf`.

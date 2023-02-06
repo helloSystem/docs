@@ -1,6 +1,7 @@
 # Working with FreeBSD Ports
 
 In some situations it may be necessary to make changes to existing software that comes in FreeBSD packages.
+
 This section describes how to make such changes using an example.
 
 ## Example
@@ -17,81 +18,82 @@ Here is how to do it using FreeBSD Ports:
 
 ## Pulling the ports tree
 
-```
-sudo git clone https://git.freebsd.org/ports.git /usr/ports --depth=1
+```console
+$ sudo git clone https://git.freebsd.org/ports.git /usr/ports --depth=1
 ```
 
 If you are running an end-of-life FreeBSD version such as 12.1, you also need to
 
-```
-export ALLOW_UNSUPPORTED_SYSTEM=1
-# Or in csh
-setenv ALLOW_UNSUPPORTED_SYSTEM YES
+```console
+$ export ALLOW_UNSUPPORTED_SYSTEM=1
+// Or in csh
+% setenv ALLOW_UNSUPPORTED_SYSTEM YES
 ```
 
 ## Building the port without changes
 
 Build the port without changes first to ensure it builds and works as expected.
 
-```
-cd /usr/ports/x11-toolkits/qtermwidget/
+```console
+$ cd /usr/ports/x11-toolkits/qtermwidget/
 
-# Install all build-time dependencies from packages
-make build-depends-list | cut -c 12- | xargs pkg install -y
+// Install all build-time dependencies from packages
+$ make build-depends-list | cut -c 12- | xargs pkg install -y
 
-# Build the library
-# NOTE: Applications that have a library that is used by nothing but that application are just
-# annoying because now you have to deal with two entities rather than one
-MAKE_JOBS_UNSAFE=yes sudo -E make -j4
+// Build the library
+// NOTE: Applications that have a library that is used by nothing but that application are just
+// annoying because now you have to deal with two entities rather than one
+$ MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
-# Now, the application itself
-cd /usr/ports/x11/qterminal
+// Now, the application itself
+$ cd /usr/ports/x11/qterminal
 
-# Install all build-time dependencies from packages
-make build-depends-list | cut -c 12- | xargs pkg install -y
+// Install all build-time dependencies from packages
+$ make build-depends-list | cut -c 12- | xargs pkg install -y
 
-# Build the application
-QTermWidget5_DIR=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/cmake/qtermwidget5/  MAKE_JOBS_UNSAFE=yes sudo -E make -j4
+// Build the application
+$ QTermWidget5_DIR=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/cmake/qtermwidget5/  MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
-# Run the application with the changed library
-LD_LIBRARY_PATH=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/ /usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
+// Run the application with the changed library
+$ LD_LIBRARY_PATH=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/ /usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
 ```
 
 ## Making changes to the port
 
 Now make changes to the port.
 
-``` .. note::
-    In the ports system you cannot just change the source code because it would be overwritten during the build process.
+:::{note}
+In the ports system you cannot just change the source code because it would be overwritten during the build process.
+
 You first need to make a copy of the source code, then make the changes in the copy, then create a patch that will get applied automatically at build time.
-```
+:::
 
-```
-# Copy the file to be changed
-cd /usr/ports/x11-toolkits/qtermwidget
-sudo cp work/qtermwidget-*/lib/TerminalDisplay.cpp work/qtermwidget-*/lib/TerminalDisplay.cpp.orig
+```console
+// Copy the file to be changed
+$ cd /usr/ports/x11-toolkits/qtermwidget
+$ sudo cp work/qtermwidget-*/lib/TerminalDisplay.cpp work/qtermwidget-*/lib/TerminalDisplay.cpp.orig
 
-# Make the change in the library
-sudo nano work/qtermwidget-*/lib/TerminalDisplay.cpp
+// Make the change in the library
+$ sudo nano work/qtermwidget-*/lib/TerminalDisplay.cpp
         QChar q(QLatin1Char('\''));
         dropText += q + QString(urlText).replace(q, QLatin1String("'\\''")) + q;
         dropText += QLatin1Char(' ');
 
-# Make a patch
-sudo make makepatch
+// Make a patch
+$ sudo make makepatch
 
-# Build the library again
-# sudo make clean # Run this only if the next line does nothing
-MAKE_JOBS_UNSAFE=yes sudo -E make -j4
+// Build the library again
+$ sudo make clean # Run this only if the next line does nothing
+$ MAKE_JOBS_UNSAFE=yes sudo -E make -j4
 
-# Run the application with the changed library
-LD_LIBRARY_PATH=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/ /usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
+// Run the application with the changed library
+$ LD_LIBRARY_PATH=/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/ /usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
 ```
 
 As a result we have a patch:
 
-```
-% cat files/patch-lib_TerminalDisplay.cpp
+```console
+$ cat files/patch-lib_TerminalDisplay.cpp
 --- lib/TerminalDisplay.cpp.orig        2020-11-03 08:19:26 UTC
 +++ lib/TerminalDisplay.cpp
 @@ -3099,7 +3099,9 @@ void TerminalDisplay::dropEvent(QDropEvent* event)
@@ -111,16 +113,16 @@ As a result we have a patch:
 
 Optionally, make packages for the ports. Note that `make build` needs to have run already before this step.
 
-```
-# Library
-cd /usr/ports/x11-toolkits/qtermwidget/
-sudo make package
-ls work/pkg
+```console
+// Library
+$ cd /usr/ports/x11-toolkits/qtermwidget/
+$ sudo make package
+$ ls work/pkg
 
-# Application
-cd /usr/ports/x11/qterminal
-sudo make package
-ls work/pkg
+// Application
+$ cd /usr/ports/x11/qterminal
+$ sudo make package
+$ ls work/pkg
 ```
 
 ## Creating a port from scratch
@@ -128,28 +130,28 @@ ls work/pkg
 The [FreeBSD Porter's Handbook](https://docs.freebsd.org/en/books/porters-handbook/) is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.
 
 
-``` .. note::
-    This section is a work in progress. Corrections are welcome.
-```
+:::{note}
+This section is a work in progress. Corrections are welcome.
+:::
 
 First, prepare the Ports environment:
 
-```
-sudo su
-pkg install portlint
-echo DEVELOPER=yes >> /etc/make.conf
+```console
+$ sudo su
+# pkg install portlint
+# echo DEVELOPER=yes >> /etc/make.conf
 ```
 
 Next, create a directory for the new port:
 
-```
-mkdir /usr/ports/sysutils/fluxengine
-cd /usr/ports/sysutils/fluxengine
+```console
+# mkdir /usr/ports/sysutils/fluxengine
+# cd /usr/ports/sysutils/fluxengine
 ```
 
 Create `Makefile` with the following content:
 
-```
+```text
 # $FreeBSD$
 
 PORTNAME=       fluxengine
@@ -182,8 +184,8 @@ do-install:
 
 Run 
 
-```
-make makeplist > pkg-plist
+```console
+# make makeplist > pkg-plist
 ```
 
 to create that file. Check and edit it by hand, especially the first line.
@@ -197,7 +199,7 @@ Notes
 
 Create `pkg-descr` based on the description on the GitHub [README.md](https://github.com/davidgiven/fluxengine):
 
-```
+```text
 The FluxEngine is a very cheap USB floppy disk interface capable of
 reading and writing exotic non-PC floppy disk formats.
 It allows you to use a conventional PC drive to accept Amiga disks,
@@ -217,34 +219,34 @@ Notes
 
 Create the checksum file by running
 
-```
-make makesum
+```console
+# make makesum
 ```
 
 Check the Makefile with
 
-```
-portlint
+```console
+# portlint
 ```
 
 and correct any mistakes it reports, then repeat.
 
 Once `portlint` says `looks fine`, try to build by running
 
-```
-make
+```console
+# make
 ```
 
 Note that the compilation will fail. This is because in this case the application needs to be built with `gmake` rather than `make`.
 
 Run tests
 
-```
-make stage
-make stage-qa
-make package
-make install
-make deinstall
+```console
+# make stage
+# make stage-qa
+# make package
+# make install
+# make deinstall
 ```
 
 None of these must produce errors. See [3.4. Testing the Port](https://docs.freebsd.org/en/books/porters-handbook/porting-testing.html) for details.
@@ -253,42 +255,43 @@ At this point it may be a good idea to have an experienced FreeBSD Ports develop
 
 Once everything looks good, prepare a `.shar` file for submitting it to https://bugs.freebsd.org/submit/:
 
-```
-rm -rf work/
-cd ..
-tar cf  fluxengine.shar --format shar fluxengine
+```console
+# rm -rf work/
+# cd ..
+# tar cf  fluxengine.shar --format shar fluxengine
 ```
 
 ## Updating existing ports
 
 This real-life example shows how to update a port, e.g., `x11/qterminal`.
 
-```
-sudo su
-cd /usr/ports
-git pull
-cd x11/qterminal
+```console
+$ sudo su
+# cd /usr/ports
+# git pull
+# cd x11/qterminal
 ```
 
 Change  `PORTVERSION=    1.1.0` to `PORTVERSION=    1.2.0`. Turns out that one has to update `x11-toolkits/qtermwidget` and `devel/lxqt-build-tools` too for it to compile.
 
-```
-portlint # Fix errors, if any
-rm pkg-plist
-make clean
-make package reinstall
-make makeplist > pkg-plist
-nano pkg-plist # Remove first line and check the others
-make clean
-make package reinstall
+```console
+# portlint # Fix errors, if any
+# rm pkg-plist
+# make clean
+# make package reinstall
+# make makeplist > pkg-plist
+# nano pkg-plist # Remove first line and check the others
+# make clean
+# make package reinstall
 ```
 
 Finally, once everything is tested, create separate patches for each port with
-```
-cd /usr/ports
-git diff -U999999 x11/qterminal > /home/user/Desktop/x11_qterminal.diff
-git diff -U999999 devel/lxqt-build-tools > /home/user/Desktop/devel_lxqt-build-tools.diff
-git diff -U999999 x11-toolkits/qtermwidget > /home/user/Desktop/x11-toolkits_qtermwidget.diff
+
+```console
+# cd /usr/ports
+# git diff -U999999 x11/qterminal > /home/user/Desktop/x11_qterminal.diff
+# git diff -U999999 devel/lxqt-build-tools > /home/user/Desktop/devel_lxqt-build-tools.diff
+# git diff -U999999 x11-toolkits/qtermwidget > /home/user/Desktop/x11-toolkits_qtermwidget.diff
 ```
 
 Go to https://reviews.freebsd.org/differential/, click "Create Diff", can log in using GitHub credentials, subject `devel/lxqt-build-tools: Update to 0.12.0`, under "Reviewers" add the maintainer.

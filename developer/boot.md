@@ -4,26 +4,27 @@
 
 As a desktop-centric system, helloSystem should bring up a graphical desktop as soon as possible, and delay starting up other services such as the network beyond that point. Unfortunately, in the FreeBSD default configuration this is the other way around, and the graphical desktop will only start after the network has been configured, the time has been set using NTP, etc.
 
-While it would be possible to change the order of the scripts in `/etc/rc.d` and `/usr/local/etc/rc.d`, those changes might get overwritten with subsequent FreeBSD or package updates. Hence, we should never edit startup scripts provided by FreeBSD or packages.
+While it would be possible to change the order of the scripts in {file}`/etc/rc.d` and {file}`/usr/local/etc/rc.d`, those changes might get overwritten with subsequent FreeBSD or package updates. Hence, we should never edit startup scripts provided by FreeBSD or packages.
 
 Instead, we can disable the services in question so that they don't get started as part of the normal FreeBSD boot sequence, and start them later in the boot process (after the graphical session has been started) using a custom start script.
 
-``` .. note::
-    The following instructions are DANGEROUS and can potentially lead to a system that cannot boot into a graphical desktop if things go wrong. This is currently only for developers and experienced users who know how to handle such situations. Future versions of helloSystem may come with this already set up.
-```
+:::{note}
+The following instructions are DANGEROUS and can potentially lead to a system that cannot boot into a graphical desktop if things go wrong. This is currently only for developers and experienced users who know how to handle such situations. Future versions of helloSystem may come with this already set up.
+:::
 
 To do this, create a Boot Environment that you can roll back to in case things go wrong.
 
-In `/etc/rc.conf`, set
-```
+In {file}`/etc/rc.conf`, set
+
+```text
 defaultroute_carrier_delay="0"
 defaultroute_delay="0"
 background_dhclient="YES"
 ```
 
-Then create the following `/usr/local/etc/rc.d/late-start` script:
+Then create the following {file}`/usr/local/etc/rc.d/late-start` script:
 
-```
+```sh
 #!/bin/sh
 
 # PROVIDE: late-start
@@ -62,20 +63,19 @@ late_disable_early_services()
 
 load_rc_config $name
 run_rc_command "$1"
-
 ```
 
 Disable the services in question with
 
-```
-sudo chmod +x /usr/local/etc/rc.d/late-start
-sudo service late-start disable_early_services
+```console
+$ sudo chmod +x /usr/local/etc/rc.d/late-start
+$ sudo service late-start disable_early_services
 ```
 
 Check which services are still enabled, should now be treatly reduced:
 
-```
-% grep -r 'enable="YES"' /etc/rc.conf*
+```console
+$ grep -r 'enable="YES"' /etc/rc.conf*
 /etc/rc.conf:clear_tmp_enable="YES"
 /etc/rc.conf:dbus_enable="YES"
 /etc/rc.conf:initgfx_enable="YES"
@@ -96,8 +96,8 @@ Press the Backspace key on your keyboard during early boot until you see the `OK
 
 Enter
 
-```
-boot -s
+```console
+OK boot -s
 ```
 
 to boot in single user mode. The system will boot to the first stage Live system prompt:
@@ -105,32 +105,32 @@ to boot in single user mode. The system will boot to the first stage Live system
 ![livefirstsingleprompt](https://user-images.githubusercontent.com/2480569/202910574-22c0e284-8717-4ae0-9489-68cc23995e1d.png)
 
 At this point, the Live system has not been made writable yet.
-Enter `exit` to contine. The system will boot to the second stage Live system prompt:
+Enter {command}`exit` to contine. The system will boot to the second stage Live system prompt:
 
 ![livesecondsingleprompt](https://user-images.githubusercontent.com/2480569/202910576-e4253133-8544-4566-8b8e-8c0895f63edd.png)
 
-At this point, the system has been made partly writable by the `init_script`. To see the messages, you can press the ScrLk key on your keyboard and then use the arrow up and arrow down keys on your keyboard. Then press the ScrLk key again.
+At this point, the system has been made partly writable by the `init_script`. To see the messages, you can press the {kbd}`ScrLk` key on your keyboard and then use the arrow up and arrow down keys on your keyboard. Then press the {kbd}`ScrLk` key again.
 
-Hit the Enter key on your keyboard.
+Hit the {kbd}`Enter` key on your keyboard.
 
-Here you can make changes to files like `/usr/local/bin/start-hello`. 
+Here you can make changes to files like {file}`/usr/local/bin/start-hello`. 
 
 For example, you can
 
-```
-mv /usr/local/bin/start-hello /usr/local/bin/start-hello.original
-ln -sf /usr/local/bin/xterm /usr/local/bin/start-hello
+```console
+$ mv /usr/local/bin/start-hello /usr/local/bin/start-hello.original
+$ ln -sf /usr/local/bin/xterm /usr/local/bin/start-hello
 ```
 
-Then enter `exit` to contine. The system will boot into the graphical desktop.
+Then enter {command}`exit` to contine. The system will boot into the graphical desktop.
 
 If you have made the above changes, you can run
 
-```
-sh -x /usr/local/bin/start-hello.original
+```console
+$ sh -x /usr/local/bin/start-hello.original
 ```
 
-to watch `start-hello.original` run in a graphical terminal.
+to watch {file}`start-hello.original` run in a graphical terminal.
 
 ![image](https://user-images.githubusercontent.com/2480569/202913068-5399a4fa-cefc-4ffc-ba24-9b752d6a4cff.png)
 
@@ -138,9 +138,9 @@ Here you can see what goes wrong, if anything... and then you can create, e.g., 
 
 ## Live system early boot process
 
-``` .. note::
-    This section describes helloSystem boot process up to 0.6.0. Starting with version 0.7.0, helloSystem will use a completely different live system boot process. This page needs to be updated accordingly.
-```
+:::{note}
+This section describes helloSystem boot process up to 0.6.0. Starting with version 0.7.0, helloSystem will use a completely different live system boot process. This page needs to be updated accordingly.
+:::
 
 The ISO contains a compressed Live system filesystem image in uzip format. This filesystem image contains the filesystem used when running the ISO. During the Live system boot process, the image needs to get mounted and needs to get turned into a read-write filesystem so that one can make changes to the running system.
 
@@ -149,17 +149,17 @@ FreeBSD does not have a standard way to achieve this, so custom code has to be u
 This is a simplified description of the boot process. There may be additional aspects which still need to be documented.
 
 1. The bootloader gets loaded
-1. The bootloader loads the kernel modules that are required for the Live system boot process as specified in `overlays/boot/boot/loader.conf`. Note that the bootloader apparently is not smart enough to load the dependencies of kernel modules, so one needs to manually specify those as well. For example, `zfs.ko` up to FreeBSD 12 requires `opensolaris.ko` and from 13 onward requires `cryptodev.ko`
-1. The bootloader loads the ramdisk image `ramdisk.ufs` as specified in `overlays/boot/boot/loader.conf` under `mfsroot_name`. The contents of the ramdisk image are specified in `overlays/ramdisk`
-1. `init.sh` from the ramdisk image gets executed as requested by `overlays/boot/boot/loader.conf` under `init_script` and specified in `overlays/ramdisk/init.sh`. It constructs a r/w Live filesystem tree (e.g., by replicating the system image to swap-based memdisk) at `/livecd`
-1. `/usr/local/bin/furybsd-init-helper` gets executed by `init.sh` in a chroot of the live filesystem, `/livecd`. It is defined in `overlays/uzip/furybsd-live-settings/files/usr/local/bin/furybsd-init-helper` and deals with loading Xorg configuration based on the detected devices on PCI, and with loading virtualization-related drivers
-1. The `/livecd` chroot is exited
-1. `init.sh` from the ramdisk image exits
-1. `etc/rc` from the ramdisk image gets executed as specified in `overlays/ramdisk/etc/rc` (by what?). It tells the kernel to "reroot" (not "chroot") into the live filesystem, `/livecd` using `reboot -r`
-1. From here on, the boot process is the regular FreeBSD boot process with the following particularities:
-1. `/etc/rc.d/initgfx` detects the GPU and loads the appropriate drivers
-3. `/usr/local/etc/rc.d/localize` runs `/usr/local/sbin/localize` which tries to determine the language of the keyboard, and by proxy, of the system. This currently supports the official Raspberry Pi keyboard and Apple computers which store the keyboard and system language in the `prev-lang:kbd` EFI variable
-4. The `slim` session manager (login window) is started; when the user is logged in, it starts the script `/usr/local/bin/start-hello` which starts the desktop session and sets the keyboard and system language based on the information provided by `localize` in an earlier step
+2. The bootloader loads the kernel modules that are required for the Live system boot process as specified in {file}`overlays/boot/boot/loader.conf`. Note that the bootloader apparently is not smart enough to load the dependencies of kernel modules, so one needs to manually specify those as well. For example, `zfs.ko` up to FreeBSD 12 requires `opensolaris.ko` and from 13 onward requires `cryptodev.ko`
+3. The bootloader loads the ramdisk image `ramdisk.ufs` as specified in {file}`overlays/boot/boot/loader.conf` under `mfsroot_name`. The contents of the ramdisk image are specified in `overlays/ramdisk`
+4. `init.sh` from the ramdisk image gets executed as requested by {file}`overlays/boot/boot/loader.conf` under `init_script` and specified in {file}`overlays/ramdisk/init.sh`. It constructs a r/w Live filesystem tree (e.g., by replicating the system image to swap-based memdisk) at `/livecd`
+5. {file}`/usr/local/bin/furybsd-init-helper` gets executed by `init.sh` in a chroot of the live filesystem, `/livecd`. It is defined in {file}`overlays/uzip/furybsd-live-settings/files/usr/local/bin/furybsd-init-helper` and deals with loading Xorg configuration based on the detected devices on PCI, and with loading virtualization-related drivers
+6. The `/livecd` chroot is exited
+7. `init.sh` from the ramdisk image exits
+8. `etc/rc` from the ramdisk image gets executed as specified in {file}`overlays/ramdisk/etc/rc` (by what?). It tells the kernel to "reroot" (not "chroot") into the live filesystem, `/livecd` using {command}`reboot -r`
+9.  From here on, the boot process is the regular FreeBSD boot process with the following particularities:
+10. {file}`/etc/rc.d/initgfx` detects the GPU and loads the appropriate drivers
+11. {file}`/usr/local/etc/rc.d/localize` runs {file}`/usr/local/sbin/localize` which tries to determine the language of the keyboard, and by proxy, of the system. This currently supports the official Raspberry Pi keyboard and Apple computers which store the keyboard and system language in the `prev-lang:kbd` EFI variable
+13. The `slim` session manager (login window) is started; when the user is logged in, it starts the script {file}`/usr/local/bin/start-hello` which starts the desktop session and sets the keyboard and system language based on the information provided by `localize` in an earlier step
 
 ### Troubleshooting the Live system early boot process
 
@@ -189,9 +189,9 @@ Example: `load: 0.62  cmd: sleep 1739 [nanslp] 2.97r 0.00u 0.00s 0% 2168k`
 
 If you would like to observe the details of the boot process, you can start your computer in __verbose mode__. This allows you to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.
 
-1. While the bootloader is running, keep the __Backspace__ key pressed until you see an `OK` prompt (alternatively, for a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the __Esc__ key on your keyboard immediately when you see this)
-1. Type `unset boot_mute`  and press the __Enter__ key. This disables the graphical splash screen and results in boot messages being shown
-1. Type `boot -v` and press the __Enter__ key. This results in the system being booted in verbose mode
+1. While the bootloader is running, keep the {kbd}`Backspace` key pressed until you see an `OK` prompt (alternatively, for a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the {kbd}`Esc` key on your keyboard immediately when you see this)
+2. Type `unset boot_mute`  and press the {kbd}`Enter` key. This disables the graphical splash screen and results in boot messages being shown
+3. Type `boot -v` and press the {kbd}`Enter` key. This results in the system being booted in verbose mode
 
 The computer should boot into a graphical desktop.
 
@@ -199,27 +199,27 @@ The computer should boot into a graphical desktop.
 
 If your computer hangs during booting, you can boot into __verbose single-user mode__. This allows advanced users, administrators, and developers to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.
 
-1. While the bootloader is running, keep the __Backspace__ key pressed until you see an `OK` prompt (alternatively, for a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the __Esc__ key on your keyboard immediately when you see this)
-1. Type `unset boot_mute`  and press the __Enter__ key. This disables the graphical splash screen and results in boot messages being shown
-1. Type `boot -v -s` and press the __Enter__ key. This results in the system being booted in verbose single-user mode
+1. While the bootloader is running, keep the {kbd}`Backspace` key pressed until you see an `OK` prompt (alternatively, for a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the {kbd}`Esc` key on your keyboard immediately when you see this)
+1. Type `unset boot_mute`  and press the {kbd}`Enter` key. This disables the graphical splash screen and results in boot messages being shown
+1. Type `boot -v -s` and press the {kbd}`Enter` key. This results in the system being booted in verbose single-user mode
 
 The computer should boot into a text console rescue system in which parts of `init.sh` from the ramdisk image have run.
 
-``` .. note::
-    Single-user mode on the Live system currently is for developers of the Live system only. 
-    
-    If you boot the Live system into single-user mode, then you will be dropped into a shell in the ramdisk, and you are expected to manually enter the commands required for the Live system to continue booting which would otherwise be executed by the ramdisk automatically. Specifically, you need to enter everything below the line "Running in single-user mode" in the file overlays/ramdisk/init.sh (or variants thereof). If you just exit the shell without doing this, then the system will be unable to continue booting.
-```
+:::{note}
+Single-user mode on the Live system currently is for developers of the Live system only. 
+
+If you boot the Live system into single-user mode, then you will be dropped into a shell in the ramdisk, and you are expected to manually enter the commands required for the Live system to continue booting which would otherwise be executed by the ramdisk automatically. Specifically, you need to enter everything below the line "Running in single-user mode" in the file overlays/ramdisk/init.sh (or variants thereof). If you just exit the shell without doing this, then the system will be unable to continue booting.
+:::
 
 ## Graphical desktop start process
 
-1. The system is configured in `/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
-1. `slim` is configured in `/usr/local/etc/slim.conf` to start `start-hello` once the user has logged in, or if autologin has occurred
-1. The `/usr/local/bin/start-hello` shell script starts the various components of the helloSystem desktop
+1. The system is configured in {file}`/etc/rc.conf` to start the `slim` login manager. This also results in Xorg being started
+2. `slim` is configured in {file}`/usr/local/etc/slim.conf` to start `start-hello` once the user has logged in, or if autologin has occurred
+3. The {file}`/usr/local/bin/start-hello` shell script starts the various components of the helloSystem desktop
 
 ### Troubleshooting the graphical desktop start process
 
-* Login manager (`slim`) says __Failed to execute login command__. Check the `/usr/local/bin/start-hello` shell script.
+* Login manager (`slim`) says __Failed to execute login command__. Check the {file}`/usr/local/bin/start-hello` shell script.
 
 ## Installed system boot process
 
@@ -227,7 +227,7 @@ The boot process is the regular FreeBSD boot process. Please refer to [The FreeB
 
 ## Boot Mute
 
-Setting `boot_mute="YES"` in `/boot/loader.conf` causes FreeBSD to show a boot splash screen instead of kernel messages during early boot. However, as soon as scripts from the ramdisk and init get executed, they tend to write output to the screen and manipulate it with `vidcontrol` and `conscontrol`, which results in the boot splash screen to disappear before the graphical desktop environment is started.
+Setting `boot_mute="YES"` in {file}`/boot/loader.conf` causes FreeBSD to show a boot splash screen instead of kernel messages during early boot. However, as soon as scripts from the ramdisk and init get executed, they tend to write output to the screen and manipulate it with `vidcontrol` and `conscontrol`, which results in the boot splash screen to disappear before the graphical desktop environment is started.
 
 Since helloSystem targets a broad audience including non-technical users, the following behavior is intended:
 * By default, show no textual boot messages
@@ -237,15 +237,15 @@ Since helloSystem targets a broad audience including non-technical users, the fo
 To achieve this, helloSystem uses a combination of the following techniques:
 
 * Read the `boot_mute` kernel environment variable and adjust the userland boot process accordingly
-* Modify `/etc/rc` to run `conscontrol delete ttyv0` and redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
-* Modify `/etc/rc.shutdown` to redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
+* Modify {file}`/etc/rc` to run `conscontrol delete ttyv0` and redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
+* Modify {file}`/etc/rc.shutdown` to redirect all of its output to `/dev/null` if `boot_mute` is set to `YES`
 * Replace the `/sbin/vidcontrol` command by a dummy that does nothing to prevent error messages related to setting the resolution of the text-mode console from ending the boot splash early
-* Replace the `/etc/ttys` file with an empty file to not spawn login shells on the text-mode console
-* Commenting out the line that ends in `/dev/console` in `/etc/syslog.conf` to prevent boot from being visually interrupted by `syslog` messages
+* Replace the {file}`/etc/ttys` file with an empty file to not spawn login shells on the text-mode console
+* Commenting out the line that ends in `/dev/console` in {file}`/etc/syslog.conf` to prevent boot from being visually interrupted by `syslog` messages
 * On the Live system, modify all scripts in the ramdisk to redirect all of their output to `/dev/null` if `boot_mute` is set to `YES`
 
-``` .. note::
-    Please note that if any errors are displayed on the screen during the boot process, the boot splash may still end early. In this case, the reason for the error message needs to be identified, and the message needs to be silenced.
-```
+:::{note}
+Please note that if any errors are displayed on the screen during the boot process, the boot splash may still end early. In this case, the reason for the error message needs to be identified, and the message needs to be silenced.
+:::
 
-To see boot messages, set `boot_mute="NO"` in `/boot/loader.conf` or at the bootloader prompt.
+To see boot messages, set `boot_mute="NO"` in {file}`/boot/loader.conf` or at the bootloader prompt.

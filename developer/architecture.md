@@ -32,14 +32,14 @@ A Dock that shows icons for running and pinned applications. (In the future it s
 
 ### `launch` command
 
-The `launch` command is used to launch applications without specifying a path to them.
+The {command}`launch` command is used to launch applications without specifying a path to them.
 
-The `launch` command is expected to determine the preferred instance of an application with the given name. (The `launch` command is supposed to find the _preferred_ instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the `launch` command should also gain knowledge of which application to open a file with.
+The {command}`launch` command is expected to determine the preferred instance of an application with the given name. (The {command}`launch` command is supposed to find the _preferred_ instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the {command}`launch` command should also gain knowledge of which application to open a file with.
 
-Filer is supposed to launch all applications through the `launch` command. Shell scripts, `.desktop` files, etc. should be written to use the `launch` command rather than hardcoding paths to applications, where appropriate.
+Filer is supposed to launch all applications through the {command}`launch` command. Shell scripts, `.desktop` files, etc. should be written to use the {command}`launch` command rather than hardcoding paths to applications, where appropriate.
 
-If an application cannot be launched, the `launch` command shall give a localized, understandable clear-text error message and offer a solution if possible; fall back to the console output of the application that could not be launched.
-When beginning to launch an application, the `launch` command shall notify the Dock via some IPC mechanism (ideally something _much_ simpler than the convoluted D-Bus) about the icon and name of the application about to be launched, so that the Dock can start a launch animation until the application is showing its first window).
+If an application cannot be launched, the {command}`launch` command shall give a localized, understandable clear-text error message and offer a solution if possible; fall back to the console output of the application that could not be launched.
+When beginning to launch an application, the {command}`launch` command shall notify the Dock via some IPC mechanism (ideally something _much_ simpler than the convoluted D-Bus) about the icon and name of the application about to be launched, so that the Dock can start a launch animation until the application is showing its first window).
 
 ### IPC mechanism for the desktop
 
@@ -47,7 +47,7 @@ A very simple IPC mechanism should be introduced for the desktop components to t
 
 ### Applications
 
-Applications must not need to be installed. Simply downloading them, attaching an external drive containing them, or connecting to a network share containing them must be sufficient. Multiple versions of the same application must be able to co-exist. The `launch` command is responsible to determine which one to use in cases where the user did not explicitly launch a specific instance by double-clicking it.
+Applications must not need to be installed. Simply downloading them, attaching an external drive containing them, or connecting to a network share containing them must be sufficient. Multiple versions of the same application must be able to co-exist. The {command}`launch` command is responsible to determine which one to use in cases where the user did not explicitly launch a specific instance by double-clicking it.
 
 Custom-written applications should come as Application bundles whenever possible. It is acceptable for pre-existing applications to come with legacy XDG desktop files instead.
 

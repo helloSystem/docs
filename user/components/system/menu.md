@@ -25,7 +25,7 @@ Select "Unhide all" to get all windows back on screen.
 
 Select an application from "Applications", "Utilities", or "Preferences" in the "Applications" menu.
 
-A quicker way to launch an application is to press Alt+Space, enter a few characters of the application name, select one of the matches from the list, and press the Enter key.
+A quicker way to launch an application is to press {kbd}`Alt+Space`, enter a few characters of the application name, select one of the matches from the list, and press the Enter key.
 
 ## Shutting down
 
@@ -33,7 +33,7 @@ To shut down your computer, select "Log Out" from the "System" menu, then click 
 
 ## Searching in application menus
 
-Click on "Search" in the menu bar, or press __Alt+Space__. Then enter a few characters of the menu entry you would like to execute, select one of the matches from the list, and press the Enter key. If only one choice remains left as you are typing, the remaining entry automatically gets selected.
+Click on "Search" in the menu bar, or press {kbd}`Alt+Space`. Then enter a few characters of the menu entry you would like to execute, select one of the matches from the list, and press the Enter key. If only one choice remains left as you are typing, the remaining entry automatically gets selected.
 
 ## Date and time
 

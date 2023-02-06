@@ -19,7 +19,7 @@ For an introduction to [Creating GUI applications with Python & Qt5](https://www
 
 Using Qt Creator, you can also create and edit graphical user interfaces for __Python__ based applications using `.ui` files. These can be used in PyQt like this:
 
-```
+```py
 #!/usr/bin/env python3
 # This Python file uses the following encoding: utf-8
 

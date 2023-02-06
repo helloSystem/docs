@@ -6,11 +6,11 @@ To provide this unified user experience, it is crucial that all applications can
 
 ## Terminology
 
-``` .. note::
-    Consistent, up-to-date documentation regarding the subject of global menus is hard to find. 
+:::{note}
+Consistent, up-to-date documentation regarding the subject of global menus is hard to find. 
 
-    Please consider submitting issues and pull requests if you can contribute to this subject.
-```
+Please consider submitting issues and pull requests if you can contribute to this subject.
+:::
 
 ### Concepts 
 
@@ -51,15 +51,15 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 
 The following libraries are involved in allowing applications to show their menu items in the global menu.
 
-``` .. note::
-    This list is probably incomplete.
+:::{note}
+This list is probably incomplete.
 
-    Please consider submitting issues and pull requests if you can contribute to this subject.
-```
+Please consider submitting issues and pull requests if you can contribute to this subject.
+:::
 
 ### libappindicator
 
-```
+```text
 /usr/local/lib/libappindicator3.so.1
 /usr/local/lib/libappindicator3.so.1.0.0
 /usr/local/lib/libappindicator3.so
@@ -77,7 +77,7 @@ The following libraries are involved in allowing applications to show their menu
 
 ### libappmenu-gtk-module library from vala-panel-appmenu repository
 
-```
+```text
 /usr/local/lib/gtk-2.0/modules/libappmenu-gtk-module.so
 /usr/local/lib/gtk-3.0/modules/libappmenu-gtk-module.so
 ```
@@ -98,9 +98,9 @@ programs, converts to them MenuModel and send to them AppMenu
 
 Currently __not__ used in helloSystem. Do we need it?
 
-```
+:::{note}
 tbd
-```
+:::
 
 * Author: tbd
 * Description: tbd
@@ -113,7 +113,7 @@ tbd
     
 ### libappmenu-gtk2-parser and libappmenu-gtk3-parser
 
-```
+```text
 /usr/local/lib/libappmenu-gtk2-parser.so
 /usr/local/lib/libappmenu-gtk2-parser.so.0
 /usr/local/lib/libappmenu-gtk3-parser.so
@@ -131,7 +131,7 @@ tbd
 
 ### libdbusmenu-glib
 
-```
+```text
 /usr/local/lib/libdbusmenu-glib.so
 /usr/local/lib/libdbusmenu-glib.so.4
 /usr/local/lib/libdbusmenu-glib.so.4.0.12
@@ -149,7 +149,7 @@ information to be displayed to users of the application through the interface sh
 
 ### libdbusmenu-gtk3
 
-```
+```text
 /usr/local/lib/libdbusmenu-gtk3.so
 /usr/local/lib/libdbusmenu-gtk3.so.4
 /usr/local/lib/libdbusmenu-gtk3.so.4.0.12
@@ -166,7 +166,7 @@ information to be displayed to users of the application through the interface sh
 
 ### libdbusmenu-qt5
 
-```
+```text
 /usr/local/lib/libdbusmenu-qt5.so
 /usr/local/lib/libdbusmenu-qt5.so.2
 /usr/local/lib/libdbusmenu-qt5.so.2.6.0
@@ -183,7 +183,7 @@ information to be displayed to users of the application through the interface sh
 
 ### Kf5 Appmenu Plugin
 
-```
+```text
 /usr/local/lib/qt5/plugins/kf5/kded/appmenu.so
 ```
 
@@ -198,7 +198,7 @@ information to be displayed to users of the application through the interface sh
 
 ### Kf5 Plasma Applet Appmenu Plugin
 
-```
+```text
 /usr/local/lib/qt5/plugins/plasma/applets/plasma_applet_appmenu.so
 ```
 
@@ -213,7 +213,7 @@ information to be displayed to users of the application through the interface sh
 
 ### Kf5 Plasma Private libappmenuplugin
 
-```
+```text
 /usr/local/lib/qt5/qml/org/kde/plasma/private/appmenu/libappmenuplugin.so
 ```
 
@@ -228,7 +228,7 @@ information to be displayed to users of the application through the interface sh
 
 ### wxGtk libwx_gtk3u_core
 
-```
+```text
 /usr/local/lib/libwx_gtk3u_core-3.1.so
 /usr/local/lib/libwx_gtk3u_core-3.1.so.4
 /usr/local/lib/libwx_gtk3u_core-3.1.so.4.0.0
@@ -258,7 +258,7 @@ Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity 
 
 As of 2021, the (undocumented?) `UBUNTU_MENUPROXY` environment variable is referenced in
 
-```
+```text
 /usr/local/lib/libwx_gtk3u_core-3.1.so.4.0.0
 /usr/local/lib/gtk-3.0/modules/libappmenu-gtk-module.so
 /usr/local/lib/gtk-2.0/modules/libappmenu-gtk-module.so
@@ -271,13 +271,13 @@ Audacity is an example for an application that uses `libwx_gtk3u_core-3.1.so.4`.
 * Apparently setting it to a random value still makes the global menu work for Audacity
 * According to [this](https://github.com/electron/electron/issues/709#issuecomment-59207492), `UBUNTU_MENUPROXY` should be set to `libappmenu.so`?
 
-``` .. note::
-    Please consider submitting issues and pull requests if you know how UBUNTU_MENUPROXY is supposed to work. Is it documented?
-```
+:::{note}
+Please consider submitting issues and pull requests if you know how UBUNTU_MENUPROXY is supposed to work. Is it documented?
+:::
 
 Ultimaker Cura (which does not have a working global menu integration by default) contains a note in `/usr/local/lib/python3.7/site-packages/UM/Application.py` saying
 
-```
+```py
 # For Ubuntu Unity this makes Qt use its own menu bar rather than pass it on to Unity.
 os.putenv("UBUNTU_MENUPROXY", "0")
 ```
@@ -310,8 +310,8 @@ Packages of patched Firefox and Thunderbird are available at http://build.schmit
 
 helloSystem versions 0.7.0 and up come with this repository enabled. To enable it manually:
 
-```
-cat > /usr/local/etc/pkg/repos/helloDesktop.conf <<\EOF
+```console
+$ cat > /usr/local/etc/pkg/repos/helloDesktop.conf <<\EOF
 helloDesktop: {
         url: "pkg+http://build.schmitz.computer/packages/${ABI}-mozillapatched",
         mirror_type: "srv",
@@ -322,7 +322,7 @@ helloDesktop: {
 }
 EOF
 
-cat > /usr/local/etc/ssl/certs/jsm222.cert <<\EOF
+$ cat > /usr/local/etc/ssl/certs/jsm222.cert <<\EOF
 -----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5gEt92AHUkYkZH2Q2nP3
 2/Wu7gxbMEno5iqi1ea327lHmhJB18E0mW9dKYgxz74PbbTAmyaMdY4G1vn3cStp
@@ -339,12 +339,12 @@ q9cTv5oaRy9FQy0NdGwGuqUCAwEAAQ==
 -----END PUBLIC KEY-----
 EOF
 
-sudo pkg install firefox thunderbird
+$ sudo pkg install firefox thunderbird
 ```
 
 Since the helloDesktop repository has `priority: 100`, you should see:
 
-```
+```console
 New packages to be INSTALLED:
         firefox-94.0.1_1,2 [helloDesktop]
         thunderbird: 91.3.0_1 [helloDesktop]
@@ -354,7 +354,7 @@ Note the `helloDesktop`, indicating that these packages will be installed from t
 
 ### GMenu-DBusMenu-Proxy
 
-```
+```text
 /usr/local/bin/gmenudbusmenuproxy 
 ```
 
@@ -372,9 +372,9 @@ Note the `helloDesktop`, indicating that these packages will be installed from t
 The __Qt 5 D-Bus Viewer__ utility may be useful in debugging global menus.
 
 
-``` .. note::
-    Please consider submitting issues and pull requests if you can contribute to this subject.
-```
+:::{note}
+Please consider submitting issues and pull requests if you can contribute to this subject.
+:::
 
 ### Getting the menus for a Qt application knowing the Xorg window ID
 
@@ -402,11 +402,11 @@ The __Qt 5 D-Bus Viewer__ utility may be useful in debugging global menus.
 
 Applications running as root currently cannot show global menus due to the D-Bus architecture.
 
-``` .. note::
-    Possibly some sort of proxy would be needed to allow applications that were invoked via `sudo -E` to display their menus in the global menu of the user running the desktop session.
-    
-    Please consider contributing ideas and code if you are interested in this topic.
-```
+:::{note}
+Possibly some sort of proxy would be needed to allow applications that were invoked via `sudo -E` to display their menus in the global menu of the user running the desktop session.
+
+Please consider contributing ideas and code if you are interested in this topic.
+:::
 
 ## Implementations for other desktop systems
 

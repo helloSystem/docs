@@ -6,7 +6,7 @@
 
 It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong and you might need to restart the computer.
 
-If – after five minutes – you're reluctant to stop the computer, you can occasionally [key Ctrl-T](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) to get some information about what the computer is doing. If there is no change from one snippet to the next, across three or more snippets, you may reasonably assume that the computer needs to be restarted.
+If – after five minutes – you're reluctant to stop the computer, you can occasionally [key {kbd}`Ctrl-T`](https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown) to get some information about what the computer is doing. If there is no change from one snippet to the next, across three or more snippets, you may reasonably assume that the computer needs to be restarted.
 
 * Please restart the computer. If normal use of the power button is not effective, press and hold. 
 * Then, please [start the computer in verbose mode](https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode) to see any relevant error messages that may help in resolving the issue.
@@ -16,7 +16,7 @@ If – after five minutes – you're reluctant to stop the computer, you can occ
 This means that Xorg has been started but for some reason the login manager `slim` or the helloDesktop startup script `start-hello` cannot run.
 
 * Boot in verbose mode
-* Press Ctrl+Alt+F2
+* Press {kbd}`Ctrl+Alt+F2`
 * Log in
 * `sudo killall Xorg`
 * `sudo service dbus restart`
@@ -38,15 +38,15 @@ If this does not work:
 
 When debugging application issues, it can be helpful to see what an application is actually doing. For example, if we are interested in which libraries with "menu" in their name `firefox` is loading, we can run
 
-```
-LD_DEBUG=libs firefox 2>&1 | grep -i menu
+```console
+$ LD_DEBUG=libs firefox 2>&1 | grep -i menu
 ```
 
 Or, if we are interested in which activities with "menu" in their name `firefox` is doing, we can run
 
-```
-sudo sysctl security.bsd.unprivileged_proc_debug=1
-truss firefox 2>&1 | grep -e menu 
+```console
+$ sudo sysctl security.bsd.unprivileged_proc_debug=1
+$ truss firefox 2>&1 | grep -e menu 
 ```
 
 ## Other issues

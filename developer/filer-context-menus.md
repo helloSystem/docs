@@ -2,15 +2,15 @@
 
 It is possible to extend Filer context menu items by writing files that conform to the __DES-EMA__ (Desktop Entry Specification - Extension for Menus and Actions). Apparently this format was never adopted as a standard, so it is documented here. The information on this page is based on [draft 0.15](https://gitlab.gnome.org/GNOME/filemanager-actions/-/blob/NAUTILUS_ACTIONS_3_2_4/docs/des-ema/des-ema-0.15) from November 23, 2010.
 
-``` .. note::
-    Filer inherits its DES-EMA implementation from PCManFM, but may use a different format in the future.
-    
-    It still needs to be verified which portions have actually been implemented in Filer, so currently this page describes functionality which may or may not be implemented in Filer. Corrections are welcome.
-```
+:::{note}
+Filer inherits its DES-EMA implementation from PCManFM, but may use a different format in the future.
+
+It still needs to be verified which portions have actually been implemented in Filer, so currently this page describes functionality which may or may not be implemented in Filer. Corrections are welcome.
+:::
 
 Changes take effect after a restart of Filer. To restart Filer:
-1. Press Ctrl+Alt+Esc and click on the Desktop to force-quit it
-2. Press Alt+F2 and enter `launch Filer --desktop` to start it again
+1. Press {kbd}`Ctrl+Alt+Esc` and click on the Desktop to force-quit it
+2. Press {kbd}`Alt+F2` and enter `launch Filer --desktop` to start it again
 
 ## Examples
 
@@ -18,7 +18,7 @@ Changes take effect after a restart of Filer. To restart Filer:
 
 In the following example, we define an "Open terminal here" action, which has three profiles. These profiles are thought to be able to open a suitable terminal in most situations. They are ordered, and so only the first profile whose conditions are met at runtime will be used in the Filer context menu.
 
-```
+```text
 [Desktop Entry]
 Name=Open terminal here
 Tooltip=Open a new terminal here
@@ -43,7 +43,7 @@ Schemes=x-nautilus-desktop;
 Exec=launch QTerminal --workdir ~/Desktop
 ```
 
-This may be saved, e.g. as `~/.local/share/file-manager/actions/open-terminal.desktop` file.
+This may be saved, e.g. as {file}`~/.local/share/file-manager/actions/open-terminal.desktop` file.
 
 Note that this is only an example of how an action may be defined in a `.desktop` file. It has not been deeply tested, and there is most probably more efficient ways of opening a terminal somewhere...
 
@@ -51,7 +51,7 @@ Note that this is only an example of how an action may be defined in a `.desktop
 
 Suppose we would like to place the menu elements into a submenu. To achieve this, we create a second `.desktop` file with following content:
 
-```
+```text
 [Desktop Entry]
 Type=Menu
 Name=Terminal menu
@@ -60,7 +60,7 @@ Icon=terminal-group
 ItemsList=open-terminal;
 ```
 
-This may be saved, e.g. as `~/.local/share/file-manager/actions/menu-terminal.desktop` file.
+This may be saved, e.g. as {file}`~/.local/share/file-manager/actions/menu-terminal.desktop` file.
 
 ## Desktop file
 
@@ -68,11 +68,11 @@ This may be saved, e.g. as `~/.local/share/file-manager/actions/menu-terminal.de
 
 This specification relies on the common syntax defined in the [Desktop Entry Specification](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html). Here is a summary of some main points:
 
-*   Files are UTF-8 encoded.
-*   All keys and values are case sensitive.
-*   The `[Desktop Entry]` group must be the first group of the file.
-*   Boolean values must be `true` or `false`.
-*   Strings, in strings lists, are semicolon-separated; the list itself ends with a semicolon.
+* Files are UTF-8 encoded.
+* All keys and values are case sensitive.
+* The `[Desktop Entry]` group must be the first group of the file.
+* Boolean values must be `true` or `false`.
+* Strings, in strings lists, are semicolon-separated; the list itself ends with a semicolon.
 
 #### Desktop file identifier
 
@@ -80,7 +80,7 @@ In the rest of this specification, when a desktop file needs to be identified, w
 
 #### Desktop files search path
 
-`.desktop` files are searched for in `XDG_DATA_DIRS/file-manager/actions` directories. All used _desktop_file_id_s should be unique.
+`.desktop` files are searched for in {file}`XDG_DATA_DIRS/file-manager/actions` directories. All used _desktop_file_id_s should be unique.
 
 ## Managed objects
 
@@ -317,19 +317,20 @@ Defaults to `Name` value.</td>
 The ordered list of the profiles attached to this action.  
 Each element of this strings list may be:
 
-*   a _profile_id_, _i.e._ the id of a profile, as an ASCII string
-*   a command to be executed, if the string is enclosed between square brackets (`[`...`]`).
+* a `_profile_id_`, _i.e._ the id of a profile, as an ASCII string
+* a command to be executed, if the string is enclosed between square brackets (`[`...`]`).
 
 So, `Profiles` key has a dynamic value: if an element of the string list is enclosed between square brackets (`[`...`]`), it is considered as a command, optionally with
 
 After reading, and maybe evaluation of dynamic elements, profiles identified by the `Profiles` value, but not found in this `.desktop` file, are just ignored.
 
 It is up to the implementation to decide whether profiles found in this `.desktop` file, but not identified in this list, should or not be attached to the action.  
-It could be for example an acceptable fallback to append these "orphan" profiles at the end of the list of profiles.  
+It could be for example an acceptable fallback to append these "orphan" profiles at the end of the list of profiles.
+
 Another choice might also be:
 
-*   at runtime, only attach to the action profiles which are listed in this `Profiles` key
-*   while a management UI may load all profiles found in the `.desktop` file.
+* at runtime, only attach to the action profiles which are listed in this `Profiles` key
+* while a management UI may load all profiles found in the `.desktop` file.
 
 </td>
 
@@ -491,7 +492,7 @@ It is the responsibility of the implementation to ensure that the displayed menu
 
 As stated
 
-The menu is so defined as a particular case of a `.desktop` file, identified by its _desktop_file_id_, whose the `[Desktop Entry]` section has following keys:
+The menu is so defined as a particular case of a `.desktop` file, identified by its `desktop_file_id`, whose the `[Desktop Entry]` section has following keys:
 
 <table border="1">
 
@@ -997,16 +998,16 @@ Actually, the command defined in the `Exec` key will be executed once, or repeat
 
 Though some parameters are not sensible to the count of the selection (e.g. `%c`, the selection count itself), most have two declensions:
 
-*   a "singular" one, e.g. `%b`, the basename of the selected item
-*   a "plural" one, e.g. `%B`, a space-separated list of the basenames of selected items
+* a "singular" one, e.g. `%b`, the basename of the selected item
+* a "plural" one, e.g. `%B`, a space-separated list of the basenames of selected items
 
 When the selection is empty or contains only one element, and from this topic point of view, these two forms are exactly equivalent.
 
 When the selection contains more than one item:
 
-*   if the first relevant parameter found in the `Exec` key is of a singular form, then the implementation should consider that the command is only able to deal with one item at a time, and thus that it has to be ran one time for each selected item;
-*   contrarily, if the first relevant parameter found is of the plural form, then the implementation should consider that the command is able to deal with a list of items, and thus the command should be executed only once;
-*   if all found parameters are "irrelevant", then the default is to consider that the command should be executed only once.
+* if the first relevant parameter found in the `Exec` key is of a singular form, then the implementation should consider that the command is only able to deal with one item at a time, and thus that it has to be ran one time for each selected item;
+* contrarily, if the first relevant parameter found is of the plural form, then the implementation should consider that the command is able to deal with a list of items, and thus the command should be executed only once;
+* if all found parameters are "irrelevant", then the default is to consider that the command should be executed only once.
 
 Example:
 
@@ -1379,27 +1380,25 @@ The processus described here is only a sort of meta-algorithm, whose only goal i
 
 The implementer might take advantage of preparing once the whole hierarchy of the menus and actions:
 
-*   to minimize the time spent in the parsing of all files;
-*   to identify and eliminate duplicate _desktop_file_id_s,
-*   to eliminate invalid menus and actions.
+* to minimize the time spent in the parsing of all files;
+* to identify and eliminate duplicate _desktop_file_id_s,
+* to eliminate invalid menus and actions.
 
-1.  as described in desktop_file_ids and invalid `.desktop` files; implementation so obtains a flat list of menus or actions;  
-
+1. as described in desktop_file_ids and invalid `.desktop` files; implementation so obtains a flat list of menus or actions;  
 2.  recursively build the hierarchy; this merely consists in the build of the hierarchy as a tree of menus and actions, where each _desktop_file_id_ addressed as the subitem of a menu consumes this same id from the flat list
-    *   if the level-zero order (which is not specified here, but see desktop_file_id addressed in the level zero consumes this same id from the flat list;
-    *   else, if might be reasonable to start with an empty tree;  
-
+    * if the level-zero order (which is not specified here, but see desktop_file_id addressed in the level zero consumes this same id from the flat list;
+    * else, if might be reasonable to start with an empty tree;  
 3.  at the end, implementation stays with:
-    *   the output tree with some menus at the root;
-    *   some actions, left in the input flat list because they were not addressed by any menu; these left actions should be added to the level zero of the hierarchy (though in a unspecified order)
-    *   some menus, left in the input flat list because their subitems were not found; as these menus happen to be empty, they must be considered as invalid.
+    * the output tree with some menus at the root;
+    * some actions, left in the input flat list because they were not addressed by any menu; these left actions should be added to the level zero of the hierarchy (though in a unspecified order)
+    * some menus, left in the input flat list because their subitems were not found; as these menus happen to be empty, they must be considered as invalid.
 
 After this built phase, the resultant tree only contains valid (before runtime parameters expansion) menus and actions.
 
 So, menus or actions may appear at the level zero of the whole hierarchy for only two reasons:
 
-1.  because they are explicitly addressed by the level-zero configuration, if the implementation defines it; this may concern menus and actions;
-2.  because these items were not addressed by any menu (but this may only concern actions).
+1. because they are explicitly addressed by the level-zero configuration, if the implementation defines it; this may concern menus and actions;
+2. because these items were not addressed by any menu (but this may only concern actions).
 
 ## The level-zero case
 
@@ -1407,7 +1406,7 @@ Though not strictly an action or a menu definition, the level-zero issue might b
 
 Ordering the elements which have to be displayed at the level-zero of the Filer context menu is just a particular case of a menu definition.
 
-An implementation might define a `level-zero.directory` file, which would contain the ordered list of level zero items identified by their _desktop_file_id_.
+An implementation might define a `level-zero.directory` file, which would contain the ordered list of level zero items identified by their `desktop_file_id`.
 
 The `[Desktop Entry]` section of this `level-zero.directory` file would so have only one of the following keys:
 
@@ -1451,19 +1450,19 @@ The name `level-zero.directory` is chosen to not risk any collision with regular
 
 ## References
 
-*   [Desktop Entry Specification](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html)
-*   [Desktop Menu Specification](http://standards.freedesktop.org/menu-spec/menu-spec-latest.html)
-*   [XDG Base Directory Specification](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-*   [Creating Konqueror Service Menus](http://developer.kde.org/documentation/tutorials/dot/servicemenus.html)
-*   [Krusader UserActions](http://www.krusader.org/handbook/useractions.html)
-*   [Thunar Custom Actions](http://thunar.xfce.org/pwiki/documentation/custom_actions)
+* [Desktop Entry Specification](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html)
+* [Desktop Menu Specification](http://standards.freedesktop.org/menu-spec/menu-spec-latest.html)
+* [XDG Base Directory Specification](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+* [Creating Konqueror Service Menus](http://developer.kde.org/documentation/tutorials/dot/servicemenus.html)
+* [Krusader UserActions](http://www.krusader.org/handbook/useractions.html)
+* [Thunar Custom Actions](http://thunar.xfce.org/pwiki/documentation/custom_actions)
 
 ## Contributors
 
-*   Jonas Bähr
-*   David Faure
-*   Ted Gould
-*   Hong Jen Yee "PCMan"
-*   Michael Pyne
-*   Liam R. E. Quin
-*   Pierre Wieser
+* Jonas Bähr
+* David Faure
+* Ted Gould
+* Hong Jen Yee "PCMan"
+* Michael Pyne
+* Liam R. E. Quin
+* Pierre Wieser

@@ -16,9 +16,6 @@ import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-import recommonmark
-from recommonmark.transform import AutoStructify
-
 
 # -- Project information -----------------------------------------------------
 
@@ -38,9 +35,12 @@ release = '' # 'experimental' # We don't want this in the HTML title
 extensions = [
     # Auto-generate section labels.
     'sphinx.ext.autosectionlabel',
-    'recommonmark',
-    'sphinx_markdown_tables'
+    'myst_parser'
 ]
+
+# Enable code fences to be written with colons for extra control
+
+myst_enable_extensions = ["colon_fence"]
 
 master_doc = 'index'
 
@@ -95,17 +95,3 @@ html_css_files = [
 ]
 
 github_doc_root = 'https://' + GITHUB_REPO_OWNER + '.github.io/' + GITHUB_REPO_NAME + '/'
-
-
-def setup(app):
-    app.add_config_value(
-        'recommonmark_config',
-        {
-            'enable_auto_toc_tree': False,
-            'url_resolver': lambda url: github_doc_root + url,
-            'auto_toc_tree_section': 'Contents',
-        },
-        True
-    )
-
-    app.add_transform(AutoStructify)

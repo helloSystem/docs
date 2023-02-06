@@ -10,6 +10,6 @@ __Please do not call your derivatives "hello" or "helloSystem"__. In order to ke
 
 You may want to include the desktop components of helloSystem, the **helloDesktop** "Desktop Environment" (collection of individual components, really).
 
-For example, work is being done to bring the helloDesktop components to FreeBSD: https://wiki.freebsd.org/helloDesktop. But please note that "FreeBSD with helloDesktop" is not the same as helloSystem.
+For example, work is being done to bring the helloDesktop components to FreeBSD: <https://wiki.freebsd.org/helloDesktop>. But please note that "FreeBSD with helloDesktop" is not the same as helloSystem.
 
 Please do not hesitate to contact the team if you have questions regarding this policy.
