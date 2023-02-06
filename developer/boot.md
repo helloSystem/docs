@@ -16,7 +16,7 @@ To do this, create a Boot Environment that you can roll back to in case things g
 
 In {file}`/etc/rc.conf`, set
 
-```txt
+```text
 defaultroute_carrier_delay="0"
 defaultroute_delay="0"
 background_dhclient="YES"
