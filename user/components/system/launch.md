@@ -24,7 +24,7 @@ Many graphical desktop environments use `.desktop` files to integrate applicatio
 
 ![Graphical error message if something goes wrong](https://pbs.twimg.com/media/EoLKXl7WEAAWCtQ?format=png)
 
-## Using the {command}`launch` command
+## Using the launch command
 
 Whenever possible, graphical applications should be launched through the {command}`launch` command on helloSystem.
 
