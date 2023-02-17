@@ -4,7 +4,7 @@ The __Dock__ is a quick way to launch the most commonly used applications, and a
 
 It typically sits at the bottom of the screen.
 
-As of helloSystem 0.8.0, the Dock is not started automatically anymore, but you can run it by double-clicking its icon in /System.
+As of helloSystem 0.8.0, the Dock is not started automatically anymore, but you can run it by double-clicking its icon in /System. You can also put a symlink into /Applications/Autostart if you like, or start it programmatically with `launch Dock`.
 
 ## Launching applications
 
