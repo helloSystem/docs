@@ -72,7 +72,7 @@ $ sudo chmod +x /usr/local/etc/rc.d/late-start
 $ sudo service late-start disable_early_services
 ```
 
-Check which services are still enabled, should now be treatly reduced:
+Check which services are still enabled, should now be greatly reduced:
 
 ```console
 $ grep -r 'enable="YES"' /etc/rc.conf*
@@ -85,6 +85,10 @@ $ grep -r 'enable="YES"' /etc/rc.conf*
 ```
 
 Reboot. The graphical desktop (including a usable mouse pointer) should appear ~10 seconds faster, but the network will start to work only after ~10 seconds.
+
+:::{note}
+This starts services like sshd; you need to edit the {file}`/usr/local/etc/rc.d/late-start` script to only start the services you would like to be started.
+:::
 
 ## Debugging the Live system boot process
 
