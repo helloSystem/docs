@@ -8,21 +8,23 @@ The purpose of this reviewer's guide is to provide an overview of helloSystem, a
 Whether you are a new user looking to explore helloSystem for the first time, or an experienced user seeking to learn more about its features and capabilities, this guide should provide you with a comprehensive understanding of the system and its functionality.
 
 ## System Requirements
+
 To run helloSystem, you will need a system that meets the following minimum requirements:
 
 - 64-bit x86 processor
-- 4 GB of RAM
-- 30 GB of available hard disk space
+- 2 GB of RAM
+- Dedicated storage device with at least 10 GB of available space
 - Graphics card capable of 1024x768 resolution
 
 For optimal performance, we recommend the following:
 
-- 8 GB of RAM or more
+- 4 GB of RAM or more
+- Dedicated SSD with at least 120 GB of available space
 - Graphics card capable of 1920x1080 resolution or higher
 
-Please note that helloSystem is not currently compatible with ARM-based processors.
+Please note that helloSystem is not currently available for computers with ARM-based processors, although there are build instructions for Raspberry Pi.
 
-When reviewing or benchmarking helloSystem, it is important to note that virtual machines may not provide an accurate representation of the system's stability, feature set, and performance. Therefore, we recommend that reviewers use real hardware for these purposes. Running helloSystem on actual hardware will provide a more authentic experience and allow reviewers to test the system's capabilities in a more realistic environment. Additionally, using real hardware will help to ensure that the system's hardware support is properly evaluated. For these reasons, we strongly advise against conducting tests and benchmarks in a virtual environment, even though VirtualBox guest drivers are preinstalled.
+When reviewing or benchmarking helloSystem, it is important to note that virtual machines may not provide an accurate representation of the system's stability, feature set, and performance. Therefore, **we recommend that reviewers use real hardware** for these purposes. Running helloSystem on actual hardware will provide a more authentic experience and allow reviewers to test the system's capabilities in a more realistic environment. Additionally, using real hardware will help to ensure that the system's hardware support is properly evaluated. For these reasons, we strongly advise against conducting tests and benchmarks in a virtual environment, even though VirtualBox guest drivers are preinstalled.
 
 ## Installation
 
@@ -57,24 +59,24 @@ The helloSystem user interface is designed to be intuitive, functional, and disc
 
 - **Source code editability** for many Utilities: Many of the utilities included with helloSystem have their source code included and do not need to be compiled, making it easy for users to customize and contribute to the system. Right-click on an application icon and choose "Show Contents" to see and edit the source code.
 
-- **Under Construction**: The "Under Construction" section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion.
+## Features
+
+- **Resource efficiency**: helloSystem is designed to be lightweight and efficient, with moderate resource usage, making it suitable for use on a range of hardware configurations. Compare the RAM usage to other similar systems.
+
+- **Graphics and media support**: helloSystem includes a range of appliactions and features designed to support graphics artists, designers, videographers, makers with 3D printers, and other creative professionals, without requiring them to think much about the operating system.
+
+- **Under Construction**: The "Under Construction" section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion. helloSystem does not hide its open source nature, and invites power users to join the development fun.
 
 - **Create Live Media** utility: helloSystem includes a tool for creating live media, which can be used to create a bootable USB or DVD to try helloSystem without installing it on your system. It can also burn the latest, frequently released, experimental ISO builds directly to USB sticks.
 
-## Features
-- Detailed list of features in helloSystem
-- Purpose and functionality of each feature
-- Examples of how to use each feature
-
-## Performance
-- Details of helloSystem's performance
-- Benchmarks or tests conducted
-- Comparisons to other similar operating systems
-
 ## Support
-- Explanation of support options available for helloSystem
-- Contact information for support (e.g., email or forums)
 
-## Conclusion
-- Summary of key points in the reviewer's guide
-- Overall impression of helloSystem
+helloSystem is a community-driven project. If you encounter any issues or have questions about helloSystem, there are several resources available to help you get support and connect with the community:
+
+- Official website: The helloSystem website (https://hellosystem.github.io/) provides a range of resources and information about the operating system, including documentation for users and for developers.
+
+- Issue tracker: If you encounter a bug or have an issue with helloSystem, please submit a report to the issue tracker (https://github.com/helloSystem/ISO/issues) on the project's GitHub page. This is a great way to get help and connect with the development team and the broader helloSystem community.
+
+- Discussions: The helloSystem forum (https://github.com/helloSystem/hello/discussions/) provides a platform for users to connect with each other and discuss topics related to helloSystem, including troubleshooting, brainstorming, and development.
+
+- IRC channel: For more immediate assistance, you can join the helloSystem IRC channel (`#hellosystem`) on the [Libera.Chat](https://libera.chat/) network. This is a great way to connect with other users and developers in real time.
