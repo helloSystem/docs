@@ -73,10 +73,10 @@ The helloSystem user interface is designed to be intuitive, functional, and disc
 
 helloSystem is a community-driven project. If you encounter any issues or have questions about helloSystem, there are several resources available to help you get support and connect with the community:
 
-- Official website: The helloSystem website (https://hellosystem.github.io/) provides a range of resources and information about the operating system, including documentation for users and for developers.
+- **Official website**: The helloSystem website (https://hellosystem.github.io/) provides a range of resources and information about the operating system, including documentation for users and for developers.
 
-- Issue tracker: If you encounter a bug or have an issue with helloSystem, please submit a report to the issue tracker (https://github.com/helloSystem/ISO/issues) on the project's GitHub page. This is a great way to get help and connect with the development team and the broader helloSystem community.
+- **Issue tracker**: If you encounter a bug or have an issue with helloSystem, please submit a report to the issue tracker (https://github.com/helloSystem/ISO/issues) on the project's GitHub page. This is a great way to get help and connect with the development team and the broader helloSystem community.
 
-- Discussions: The helloSystem forum (https://github.com/helloSystem/hello/discussions/) provides a platform for users to connect with each other and discuss topics related to helloSystem, including troubleshooting, brainstorming, and development.
+- **Discussions**: The helloSystem forum (https://github.com/helloSystem/hello/discussions/) provides a platform for users to connect with each other and discuss topics related to helloSystem, including troubleshooting, brainstorming, and development.
 
-- IRC channel: For more immediate assistance, you can join the helloSystem IRC channel (`#hellosystem`) on the [Libera.Chat](https://libera.chat/) network. This is a great way to connect with other users and developers in real time.
+- **IRC channel**: For more immediate assistance, you can join the helloSystem IRC channel (`#hellosystem`) on the [Libera.Chat](https://libera.chat/) network. This is a great way to connect with other users and developers in real time. Please stay in the channel for several days, as many contributors cannot be there 24/7.
