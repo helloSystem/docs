@@ -68,7 +68,7 @@ developer/contact
 
 ```{toctree}
 ---
-caption: Reviewer's Guide
+caption: Reviewer Guide
 hidden: true
 maxdepth: 2
 glob: true
