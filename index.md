@@ -26,7 +26,17 @@ user/getting-started
 user/components
 user/troubleshooting
 user/feedback
+```
 
+```{toctree}
+---
+caption: Reviewer Guide
+hidden: true
+maxdepth: 2
+glob: true
+---
+
+reviewer/guide
 ```
 
 ```{toctree}
@@ -64,15 +74,4 @@ developer/distributions
 developer/acknowledgements
 developer/contact
 
-```
-
-```{toctree}
----
-caption: Reviewer Guide
-hidden: true
-maxdepth: 2
-glob: true
----
-
-reviewer/guide
 ```
