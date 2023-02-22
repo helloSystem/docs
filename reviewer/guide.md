@@ -1,4 +1,4 @@
-# Reviewer's Guide
+# Reviewer Guide
 
 ## Introduction
 HelloSystem is an open-source operating system based on FreeBSD. Its goal is to provide a stable, user-friendly, and visually appealing system for desktop and laptop computers. The system is designed to be easy to use, highly customizable, and efficient, with an emphasis on minimalism and simplicity.
