@@ -1,11 +1,12 @@
 # Reviewer Guide
 
 ## Introduction
-HelloSystem is an open-source operating system based on FreeBSD. Its goal is to provide a stable, user-friendly, and visually appealing system for desktop and laptop computers. The system is designed to be easy to use, highly customizable, and efficient, with an emphasis on minimalism and simplicity.
 
-The purpose of this reviewer's guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system's features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more.
+helloSystem is an open-source operating system based on FreeBSD. Its goal is to provide a friendly, highly usable, and visually appealing system for desktop and notebook computers. The system is designed to be easy to use, efficient, with an emphasis on minimalism and simplicity. 
 
-Whether you are a new user looking to explore helloSystem for the first time, or an experienced user seeking to learn more about its features and capabilities, this guide should provide you with a comprehensive understanding of the system and its functionality.
+Its target audience are switchers from the Mac platform who like the overall usablity concepts dating back to groundbreaking work done at Xerox PARC and at Apple in the 70s and 80s, but who may increasingly be alienated by the restrictions and complications put in place in modern-day commercial operating systems. 
+
+The purpose of this reviewer's guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system's features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more. When reviewing helloSystem, try to look at it from a perspective of long-time Mac users, particularly those who are doing creative work like graphics, design, video editing, or 3D modeling and printing. This guide should provide you with a comprehensive understanding of the system and its functionality and should give you a starting point for your own exploration.
 
 ## System Requirements
 
