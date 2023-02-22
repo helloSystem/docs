@@ -6,7 +6,7 @@ helloSystem is an open-source operating system based on FreeBSD. Its goal is to 
 
 Its target audience are switchers from the Mac platform, to which it aims to provide an environment in which they can feel instantly at home.
 
-The purpose of this reviewer's guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system's features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more. When reviewing helloSystem, try to look at it from a perspective of long-time Mac users, particularly those who are doing creative work like graphics, design, video editing, or 3D modeling and printing but would like to do so using open source applications. This guide should provide you with a comprehensive understanding of the system and its functionality and should give you a starting point for your own exploration.
+The purpose of this guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system's features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more. When reviewing helloSystem, try to look at it from a perspective of long-time Mac users, particularly those who are doing creative work like graphics, design, video editing, or 3D modeling and printing but who would like to do so using open source applications. This guide should provide you with a thorough understanding of the system and its functionality and should give you a starting point for your own exploration.
 
 ## System Requirements
 
