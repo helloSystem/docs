@@ -65,3 +65,14 @@ developer/acknowledgements
 developer/contact
 
 ```
+
+```{toctree}
+---
+caption: Reviewer's Guide
+hidden: true
+maxdepth: 2
+glob: true
+---
+
+reviewer/guide
+```
