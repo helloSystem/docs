@@ -4,9 +4,9 @@
 
 helloSystem is an open-source operating system based on FreeBSD. Its goal is to provide a friendly, highly usable, and visually appealing system for desktop and notebook computers. The system is designed to be easy to use, efficient, with an emphasis on minimalism and simplicity. 
 
-Its target audience are switchers from the Mac platform who like the overall usablity concepts dating back to groundbreaking work done at Xerox PARC and at Apple in the 70s and 80s, but who may increasingly be alienated by the restrictions and complications put in place in modern-day commercial operating systems. 
+Its target audience are switchers from the Mac platform, to which it aims to provide an environment in which they can feel instantly at home.
 
-The purpose of this reviewer's guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system's features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more. When reviewing helloSystem, try to look at it from a perspective of long-time Mac users, particularly those who are doing creative work like graphics, design, video editing, or 3D modeling and printing. This guide should provide you with a comprehensive understanding of the system and its functionality and should give you a starting point for your own exploration.
+The purpose of this reviewer's guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system's features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more. When reviewing helloSystem, try to look at it from a perspective of long-time Mac users, particularly those who are doing creative work like graphics, design, video editing, or 3D modeling and printing but would like to do so using open source applications. This guide should provide you with a comprehensive understanding of the system and its functionality and should give you a starting point for your own exploration.
 
 ## System Requirements
 
@@ -69,6 +69,20 @@ The helloSystem user interface is designed to be intuitive, functional, and disc
 - **Under Construction**: The "Under Construction" section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion. helloSystem does not hide its open source nature, and invites power users to join the development fun.
 
 - **Create Live Media** utility: helloSystem includes a tool for creating live media, which can be used to create a bootable USB or DVD to try helloSystem without installing it on your system. It can also burn the latest, frequently released, experimental ISO builds directly to USB sticks.
+
+## Particularities
+
+* Please refer to the global menu bar at the top of the screen in helloSystem as the "Menu", as those who have grown up using a Macintosh will likely feel right at home with this naming convention. Avoid terminology like "panel", as the target audience of helloSystem may not be familiar with it. Similarly, please refer to the "desktop", "documents", and "folders" rather than the "wallpaper", "files", and "directories".
+
+* The file manager in helloSystem, Filer, is intentionally kept simple and is aspiring to grow into a truly [spatial](https://arstechnica.com/gadgets/2003/04/finder/) file manager over time. Which means that every document and folder has one physical location on the screen, and one location only. When opening an empty folder, it will show a blank window. This is because there is nothing to display in an empty folder, much like how a text editor shows a blank window when opening a new text file.
+
+* helloSystem uses black text on white background. With the intoduction of modern graphical user interfaces, black text on white background (like paper, "WYSIWYG") was a revelation compared to the amber or green screens of MS-DOS PCs.
+
+* In helloSystem, there is no concept of "launchers." Instead, it uses symlinks to applications, which can be created by dragging and dropping an application from its folder to the desktop. Keep in mind that helloSystem aims to keep things simple and straightforward for switchers from the Mac, who don't have conceptions of "launchers".
+
+* The Dock is not used by default in helloSystem, although it is still available in `/System` for those who really need it. While the Dock was a later addition to the Mac OS X experience, helloSystem allows users to switch between applications like on Classic systems, saving precious screen real estate at the bottom of the screen.
+
+* In helloSystem, there is no unified control panel. Instead, there are individual preferences applications located in `/Applications/Preferences`. This is simpler and more similar to the control panels found in System 7.
 
 ## Support
 
