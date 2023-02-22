@@ -39,26 +39,27 @@ If you encounter any issues during the installation process, please consult the 
 
 ## User Interface
 
-The helloSystem user interface is designed to be intuitive, functional, and customizable, with a range of features and tools to meet the needs of both new and experienced users. Here are some key concepts:
+The six-part series on [Linux desktop usability](https://medium.com/@probonopd/make-it-simple-linux-desktop-usability-part-1-5fa0fb369b42) by helloSystem's founder eventually lead to the design and development of helloSystem. The series explored aspects of  desktop usability, from user interface design to application packaging and distribution. The insights expressed in the series helped inform the design decisions behind helloSystem, with a focus on simplicity, ease of use, and discoverability. The indended result is a user-friendly and efficient operating system that is easy to use and customize, even for non-technical users.
 
-- Command key being left to the spacebar: On systems with a Mac-style keyboard, the Command key is located to the left of the spacebar, which can be more comfortable for Mac users.
+The helloSystem user interface is designed to be intuitive, functional, and discoverable, with a range of features and tools to meet the needs of both new and experienced users. Here are some key concepts:
 
-- Global menu bar: helloSystem features a global menu bar, which is a menu bar that is located at the top of the screen, rather than within the application window. This provides for a consistent user experience across applications, even if those applications are written in non-native frameworks such as Gtk or Electron.
+- **Command key** left to the spacebar: On systems with a Mac-style keyboard, the Command key is located to the left of the spacebar, which can be more comfortable for Mac users. When helloSystem is used with a PC keyboard, the Alt key functions as the Command key, being located in the same physical location on the keyboard.
 
-- Keyboard layout and language autodetection: When using a Mac or Raspberry Pi Keyboard and Hub, helloSystem will automatically detect the keyboard layout and language, making it easy to type in your preferred language.
+- **Global menu bar**: helloSystem features a global menu bar, which is a menu bar that is located at the top of the screen, rather than within the application window. This provides for a consistent user experience across applications, even if those applications are written in non-native frameworks such as Gtk or Electron.
 
-- Menu search and launcher functionality: helloSystem includes a powerful menu search and launcher, which can be used to quickly find and launch applications, files, and commands. It is located in the top right corner of the global menu bar.
+- **Keyboard layout and language autodetection**: When using a Mac or a [Raspberry Pi Keyboard and Hub](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/), helloSystem will automatically detect the keyboard layout and language, removing the need to configure it manually.
 
-- Application bundle structure: Applications on helloSystem are structured as self-contained bundles, which can be easily installed, removed, and updated.
+- **Menu search and launcher**: helloSystem includes a powerful menu search and launcher, which can be used to quickly find and launch applications, files, and menu commands. It is located in the top right corner of the global menu bar and can be a true productivity booster, as it allows the system to be operated virtually only by using the keyboard.
 
-- Launch command using a database: helloSystem uses a database to manage launch commands, rather than relying on traditional XDG desktop files, which can provide better performance and reliability.
+- **Application bundles**: Applications on helloSystem are structured as self-contained bundles, which can be easily installed, removed, and updated.
 
-- Source code editability for many Utilities: Many of the utilities included with helloSystem have their source code included, making it easy for users to customize and contribute to the system.
+- **`launch` command using a database**: helloSystem uses a database to manage launch commands, rather than relying on traditional XDG desktop files, which will provide better functionality, e.g., for applications that can be freely moved around in the fileystem without the need to update `.desktop` files.
 
-- "Under Construction": The "Under Construction" section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion.
+- **Source code editability** for many Utilities: Many of the utilities included with helloSystem have their source code included and do not need to be compiled, making it easy for users to customize and contribute to the system. Right-click on an application icon and choose "Show Contents" to see and edit the source code.
 
-- Create Live Media tool: helloSystem includes a tool for creating live media, which can be used to create a bootable USB or DVD to try helloSystem without installing it on your system.
+- **Under Construction**: The "Under Construction" section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion.
 
+- **Create Live Media** utility: helloSystem includes a tool for creating live media, which can be used to create a bootable USB or DVD to try helloSystem without installing it on your system. It can also burn the latest, frequently released, experimental ISO builds directly to USB sticks.
 
 ## Features
 - Detailed list of features in helloSystem
