@@ -68,7 +68,7 @@ The helloSystem user interface is designed to be intuitive, functional, and disc
 
 - **Under Construction**: The "Under Construction" section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion. helloSystem does not hide its open source nature, and invites power users to join the development fun.
 
-- **Zeroconf (mDNS-SD)** is used throughout the system to advertise and browse network resources, like servers, printers, and the like.
+- **Zeroconf (mDNS-SD)**: helloSystem makes use of this technology throughout the system to advertise and browse network resources, like servers, printers, and the like.
 
 - **Create Live Media** utility: helloSystem includes a tool for creating live media, which can be used to create a bootable USB or DVD to try helloSystem without installing it on your system. It can also burn the latest, frequently released, experimental ISO builds directly to USB sticks.
 
