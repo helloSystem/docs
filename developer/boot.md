@@ -312,4 +312,6 @@ which seems to suggest that we can hook in our own code there by creating a new 
 
 Perhaps we can
 * Change the `if` condition to a key being pressed, so that the boot menu is not shown if the defined key is not being pressed
-* Set the font color to black, so that the loading of the kernel and modules is done without any visible text on the screen
+* Ideally, we can, e.g., boot into single user mode if the user holds down "s" during boot, or verbose mode if the user holds down "v". `/boot/lua/core.lua` contains convenient functions for setting variables like `boot_verbose` and `boot_single`.
+* Unset our dark grey on light grey color scheme if verbose or single user boot is requested
+* Set the font color of the bootloader to black, so that the loading of the kernel and modules is done without any visible text on the screen; unless verbose boot is requested
