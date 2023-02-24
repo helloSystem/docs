@@ -302,6 +302,14 @@ else
 end
 ```
 
+Directly above this, there is
+
+```
+try_include("local")
+```
+
+which seems to suggest that we can hook in our own code there by creating a new file `/boot/lua/local.lua` with our custom code.
+
 Perhaps we can
 * Change the `if` condition to a key being pressed, so that the boot menu is not shown if the defined key is not being pressed
 * Set the font color to black, so that the loading of the kernel and modules is done without any visible text on the screen
