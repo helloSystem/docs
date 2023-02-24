@@ -264,6 +264,8 @@ To work on the lua scripts, it is useful to
 * Install helloSystem to a virtual hard disk
 * In the installed system, edit `/boot/loader.conf` to contain `beastie_disable=NO` and increase the timeout
 
+Possibly there is also a way to use a lua interpreter on the booted system to work on and debug the lua scripts, but this is currently unknown.
+
 The `/boot` directory also contains files referring to 4th, those are all unused, misleading, and can be removed. Besides files with `4th` in their name this also includes files ending in `.rc`.
 
 ```
