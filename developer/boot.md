@@ -280,3 +280,28 @@ One can then edit the scripts in `/boot/lua`, and boot the virtual machine quick
 It seems that `/boot/lua/loader.lua` is the entry point that is hardcoded into the bootloader.
 
 So if we would like to run a "hello world", we would need to place it at that path.
+
+`/boot/lua/loader.lua` includes other lua files, e.g., `local core = require("core")`.
+
+`/boot/lua/core.lua` contains the following function:
+
+```
+function core.isMenuSkipped()
+        return string.lower(loader.getenv("beastie_disable") or "") == "yes"
+end
+```
+
+`/boot/lua/loader.lua` uses this function to display the boot menu if `beastie_disable` is not set:
+
+```
+if not core.isMenuSkipped() then
+        require("menu").run()
+else
+        -- Load kernel/modules before we go
+        config.loadelf()
+end
+```
+
+Perhaps we can
+* Change the `if` condition to a key being pressed, so that the boot menu is not shown if the defined key is not being pressed
+* Set the font color to black, so that the loading of the kernel and modules is done without any visible text on the screen
