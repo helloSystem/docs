@@ -326,6 +326,9 @@ try_include("local")
 
 which seems to suggest that we can hook in our own code there by creating a new file `/boot/lua/local.lua` with our custom code.
 
+* https://man.freebsd.org/cgi/man.cgi?query=core.lua documents the functions in `core.lua`
+* https://man.freebsd.org/cgi/man.cgi?query=menu.lua&sektion=8 documents `menu.lua`, including an example for how to replace the default boot menu with a simple boot menu, and en example for how to add another option to the default FreeBSD welcome menu
+
 Perhaps we can
 * Change the `if` condition to a key being pressed, so that the boot menu is not shown if the defined key is not being pressed
 * Ideally, we can, e.g., boot into single user mode if the user holds down "s" during boot, or verbose mode if the user holds down "v". `/boot/lua/core.lua` contains convenient functions for setting variables like `boot_verbose` and `boot_single`.
