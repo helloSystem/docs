@@ -264,7 +264,21 @@ To work on the lua scripts, it is useful to
 * Install helloSystem to a virtual hard disk
 * In the installed system, edit `/boot/loader.conf` to contain `beastie_disable=NO` and increase the timeout
 
-Possibly there is also a way to use a lua interpreter on the booted system to work on and debug the lua scripts, but this is currently unknown.
+Possibly there is also a way to use a lua interpreter on the booted system to work on and debug the lua scripts, but this is currently unknown. The following does not seem to work:
+
+```
+% lua54 ./loader.lua 
+lua54: ./core.lua:447: attempt to index a nil value (global 'loader')
+stack traceback:
+        ./core.lua:447: in field 'isSystem386'
+        ./core.lua:56: in local 'recordDefaults'
+        ./core.lua:525: in main chunk
+        [C]: in function 'require'
+        ./cli.lua:31: in main chunk
+        [C]: in function 'require'
+        ./loader.lua:36: in main chunk
+        [C]: in ?
+```
 
 The `/boot` directory also contains files referring to 4th, those are all unused, misleading, and can be removed. Besides files with `4th` in their name this also includes files ending in `.rc`.
 
