@@ -259,11 +259,24 @@ To see boot messages, set `boot_mute="NO"` in {file}`/boot/loader.conf` or at th
 
 The bootloader executes lua scripts as part of the boot process. This is not documented extensively in the FreeBSD documentation.
 
-The `/boot` directory also contains files referring to 4th, those are all unused, misleading, and can be removed.
-
 To work on the lua scripts, it is useful to
 * Use VirtualBox
 * Install helloSystem to a virtual hard disk
 * In the installed system, edit `/boot/loader.conf` to contain `beastie_disable=NO` and increase the timeout
 
+The `/boot` directory also contains files referring to 4th, those are all unused, misleading, and can be removed. Besides files with `4th` in their name this also includes files ending in `.rc`.
+
+```
+mount -uw /
+cd /boot
+find . -name '*4th*' -exec rm {} \;
+rm *.rc
+```
+
+Removing the misleading files makes it easier to see which code actually gets executed. All the scripting is essentially happening in `/boot/lua`.
+
 One can then edit the scripts in `/boot/lua`, and boot the virtual machine quickly into single user mode, make edits, and repeat.
+
+It seems that `/boot/lua/loader.lua` is the entry point that is hardcoded into the bootloader.
+
+So if we would like to run a "hello world", we would need to place it at that path.
