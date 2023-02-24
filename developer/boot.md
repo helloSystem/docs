@@ -253,3 +253,17 @@ Please note that if any errors are displayed on the screen during the boot proce
 :::
 
 To see boot messages, set `boot_mute="NO"` in {file}`/boot/loader.conf` or at the bootloader prompt.
+
+
+## Modifying bootloader scripts
+
+The bootloader executes lua scripts as part of the boot process. This is not documented extensively in the FreeBSD documentation.
+
+The `/boot` directory also contains files referring to 4th, those are all unused, misleading, and can be removed.
+
+To work on the lua scripts, it is useful to
+* Use VirtualBox
+* Install helloSystem to a virtual hard disk
+* In the installed system, edit `/boot/loader.conf` to contain `beastie_disable=NO` and increase the timeout
+
+One can then edit the scripts in `/boot/lua`, and boot the virtual machine quickly into single user mode, make edits, and repeat.
