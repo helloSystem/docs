@@ -92,19 +92,7 @@ This starts services like sshd; you need to edit the {file}`/usr/local/etc/rc.d/
 
 ## Debugging the Live system boot process
 
-The following has been tested on experimental helloSystem 0.8.0 builds.
-
-Press the Backspace key on your keyboard during early boot until you see the `OK` prompt.
-
-![bootloader](https://user-images.githubusercontent.com/2480569/202910570-9bcc21c5-d9f4-4c3f-b8c0-b07b7e36f35e.png)
-
-Enter
-
-```console
-OK boot -s
-```
-
-to boot in single user mode. The system will boot to the first stage Live system prompt:
+As soon as the screen becomes grey, press "s" to boot in single-user mode. The system will boot to the first stage Live system prompt:
 
 ![livefirstsingleprompt](https://user-images.githubusercontent.com/2480569/202910574-22c0e284-8717-4ae0-9489-68cc23995e1d.png)
 
