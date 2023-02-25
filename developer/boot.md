@@ -326,15 +326,7 @@ try_include("local")
 
 which seems to suggest that we can hook in our own code there by creating a new file `/boot/lua/local.lua` with our custom code:
 
-```
-local color = require("color")
-
--- loader.* functions are not part of normal lua, where are they documented?
-
-printc("Hello World", COLOR_BLUE)
-
-loader.delay(5*1000*1000)
-```
+https://github.com/helloSystem/ISO/blob/experimental/overlays/boot/boot/lua/local.lua
 
 * https://man.freebsd.org/cgi/man.cgi?query=core.lua documents the functions in `core.lua`
 * https://man.freebsd.org/cgi/man.cgi?query=menu.lua&sektion=8 documents `menu.lua`, including an example for how to replace the default boot menu with a simple boot menu, and en example for how to add another option to the default FreeBSD welcome menu
