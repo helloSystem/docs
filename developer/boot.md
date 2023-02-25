@@ -339,8 +339,9 @@ loader.delay(5*1000*1000)
 * https://man.freebsd.org/cgi/man.cgi?query=core.lua documents the functions in `core.lua`
 * https://man.freebsd.org/cgi/man.cgi?query=menu.lua&sektion=8 documents `menu.lua`, including an example for how to replace the default boot menu with a simple boot menu, and en example for how to add another option to the default FreeBSD welcome menu
 
-Perhaps we can
-* Change the `if` condition to a key being pressed, so that the boot menu is not shown if the defined key is not being pressed
-* Ideally, we can, e.g., boot into single user mode if the user holds down "s" during boot, or verbose mode if the user holds down "v". `/boot/lua/core.lua` contains convenient functions for setting variables like `boot_verbose` and `boot_single`.
-* Unset our dark grey on light grey color scheme if verbose or single user boot is requested
-* Set the font color of the bootloader to black, so that the loading of the kernel and modules is done without any visible text on the screen; unless verbose boot is requested
+This allows us to
+* Load the kernel and modules without showing text on screen
+* Boot in verbose mode if the `V` key is pressed
+* Boot in single user mode if the `S` key is pressed
+* Show the FreeBSD bootloader menu if backspace is pressed
+* Adjust colors for verbose and single user boot
