@@ -374,6 +374,8 @@ The lua environment in the FreeBSD bootloader has some functions starting with `
 * `loader.fb_drawrect()`
 * `loader.term_drawrect()`
 
-This list was generated with
+This list was generated on a system on which the FreeBSD source code is installed in `/usr/src` using the following command:
 
-`grep -r '^lua_' /usr/src/stand/liblua/*.c | cut -d ":" -f 2 | sed -e 's|lua_|loader.|g' | sed -e 's|loader.State \*L||g' | sed -e 's|^|* \`|g' | sed -e 's|)|)\`|g'`.
+```
+grep -r '^lua_' /usr/src/stand/liblua/*.c | cut -d ":" -f 2 | sed -e 's|lua_|loader.|g' | sed -e 's|loader.State \*L||g' | sed -e 's|^|* \`|g' | sed -e 's|)|)\`|g'
+```
