@@ -40,6 +40,8 @@ The selected Boot Environment will be mounted, and a Filer window will be opened
 
 Activate a Boot Environment by checking its checkbox, and then press {guilabel}`Restart...`. The computer will restart into the selected Boot Environment.
 
+You can also select which Boot Environment to start into from the bootloader. Starting with helloSystem 0.8.1, press the Backspace key as soon as the screen becomes grey. Then use the FreeBSD bootloader menu to choose a Boot Environment and to start the system. Note that choosing a Boot Environment this way does not change the default Boot Environment, and will affect the current boot only.
+
 ## More Information
 
 Advanced users can use the `bectl` command on the command line, which the __Boot Environments__ preferences application is using under the hood.
