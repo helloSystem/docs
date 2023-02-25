@@ -345,3 +345,35 @@ This allows us to
 * Boot in single user mode if the `S` key is pressed
 * Show the FreeBSD bootloader menu if backspace is pressed
 * Adjust colors for verbose and single user boot
+
+The lua environment in the FreeBSD bootloader has some functions starting with `loader.` that seem to be undocumented, but we can list them by looking at the source code:
+
+* `loader.command()`
+* `loader.perform()`
+* `loader.command_error()`
+* `loader.interpret()`
+* `loader.parse()`
+* `loader.getchar()`
+* `loader.ischar()`
+* `loader.gets()`
+* `loader.time()`
+* `loader.delay()`
+* `loader.getenv()`
+* `loader.setenv()`
+* `loader.unsetenv()`
+* `loader.printc()`
+* `loader.openfile()`
+* `loader.closefile()`
+* `loader.readfile()`
+* `loader.writefile()`
+* `loader.term_putimage()`
+* `loader.fb_putimage()`
+* `loader.fb_setpixel()`
+* `loader.fb_line()`
+* `loader.fb_bezier()`
+* `loader.fb_drawrect()`
+* `loader.term_drawrect()`
+
+This list was generated with
+
+`grep -r '^lua_' /usr/src/stand/liblua/*.c | cut -d ":" -f 2 | sed -e 's|lua_|loader.|g' | sed -e 's|loader.State \*L||g' | sed -e 's|^|* \`|g' | sed -e 's|)|)\`|g'`.
