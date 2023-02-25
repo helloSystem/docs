@@ -348,34 +348,34 @@ This allows us to
 
 The lua environment in the FreeBSD bootloader has some functions starting with `loader.` that seem to be undocumented, but we can list them by looking at the source code:
 
-* `loader.closefile()`
-* `loader.command_error()`
 * `loader.command()`
+* `loader.perform()`
+* `loader.command_error()`
+* `loader.interpret()`
+* `loader.parse()`
+* `loader.getchar()`
+* `loader.ischar()`
+* `loader.gets()`
+* `loader.time()`
 * `loader.delay()`
-* `loader.fb_bezier()`
-* `loader.fb_drawrect()`
-* `loader.fb_line()`
+* `loader.getenv()`
+* `loader.setenv()`
+* `loader.unsetenv()`
+* `loader.printc()`
+* `loader.openfile()`
+* `loader.closefile()`
+* `loader.readfile()`
+* `loader.writefile()`
+* `loader.term_putimage()`
 * `loader.fb_putimage()`
 * `loader.fb_setpixel()`
-* `loader.getchar()`
-* `loader.getenv()`
-* `loader.gets()`
-* `loader.interpret()`
-* `loader.ischar()`
-* `loader.openfile()`
-* `loader.parse()`
-* `loader.perform()`
-* `loader.printc()`
-* `loader.readfile()`
-* `loader.setenv()`
+* `loader.fb_line()`
+* `loader.fb_bezier()`
+* `loader.fb_drawrect()`
 * `loader.term_drawrect()`
-* `loader.term_putimage()`
-* `loader.time()`
-* `loader.unsetenv()`
-* `loader.writefile()`
 
 This list was generated on a system on which the FreeBSD source code is installed in `/usr/src` using the following command:
 
 ```
-grep -r '^lua_' /usr/src/stand/liblua/*.c | cut -d ":" -f 2 | sed -e 's|lua_|loader.|g' | sed -e 's|loader.State \*L||g' | sed -e 's|^|* \`|g' | sed -e 's|)|)\`|g' | sort
+grep -r '^lua_' /usr/src/stand/liblua/*.c | cut -d ":" -f 2 | sed -e 's|lua_|loader.|g' | sed -e 's|loader.State \*L||g' | sed -e 's|^|* \`|g' | sed -e 's|)|)\`|g'
 ```
