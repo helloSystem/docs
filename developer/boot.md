@@ -181,7 +181,7 @@ Example: `load: 0.62  cmd: sleep 1739 [nanslp] 2.97r 0.00u 0.00s 0% 2168k`
 
 If you would like to observe the details of the boot process, you can start your computer in __verbose mode__. This allows you to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.
 
-Since helloSystem 0.8.1: To boot in verbose mode, press the "v" key as soon as the screen becomes grey.
+Since helloSystem 0.8.1: To boot in verbose mode, press the {kbd}`v` key on your keyboard as soon as the screen becomes grey.
 
 Before helloSystem 0.8.1:
 1. While the bootloader is running, keep the {kbd}`Backspace` key pressed until you see an `OK` prompt (alternatively, for a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the {kbd}`Esc` key on your keyboard immediately when you see this)
@@ -194,7 +194,7 @@ The computer should boot into a graphical desktop.
 
 If your computer hangs during booting, you can boot into __verbose single-user mode__. This allows advanced users, administrators, and developers to inspect the Live system early boot process and to enter commands manually that would otherwise be executed automatically.
 
-Since helloSystem 0.8.1: To boot in verbose single-user mode, press the "s" key as soon as the screen becomes grey.
+Since helloSystem 0.8.1: To boot in verbose single-user mode, press the {kbd}`s` key on your keyboard as soon as the screen becomes grey.
 
 Before helloSystem 0.8.1:
 1. While the bootloader is running, keep the {kbd}`Backspace` key pressed until you see an `OK` prompt (alternatively, for a short time during boot, it says `Hit [Enter] to boot immediately, or any other key for command prompt.`. Press the {kbd}`Esc` key on your keyboard immediately when you see this)
