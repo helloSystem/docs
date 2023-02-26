@@ -2,7 +2,7 @@
 
 ## Introduction
 
-helloSystem is an open-source operating system based on FreeBSD. Its goal is to provide a friendly, highly usable, and visually appealing system for desktop and notebook computers. The system is designed to be easy to use, efficient, with an emphasis on minimalism and simplicity. 
+helloSystem is an open-source operating system that builds on FreeBSD as a rock solid foundation. Its goal is to provide a friendly, highly usable, and visually appealing system for desktop and notebook computers. The system is designed to be easy to use, efficient, with an emphasis on minimalism and simplicity. 
 
 Its target audience are switchers from the Mac platform, to which it aims to provide an environment in which they can feel instantly at home.
 
@@ -42,7 +42,7 @@ If you encounter any issues during the installation process, please consult the 
 
 ## User Interface
 
-The six-part series on [Linux desktop usability](https://medium.com/@probonopd/make-it-simple-linux-desktop-usability-part-1-5fa0fb369b42) by helloSystem's founder eventually lead to the design and development of helloSystem. The series explored aspects of  desktop usability, from user interface design to application packaging and distribution. The insights expressed in the series helped inform the design decisions behind helloSystem, with a focus on simplicity, ease of use, and discoverability. The indended result is a user-friendly and efficient operating system that is easy to use and customize, even for non-technical users.
+The six-part series on [Linux desktop usability](https://medium.com/@probonopd/make-it-simple-linux-desktop-usability-part-1-5fa0fb369b42) by helloSystem's founder eventually lead to the design and development of helloSystem. The series explored aspects of  desktop usability, from user interface design to application packaging and distribution. The insights expressed in the series helped inform the design decisions behind helloSystem, with a focus on simplicity, ease of use, and discoverability. The intended result is a user-friendly and efficient operating system that is easy to use and customize, even for non-technical users.
 
 The helloSystem user interface is designed to be intuitive, functional, and discoverable, with a range of features and tools to meet the needs of both new and experienced users. Here are some key concepts:
 
@@ -52,7 +52,7 @@ The helloSystem user interface is designed to be intuitive, functional, and disc
 
 - **Keyboard layout and language autodetection**: When using a Mac or a [Raspberry Pi Keyboard and Hub](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/), helloSystem will automatically detect the keyboard layout and language, removing the need to configure it manually.
 
-- **Menu search and launcher**: helloSystem includes a powerful menu search and launcher, which can be used to quickly find and launch applications, files, and menu commands. It is located in the top right corner of the global menu bar and can be a true productivity booster, as it allows the system to be operated virtually only by using the keyboard.
+- **Menu search and launcher**: helloSystem includes a powerful menu search and launcher, which can be used to quickly find and launch applications, files, and menu commands. It is located in the top left corner of the global menu bar and can be a true productivity booster, as it allows the system to be operated virtually only by using the keyboard.
 
 - **Application bundles**: Applications on helloSystem are structured as self-contained bundles, which can be easily installed, removed, and updated.
 
