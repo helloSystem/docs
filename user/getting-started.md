@@ -12,9 +12,13 @@ Please refer to [FreeBSD Hardware Compatibility](https://www.freebsd.org/doc/en_
 
 ## Downloading
 
-The latest helloSystem release ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/latest).
+The latest helloSystem release ISO image is available for download here:
 
-Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/helloSystem/ISO)](https://github.com/helloSystem/ISO/releases/latest)
+
+Experimental and pre-release images are available for download here:
+
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/helloSystem/ISO?include_prereleases)](https://github.com/helloSystem/ISO/releases)
 
 :::{important}
 Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
