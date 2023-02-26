@@ -61,6 +61,8 @@ hello is known to boot to a graphical desktop on the following machines. Auxilia
 
 helloSystem developers currently have access to the following hardware:
 
+* [Framework Mainboard](https://frame.work/de/de/products/mainboard) (11th Gen Intel® Core™)
+* Acer TravelMate B117
 * Acer Revo RL85
 * Dell Inc. OptiPlex 780
 
