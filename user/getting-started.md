@@ -28,7 +28,7 @@ Experimental images get built automatically whenever source code is committed. N
 
 The ISO file needs to be written to a device, e.g., to a USB stick, in order to a computer being able to start from it. This will overwrite and destroy all data on that device.
 
-helloSystem comes with a __Create Live Media__ utility that allows to write ISO files to a device easily.
+If you are already running helloSystem, then you can use the built-in __Create Live Media__ utility to download and write live media.
 
 If you are not running helloSystem yet or would like to use the command line, the following command should work on all BSD flavors:
 
