@@ -6,16 +6,15 @@
 * 2 GiB RAM system memory (4 GiB recommended; before 0.7.0: 4 GiB minimum)
 * VGA capable of 1024x768 screen resolution
 * Either a CD/DVD drive or a USB port for booting the installer media
-* On non-Macintosh hardware, a [Raspberry Pi keyboard](https://static.raspberrypi.org/files/product-briefs/210108_Product_Brief_Keyboard_and_Mouse.pdf) is recommended as it allows the keyboard and system language to be detected automatically if it is attached while the system is starting up. On Macintosh hardware, the `prev-lang:kbd` EFI variable is usually set and is used to detect the keyboard and system language. Note that the key left to the space bar is used as the Command key (Alt key on PC keyboards, Apple key on Apple keyboards).
+* On non-Macintosh hardware, a [Raspberry Pi Keyboard and Hub]([https://static.raspberrypi.org/files/product-briefs/210108_Product_Brief_Keyboard_and_Mouse.pdf](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/)) is recommended as it allows the keyboard and system language to be detected automatically if it is attached while the system is starting up. On Macintosh hardware, the `prev-lang:kbd` EFI variable is usually set and is used to detect the keyboard and system language. Note that the key left to the space bar is used as the Command key (Alt key on PC keyboards, Apple key on Apple keyboards).
 
 Please refer to [FreeBSD Hardware Compatibility](https://www.freebsd.org/doc/en_US.ISO8859-1/books/faq/hardware.html) for more information on individual components.
 
 ## Downloading
 
-The **helloSystem 0.8.0** ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/tag/r0.8.0).
+The latest helloSystem release ISO image is available for download [here](https://github.com/helloSystem/ISO/releases/latest).
 
 Experimental and pre-release images are available for download [here](https://github.com/helloSystem/ISO/releases).
-
 
 :::{important}
 Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as "Pre-Release" are strictly for developers, may be broken and may not even boot.
