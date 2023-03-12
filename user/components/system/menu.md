@@ -1,7 +1,5 @@
 # Menu
 
-![Menu](https://pbs.twimg.com/media/EniEQ0uXIAEA2O5?format=png)
-
 The menu bar at the top of the screen lets you perform, among others, the following functions:
 
 * Get information about your computer
@@ -48,7 +46,7 @@ Click on "Search" in the menu bar, or press {kbd}`Command+Space`. Then enter `/`
 
 ## Performing calculations
 
-Starting with helloSystem 0.8.2, you can perform calculations using the Menu. Click on "Search" in the menu bar, or press {kbd}`Command+Space`. Then enter a mathematical statement like `2+2` or `sqrt(2)`. The result of the calculation will be shown in the menu.
+Starting with helloSystem 0.8.2, you can perform calculations using the Menu. Click on "Search" in the menu bar, or press {kbd}`Command+Space`. Then enter a mathematical statement like `2+2` or `sqrt(2)`. The result of the calculation will be shown in the menu. See these [examples](https://github.com/Qalculate/libqalculate#features) for the type of calculations that can be performed.
 
 ## Date and time
 
