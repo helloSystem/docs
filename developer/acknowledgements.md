@@ -138,3 +138,8 @@ __[bittin](https://github.com/bittin)__
 ## Framework Computer Inc
 __[FrameworkComputer](https://github.com/FrameworkComputer)__
 * Donated a Framework Mainboard (i5-1135G7) through the Developer Mainboard Program
+
+## Jérôme Ornech
+__[Hierosme](https://github.com/Hierosme)__
+* Rewrote Processes.app ([#159](https://github.com/helloSystem/Utilities/pull/159))
+* Wrote Network Utility.app
