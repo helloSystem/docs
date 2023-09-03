@@ -12,7 +12,7 @@ However, it is also possible to build the ISO locally, which is especially handy
 
 ## System requirements for building
 
-* A FreeBSD or helloSystem installed on the computer. The FreeBSD version needs to match the FreeBSD version of the helloSystem ISO being built (e.g., `12.2-RELEASE`)
+* A FreeBSD or helloSystem installed on the computer. The FreeBSD version needs to match the FreeBSD version of the helloSystem ISO being built (e.g., `13.2-RELEASE`)
 * 2 GHz dual core processor
 * 4 GiB RAM (system memory)
 * 50 GB of hard-drive space
@@ -22,7 +22,7 @@ However, it is also possible to build the ISO locally, which is especially handy
 ## Building the Live ISO
 
 ```console
-$ sudo pkg install -y pkg git-lite zsync wget sha bash zip devel/py-xdg librsvg2 ca_root_nss
+$ sudo pkg install -y pkg git-lite zsync wget bash zip devel/py-xdg librsvg2 ca_root_nss
 $ git clone https://github.com/helloSystem/ISO
 $ cd ISO
 $ sudo ./build.sh hello
