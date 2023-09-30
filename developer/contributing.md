@@ -28,23 +28,3 @@ This is a small, purely volunteer-driven project, so your contributions are _hig
 Here is what we need help with: [Issues flagged with help-wanted](https://github.com/search?q=org%3AhelloSystem+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), and of course other contributions are also welcome.
 
 Maybe you'd like to look into one of these: [Issues flagged with good-first-issue](https://github.com/search?q=org%3AhelloSystem+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&type=).
-
-### FreeBSD related topics
-
-Skills/resources we don't currently have and would highly appreciate help with
-
-|Skillset needed|Topic|Status|Rationale|Contact|
-|---|---|---|---|---|
-|FreeBSD kernel|Overhaul/bugfixing for unionfs.ko to create a read-write root filesystem|Idea|Save time and RAM by not having to copy the whole root filesystem to RAM|probonopd|
-|OpenZFS|A way to combine read-only (Live ISO) with read-write (ramdisk) to create a read-write root filesystem|Idea|Save time and RAM by not having to copy the whole root filesystem to RAM|probonopd|
-|FreeBSD build system|Kernel-related packages built for each FreeBSD version ([details](https://github.com/furybsd/furybsd-livecd/issues/241))|idea|Xorg fails on 12.2-RELEASE|probonopd|
-|FreeBSD Linuxulator|Make it possible for Linux applications to use FreeBSD D-Bus|Idea|Have Linux applications to use the [global menu](https://github.com/helloSystem/Menu) that is running on FreeBSD|probonopd|
-|FreeBSD kernel, Golang|Enable Go-based FUSE filesystems for FreeBSD ([issue](https://github.com/jacobsa/fuse/issues/91))|Idea|Packages that are images rather than archives: Experiment with [distr1](http://distr1.org/) concepts on FreeBSD|probonopd|
-|Qt, OpenZFS|ZFS snapshot, clone integration into the file manager|Idea|Expose the power of ZFS to non-technical users|probonopd|
-
-### Qt related topics
-
-|Skillset needed|Topic|Status|Rationale|Contact|
-|---|---|---|---|---|
-|Qt|Improve the Filer (file manager)||Please see https://github.com/helloSystem/Filer/issues|probonopd|
-|Qt|Improve the Menu (global menu bar)||Please see https://github.com/helloSystem/Menu/issues|probonopd|
