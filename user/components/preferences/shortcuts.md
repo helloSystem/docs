@@ -1,5 +1,9 @@
 # Shortcut Keys
 
+:::{note}
+The Shortcut Keys preferences application has been removed following the switch to KWin, which comes with `kglobalaccel`. This area still needs work.
+:::
+
 The {guilabel}`Shortcut Keys` preferences application lets you view and edit system-wide keyboard shortcuts.
 
 
