@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Compatibility &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Applications" href="applications.html" />
+    <link rel="prev" title="Graphics hardware autoconfiguration" href="graphics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Binary Compatibility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#application-compatibility">Application compatibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recommendation-for-building-binary-compatible-applications">Recommendation for building binary compatible applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kernel-module-compatibility">Kernel module compatibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recommendation-for-building-binary-compatible-kernel-modules">Recommendation for building binary compatible kernel modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Binary Compatibility</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/binary-compatibility.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="binary-compatibility">
+<h1>Binary Compatibility<a class="headerlink" href="#binary-compatibility" title="Permalink to this heading"></a></h1>
+<p>Binary compatibility is an important concept in software engineering. It allows applications compiled on a build system to run on user’s target systems without forcing them to upgrade their entire system all the time. As the FreeBSD wiki page on binary compatibility points out, “a lot of downstream users keep systems for about 10 years and want to be able to keep running their stack on top of FreeBSD without worrying that an upgrade will break things.”</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is in draft status and needs to be reviewed by experienced FreeBSD developers. Pull requests welcome.</p>
+</div>
+<div class="section" id="application-compatibility">
+<h2>Application compatibility<a class="headerlink" href="#application-compatibility" title="Permalink to this heading"></a></h2>
+<p>The Application Binary Interface (ABI) defines which applications can run on which systems. The two main factors in determining application compatibility are the FreeBSD version (e.g., <code class="docutils literal notranslate"><span class="pre">12.x</span></code>) and the version of packages (e.g., <code class="docutils literal notranslate"><span class="pre">quarterly</span></code>).</p>
+<ul class="simple">
+<li><p>Applications compiled on one major version of FreeBSD are expected to run on subsequent minor versions of the same major version of FreeBSD if the packages of the dependencies on the target system are no older than on the build system. <strong>Example:</strong> An application compiled on FreeBSD 12.0 is expected to run on FreeBSD 12.1 and 12.2 if the packages of the dependencies on the target system are no older than on the build system</p></li>
+<li><p>Applications compiled on one major version of FreeBSD are expected to run on subsequent major versions of FreeBSD if compatibility libraries are installed. <strong>Example:</strong> An application compiled on FreeBSD 3.2 is expected to run on FreeBSD 14 if compatibility libraries are installed. <strong>But</strong> this is what happens when you try to <code class="docutils literal notranslate"><span class="pre">pkg-static</span> <span class="pre">add</span></code> a package built on FreeBSD 12 on a FreeBSD 13 machine: <code class="docutils literal notranslate"><span class="pre">pkg-static:</span> <span class="pre">wrong</span> <span class="pre">architecture:</span> <span class="pre">FreeBSD:12:amd64</span> <span class="pre">instead</span> <span class="pre">of</span> <span class="pre">FreeBSD:13:amd64</span></code> - apparently <code class="docutils literal notranslate"><span class="pre">pkg-static</span> <span class="pre">add</span></code> does not make use of the compatibility assumption but this can be worked around by exporting, e.g., <code class="docutils literal notranslate"><span class="pre">ABI=freebsd:12:amd64</span></code>; <code class="docutils literal notranslate"><span class="pre">pkg</span> <span class="pre">install</span></code> does not seem to have this issue.</p></li>
+</ul>
+<div class="section" id="recommendation-for-building-binary-compatible-applications">
+<h3>Recommendation for building binary compatible applications<a class="headerlink" href="#recommendation-for-building-binary-compatible-applications" title="Permalink to this heading"></a></h3>
+<p>Build on the <code class="docutils literal notranslate"><span class="pre">.0</span></code> minor version for each still-supported major version of FreeBSD, using <code class="docutils literal notranslate"><span class="pre">release_0</span></code>, <code class="docutils literal notranslate"><span class="pre">release_1</span></code>, <code class="docutils literal notranslate"><span class="pre">release_2</span></code>,… but <strong>NOT</strong> <code class="docutils literal notranslate"><span class="pre">quarterly</span></code>, <code class="docutils literal notranslate"><span class="pre">latest</span></code> packages as those are moving targets which will vanish over time.</p>
+<p>This should allow the application to run on all still-supported FreeBSD releases.</p>
+</div>
+</div>
+<div class="section" id="kernel-module-compatibility">
+<h2>Kernel module compatibility<a class="headerlink" href="#kernel-module-compatibility" title="Permalink to this heading"></a></h2>
+<p>The Kernel Binary Interface (KBI) defines which kernel extensions can run on which systems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Section to be written. Pull requests welcome.</p>
+</div>
+<ul class="simple">
+<li><p>Normally, kernel extensions compiled on one major version of FreeBSD are expected to run on subsequent minor versions of the same major version of FreeBSD. However, there are notable exceptions such as the <code class="docutils literal notranslate"><span class="pre">i915kms</span></code> package that contains the Intel GPU driver.</p></li>
+</ul>
+<p><strong>Note:</strong> The <code class="docutils literal notranslate"><span class="pre">i915kms</span></code> package that contains the Intel GPU driver breaks on 12.2-RELEASE.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Explanation to be written. Pull requests welcome.</p>
+</div>
+<div class="section" id="recommendation-for-building-binary-compatible-kernel-modules">
+<h3>Recommendation for building binary compatible kernel modules<a class="headerlink" href="#recommendation-for-building-binary-compatible-kernel-modules" title="Permalink to this heading"></a></h3>
+<p>Build on the <code class="docutils literal notranslate"><span class="pre">.0</span></code> minor version for each still-supported major version of FreeBSD. Test whether the kernel module runs on all subsequent minr versions and build for those minor versions separately in case it does not. This should allow the kernel module to run on all still-supported FreeBSD releases.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.freebsd.org/BinaryCompatibility">https://wiki.freebsd.org/BinaryCompatibility</a> describes best practices for maintaining binary compatibility in FreeBSD</p></li>
+<li><p><a class="reference external" href="https://forums.freebsd.org/threads/i915kms-package-breaks-on-12-2-release-workaround-build-from-ports.77501/">i915kms package breaks on 12.2-RELEASE</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="graphics.html" class="btn btn-neutral float-left" title="Graphics hardware autoconfiguration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="applications.html" class="btn btn-neutral float-right" title="Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

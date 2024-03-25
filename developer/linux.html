@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building on Linux &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Note to distributions" href="distributions.html" />
+    <link rel="prev" title="Raspberry Pi" href="rpi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building on Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-in-a-chroot-on-a-freebsd-host">Building in a chroot on a FreeBSD host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-hellodesktop-on-linux">Running helloDesktop on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-running-hellodesktop-on-raspberry-pi">Building and running helloDesktop on Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Building on Linux</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/linux.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="building-on-linux">
+<h1>Building on Linux<a class="headerlink" href="#building-on-linux" title="Permalink to this heading"></a></h1>
+<p>helloSystem is designed for use with helloSystem, which is based on FreeBSD.</p>
+<p>However, developers may want to verify that the code is reasonably platform independent by building on Linux from time to time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>That the code build does not necessarily mean that it works properly on Linux or that all features are implemented for Linux.</p>
+</div>
+<div class="section" id="building-in-a-chroot-on-a-freebsd-host">
+<h2>Building in a chroot on a FreeBSD host<a class="headerlink" href="#building-in-a-chroot-on-a-freebsd-host" title="Permalink to this heading"></a></h2>
+<p>To verify that the code builds on Linux without needing a different development machine, one can use an <a class="reference external" href="https://alpinelinux.org/">Alpine Linux</a> chroot in FreeBSD.</p>
+<p>Beginning with build 0H165, helloSystem ships with an <a class="reference external" href="https://github.com/helloSystem/ISO/blob/experimental/overlays/uzip/hello/files/usr/local/etc/rc.d/alpine">alpine rc.d script</a>.
+When started for the first time, this downloads a minimal root filesystem.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>linux<span class="w"> </span>stop
+<span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>debian<span class="w"> </span>stop
+<span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>alpine<span class="w"> </span>onestart
+<span class="gp">$ </span>sudo<span class="w"> </span>chroot<span class="w"> </span>/compat/alpine<span class="w"> </span>/bin/sh
+</pre></div>
+</div>
+<p>In the chroot, build the essential helloSystem components</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">// launch, open, and other essential command line tools that are required</span>
+<span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/launch
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>launch/build
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>launch/build
+<span class="gp">$ </span>grep<span class="w"> </span>^apk<span class="w"> </span>../README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<span class="gp">$ </span>cmake<span class="w"> </span>..
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="k">$(</span>nproc<span class="k">)</span><span class="w"> </span>install
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>../../
+
+<span class="go">// Menu</span>
+<span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/Menu
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>Menu/build
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>Menu/build
+<span class="gp">$ </span>grep<span class="w"> </span>^apk<span class="w"> </span>../README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<span class="gp">$ </span>cmake<span class="w"> </span>..
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="k">$(</span>nproc<span class="k">)</span><span class="w"> </span>install
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>../../
+
+<span class="go">// Filer</span>
+<span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/Filer
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>Filer/build
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>Filer/build
+<span class="gp">$ </span>grep<span class="w"> </span>^apk<span class="w"> </span>../README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<span class="gp">$ </span>cmake<span class="w"> </span>..
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>-j<span class="w"> </span><span class="k">$(</span>nproc<span class="k">)</span><span class="w"> </span>install
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>../../
+</pre></div>
+</div>
+<p>After you are done,</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>alpine<span class="w"> </span>onestop
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the compiler crashes, make sure that <code class="file docutils literal notranslate"><span class="pre">/usr/bin/clang++</span></code> is being used rather than <code class="file docutils literal notranslate"><span class="pre">/usr/bin/c++</span></code>. This can be edited in CMakeCache.txt.</p>
+</div>
+</div>
+<div class="section" id="running-hellodesktop-on-linux">
+<h2>Running helloDesktop on Linux<a class="headerlink" href="#running-hellodesktop-on-linux" title="Permalink to this heading"></a></h2>
+<p>Run Alpine Linux, e.g., in VirtualBox on helloSystem, or on real hardware.</p>
+<ul>
+<li><p>Download ISO from https://alpinelinux.org/downloads/, “Standard”</p></li>
+<li><p>User <code class="docutils literal notranslate"><span class="pre">root</span></code>, no password is the default</p></li>
+<li><p>Install to to a hard disk using the <code class="docutils literal notranslate"><span class="pre">setup-alpine</span></code> command, need to use a classic (“sys mode”) installation</p></li>
+<li><p>Enable community repo by  <code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">-e</span> <span class="pre">'s|^#||g'</span> <span class="pre">/etc/apk/repositories</span></code></p></li>
+<li><p>Install KDE Plasma using <code class="docutils literal notranslate"><span class="pre">setup-desktop</span></code>; set up a user</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rc-update</span> <span class="pre">add</span> <span class="pre">sddm</span></code> and <code class="docutils literal notranslate"><span class="pre">rc-service</span> <span class="pre">sddm</span> <span class="pre">start</span></code></p></li>
+<li><p>Log into a KDE Plasma session on Alpine Linux.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Select X11 session. Wayland doesn’t work smoothly</p>
+</div>
+</li>
+<li><p>Optionally, install VirtualBox related guest packages using <code class="docutils literal notranslate"><span class="pre">apk</span> <span class="pre">search</span></code> and <code class="docutils literal notranslate"><span class="pre">apk</span> <span class="pre">add</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> to become root (there is no <code class="docutils literal notranslate"><span class="pre">sudo</span></code> configured on Alpine Linux by default)</p></li>
+<li><p>Build and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> the three core components of helloDesktop (launch, Menu, and Filer) as above</p></li>
+<li><p>From within the running KDE Plasma session, you can switch to the minimal helloDesktop with</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+launch<span class="w"> </span>Menu<span class="w"> </span><span class="p">&amp;</span>
+sleep<span class="w"> </span><span class="m">1</span>
+launch<span class="w"> </span>Filer<span class="w"> </span><span class="p">&amp;</span>
+killall<span class="w"> </span>plasmashell
+</pre></div>
+</div>
+<p>Menu shoud work including full text search in the filesystem.</p>
+<p>The result will look somewhat like this:</p>
+<p><img alt="Screenshot" src="https://user-images.githubusercontent.com/2480569/200421869-96f81c37-0785-4416-ae43-bee920dd6a3e.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>That the code runs does not necessarily mean that it works properly on Linux or that all features are implemented for Linux. Please keep in mind that for the best desktop experience, you should be using helloSystem which helloDesktop has been designed for.</p>
+</div>
+</div>
+<div class="section" id="building-and-running-hellodesktop-on-raspberry-pi">
+<h2>Building and running helloDesktop on Raspberry Pi<a class="headerlink" href="#building-and-running-hellodesktop-on-raspberry-pi" title="Permalink to this heading"></a></h2>
+<p>Loosely follow <a class="reference external" href="https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi">https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi</a> (not all commands seem to be working exactly as written anymore), but also create “Linux Swap” partition. Alternatively, in the running Alpine Linux system</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>fallocate<span class="w"> </span>-l<span class="w"> </span>8G<span class="w"> </span>/swapfile
+<span class="gp"># </span>mkswap<span class="w"> </span>/swapfile
+<span class="gp"># </span>swapon<span class="w"> </span>/swapfile
+</pre></div>
+</div>
+<p>to have enough RAM or else the compilation will be killed (at least on the 1GB and less RAM models).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rpi.html" class="btn btn-neutral float-left" title="Raspberry Pi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="distributions.html" class="btn btn-neutral float-right" title="Note to distributions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

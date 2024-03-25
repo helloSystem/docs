@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preferences &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Boot Environments" href="preferences/boot-environments.html" />
+    <link rel="prev" title="Filesystems" href="filesystems.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../components.html">Getting to know the system</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autostart.html">Autostart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystems.html">Filesystems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Preferences</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="preferences/boot-environments.html">Boot Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preferences/desktop.html">Desktop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preferences/keyboard.html">Keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preferences/sharing.html">Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preferences/shortcuts.html">Shortcut Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="preferences/wireless-networks.html">Wireless Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">System components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../components.html">Getting to know the system</a></li>
+      <li class="breadcrumb-item active">Preferences</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/components/preferences.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="preferences">
+<h1>Preferences<a class="headerlink" href="#preferences" title="Permalink to this heading"></a></h1>
+<p>helloSystem comes with the following preferences applications, each of which are described in this section:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preferences/boot-environments.html">Boot Environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preferences/boot-environments.html#viewing-boot-environments">Viewing Boot Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/boot-environments.html#creating-boot-environments">Creating Boot Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/boot-environments.html#removing-boot-environments">Removing Boot Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/boot-environments.html#mounting-boot-environments">Mounting Boot Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/boot-environments.html#booting-into-a-boot-environment">Booting into a Boot Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/boot-environments.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preferences/desktop.html">Desktop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preferences/desktop.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/desktop.html#label-text">Label Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/desktop.html#advanced">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preferences/keyboard.html">Keyboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preferences/keyboard.html#setting-the-keyboard-layout">Setting the keyboard layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/keyboard.html#selecting-a-physical-key-to-act-as-command">Selecting a physical key to act as ⌘ (command)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/keyboard.html#disabling-the-caps-lock-key">Disabling the Caps Lock key</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preferences/sharing.html">Sharing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preferences/sharing.html#computer-name">Computer Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/sharing.html#remote-login">Remote Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/sharing.html#screen-sharing">Screen Sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/sharing.html#accessing-the-screen-of-remote-computers">Accessing the screen of remote computers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/sharing.html#accessing-the-screen-of-a-remote-computer-that-has-screen-sharing-enabled">Accessing the screen of a remote computer that has Screen Sharing enabled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/sharing.html#accessing-the-screen-of-a-remote-computer-that-has-remote-login-enabled">Accessing the screen of a remote computer that has Remote Login enabled</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preferences/shortcuts.html">Shortcut Keys</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preferences/shortcuts.html#the-key">The ⌘ key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/shortcuts.html#default-shortcuts">Default shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/shortcuts.html#viewing-shortcuts">Viewing shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences/shortcuts.html#editing-shortcuts">Editing shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preferences/wireless-networks.html">Wireless Networks</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="filesystems.html" class="btn btn-neutral float-left" title="Filesystems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preferences/boot-environments.html" class="btn btn-neutral float-right" title="Boot Environments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

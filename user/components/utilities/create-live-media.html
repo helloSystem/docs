@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Live Media &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Hardware Probe" href="hardware-probe.html" />
+    <link rel="prev" title="Calendar" href="calendar.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../../../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../components.html">Getting to know the system</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../applications.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autostart.html">Autostart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filesystems.html">Filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preferences.html">Preferences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system.html">System components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../utilities.html">Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="calculator.html">Calculator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calendar.html">Calendar</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Create Live Media</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#downloading-and-writing-live-media">Downloading and writing Live Media</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-probe.html">Hardware Probe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html">Install helloSystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mountarchive.html">mountarchive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote-assistance.html">Remote Assistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sticky-notes.html">Sticky Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../windows.html">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../components.html">Getting to know the system</a></li>
+          <li class="breadcrumb-item"><a href="../utilities.html">Utilities</a></li>
+      <li class="breadcrumb-item active">Create Live Media</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/components/utilities/create-live-media.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="create-live-media">
+<h1>Create Live Media<a class="headerlink" href="#create-live-media" title="Permalink to this heading"></a></h1>
+<p>A <strong>Live Medium</strong> is a storage device that can be used to start your computer with the helloSystem without having to install helloSystem to the internal storage of the computer. It allows you to try out helloSystem without making any changes to the software installed on your computer. Almost all functionality of helloSystem is available in Live mode, with very few exceptions. Changes being made, including files created, will be discarded when the system is shut down or restarted.</p>
+<p>The <strong>Create Live Media</strong> utility provides an easy and convenient way to create bootable Live Media on devices such as USB sticks. It downloads and writes Live ISOs to devices in one go.</p>
+<p><img alt="Create Live Media" src="https://user-images.githubusercontent.com/2480569/100794701-3bb03900-341e-11eb-8c18-e45fc68b7dbe.png" /></p>
+<p>This is useful if you are running helloSystem and would like to write a newer (or experimental) version of the system to a bootable storage device.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>In order to create a Live medium, you need</p>
+<ul class="simple">
+<li><p>A computer running any version of helloSystem with the <strong>Create Live Media</strong> utility</p></li>
+<li><p>A fast internet connection (a typical download is around 2 GiB)</p></li>
+<li><p>A suitable external storage device, e.g., a USB3 device. USB2 devices can be used but performance may be degraded. On some systems, other storage media such as SD cards or microSD cards can be used. Consult the documentation that came with your computer to determine which type of media can be used to start your computer.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Create Live Media</strong> utility cannot be used on other operating systems such as Windows, Linux, or macOS.</p>
+<p>If you would like to create Live Media for helloSystem using one of those operating systems, you can use applications that can write images to USB storage devices, such as <a class="reference external" href="https://www.balena.io/etcher/">balenaEtcher</a>.</p>
+</div>
+</div>
+<div class="section" id="downloading-and-writing-live-media">
+<h2>Downloading and writing Live Media<a class="headerlink" href="#downloading-and-writing-live-media" title="Permalink to this heading"></a></h2>
+<p>The <strong>Create Live Media</strong> utility downloads and writes a Live ISO image in one go to a storage medium. Open the <strong>Create Live Media</strong> utility and follow the instructions on screen.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>Create Live Media</strong> utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.</p>
+<p>This operation cannot be undone.</p>
+</div>
+<p>Once the image has been written to the device successfully, you can restart your computer to start from the Live Medium, or remove the device and insert it into another computer to start that computer from the Live Medium.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calendar.html" class="btn btn-neutral float-left" title="Calendar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware-probe.html" class="btn btn-neutral float-right" title="Hardware Probe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="MIDI" href="midi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#specifications-embraced-for-use-in-hellosystem">Specifications embraced for use in helloSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conventions-developed-for-use-in-hellosystem">Conventions developed for use in helloSystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specifications-with-relevance-for-hellosystem">Specifications with relevance for helloSystem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Specifications</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/specifications.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="specifications">
+<h1>Specifications<a class="headerlink" href="#specifications" title="Permalink to this heading"></a></h1>
+<p>helloSystem is designed to be friendly and welcoming. The desired user experience informs the specifications embraced for use in helloSystem and applications running on it.</p>
+<div class="section" id="specifications-embraced-for-use-in-hellosystem">
+<h2>Specifications embraced for use in helloSystem<a class="headerlink" href="#specifications-embraced-for-use-in-hellosystem" title="Permalink to this heading"></a></h2>
+<p>These specifications cover technologies that are enthusiastically embraced in helloSystem and/or are recommended to be used in applications running on it.</p>
+<ul class="simple">
+<li><p><strong>mDNS</strong>: Allows hostnames of devices to be published to the network, so that devices can be accessed using their names rather than using IP numbers.</p></li>
+<li><p><strong>DNS-SD/Zeroconf</strong>: Allows for the discovery of services on the network, such as websites, SSH servers, SFTP shares, etc. If an application can handle certain types of network services, it should discover such services using DNS-SD/Zeroconf. For example, a Terminal application might offer to connect to SSH servers on the network discovered with DNS-SD/Zeroconf.</p></li>
+<li><p><strong>IPP Everywhere</strong>: Allows printers to “just work” without configuring printer drivers.</p></li>
+<li><p><strong>AppImage</strong>: Allows applications to be shipped and used as single files. helloSystem may predominantly use this format for Linux applications in the future.</p></li>
+<li><p><strong>Markdown</strong>: The standard format for all documentation and other written text.</p></li>
+<li><p><strong>UTF-8</strong>: The default encoding for text.</p></li>
+</ul>
+<p>This list is not exhaustive.</p>
+</div>
+<div class="section" id="conventions-developed-for-use-in-hellosystem">
+<h2>Conventions developed for use in helloSystem<a class="headerlink" href="#conventions-developed-for-use-in-hellosystem" title="Permalink to this heading"></a></h2>
+<p>These conventions cover technologies that are embraced for being used in helloSystem and applications running on it.</p>
+<ul class="simple">
+<li><p><strong>Simplified application bundles:</strong> The format helloSystem predominantly uses for native applications. Derived from the GNUstep <code class="docutils literal notranslate"><span class="pre">.app</span></code> bundle format, but further simplified. Not formally specified yet.</p></li>
+</ul>
+<p>This list is not exhaustive.</p>
+</div>
+<div class="section" id="specifications-with-relevance-for-hellosystem">
+<h2>Specifications with relevance for helloSystem<a class="headerlink" href="#specifications-with-relevance-for-hellosystem" title="Permalink to this heading"></a></h2>
+<p>These specifications cover technologies that may have relevance for helloSystem and are mostly considered for compatibility reasons. Their use within helloSystem may decline over time as more native replacements become available.</p>
+<ul class="simple">
+<li><p><strong>ICCCM/EWMH</strong>: Allows windows to be managed on Xorg. <a class="reference external" href="https://github.com/yshui/picom/wiki/Window-states-management">This page in the picom wiki</a> gives an overview</p></li>
+<li><p><strong>D-Bus</strong>: Allows processes on the system to interact with each other (inter-process communication, IPC)</p></li>
+<li><p><strong>XDG Desktop specification</strong>: Although helloSystem uses simplified application bundles to provide the desired user experience, some existing applications in FreeBSD ports and packages may come with <code class="docutils literal notranslate"><span class="pre">.desktop</span></code> files. To maintain compatibility with the vast body of existing applications, helloSystem  needs to provide a basic implementation of this specification, although its use should be minimized in helloSystem to allow for the desired user experience. For example, all handling of <code class="docutils literal notranslate"><span class="pre">.desktop</span></code> files could be left to one command line tool such as <code class="docutils literal notranslate"><span class="pre">desktop2app</span></code> that would convert <code class="docutils literal notranslate"><span class="pre">.desktop</span></code> files into the format used natively in helloSystem. Other uses of the XDG Desktop specification may be phased out in the future</p></li>
+</ul>
+<p>This list is not exhaustive.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="midi.html" class="btn btn-neutral float-left" title="MIDI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
