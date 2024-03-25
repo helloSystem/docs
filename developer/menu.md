@@ -27,10 +27,10 @@ APIs can be described in specifications, protocols, and interfaces.
 
 * [__StatusNotifierItem spec__](https://www.freedesktop.org/wiki/Specifications/StatusNotifierItem/): "This specification defines the management of visual items, usually icons used for reporting the status of an application to the user or provide a quick access to common actions performed by that application." Similar to what "tray icons" do on Windows.
 * [__DBusMenu protocol__](): Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export and import their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: "The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit." Possibly it has significantly evolved since then? According to [__@ximion__](https://github.com/ximion), DBusMenu is a spec that transfers menus to status notifiers, and in combination with `com.canonical.AppMenu.Registrar` can be used for global menus.
-* [__org.gtk.Menus interface__](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus): An interface defined by Gnome that "is primarily concerned with three things: communicating menus to the client, establishing links between menus and other menus, and notifying clients of changes". Note that "To do so, it employs a number of D-Bus interfaces. These interfaces are currently considered private implementation details of GApplication and subject to change - therefore they are not documented in the GIO documentation." ([Source](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus)). __How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?__ According to [__@ximion__](https://github.com/ximion), the `org.gtk.Menus` interface has nothing to do with DBusMenu and was only for the Gnome Shell global menu (deprecated in Gnome).  __Why was it deprecated in Gnome Shell and what is the replacement?__
-* [__com.canonical.AppMenu.Registrar D-Bus Service__](): `com.canonical.AppMenu.Registrar`, an interface to register a menu from an application's window to be displayed in another window.  This manages that association between XWindow Window IDs and the dbus address and object that provides the menu using the dbusmenu dbus interface. ([Source](https://github.com/KDE/plasma-workspace/blob/master/appmenu/com.canonical.AppMenu.Registrar.xml)). "Appmenu registrar allows other applications to access any active window's application menu tree. Such a registrar is extremely useful for, e.g. implementing global menus (application menus appear in the top panel bar of the desktop environment, and for adding an application menu browser or search engine to HUDs" ([Source](https://packages.debian.org/buster/appmenu-registrar)). __How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?__
+* [__org.gtk.Menus interface__](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus): An interface defined by Gnome that "is primarily concerned with three things: communicating menus to the client, establishing links between menus and other menus, and notifying clients of changes". Note that "To do so, it employs a number of D-Bus interfaces. These interfaces are currently considered private implementation details of GApplication and subject to change - therefore they are not documented in the GIO documentation." ([Source](https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus)). __How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?__ According to [__@ximion__](https://github.com/ximion), the `org.gtk.Menus` interface has nothing to do with DBusMenu and was only for the Gnome Shell global menu (deprecated in Gnome). It is deprecated in Gnome Shell only, but it still used in Gtk 4.12. GNOME wants to remove a concept of menu from their apps.
+* [__com.canonical.AppMenu.Registrar D-Bus Service__](): `com.canonical.AppMenu.Registrar`, an interface to register a menu from an application's window to be displayed in another window.  This manages that association between XWindow Window IDs and the dbus address and object that provides the menu using the dbusmenu dbus interface. ([Source](https://github.com/KDE/plasma-workspace/blob/master/appmenu/com.canonical.AppMenu.Registrar.xml)). "Appmenu registrar allows other applications to access any active window's application menu tree. Such a registrar is extremely useful for, e.g. implementing global menus (application menus appear in the top panel bar of the desktop environment, and for adding an application menu browser or search engine to HUDs" ([Source](https://packages.debian.org/buster/appmenu-registrar)). It serves as a central point of storing of registered menus and its mapping to windows (on X11, it is usually an X11 Window Number, I do not designed registrar for Wayland). If we need to work over DBus protocol
 * [__org/appmenu D-Bus Methods__](): tbd
-* [__org.kde.plasma.gmenu_dbusmenu_proxy D-Bus service__](): tbd. Translates Gtk menus to KDE-style menus?
+* [__org.kde.plasma.gmenu_dbusmenu_proxy D-Bus service__](): Translates o`org.gtk.Menus` menus to `com.canonical.dbusmenu` menus, because Qt and KDE can use only the latter.
 
 ### Implementations
 
@@ -43,7 +43,7 @@ Those may or may not be used in helloSystem, they are mentioned here to give an 
 * [__dbusmenu__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical implementing the transport protocol between the applications and the panel
 * [__libappindicator__](https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture): Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. Needed for some applications (e.g., screenkey) to show icons in the upper right hand corner of the menu (system tray/notification area). The same as [`indicator-application`](https://launchpad.net/indicator-application)? According to @sunweaver, libappindicator is unmaintained as of late 2022 and [libayatana-appindicator](https://github.com/AyatanaIndicators/libayatana-appindicator) is the current upstream
 * [__MenuModel__](): Used by Gtk
-* [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans and the JetBrains suite of IDEs)
+* [__JAyatana__](): Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans). JetBrains now supports Global Menus without JAyatana.
 * [__Airyx DBusKit__](https://github.com/mszoek/airyx/tree/main/DBusKit): Airyx DBusKit implements a subset of D-Bus needed to support sending menus of **AppKit** applications to the global menu bar
 * [__GNUstep libs-dbuskit__](https://github.com/gnustep/libs-dbuskit): The DBusKit framework provides GNUstep Objective-C applications with bindings for the D-Bus inter-process communication system
 
@@ -70,7 +70,7 @@ Please consider submitting issues and pull requests if you can contribute to thi
 * Description: A library to allow applications to export a menu into the Unity Menu bar. Based on KSNI it also works in KDE and will fallback to generic Systray support if none of those are available.
 * Bugtracker: https://launchpad.net/libappindicator
 * Purpose: Needed for some applications (e.g., `screenkey`) to show icons in the upper right hand corner of the menu (system tray/notification area)
-* Theory of operation: tbd
+* Theory of operation: operated on DBusMenu protocol, and it used by some programs to implement StatusNotifier tray.
 * Status: active
 * Issues: tbd
 * Installed by package: `libappindicator`
@@ -89,15 +89,14 @@ Desktop Environment, but it lives on as part of the Vala project.
 * Purpose: Make Gtk applications export their menus to a global menu bar
 * Theory of operation: Gtk module that strips menus from all Gtk
 programs, converts to them MenuModel and send to them AppMenu
-(sometimes called a global menu bar). `unity-gtk-module` is used as a backend, and thus must also be installed
+(sometimes called a global menu bar). It was a fork of `unity-gtk-module`, but now it is completely separate.
 * Status: active
-* Issues: Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity get shown in the global menu bar. Supposedly used by Firefox and Chrome. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work"
+* Issues: Only if `GTK_MODULES=appmenu-gtk-module` is exported the menus in e.g. Audacity get shown in the global menu bar. Supposedly used by Chrome. Upstream documentation [advises](https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions) "Install `libdbusmenu-glib libdbusmenu-gtk3 libdbusmenu-gtk2` to get Chromium/Google Chrome to work". Firefox can use Global Menu only if built with Ubuntu patches. If not - there is no possibility to use Global Menu in Firefox.
 * Installed by package: `appmenu-gtk-module`
 
 ### unity-gtk-module
 
-Currently __not__ used in helloSystem. Do we need it?
-
+If you use `appmenu-gtk-module`, then you do not need this, because `appmenu-gtk-module` has same fuctionality.
 :::{note}
 tbd
 :::
@@ -245,8 +244,8 @@ information to be displayed to users of the application through the interface sh
 
 ## Files involved
 
-* `/usr/local/share/dbus-1/interfaces/com.canonical.AppMenu.Registrar.xml` (comes with the `plasma5-plasma-workspace` package). Unclear whether it is needed for the correct functioning of Global Menus (or for some applications to detect that they are running on a system that is capable of displaying them). Unclear what it is needed for. Unclear how multiple packages could provide this file (if more than one package is installed on the system that contains an application that can display the Global Menu).
-* `com.canonical.dbusmenu.xml` (Is it needed? What for?)
+* `/usr/local/share/dbus-1/interfaces/com.canonical.AppMenu.Registrar.xml` (comes with the `plasma5-plasma-workspace` package). It is needed for the correct functioning of Global Menus - it is served as main point of storing dictionary (keyed by XWindow) of a `com.canonical.dbusmenu` object. It is needed for all applications using that protocol. There should be only one registrar running, but installed - as many of you want. 
+* `com.canonical.dbusmenu.xml` - it is a reference XML of Canonical DBusMenu protocol, used by StatusNotifier trays and by Qt applications with Global Menu.
 
 ## Environment variables involved
 
@@ -384,8 +383,7 @@ Please consider submitting issues and pull requests if you can contribute to thi
 * We see `_KDE_NET_WM_APPMENU_OBJECT_PATH(STRING) = "/MenuBar/1"` and `_KDE_NET_WM_APPMENU_SERVICE_NAME(STRING) = ":1.59"` (actual numbers might be different from this example)
 * Open Qt 5 D-Bus Viewer
 * Under "Services", click on ":1:59", under "Methods", click on "MenuBar/", "1/"
-* __Then what? How can one get the actual menus?__
-* Which standards/specifications is this following? Is this documented somewhere?
+* KDE follows `com.canonical.dbusmenu` protocol, you can see its definition in XML file mentioned earlier.
 
 ### Getting the menus for a Gtk application
 
@@ -396,7 +394,7 @@ Please consider submitting issues and pull requests if you can contribute to thi
 * Under "Services", click on "org.gimp.GIMP.UI", under "Methods", click on "org/", "appmenu/", "gtk/", "window/", "0/", "org.gtk.Actions/", "Method: DescribeAll"
 * __Qt 5 D-Bus Viewer crashes__
 * __Then what? How can one get the actual menus?__
-* Which standards/specifications is this following? Is this documented somewhere?
+* GTK applications followed `org.gtk.Menus` and `org.gtk.Actions` protocol, you can see how it works inside KDE's gmenu-dbusmenu-proxy.
 
 ## Limitations
 
@@ -412,3 +410,4 @@ Please consider contributing ideas and code if you are interested in this topic.
 
 * [Fildem](https://github.com/gonzaarcr/Fildem) for GNOME
 * [CutefishOS](https://twitter.com/cutefishos/status/1401420887568441345)
+* [vala-panel-appmenu](https://gitlab.com/vala-panel-project/vala-panel-appmenu) for XFCE and MATE.
