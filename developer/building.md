@@ -22,7 +22,7 @@ However, it is also possible to build the ISO locally, which is especially handy
 ## Building the Live ISO
 
 ```console
-$ sudo pkg install -y pkg git-lite zsync wget bash zip devel/py-xdg librsvg2 ca_root_nss
+$ sudo pkg install -y pkg git zsync wget bash zip devel/py-xdg librsvg2 ca_root_nss
 $ git clone https://github.com/helloSystem/ISO
 $ cd ISO
 $ sudo ./build.sh hello
