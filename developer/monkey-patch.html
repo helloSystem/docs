@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monkey Patching &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tracing with DTrace/dtruss" href="tracing.html" />
+    <link rel="prev" title="Building the Live ISO" href="building.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Monkey Patching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#theory-of-operation">Theory of operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-monkey-patch-volume">Creating the monkey patch volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#booting-a-live-iso-applying-the-monkey-patch-on-the-fly">Booting a Live ISO applying the monkey patch on-the-fly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-monkeypatch-sh-file">Example <code class="docutils literal notranslate"><span class="pre">monkeypatch.sh</span></code> file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#booting-a-live-iso-running-a-different-init-script">Booting a Live ISO running a different <code class="docutils literal notranslate"><span class="pre">init_script</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Monkey Patching</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/monkey-patch.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="monkey-patching">
+<h1>Monkey Patching<a class="headerlink" href="#monkey-patching" title="Permalink to this heading"></a></h1>
+<p>Starting with helloSystem 0.7.0 it is possible to <a class="reference external" href="https://en.wikipedia.org/wiki/Monkey_patch">monkey patch</a> the running Live ISO as early in the boot process as possible so that developers can make changes to all aspects of an existing Live ISO without having to re-create it and without having to write the ISO to a device each time a change is to be tested.</p>
+<p>With that, it allows for a very rapid development-test cycle for Live ISOs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is currently under active development and its usage is still subject to change.</p>
+</div>
+<div class="section" id="theory-of-operation">
+<h2>Theory of operation<a class="headerlink" href="#theory-of-operation" title="Permalink to this heading"></a></h2>
+<p>Since an ISO file is read-only by design, the monkey patch feature allows to insert code into the early boot process from another loacation, e.g., from a USB stick.</p>
+<p>If the user tells the system to perform the monkey patching, the early boot scripts in helloSystem execute code provided by the user (outside of the ISO), then continues the normal boot process.</p>
+</div>
+<div class="section" id="creating-the-monkey-patch-volume">
+<h2>Creating the monkey patch volume<a class="headerlink" href="#creating-the-monkey-patch-volume" title="Permalink to this heading"></a></h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/2480569/141862072-250f4d58-b5a5-4857-9bd0-70651690796e.png" /></p>
+<ul class="simple">
+<li><p>Format a USB stick with the FAT32 (<code class="docutils literal notranslate"><span class="pre">msdosfs</span></code>) file system</p></li>
+<li><p>The volume must have the name (“filesystem label”) <code class="docutils literal notranslate"><span class="pre">MONKEYPATCH</span></code></p></li>
+<li><p>There must be a <code class="docutils literal notranslate"><span class="pre">monkeypatch.sh</span></code> file that will be run by <code class="docutils literal notranslate"><span class="pre">#!/bin/sh</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="booting-a-live-iso-applying-the-monkey-patch-on-the-fly">
+<h2>Booting a Live ISO applying the monkey patch on-the-fly<a class="headerlink" href="#booting-a-live-iso-applying-the-monkey-patch-on-the-fly" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Boot the ISO but interrupt the bootloader by pressing the Esc key</p></li>
+<li><p>At the boot prompt, enter: <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">monkey_patch=YES</span></code></p></li>
+<li><p>Optionally, use <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">BOOT_MUTE</span></code> so that you can see messages on the screen during boot</p></li>
+<li><p>Start the system by entering <code class="docutils literal notranslate"><span class="pre">boot</span></code></p></li>
+</ul>
+<p>The code inside the file <code class="docutils literal notranslate"><span class="pre">monkeypatch.sh</span></code> on the volume called <code class="docutils literal notranslate"><span class="pre">MONKEYPATCH</span></code> will be executed before <code class="docutils literal notranslate"><span class="pre">/sbin/init</span></code> on the Live ISO is started but after most areas of the ISO have been made writable by <code class="docutils literal notranslate"><span class="pre">/boot/init_script</span></code>.</p>
+</div>
+<div class="section" id="example-monkeypatch-sh-file">
+<h2>Example <code class="docutils literal notranslate"><span class="pre">monkeypatch.sh</span></code> file<a class="headerlink" href="#example-monkeypatch-sh-file" title="Permalink to this heading"></a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="c1"># Write a file</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HELLO MONKEY&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/MONKEY_WAS_HERE
+
+<span class="c1"># Patch something on the ISO</span>
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|\&amp;\&amp; __wait 3|\&amp;\&amp; sync|g&#39;</span><span class="w"> </span>/etc/rc.d/initgfx
+
+<span class="c1"># Show a message if the system is booted without `boot_mute`</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HELLO DEVELOPERS&quot;</span>
+
+<span class="c1"># Show a message to users in the boot process</span>
+<span class="c1"># This should be done only in rare cases since it destroys</span>
+<span class="c1"># the helloSystem zero-text boot experience</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HELLO MERE MORTALS&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/console
+
+<span class="c1"># Give users a chance to see the message</span>
+sleep<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># Override a file in the running system from the MONKEYPATCH volume</span>
+<span class="nv">HERE</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>dirname<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">0</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+cp<span class="w"> </span><span class="si">${</span><span class="nv">HERE</span><span class="si">}</span>/mount_md<span class="w"> </span>/usr/local/sbin/mount_md
+chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/sbin/mount_md
+</pre></div>
+</div>
+<p>A particularly effective way to debug the late boot process (after Xorg has started) is:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mv<span class="w"> </span>/usr/local/bin/start-hello<span class="w"> </span>/usr/local/bin/start-hello.real
+$<span class="w"> </span>cat<span class="w"> </span>&gt;<span class="w"> </span>/usr/local/bin/start-hello<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">#!/bin/sh</span>
+
+<span class="s">xterm -maximized start-hello.real</span>
+<span class="s"># xterm -maximized</span>
+<span class="s">EOF</span>
+$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/start-hello*
+</pre></div>
+</div>
+<p>This will allow you to see the commands in <code class="docutils literal notranslate"><span class="pre">start-hello.real</span></code> as they are executed.</p>
+</div>
+<div class="section" id="booting-a-live-iso-running-a-different-init-script">
+<h2>Booting a Live ISO running a different <code class="docutils literal notranslate"><span class="pre">init_script</span></code><a class="headerlink" href="#booting-a-live-iso-running-a-different-init-script" title="Permalink to this heading"></a></h2>
+<p>If you would like to test changes to <code class="file docutils literal notranslate"><span class="pre">/boot/init_script</span></code> on the ISO without having to re-create it and without having to write the ISO to a device, you can use the <code class="docutils literal notranslate"><span class="pre">monkey_patch_init_script</span></code> feature:</p>
+<ul class="simple">
+<li><p>Boot the ISO but interrupt the bootloader by pressing the <kbd class="kbd docutils literal notranslate">Esc</kbd> key</p></li>
+<li><p>At the boot prompt, enter: <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">monkey_patch_init_script=YES</span></code></p></li>
+<li><p>Optionally, use <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">BOOT_MUTE</span></code> so that you can see messages on the screen during boot</p></li>
+<li><p>Start the system by entering <code class="docutils literal notranslate"><span class="pre">boot</span></code></p></li>
+</ul>
+<p>The code inside the file <code class="docutils literal notranslate"><span class="pre">init_script</span></code> on the volume called <code class="docutils literal notranslate"><span class="pre">MONKEYPATCH</span></code> will be executed instead of <code class="file docutils literal notranslate"><span class="pre">/boot/init_script</span></code> on the ISO.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="building.html" class="btn btn-neutral float-left" title="Building the Live ISO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tracing.html" class="btn btn-neutral float-right" title="Tracing with DTrace/dtruss" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

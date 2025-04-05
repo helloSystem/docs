@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIDI &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Specifications" href="specifications.html" />
+    <link rel="prev" title="Developer Tools" href="developer-tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MIDI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-dev-umidi">Using /dev/umidi*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-application">Example application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-oss-raw-midi-open-sound-system">Using OSS Raw-MIDI (Open Sound System)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Example application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-alsa-seq-server">Using alsa-seq-server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Example application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MIDI</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/midi.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="midi">
+<h1>MIDI<a class="headerlink" href="#midi" title="Permalink to this heading"></a></h1>
+<p>Over a decade ago, someone <a class="reference external" href="https://forums.freebsd.org/threads/alsa-midi-is-the-key-to-serious-musicproduction.22722/#post-158077">wrote</a> on the FreeBSD forum:</p>
+<blockquote>
+<div><p>The main problem with anything midi and jack (in fact anything more complex than using simple audio in or audio out) under FreeBSD, is that I haven’t found out how to configure things. A complete writeup (for a non-musician) about how to configure a system which use jack would be nice.</p>
+</div></blockquote>
+<p>This page describes how to use USB based hardware MIDI controllers (e.g., keyboards), with helloSystem and FreeBSD.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is a work in progress. Please consider contributing additions and corrections.</p>
+</div>
+<div class="section" id="using-dev-umidi">
+<h2>Using /dev/umidi*<a class="headerlink" href="#using-dev-umidi" title="Permalink to this heading"></a></h2>
+<p>Whenever a USB based hardware MIDI controller is plugged into the computer, a <code class="file docutils literal notranslate"><span class="pre">/dev/umidi*</span></code> device node is created automatically.</p>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h3>
+<p>To test whether input from the MIDI controller arrives, run in a Terminal window:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>midicat<span class="w"> </span>-d<span class="w"> </span>-q<span class="w"> </span>rmidi/0.0<span class="w"> </span>-o<span class="w"> </span>/dev/null
+</pre></div>
+</div>
+<p>As you play some notes on the MIDI controller, you should see MIDI messages appear on the screen. After verifying that this works, exit <code class="docutils literal notranslate"><span class="pre">midicat</span></code>.</p>
+<p>Some applications can use <code class="file docutils literal notranslate"><span class="pre">/dev/umidi*</span></code> device nodes directly. Some expect the device node to be at <code class="file docutils literal notranslate"><span class="pre">/dev/midi</span></code> though, so you need to create a symlink there manually.</p>
+</div>
+<div class="section" id="example-application">
+<h3>Example application<a class="headerlink" href="#example-application" title="Permalink to this heading"></a></h3>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">fluidsynth</span></code> command line tool, can use hardware MIDI controllers in this way directly:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>fluidsynth<span class="w"> </span>musescore
+<span class="gp">$ </span>sudo<span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>/dev/umidi*.0<span class="w"> </span>/dev/midi
+<span class="gp">$ </span>fluidsynth<span class="w"> </span>-m<span class="w"> </span>oss<span class="w"> </span>-a<span class="w"> </span>oss<span class="w"> </span>SoundFont.sf2
+</pre></div>
+</div>
+<p>Unfortunately, not all applications on FreeBSD can use <code class="file docutils literal notranslate"><span class="pre">/dev/umidi*</span></code> device nodes directly in this way. Hence there are other methods to access MIDI controllers. which one you need to use depends on what methods the application in question supports.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Applications cannot access /dev/umidi* directly while alsa-seq-server is running.</p>
+</div>
+</div>
+</div>
+<div class="section" id="using-oss-raw-midi-open-sound-system">
+<h2>Using OSS Raw-MIDI (Open Sound System)<a class="headerlink" href="#using-oss-raw-midi-open-sound-system" title="Permalink to this heading"></a></h2>
+<p>Supposedly applications can use “OSS Raw-MIDI (Open Sound System)” to talk to MIDI controllers.</p>
+<div class="section" id="id1">
+<h3>Testing<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>Please let us know if you know how this works.</p>
+</div>
+<div class="section" id="id2">
+<h3>Example application<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p>The LMMS FreeBSD package offers “OSS Raw-MIDI (Open Sound System)” in the dropdown menu for the MIDI interface; however, it is not clear whether and how this works on FreeBSD. Please let us know if you know how this works.</p>
+</div>
+</div>
+<div class="section" id="using-alsa-seq-server">
+<h2>Using alsa-seq-server<a class="headerlink" href="#using-alsa-seq-server" title="Permalink to this heading"></a></h2>
+<p>Some applications can use <code class="docutils literal notranslate"><span class="pre">alsa-seq-server</span></code> to access MIDI controllers. For some applications, this support needs to be specifically enabled as a configuration option at compile time.</p>
+<p>In order for applications that use <code class="docutils literal notranslate"><span class="pre">alsa-seq-server</span></code> to talk to your MIDI controller, run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>alsa-seq-server<span class="w"> </span>alsa-utils
+<span class="gp">$ </span>sudo<span class="w"> </span>alsa-seq-server<span class="w"> </span>-d<span class="w"> </span>/dev/umidi*
+</pre></div>
+</div>
+<p>and then run the application.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>alsa-seq-server was recently updated so that one can run it as a service which will automatically make all MIDI devices available without having to run one instance per MIDI device. The change should appear in FreeBSD packages (and thus in helloSystem) starting in Q2/2022.</p>
+</div>
+<div class="section" id="id3">
+<h3>Testing<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>To test whether input from the MIDI controller arrives, run in a separate Terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>aseqdump<span class="w"> </span>-p<span class="w"> </span><span class="m">0</span>
+<span class="go">Waiting for data. Press Ctrl+C to end.</span>
+<span class="go">Source  Event                  Ch  Data</span>
+</pre></div>
+</div>
+<p>As you play some notes on the MIDI controller, you should see MIDI messages appear on the screen. After verifying that this works, exit <code class="docutils literal notranslate"><span class="pre">aseqdump</span></code>.</p>
+</div>
+<div class="section" id="id4">
+<h3>Example application<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p>An example application that can use <code class="docutils literal notranslate"><span class="pre">alsa-seq-server</span></code> to talk to MIDI controllers “out of the box” (without the need to recompile the application) is yet to be found in the FreeBSD Packages collection. Please let us know if you know one.</p>
+<p>Recompiling LMMS from FreeBSD Ports with the following change regarding <code class="docutils literal notranslate"><span class="pre">WANT_ALSA</span></code>  in the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> allows one to use <code class="docutils literal notranslate"><span class="pre">alsa-seq-server</span></code> to talk to MIDI controllers:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CMAKE_OFF=      WANT_CALF WANT_CAPS WANT_CMT WANT_SWH WANT_STK \
+                WANT_TAP WANT_VST
+CMAKE_ON=       WANT_QT5 WANT_ALSA
+</pre></div>
+</div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span> <span class="pre">;</span> <span class="pre">make</span> <span class="pre">config</span> <span class="pre">;</span> <span class="pre">make</span></code> to define which of the supported sound systems and MIDI interfaces will be available. LMMS can support the following MIDI interfaces on FreeBSD if it is configured accordingly at compile time: ALSA, OSS, Sndio, JACK. The ALSA one is known to work.</p>
+<p>To use it, select “ALSA-Sequencer (Advanced Linux Sound Architecture)” from the MIDI interface dropdown menu in the MIDI pane of the LMMS settings, restart ALSA, click on the gear icon e.g., in the TripleOscillator track, and select MIDI -&gt; Input -&gt; 0:0 (name of your USB device).</p>
+<p>If you see</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory</span>
+<span class="go">cannot open sequencer: No such file or directory</span>
+</pre></div>
+</div>
+<p>when you start LMMS, then most likely <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">alsa-seq-server</span> <span class="pre">-d</span> <span class="pre">/dev/umidi*</span></code> is not running (see above).</p>
+<p>Note that depending on the application, using <code class="docutils literal notranslate"><span class="pre">alsa-seq-server</span></code> for the MIDI interface does not automatically mean that you have to use ALSA as the sound system (e.g., for the output of the generated sound). For example, if LMMS has been configured at compile time to support SDL (Simple DirectMedia Layer), you could use SDL rather than ALSA for the sound output.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="developer-tools.html" class="btn btn-neutral float-left" title="Developer Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="specifications.html" class="btn btn-neutral float-right" title="Specifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

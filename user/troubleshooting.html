@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Providing feedback" href="feedback.html" />
+    <link rel="prev" title="Windows" href="components/windows.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Getting to know the system</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notable-issues">Notable issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#freebsd-logo-on-screen-for-more-than-five-minutes">FreeBSD logo on screen for more than five minutes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boot-stalls-with-black-screen">Boot stalls with black screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-prompt-no-desktop-environment"><code class="docutils literal notranslate"><span class="pre">login:</span></code> prompt, no desktop environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-application-issues">Debugging application issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-issues">Other issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/troubleshooting.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<div class="section" id="notable-issues">
+<h2>Notable issues<a class="headerlink" href="#notable-issues" title="Permalink to this heading"></a></h2>
+<div class="section" id="freebsd-logo-on-screen-for-more-than-five-minutes">
+<h3>FreeBSD logo on screen for more than five minutes<a class="headerlink" href="#freebsd-logo-on-screen-for-more-than-five-minutes" title="Permalink to this heading"></a></h3>
+<p>It can take up to five minutes to start the system in Live mode. If you see the FreeBSD logo on screen for more than five minutes, then something might be wrong and you might need to restart the computer.</p>
+<p>If – after five minutes – you’re reluctant to stop the computer, you can occasionally <a class="reference external" href="https://hellosystem.github.io/docs/developer/boot.html#seeing-what-the-system-is-doing-while-the-graphical-boot-screen-is-shown">key <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>-<kbd class="kbd docutils literal notranslate">T</kbd></kbd></a> to get some information about what the computer is doing. If there is no change from one snippet to the next, across three or more snippets, you may reasonably assume that the computer needs to be restarted.</p>
+<ul class="simple">
+<li><p>Please restart the computer. If normal use of the power button is not effective, press and hold.</p></li>
+<li><p>Then, please <a class="reference external" href="https://hellosystem.github.io/docs/developer/boot.html#boot-in-verbose-mode">start the computer in verbose mode</a> to see any relevant error messages that may help in resolving the issue.</p></li>
+</ul>
+</div>
+<div class="section" id="boot-stalls-with-black-screen">
+<h3>Boot stalls with black screen<a class="headerlink" href="#boot-stalls-with-black-screen" title="Permalink to this heading"></a></h3>
+<p>This means that Xorg has been started but for some reason the login manager <code class="docutils literal notranslate"><span class="pre">slim</span></code> or the helloDesktop startup script <code class="docutils literal notranslate"><span class="pre">start-hello</span></code> cannot run.</p>
+<ul class="simple">
+<li><p>Boot in verbose mode</p></li>
+<li><p>Press <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Alt</kbd>+<kbd class="kbd docutils literal notranslate">F2</kbd></kbd></p></li>
+<li><p>Log in</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">killall</span> <span class="pre">Xorg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">dbus</span> <span class="pre">restart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">slim</span> <span class="pre">restart</span></code></p></li>
+</ul>
+<p>If this does not work:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">killall</span> <span class="pre">Xorg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">startx</span></code></p></li>
+<li><p>In XTerm, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">liveuser</span></code> (or the username you chose)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start-hello</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="login-prompt-no-desktop-environment">
+<h3><code class="docutils literal notranslate"><span class="pre">login:</span></code> prompt, no desktop environment<a class="headerlink" href="#login-prompt-no-desktop-environment" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Please make sure that your computer has at least 4GB of RAM. helloSystem currently needs at least this amount to be started in Live mode.</p></li>
+<li><p>The graphics hardware in your computer may not yet, or not yet easily, be usable with helloSystem. Try with a different computer, or seek help.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="debugging-application-issues">
+<h2>Debugging application issues<a class="headerlink" href="#debugging-application-issues" title="Permalink to this heading"></a></h2>
+<p>When debugging application issues, it can be helpful to see what an application is actually doing. For example, if we are interested in which libraries with “menu” in their name <code class="docutils literal notranslate"><span class="pre">firefox</span></code> is loading, we can run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">LD_DEBUG</span><span class="o">=</span>libs<span class="w"> </span>firefox<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>menu
+</pre></div>
+</div>
+<p>Or, if we are interested in which activities with “menu” in their name <code class="docutils literal notranslate"><span class="pre">firefox</span></code> is doing, we can run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>sysctl<span class="w"> </span>security.bsd.unprivileged_proc_debug<span class="o">=</span><span class="m">1</span>
+<span class="gp">$ </span>truss<span class="w"> </span>firefox<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-e<span class="w"> </span>menu<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-issues">
+<h2>Other issues<a class="headerlink" href="#other-issues" title="Permalink to this heading"></a></h2>
+<p>Use the <em>Search or jump to…</em> field at the head of the main <a class="reference external" href="https://github.com/helloSystem/">https://github.com/helloSystem/</a> page – above the helloSystem logo. This special page allows an organisation-wide search, across all helloSystem repositories. Click in the field, then begin typing.</p>
+<p>If your issue is not already reported, you can create a new one.</p>
+</div>
+<div class="section" id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this heading"></a></h2>
+<p>Please participate in our <a class="reference external" href="https://github.com/helloSystem/hello/discussions">discussion forum</a> or <a class="reference external" href="https://hellosystem.github.io/docs/developer/contact.html">contact us</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="components/windows.html" class="btn btn-neutral float-left" title="Windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feedback.html" class="btn btn-neutral float-right" title="Providing feedback" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

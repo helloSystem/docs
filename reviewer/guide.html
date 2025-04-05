@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviewer Guide &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Experience Guidelines" href="../developer/ux-guidelines.html" />
+    <link rel="prev" title="Providing feedback" href="../user/feedback.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reviewer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#particularities">Particularities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support">Support</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reviewer Guide</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/reviewer/guide.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="reviewer-guide">
+<h1>Reviewer Guide<a class="headerlink" href="#reviewer-guide" title="Permalink to this heading"></a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>helloSystem is an open-source operating system that builds on FreeBSD as a rock solid foundation. Its goal is to provide a friendly, highly usable, and visually appealing system for desktop and notebook computers. The system is designed to be easy to use, efficient, with an emphasis on minimalism and simplicity.</p>
+<p>Its target audience are switchers from the Mac platform, to which it aims to provide an environment in which they can feel instantly at home.</p>
+<p>The purpose of this guide is to provide an overview of helloSystem, as well as to offer guidance on how to use the system’s features and capabilities. The guide includes information on system requirements, installation, user interface, features, performance, support options, and more. When reviewing helloSystem, try to look at it from a perspective of long-time Mac users, particularly those who are doing creative work like graphics, design, video editing, or 3D modeling and printing but who would like to do so using open source applications. This guide should provide you with a thorough understanding of the system and its functionality and should give you a starting point for your own exploration.</p>
+</div>
+<div class="section" id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this heading"></a></h2>
+<p>To run helloSystem, you will need a system that meets the following minimum requirements:</p>
+<ul class="simple">
+<li><p>64-bit x86 processor</p></li>
+<li><p>2 GB of RAM</p></li>
+<li><p>Dedicated storage device with at least 10 GB of available space</p></li>
+<li><p>Graphics card capable of 1024x768 resolution</p></li>
+</ul>
+<p>For optimal performance, we recommend the following:</p>
+<ul class="simple">
+<li><p>4 GB of RAM or more</p></li>
+<li><p>Dedicated SSD with at least 120 GB of available space</p></li>
+<li><p>Graphics card capable of 1920x1080 resolution or higher</p></li>
+</ul>
+<p>Please note that helloSystem is not currently available for computers with ARM-based processors, although there are build instructions for Raspberry Pi.</p>
+<p>When reviewing or benchmarking helloSystem, it is important to note that virtual machines may not provide an accurate representation of the system’s stability, feature set, and performance. Therefore, <strong>we recommend that reviewers use real hardware</strong> for these purposes. Running helloSystem on actual hardware will provide a more authentic experience and allow reviewers to test the system’s capabilities in a more realistic environment. Additionally, using real hardware will help to ensure that the system’s hardware support is properly evaluated. For these reasons, we strongly advise against conducting tests and benchmarks in a virtual environment, even though VirtualBox guest drivers are preinstalled.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>Installing helloSystem is a relatively straightforward process. Follow these steps to install helloSystem on your system:</p>
+<ol class="arabic simple">
+<li><p>Download the helloSystem ISO file from the helloSystem website.</p></li>
+<li><p>Burn the ISO file to a USB drive or DVD.</p></li>
+<li><p>Insert the USB drive or DVD into your computer and boot from it.</p></li>
+<li><p>Follow the on-screen instructions to install helloSystem.</p></li>
+</ol>
+<p>helloSystem is designed to be installed on a dedicated SSD, and for the sake of simplicity currently cannot be installed alongside other operating systems on the same disk. Additionally, if you are running helloSystem on a device with a UEFI firmware, you may need to disable Secure Boot in order to boot into helloSystem.</p>
+<p>If you encounter any issues during the installation process, please consult the helloSystem documentation or contact the <a class="reference external" href="https://github.com/helloSystem/hello/discussions/">helloSystem discussion forum</a> for assistance.</p>
+</div>
+<div class="section" id="user-interface">
+<h2>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this heading"></a></h2>
+<p>The six-part series on <a class="reference external" href="https://medium.com/&#64;probonopd/make-it-simple-linux-desktop-usability-part-1-5fa0fb369b42">Linux desktop usability</a> by helloSystem’s founder eventually lead to the design and development of helloSystem. The series explored aspects of  desktop usability, from user interface design to application packaging and distribution. The insights expressed in the series helped inform the design decisions behind helloSystem, with a focus on simplicity, ease of use, and discoverability. The intended result is a user-friendly and efficient operating system that is easy to use and customize, even for non-technical users.</p>
+<p>The helloSystem user interface is designed to be intuitive, functional, and discoverable, with a range of features and tools to meet the needs of both new and experienced users. Here are some key concepts:</p>
+<ul class="simple">
+<li><p><strong>Command key</strong> left to the spacebar: On systems with a Mac-style keyboard, the Command key is located to the left of the spacebar, which can be more comfortable for Mac users. When helloSystem is used with a PC keyboard, the Alt key functions as the Command key, being located in the same physical location on the keyboard.</p></li>
+<li><p><strong>Global menu bar</strong>: helloSystem features a global menu bar, which is a menu bar that is located at the top of the screen, rather than within the application window. This provides for a consistent user experience across applications, even if those applications are written in non-native frameworks such as Gtk or Electron.</p></li>
+<li><p><strong>Keyboard layout and language autodetection</strong>: When using a Mac or a <a class="reference external" href="https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/">Raspberry Pi Keyboard and Hub</a>, helloSystem will automatically detect the keyboard layout and language, removing the need to configure it manually.</p></li>
+<li><p><strong>Menu search and launcher</strong>: helloSystem includes a powerful menu search and launcher, which can be used to quickly find and launch applications, files, and menu commands. It is located in the top left corner of the global menu bar and can be a true productivity booster, as it allows the system to be operated virtually only by using the keyboard.</p></li>
+<li><p><strong>Application bundles</strong>: Applications on helloSystem are structured as self-contained bundles, which can be easily installed, removed, and updated.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">launch</span></code> command using a database</strong>: helloSystem uses a database to manage launch commands, rather than relying on traditional XDG desktop files, which will provide better functionality, e.g., for applications that can be freely moved around in the fileystem without the need to update <code class="docutils literal notranslate"><span class="pre">.desktop</span></code> files.</p></li>
+<li><p><strong>Source code editability</strong> for many Utilities: Many of the utilities included with helloSystem have their source code included and do not need to be compiled, making it easy for users to customize and contribute to the system. Right-click on an application icon and choose “Show Contents” to see and edit the source code.</p></li>
+</ul>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Resource efficiency</strong>: helloSystem is designed to be lightweight and efficient, with moderate resource usage, making it suitable for use on a range of hardware configurations. Compare the RAM usage to other similar systems.</p></li>
+<li><p><strong>Graphics and media support</strong>: helloSystem includes a range of appliactions and features designed to support graphics artists, designers, videographers, makers with 3D printers, and other creative professionals, without requiring them to think much about the operating system.</p></li>
+<li><p><strong>Under Construction</strong>: The “Under Construction” section of the menu provides access to various utilities and tools that are currently in development, and are looking for contributors to help bring them to completion. helloSystem does not hide its open source nature, and invites power users to join the development fun.</p></li>
+<li><p><strong>Zeroconf (mDNS-SD)</strong>: helloSystem makes use of this technology throughout the system to advertise and browse network resources, like servers, printers, and the like.</p></li>
+<li><p><strong>Create Live Media</strong> utility: helloSystem includes a tool for creating live media, which can be used to create a bootable USB or DVD to try helloSystem without installing it on your system. It can also burn the latest, frequently released, experimental ISO builds directly to USB sticks.</p></li>
+</ul>
+</div>
+<div class="section" id="particularities">
+<h2>Particularities<a class="headerlink" href="#particularities" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Please refer to the global menu bar at the top of the screen in helloSystem as the “Menu”, as those who have grown up using a Macintosh will likely feel right at home with this naming convention. Avoid terminology like “panel”, as the target audience of helloSystem may not be familiar with it. Similarly, please refer to the “desktop”, “documents”, and “folders” rather than the “wallpaper”, “files”, and “directories”.</p></li>
+<li><p>The file manager in helloSystem, Filer, is intentionally kept simple and is aspiring to grow into a truly <a class="reference external" href="https://arstechnica.com/gadgets/2003/04/finder/">spatial</a> file manager over time. Which means that every document and folder has one physical location on the screen, and one location only. When opening an empty folder, it will show a blank window. This is because there is nothing to display in an empty folder, much like how a text editor shows a blank window when opening a new text file.</p></li>
+<li><p>helloSystem uses black text on white background. With the intoduction of modern graphical user interfaces, black text on white background (like paper, “WYSIWYG”) was a revelation compared to the amber or green screens of MS-DOS PCs.</p></li>
+<li><p>In helloSystem, there is no concept of “launchers.” Instead, it uses symlinks to applications, which can be created by dragging and dropping an application from its folder to the desktop. Keep in mind that helloSystem aims to keep things simple and straightforward for switchers from the Mac, who don’t have conceptions of “launchers”.</p></li>
+<li><p>The Dock is not used by default in helloSystem, although it is still available in <code class="docutils literal notranslate"><span class="pre">/System</span></code> for those who really need it. While the Dock was a later addition to the Mac OS X experience, helloSystem allows users to switch between applications like on Classic systems, saving precious screen real estate at the bottom of the screen.</p></li>
+<li><p>In helloSystem, there is no unified control panel. Instead, there are individual preferences applications located in <code class="docutils literal notranslate"><span class="pre">/Applications/Preferences</span></code>. This is simpler and more similar to the control panels found in System 7.</p></li>
+</ul>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this heading"></a></h2>
+<p>helloSystem is a community-driven project. If you encounter any issues or have questions about helloSystem, there are several resources available to help you get support and connect with the community:</p>
+<ul class="simple">
+<li><p><strong>Official website</strong>: The helloSystem website (https://hellosystem.github.io/) provides a range of resources and information about the operating system, including documentation for users and for developers.</p></li>
+<li><p><strong>Issue tracker</strong>: If you encounter a bug or have an issue with helloSystem, please submit a report to the issue tracker (https://github.com/helloSystem/ISO/issues) on the project’s GitHub page. This is a great way to get help and connect with the development team and the broader helloSystem community.</p></li>
+<li><p><strong>Discussions</strong>: The helloSystem forum (https://github.com/helloSystem/hello/discussions/) provides a platform for users to connect with each other and discuss topics related to helloSystem, including troubleshooting, brainstorming, and development.</p></li>
+<li><p><strong>IRC channel</strong>: For more immediate assistance, you can join the helloSystem IRC channel (<code class="docutils literal notranslate"><span class="pre">#hellosystem</span></code>) on the <a class="reference external" href="https://libera.chat/">Libera.Chat</a> network. This is a great way to connect with other users and developers in real time. Please stay in the channel for several days, as many contributors cannot be there 24/7.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user/feedback.html" class="btn btn-neutral float-left" title="Providing feedback" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../developer/ux-guidelines.html" class="btn btn-neutral float-right" title="User Experience Guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

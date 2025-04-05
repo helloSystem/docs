@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Boot process" href="boot.html" />
+    <link rel="prev" title="User Experience Guidelines" href="ux-guidelines.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#frameworks">Frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#desktop-components">Desktop components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filer">Filer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menu">Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dock">Dock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-command"><code class="docutils literal notranslate"><span class="pre">launch</span></code> command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipc-mechanism-for-the-desktop">IPC mechanism for the desktop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilities">Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preferences">Preferences</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/architecture.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h1>
+<p>helloSystem is designed with simplicity in mind. Less, but better. This page describes key elements of the hello desktop. To begin with, everything should be welcoming for Mac users but 10x as simple.</p>
+<div class="section" id="frameworks">
+<h2>Frameworks<a class="headerlink" href="#frameworks" title="Permalink to this heading"></a></h2>
+<p>In order of preference:</p>
+<ul class="simple">
+<li><p>PyQt</p></li>
+<li><p>Qml</p></li>
+<li><p>Qt</p></li>
+<li><p>Kf5 components where absolutely needed</p></li>
+<li><p>Everything else</p></li>
+<li><p>Gtk</p></li>
+</ul>
+<p>Rationale: Most cross real-world productivity applications are written cross-platform and this often means Qt. Hence, to provide the best possible environment for those applications, we choose Qt for now. Philosophically, we would prefer to use something BSD licensed (or similar), such as FyneDesk, but in its current state it cannot yet provide the same truly native experience for existing Qt applications. (Maybe it helps to think of Qt as the “Carbon of hello”, whereas something else will eventually become the “Cocoa of hello”.)</p>
+</div>
+<div class="section" id="desktop-components">
+<h2>Desktop components<a class="headerlink" href="#desktop-components" title="Permalink to this heading"></a></h2>
+<p>The minimum number of components viable to produce an efficient desktop should be used. Each component should be as simple as possible, and have as few dependencies as possible (besides the ones that are central to the hello Desktop, such as Qt and PyQt). Outside dependencies that are closely tied to other outside components should be avoided. XDG specifications are considered overly complex but insufficient and should be avoided, but may be acceptable as legacy technology for compatibility reasons.</p>
+<div class="section" id="filer">
+<h3>Filer<a class="headerlink" href="#filer" title="Permalink to this heading"></a></h3>
+<p>File manager that can handle (simplified) <code class="docutils literal notranslate"><span class="pre">.app</span></code> and <code class="docutils literal notranslate"><span class="pre">.AppDir</span></code> bundles</p>
+</div>
+<div class="section" id="menu">
+<h3>Menu<a class="headerlink" href="#menu" title="Permalink to this heading"></a></h3>
+<p>Global menu bar that displays the System menu for system-wide commands (such as ‘About this Computer’), and the active application’s menus. It also contains a search box to search in the menus.</p>
+</div>
+<div class="section" id="dock">
+<h3>Dock<a class="headerlink" href="#dock" title="Permalink to this heading"></a></h3>
+<p>A Dock that shows icons for running and pinned applications. (In the future it should also get an animated icon as a launching indicator for applications that are being launched but are not yet showing a window.)</p>
+</div>
+<div class="section" id="launch-command">
+<h3><code class="docutils literal notranslate"><span class="pre">launch</span></code> command<a class="headerlink" href="#launch-command" title="Permalink to this heading"></a></h3>
+<p>The <strong class="command">launch</strong> command is used to launch applications without specifying a path to them.</p>
+<p>The <strong class="command">launch</strong> command is expected to determine the preferred instance of an application with the given name. (The <strong class="command">launch</strong> command is supposed to find the <em>preferred</em> instance, e.g., the one with the highest version, the one last put onto the system, etc.) Eventually the <strong class="command">launch</strong> command should also gain knowledge of which application to open a file with.</p>
+<p>Filer is supposed to launch all applications through the <strong class="command">launch</strong> command. Shell scripts, <code class="docutils literal notranslate"><span class="pre">.desktop</span></code> files, etc. should be written to use the <strong class="command">launch</strong> command rather than hardcoding paths to applications, where appropriate.</p>
+<p>If an application cannot be launched, the <strong class="command">launch</strong> command shall give a localized, understandable clear-text error message and offer a solution if possible; fall back to the console output of the application that could not be launched.
+When beginning to launch an application, the <strong class="command">launch</strong> command shall notify the Dock via some IPC mechanism (ideally something <em>much</em> simpler than the convoluted D-Bus) about the icon and name of the application about to be launched, so that the Dock can start a launch animation until the application is showing its first window).</p>
+</div>
+<div class="section" id="ipc-mechanism-for-the-desktop">
+<h3>IPC mechanism for the desktop<a class="headerlink" href="#ipc-mechanism-for-the-desktop" title="Permalink to this heading"></a></h3>
+<p>A very simple IPC mechanism should be introduced for the desktop components to talk to each other. A lightweight, standard publish/subscribe mechanism should be identified; <em>possibly</em> something like MQTT (which would have the added benefit of allowing for network-wide communication). In the meantime, the use of D-Bus as a legacy technology may be acceptable (even though it is considered obscure, convoluted, and closely linked with various other Red Hat technologies.)</p>
+</div>
+<div class="section" id="applications">
+<h3>Applications<a class="headerlink" href="#applications" title="Permalink to this heading"></a></h3>
+<p>Applications must not need to be installed. Simply downloading them, attaching an external drive containing them, or connecting to a network share containing them must be sufficient. Multiple versions of the same application must be able to co-exist. The <strong class="command">launch</strong> command is responsible to determine which one to use in cases where the user did not explicitly launch a specific instance by double-clicking it.</p>
+<p>Custom-written applications should come as Application bundles whenever possible. It is acceptable for pre-existing applications to come with legacy XDG desktop files instead.</p>
+</div>
+<div class="section" id="utilities">
+<h3>Utilities<a class="headerlink" href="#utilities" title="Permalink to this heading"></a></h3>
+<p>The system should come with some commonly used utilities, such as a Terminal application, a Process Monitor application, etc. These are just regular applications inside a ‘Utilities’ subdirectory. It is acceptable for pre-existing applications, preferably written in Qt.</p>
+</div>
+<div class="section" id="preferences">
+<h3>Preferences<a class="headerlink" href="#preferences" title="Permalink to this heading"></a></h3>
+<p>The system should come with some commonly used preference panels, such as for configuring the system language, OpenZFS Boot Environments, etc. These are just regular applications inside a ‘Preferences’ subdirectory. These should be super simple, “minimal viable” applications. It is expected that many will need to be written from scratch, but it is acceptable to re-use pre-existing applications, preferably written in Qt.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ux-guidelines.html" class="btn btn-neutral float-left" title="User Experience Guidelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="boot.html" class="btn btn-neutral float-right" title="Boot process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

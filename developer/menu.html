@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Menu &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extending Filer context menus" href="filer-context-menus.html" />
+    <link rel="prev" title="Application Bundles" href="application-bundles.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Global Menu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#concepts">Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apis">APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#libraries-involved">Libraries involved</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#libappindicator">libappindicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libappmenu-gtk-module-library-from-vala-panel-appmenu-repository">libappmenu-gtk-module library from vala-panel-appmenu repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unity-gtk-module">unity-gtk-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libappmenu-gtk2-parser-and-libappmenu-gtk3-parser">libappmenu-gtk2-parser and libappmenu-gtk3-parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libdbusmenu-glib">libdbusmenu-glib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libdbusmenu-gtk3">libdbusmenu-gtk3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libdbusmenu-qt5">libdbusmenu-qt5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kf5-appmenu-plugin">Kf5 Appmenu Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kf5-plasma-applet-appmenu-plugin">Kf5 Plasma Applet Appmenu Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kf5-plasma-private-libappmenuplugin">Kf5 Plasma Private libappmenuplugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wxgtk-libwx-gtk3u-core">wxGtk libwx_gtk3u_core</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#files-involved">Files involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables-involved">Environment variables involved</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gtk-modules-appmenu-gtk-module">GTK_MODULES=appmenu-gtk-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu-menuproxy">UBUNTU_MENUPROXY</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#executables-involved">Executables involved</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chromium-chrome">Chromium, Chrome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patches-needed-for-firefox-and-thunderbird">Patches needed for Firefox and Thunderbird</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmenu-dbusmenu-proxy">GMenu-DBusMenu-Proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-with-qt-5-d-bus-viewer">Debugging with Qt 5 D-Bus Viewer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-menus-for-a-qt-application-knowing-the-xorg-window-id">Getting the menus for a Qt application knowing the Xorg window ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-menus-for-a-gtk-application">Getting the menus for a Gtk application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementations-for-other-desktop-systems">Implementations for other desktop systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Global Menu</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/menu.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="global-menu">
+<h1>Global Menu<a class="headerlink" href="#global-menu" title="Permalink to this heading"></a></h1>
+<p>helloSystem intends to provide a unified user experience for all applications regardless of toolkit being used by application developers.</p>
+<p>To provide this unified user experience, it is crucial that all applications can show their commands in the system-wide global menu.</p>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consistent, up-to-date documentation regarding the subject of global menus is hard to find.</p>
+<p>Please consider submitting issues and pull requests if you can contribute to this subject.</p>
+</div>
+<div class="section" id="concepts">
+<h3>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Global menu bar</strong>: A concept in user interface design where a system-wide widget on the screen displays the menu items (also known as “actions” in Qt) for all applications</p></li>
+<li><p><a class="reference external" href="https://github.com/helloSystem/Menu/"><strong>Menu</strong></a>: The application in helloSystem that shows the global menubar</p></li>
+<li><p><a class="reference external" href="https://wiki.ubuntu.com/CustomStatusMenuDesignGuidelines"><strong>Status Menu</strong></a>: The term used by Canonical to describe the icons in the upper-right corner of the screen that are usually used for long-running background processes</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Notification_area"><strong>System Tray</strong> = <strong>Notification Area</strong></a>: The term that describes the icons on the bottom-right corner of the screen on Windows</p></li>
+<li><p><a class="reference external" href="https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators"><strong>Application (Panel) Indicators</strong></a>: Another term used by Canonical to describe <strong>Status Menus</strong>?</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>Status Notifiers</strong></span></a>: tbd</p></li>
+</ul>
+</div>
+<div class="section" id="apis">
+<h3>APIs<a class="headerlink" href="#apis" title="Permalink to this heading"></a></h3>
+<p>APIs can be described in specifications, protocols, and interfaces.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.freedesktop.org/wiki/Specifications/StatusNotifierItem/"><strong>StatusNotifierItem spec</strong></a>: “This specification defines the management of visual items, usually icons used for reporting the status of an application to the user or provide a quick access to common actions performed by that application.” Similar to what “tray icons” do on Windows.</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>DBusMenu protocol</strong></span></a>: Protocol for which implementations exist for Glib, Gtk, Qt (starting with Qt 2). Applications can export and import their menus (question: only indicators or all menus?) using this protocol. The specification used to be at https://people.canonical.com/~agateau/dbusmenu/spec/index.html but the link is dead as of 2020. On https://agateau.com/2009/statusnotifieritem-and-dbusmenu/ it is described as: “The goal of DBusMenu is to make it possible for applications using the StatusNotifierItem spec to send their menus over DBus, so that the workspace can display them in a consistent way, regardless of whether the application is written using Qt, GTK or another toolkit.” Possibly it has significantly evolved since then? According to <a class="reference external" href="https://github.com/ximion"><strong>&#64;ximion</strong></a>, DBusMenu is a spec that transfers menus to status notifiers, and in combination with <code class="docutils literal notranslate"><span class="pre">com.canonical.AppMenu.Registrar</span></code> can be used for global menus.</p></li>
+<li><p><a class="reference external" href="https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus"><strong>org.gtk.Menus interface</strong></a>: An interface defined by Gnome that “is primarily concerned with three things: communicating menus to the client, establishing links between menus and other menus, and notifying clients of changes”. Note that “To do so, it employs a number of D-Bus interfaces. These interfaces are currently considered private implementation details of GApplication and subject to change - therefore they are not documented in the GIO documentation.” (<a class="reference external" href="https://wiki.gnome.org/Projects/GLib/GApplication/DBusAPI#org.gtk.Menus">Source</a>). <strong>How does it relate to the DBusMenu protocol, does it have an overlapping scope or is it a complement?</strong> According to <a class="reference external" href="https://github.com/ximion"><strong>&#64;ximion</strong></a>, the <code class="docutils literal notranslate"><span class="pre">org.gtk.Menus</span></code> interface has nothing to do with DBusMenu and was only for the Gnome Shell global menu (deprecated in Gnome). It is deprecated in Gnome Shell only, but it still used in Gtk 4.12. GNOME wants to remove a concept of menu from their apps.</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>com.canonical.AppMenu.Registrar D-Bus Service</strong></span></a>: <code class="docutils literal notranslate"><span class="pre">com.canonical.AppMenu.Registrar</span></code>, an interface to register a menu from an application’s window to be displayed in another window.  This manages that association between XWindow Window IDs and the dbus address and object that provides the menu using the dbusmenu dbus interface. (<a class="reference external" href="https://github.com/KDE/plasma-workspace/blob/master/appmenu/com.canonical.AppMenu.Registrar.xml">Source</a>). “Appmenu registrar allows other applications to access any active window’s application menu tree. Such a registrar is extremely useful for, e.g. implementing global menus (application menus appear in the top panel bar of the desktop environment, and for adding an application menu browser or search engine to HUDs” (<a class="reference external" href="https://packages.debian.org/buster/appmenu-registrar">Source</a>). It serves as a central point of storing of registered menus and its mapping to windows (on X11, it is usually an X11 Window Number, I do not designed registrar for Wayland). If we need to work over DBus protocol</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>org/appmenu D-Bus Methods</strong></span></a>: tbd</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>org.kde.plasma.gmenu_dbusmenu_proxy D-Bus service</strong></span></a>: Translates o<code class="docutils literal notranslate"><span class="pre">org.gtk.Menus</span></code> menus to <code class="docutils literal notranslate"><span class="pre">com.canonical.dbusmenu</span></code> menus, because Qt and KDE can use only the latter.</p></li>
+</ul>
+</div>
+<div class="section" id="implementations">
+<h3>Implementations<a class="headerlink" href="#implementations" title="Permalink to this heading"></a></h3>
+<p>Those may or may not be used in helloSystem, they are mentioned here to give an overview over the field so that technical discussions can be had.</p>
+<ul class="simple">
+<li><p><strong>Panel</strong>: Ubuntu calls the widget at the top of the screen the “panel”. In helloSystem, the rough equivalent is <strong>Menu</strong>.</p></li>
+<li><p><a class="reference external" href="https://wiki.ubuntu.com/Ayatana"><strong>Aytana</strong></a>: The Buddhist term for a “sense base” or “sense sphere”. A project by Canonical to improve user experience in Ubuntu. Abandoned?</p></li>
+<li><p><a class="reference external" href="https://ayatanaindicators.github.io/"><strong>AyatanaIndicators</strong></a>: “The Ayatana Indicators project is the continuation of Application Indicators, a technology developed by Canonical for the Unity desktop. Application Indicators are a GNOME implementation of the StatusNotifierItem Specification (SNI) that was originally submitted to freedesktop.org by KDE. The Ayatana Indicator project intends to become the new upstream for application indicators and associated projects with a focus on making Ayatana Indicators a desktop agnostic technology.”. With Ubuntu now using GNOME rather than Unity, it is no longer developed by Canonical. UBports, MATE and XFCE are adopting AyatanaIndicators and Ubuntu are starting to migrate to it in 21.04. Some people say  that StatusNotifierItems should be preferred since they are already more widely supported across the various desktops</p></li>
+<li><p><a class="reference external" href="https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationMenu"><strong>Application Menu or appmenu</strong></a>: As part of Aytana, Canonical has produced an implementation called <code class="docutils literal notranslate"><span class="pre">indicator-appmenu</span></code> which re-routes Gtk and Qt menus over <code class="docutils literal notranslate"><span class="pre">dbusmenu</span></code> so that they appear in the panel</p></li>
+<li><p><a class="reference external" href="https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture"><strong>dbusmenu</strong></a>: Library by Canonical implementing the transport protocol between the applications and the panel</p></li>
+<li><p><a class="reference external" href="https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators#Software_Architecture"><strong>libappindicator</strong></a>: Library by Canonical to register icons and menus and internally uses dbusmenu to publish context menus over dbus. Needed for some applications (e.g., screenkey) to show icons in the upper right hand corner of the menu (system tray/notification area). The same as <a class="reference external" href="https://launchpad.net/indicator-application"><code class="docutils literal notranslate"><span class="pre">indicator-application</span></code></a>? According to &#64;sunweaver, libappindicator is unmaintained as of late 2022 and <a class="reference external" href="https://github.com/AyatanaIndicators/libayatana-appindicator">libayatana-appindicator</a> is the current upstream</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>MenuModel</strong></span></a>: Used by Gtk</p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst"><strong>JAyatana</strong></span></a>: Supposedly allows for displaying global menus in Java Swing applications (such as Netbeans). JetBrains now supports Global Menus without JAyatana.</p></li>
+<li><p><a class="reference external" href="https://github.com/mszoek/airyx/tree/main/DBusKit"><strong>Airyx DBusKit</strong></a>: Airyx DBusKit implements a subset of D-Bus needed to support sending menus of <strong>AppKit</strong> applications to the global menu bar</p></li>
+<li><p><a class="reference external" href="https://github.com/gnustep/libs-dbuskit"><strong>GNUstep libs-dbuskit</strong></a>: The DBusKit framework provides GNUstep Objective-C applications with bindings for the D-Bus inter-process communication system</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="libraries-involved">
+<h2>Libraries involved<a class="headerlink" href="#libraries-involved" title="Permalink to this heading"></a></h2>
+<p>The following libraries are involved in allowing applications to show their menu items in the global menu.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This list is probably incomplete.</p>
+<p>Please consider submitting issues and pull requests if you can contribute to this subject.</p>
+</div>
+<div class="section" id="libappindicator">
+<h3>libappindicator<a class="headerlink" href="#libappindicator" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libappindicator3.so.1
+/usr/local/lib/libappindicator3.so.1.0.0
+/usr/local/lib/libappindicator3.so
+/usr/local/lib/libappindicator3.a
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: Ted Gould, Canonical</p></li>
+<li><p>Description: A library to allow applications to export a menu into the Unity Menu bar. Based on KSNI it also works in KDE and will fallback to generic Systray support if none of those are available.</p></li>
+<li><p>Bugtracker: https://launchpad.net/libappindicator</p></li>
+<li><p>Purpose: Needed for some applications (e.g., <code class="docutils literal notranslate"><span class="pre">screenkey</span></code>) to show icons in the upper right hand corner of the menu (system tray/notification area)</p></li>
+<li><p>Theory of operation: operated on DBusMenu protocol, and it used by some programs to implement StatusNotifier tray.</p></li>
+<li><p>Status: active</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">libappindicator</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="libappmenu-gtk-module-library-from-vala-panel-appmenu-repository">
+<h3>libappmenu-gtk-module library from vala-panel-appmenu repository<a class="headerlink" href="#libappmenu-gtk-module-library-from-vala-panel-appmenu-repository" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/gtk-2.0/modules/libappmenu-gtk-module.so
+/usr/local/lib/gtk-3.0/modules/libappmenu-gtk-module.so
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: <a class="reference external" href="https://github.com/rilian-la-te"><strong>&#64;rilian-la-te</strong></a>. This module was originally used in Ubuntu’s Unity
+Desktop Environment, but it lives on as part of the Vala project.</p></li>
+<li><p>Description:</p></li>
+<li><p>Bugtracker: https://github.com/rilian-la-te (upstream), https://github.com/NorwegianRockCat/FreeBSD-my-ports (FreeBSD Port)</p></li>
+<li><p>Purpose: Make Gtk applications export their menus to a global menu bar</p></li>
+<li><p>Theory of operation: Gtk module that strips menus from all Gtk
+programs, converts to them MenuModel and send to them AppMenu
+(sometimes called a global menu bar). It was a fork of <code class="docutils literal notranslate"><span class="pre">unity-gtk-module</span></code>, but now it is completely separate.</p></li>
+<li><p>Status: active</p></li>
+<li><p>Issues: Only if <code class="docutils literal notranslate"><span class="pre">GTK_MODULES=appmenu-gtk-module</span></code> is exported the menus in e.g. Audacity get shown in the global menu bar. Supposedly used by Chrome. Upstream documentation <a class="reference external" href="https://github.com/rilian-la-te/vala-panel-appmenu#post-build-instructions">advises</a> “Install <code class="docutils literal notranslate"><span class="pre">libdbusmenu-glib</span> <span class="pre">libdbusmenu-gtk3</span> <span class="pre">libdbusmenu-gtk2</span></code> to get Chromium/Google Chrome to work”. Firefox can use Global Menu only if built with Ubuntu patches. If not - there is no possibility to use Global Menu in Firefox.</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">appmenu-gtk-module</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="unity-gtk-module">
+<h3>unity-gtk-module<a class="headerlink" href="#unity-gtk-module" title="Permalink to this heading"></a></h3>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">appmenu-gtk-module</span></code>, then you do not need this, because <code class="docutils literal notranslate"><span class="pre">appmenu-gtk-module</span></code> has same fuctionality.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>tbd</p>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: tbd</p></li>
+<li><p>Bugtracker: tbd</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: &lt;active|retired&gt;. “Unity” = Deprecated? According to &#64;sunweaver, unity-gtk-module is (sort of) unmaintained as of late 2022 and <a class="reference external" href="https://gitlab.com/vala-panel-project/vala-panel-appmenu/-/tree/master/subprojects/appmenu-gtk-module">appmenu-gtk-module</a> is a more active alternative</p></li>
+<li><p>Issues: Not in ports? Is this an issue, preventing us from some applications to work properly?</p></li>
+<li><p>Installed by package: Not in ports? (In Ubuntu, <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">unity-gtk-module-common</span> <span class="pre">unity-gtk2-module</span> <span class="pre">unity-gtk3-module</span></code>)</p></li>
+</ul>
+</div>
+<div class="section" id="libappmenu-gtk2-parser-and-libappmenu-gtk3-parser">
+<h3>libappmenu-gtk2-parser and libappmenu-gtk3-parser<a class="headerlink" href="#libappmenu-gtk2-parser-and-libappmenu-gtk3-parser" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libappmenu-gtk2-parser.so
+/usr/local/lib/libappmenu-gtk2-parser.so.0
+/usr/local/lib/libappmenu-gtk3-parser.so
+/usr/local/lib/libappmenu-gtk3-parser.so.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: tbd</p></li>
+<li><p>Bugtracker: tbd</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">tbd</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="libdbusmenu-glib">
+<h3>libdbusmenu-glib<a class="headerlink" href="#libdbusmenu-glib" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libdbusmenu-glib.so
+/usr/local/lib/libdbusmenu-glib.so.4
+/usr/local/lib/libdbusmenu-glib.so.4.0.12
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: GLib implementation of the DBusMenu protocol.</p></li>
+<li><p>Bugtracker: https://github.com/AyatanaIndicators/libdbusmenu/</p></li>
+<li><p>Purpose: “A library to allow applications to provide simple indications of
+information to be displayed to users of the application through the interface shell” (<a class="reference external" href="https://github.com/AyatanaIndicators/libdbusmenu/blob/master/libdbusmenu-glib/dbus-menu.xml">Source</a>)</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">libdbusmenu</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="libdbusmenu-gtk3">
+<h3>libdbusmenu-gtk3<a class="headerlink" href="#libdbusmenu-gtk3" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libdbusmenu-gtk3.so
+/usr/local/lib/libdbusmenu-gtk3.so.4
+/usr/local/lib/libdbusmenu-gtk3.so.4.0.12
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: Gtk implementation of the DBusMenu protocol</p></li>
+<li><p>Bugtracker: tbd</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd. Why does Gtk need an extra implementation when it is already implemented in GLib (via <code class="docutils literal notranslate"><span class="pre">libdbusmenu-glib.so</span></code>) with Gtk uses?</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">libdbusmenu</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="libdbusmenu-qt5">
+<h3>libdbusmenu-qt5<a class="headerlink" href="#libdbusmenu-qt5" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libdbusmenu-qt5.so
+/usr/local/lib/libdbusmenu-qt5.so.2
+/usr/local/lib/libdbusmenu-qt5.so.2.6.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: Qt5 implementation of the DBusMenu protocol</p></li>
+<li><p>Bugtracker: https://launchpad.net/libdbusmenu-qt</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: active</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">libdbusmenu-qt</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="kf5-appmenu-plugin">
+<h3>Kf5 Appmenu Plugin<a class="headerlink" href="#kf5-appmenu-plugin" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/qt5/plugins/kf5/kded/appmenu.so
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: tbd</p></li>
+<li><p>Bugtracker: tbd</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">tbd</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="kf5-plasma-applet-appmenu-plugin">
+<h3>Kf5 Plasma Applet Appmenu Plugin<a class="headerlink" href="#kf5-plasma-applet-appmenu-plugin" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/qt5/plugins/plasma/applets/plasma_applet_appmenu.so
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: tbd</p></li>
+<li><p>Bugtracker: tbd</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">tbd</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="kf5-plasma-private-libappmenuplugin">
+<h3>Kf5 Plasma Private libappmenuplugin<a class="headerlink" href="#kf5-plasma-private-libappmenuplugin" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/qt5/qml/org/kde/plasma/private/appmenu/libappmenuplugin.so
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: tbd</p></li>
+<li><p>Description: tbd</p></li>
+<li><p>Bugtracker: tbd</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: tbd</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: tbd</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">tbd</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="wxgtk-libwx-gtk3u-core">
+<h3>wxGtk libwx_gtk3u_core<a class="headerlink" href="#wxgtk-libwx-gtk3u-core" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libwx_gtk3u_core-3.1.so
+/usr/local/lib/libwx_gtk3u_core-3.1.so.4
+/usr/local/lib/libwx_gtk3u_core-3.1.so.4.0.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: wxWidgets authors</p></li>
+<li><p>Description: wxWidgets is a C++ library that lets developers create applications for Windows, Mac OS X, Linux and other platforms with a single code base. On FreeBSD the Gtk toolkit is used</p></li>
+<li><p>Bugtracker: https://www.wxwidgets.org/</p></li>
+<li><p>Purpose: tbd</p></li>
+<li><p>Theory of operation: Applications written with wxWidgets (e.g., Audacity) use this to display their UI with Gtk on FreeBSD</p></li>
+<li><p>Status: active</p></li>
+<li><p>Issues: Requires the (undocumented?) <code class="docutils literal notranslate"><span class="pre">UBUNTU_MENUPROXY</span></code> environment variable not to be set to <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">wx31-gtk3</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="files-involved">
+<h2>Files involved<a class="headerlink" href="#files-involved" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/usr/local/share/dbus-1/interfaces/com.canonical.AppMenu.Registrar.xml</span></code> (comes with the <code class="docutils literal notranslate"><span class="pre">plasma5-plasma-workspace</span></code> package). It is needed for the correct functioning of Global Menus - it is served as main point of storing dictionary (keyed by XWindow) of a <code class="docutils literal notranslate"><span class="pre">com.canonical.dbusmenu</span></code> object. It is needed for all applications using that protocol. There should be only one registrar running, but installed - as many of you want.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">com.canonical.dbusmenu.xml</span></code> - it is a reference XML of Canonical DBusMenu protocol, used by StatusNotifier trays and by Qt applications with Global Menu.</p></li>
+</ul>
+</div>
+<div class="section" id="environment-variables-involved">
+<h2>Environment variables involved<a class="headerlink" href="#environment-variables-involved" title="Permalink to this heading"></a></h2>
+<div class="section" id="gtk-modules-appmenu-gtk-module">
+<h3>GTK_MODULES=appmenu-gtk-module<a class="headerlink" href="#gtk-modules-appmenu-gtk-module" title="Permalink to this heading"></a></h3>
+<p>Only if <code class="docutils literal notranslate"><span class="pre">GTK_MODULES=appmenu-gtk-module</span></code> is exported the menus in e.g. Audacity get shown in the global menu bar.</p>
+</div>
+<div class="section" id="ubuntu-menuproxy">
+<h3>UBUNTU_MENUPROXY<a class="headerlink" href="#ubuntu-menuproxy" title="Permalink to this heading"></a></h3>
+<p>As of 2021, the (undocumented?) <code class="docutils literal notranslate"><span class="pre">UBUNTU_MENUPROXY</span></code> environment variable is referenced in</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/libwx_gtk3u_core-3.1.so.4.0.0
+/usr/local/lib/gtk-3.0/modules/libappmenu-gtk-module.so
+/usr/local/lib/gtk-2.0/modules/libappmenu-gtk-module.so
+</pre></div>
+</div>
+<p>Audacity is an example for an application that uses <code class="docutils literal notranslate"><span class="pre">libwx_gtk3u_core-3.1.so.4</span></code>.</p>
+<ul class="simple">
+<li><p>Apparently <code class="docutils literal notranslate"><span class="pre">UBUNTU_MENUPROXY</span></code> <strong>must not</strong> be set to <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code> e.g., for Audacity to work</p></li>
+<li><p>Apparently unsetting it still makes the global menu work for Audacity</p></li>
+<li><p>Apparently setting it to a random value still makes the global menu work for Audacity</p></li>
+<li><p>According to <a class="reference external" href="https://github.com/electron/electron/issues/709#issuecomment-59207492">this</a>, <code class="docutils literal notranslate"><span class="pre">UBUNTU_MENUPROXY</span></code> should be set to <code class="docutils literal notranslate"><span class="pre">libappmenu.so</span></code>?</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please consider submitting issues and pull requests if you know how UBUNTU_MENUPROXY is supposed to work. Is it documented?</p>
+</div>
+<p>Ultimaker Cura (which does not have a working global menu integration by default) contains a note in <code class="docutils literal notranslate"><span class="pre">/usr/local/lib/python3.7/site-packages/UM/Application.py</span></code> saying</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Ubuntu Unity this makes Qt use its own menu bar rather than pass it on to Unity.</span>
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;UBUNTU_MENUPROXY&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changing this to <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> does not make any difference for Cura, though.</p>
+</div>
+</div>
+<div class="section" id="executables-involved">
+<h2>Executables involved<a class="headerlink" href="#executables-involved" title="Permalink to this heading"></a></h2>
+<p><em>To be written.</em></p>
+<div class="section" id="chromium-chrome">
+<h3>Chromium, Chrome<a class="headerlink" href="#chromium-chrome" title="Permalink to this heading"></a></h3>
+<p>Starting with version 0.7.0 of helloSystem, Menu can handle Chrome and (patched) Firefox and Thunderbird, thanks Jesper Schmitz Mouridsen (<a class="reference external" href="https://github.com/jsm222/"><strong>jsm222</strong></a>).</p>
+</div>
+<div class="section" id="patches-needed-for-firefox-and-thunderbird">
+<h3>Patches needed for Firefox and Thunderbird<a class="headerlink" href="#patches-needed-for-firefox-and-thunderbird" title="Permalink to this heading"></a></h3>
+<p>Firefox and Thunderbird need substantial source code patches to make global menus work:</p>
+<ul class="simple">
+<li><p>https://aur.archlinux.org/cgit/aur.git/tree/unity-menubar.patch?h=firefox-appmenu. See https://github.com/airyxos/Firefox_app for a FreeBSD implementation</p></li>
+<li><p>https://aur.archlinux.org/cgit/aur.git/tree/0001-Use-remoting-name-for-GDK-application-names.patch?h=firefox-appmenu</p></li>
+</ul>
+<p>For Firefox, this topic is being discussed upstream:
+https://bugzilla.mozilla.org/show_bug.cgi?id=1419151</p>
+<p>FreeBSD Ports files for patched Firefox and Thunderbird by Jesper Schmitz Mouridsen (<a class="reference external" href="https://github.com/jsm222/"><strong>jsm222</strong></a>) are available at</p>
+<ul class="simple">
+<li><p>https://github.com/jsm222/helloDesktop/tree/main/www/firefox</p></li>
+<li><p>https://github.com/jsm222/helloDesktop/tree/main/mail/thunderbird</p></li>
+</ul>
+<p>Packages of patched Firefox and Thunderbird are available at http://build.schmitz.computer/packages/122amd64-quarterly (see https://wiki.freebsd.org/helloDesktop for details).</p>
+<p>helloSystem versions 0.7.0 and up come with this repository enabled. To enable it manually:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat<span class="w"> </span>&gt;<span class="w"> </span>/usr/local/etc/pkg/repos/helloDesktop.conf<span class="w"> </span>&lt;&lt;<span class="se">\E</span>OF
+<span class="go">helloDesktop: {</span>
+<span class="go">        url: &quot;pkg+http://build.schmitz.computer/packages/${ABI}-mozillapatched&quot;,</span>
+<span class="go">        mirror_type: &quot;srv&quot;,</span>
+<span class="go">        enabled: yes,</span>
+<span class="go">        signature_type: &quot;pubkey&quot;,</span>
+<span class="go">        pubkey: &quot;/usr/local/etc/ssl/certs/jsm222.cert&quot;,</span>
+<span class="go">        priority: 100</span>
+<span class="go">}</span>
+<span class="go">EOF</span>
+
+<span class="gp">$ </span>cat<span class="w"> </span>&gt;<span class="w"> </span>/usr/local/etc/ssl/certs/jsm222.cert<span class="w"> </span>&lt;&lt;<span class="se">\E</span>OF
+<span class="go">-----BEGIN PUBLIC KEY-----</span>
+<span class="go">MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5gEt92AHUkYkZH2Q2nP3</span>
+<span class="go">2/Wu7gxbMEno5iqi1ea327lHmhJB18E0mW9dKYgxz74PbbTAmyaMdY4G1vn3cStp</span>
+<span class="go">jKVnrOCsNboaZ1L6riYFTjZX0pVAQYdtblCNjTf92X1kk8Yp1jy3baH8s19IKVWD</span>
+<span class="go">jX+2j33BOjRH3jbiLxdPu51wPItDUM4UU+mdrMH2+RgHjVX3ZkgRe/bYxMgrYBQg</span>
+<span class="go">roEwp0Pv9DbDQ0Vx3qIBJahQ7zfDCWZI1urr85/kM58KXYLt1YHW+vRd3scOm1IE</span>
+<span class="go">mRON0zVO2f8+obzy3lLNnZj/XIWxh+LNI4kmmdoHMksysYtrRz1bpcnsY8qOe4g3</span>
+<span class="go">X7q+i8k0JaaMwwD9YvKf6HyQ09rFt3WqV2AAOwR0835oHxCENJJFcoUCMCaKjNSF</span>
+<span class="go">OZyuYKKPqSm8BKj/QaoXBIF1fQJBJzrINYSUj4/M6TWKVTSO8H4s+eiqfD7FYJ3h</span>
+<span class="go">jSZ2ubydtTOef1Tk79OVoo8Ns7FqzCK7ffOvELxuY2OMDIKrw0sCfpkI9uM5Dfrr</span>
+<span class="go">rYXn4dwvZLwB+tnBbKBXIfjAvwqjHeWfzqgUHSk/Slqh7UEYL+BnLfHxLMVN0Omk</span>
+<span class="go">gFM24eVEKju1PHkBDHVAD+NGfq4g/hcbAbcrtjxDrs1ztdwjtCJmFNcEYFjz0DRc</span>
+<span class="go">q9cTv5oaRy9FQy0NdGwGuqUCAwEAAQ==</span>
+<span class="go">-----END PUBLIC KEY-----</span>
+<span class="go">EOF</span>
+
+<span class="gp">$ </span>sudo<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>firefox<span class="w"> </span>thunderbird
+</pre></div>
+</div>
+<p>Since the helloDesktop repository has <code class="docutils literal notranslate"><span class="pre">priority:</span> <span class="pre">100</span></code>, you should see:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">New packages to be INSTALLED:</span>
+<span class="go">        firefox-94.0.1_1,2 [helloDesktop]</span>
+<span class="go">        thunderbird: 91.3.0_1 [helloDesktop]</span>
+</pre></div>
+</div>
+<p>Note the <code class="docutils literal notranslate"><span class="pre">helloDesktop</span></code>, indicating that these packages will be installed from the helloDesktop repository provided by <a class="reference external" href="https://github.com/jsm222/"><strong>jsm222</strong></a> rather than from the FreeBSD repository. In general, we aim to use software that is in the official FreeBSD packages, so we hope that those ports will be upstreamed.</p>
+</div>
+<div class="section" id="gmenu-dbusmenu-proxy">
+<h3>GMenu-DBusMenu-Proxy<a class="headerlink" href="#gmenu-dbusmenu-proxy" title="Permalink to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/usr/local/bin/gmenudbusmenuproxy 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Author: Kai Uwe Broulik (KDE)</p></li>
+<li><p>Description: tbd</p></li>
+<li><p>Bugtracker: https://phabricator.kde.org/D10461</p></li>
+<li><p>Purpose: tbd. Translate between the org.gtk.Menus interface used by Gtk applications and what is needed to satisfy the KDE global menu bar (and helloSystem Menu which is derived from it)? (Why does KDE need something special?)</p></li>
+<li><p>Theory of operation: “This application finds windows using GTK GMenu DBus interfaces and forwards them through DBusMenu. (…) LibreOffice with appmenu-gtk-module (…) Works with Gimp or Inkscape if you have appmenu-gtk-module (there’s GTK2 and GTK3 variants) installed and GTK_MODULES=appmenu-gtk-module environment variable set.” (<a class="reference external" href="https://phabricator.kde.org/transactions/detail/PHID-XACT-DREV-jz6tqizldlvwmv6/">Source</a>, <a class="reference external" href="https://blog.broulik.de/2018/03/gtk-global-menu/">more information</a>)</p></li>
+<li><p>Status: &lt;active|retired&gt;</p></li>
+<li><p>Issues: Can we get it “standalone”, without KDE Plasma?</p></li>
+<li><p>Installed by package: <code class="docutils literal notranslate"><span class="pre">plasma5-plasma-workspace</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="debugging-with-qt-5-d-bus-viewer">
+<h2>Debugging with Qt 5 D-Bus Viewer<a class="headerlink" href="#debugging-with-qt-5-d-bus-viewer" title="Permalink to this heading"></a></h2>
+<p>The <strong>Qt 5 D-Bus Viewer</strong> utility may be useful in debugging global menus.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please consider submitting issues and pull requests if you can contribute to this subject.</p>
+</div>
+<div class="section" id="getting-the-menus-for-a-qt-application-knowing-the-xorg-window-id">
+<h3>Getting the menus for a Qt application knowing the Xorg window ID<a class="headerlink" href="#getting-the-menus-for-a-qt-application-knowing-the-xorg-window-id" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Open Terminal</p></li>
+<li><p>Enter <code class="docutils literal notranslate"><span class="pre">xprop</span></code></p></li>
+<li><p>Click on the Terminal window</p></li>
+<li><p>We see <code class="docutils literal notranslate"><span class="pre">_KDE_NET_WM_APPMENU_OBJECT_PATH(STRING)</span> <span class="pre">=</span> <span class="pre">&quot;/MenuBar/1&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">_KDE_NET_WM_APPMENU_SERVICE_NAME(STRING)</span> <span class="pre">=</span> <span class="pre">&quot;:1.59&quot;</span></code> (actual numbers might be different from this example)</p></li>
+<li><p>Open Qt 5 D-Bus Viewer</p></li>
+<li><p>Under “Services”, click on “:1:59”, under “Methods”, click on “MenuBar/”, “1/”</p></li>
+<li><p>KDE follows <code class="docutils literal notranslate"><span class="pre">com.canonical.dbusmenu</span></code> protocol, you can see its definition in XML file mentioned earlier.</p></li>
+</ul>
+</div>
+<div class="section" id="getting-the-menus-for-a-gtk-application">
+<h3>Getting the menus for a Gtk application<a class="headerlink" href="#getting-the-menus-for-a-gtk-application" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Open GIMP</p></li>
+<li><p>Open Qt 5 D-Bus Viewer</p></li>
+<li><p>Under “Services”, click on “org.gimp.GIMP.UI”, under “Methods”, click on “org/”, “appmenu/”, “gtk/”, “window/”, “0/”, “org.gtk.Actions/”, “Method: List”</p></li>
+<li><p>The names of the actions in the GIMP menus appear at the bottom of the window</p></li>
+<li><p>Under “Services”, click on “org.gimp.GIMP.UI”, under “Methods”, click on “org/”, “appmenu/”, “gtk/”, “window/”, “0/”, “org.gtk.Actions/”, “Method: DescribeAll”</p></li>
+<li><p><strong>Qt 5 D-Bus Viewer crashes</strong></p></li>
+<li><p><strong>Then what? How can one get the actual menus?</strong></p></li>
+<li><p>GTK applications followed <code class="docutils literal notranslate"><span class="pre">org.gtk.Menus</span></code> and <code class="docutils literal notranslate"><span class="pre">org.gtk.Actions</span></code> protocol, you can see how it works inside KDE’s gmenu-dbusmenu-proxy.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading"></a></h2>
+<p>Applications running as root currently cannot show global menus due to the D-Bus architecture.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Possibly some sort of proxy would be needed to allow applications that were invoked via <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-E</span></code> to display their menus in the global menu of the user running the desktop session.</p>
+<p>Please consider contributing ideas and code if you are interested in this topic.</p>
+</div>
+</div>
+<div class="section" id="implementations-for-other-desktop-systems">
+<h2>Implementations for other desktop systems<a class="headerlink" href="#implementations-for-other-desktop-systems" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gonzaarcr/Fildem">Fildem</a> for GNOME</p></li>
+<li><p><a class="reference external" href="https://twitter.com/cutefishos/status/1401420887568441345">CutefishOS</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/vala-panel-project/vala-panel-appmenu">vala-panel-appmenu</a> for XFCE and MATE.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="application-bundles.html" class="btn btn-neutral float-left" title="Application Bundles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="filer-context-menus.html" class="btn btn-neutral float-right" title="Extending Filer context menus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
