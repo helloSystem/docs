@@ -44,7 +44,7 @@ On GNU-style systems (e.g., most Linux distributions), `status=progress` does no
 
 If you are not running helloSystem yet, then please refer to the Ventoy documentation on how to create a bootable Ventoy disk (that you put your ISOs on) using Windows or Linux.
 
-If you are already running helloSystem and would like to create a bootable Ventoy disk, please follow these steps instead since the Ventoy installation instructions since the Ventoy documentation only describes installation using Windows and Linux:
+If you are already running helloSystem and would like to create a bootable Ventoy disk, please follow these steps instead since the installation instructions in the Ventoy documentation only describes installation using Windows and Linux:
 
 ![image](https://user-images.githubusercontent.com/2480569/142038823-d7413735-73d9-44b4-84e5-c50768c2f271.png)
 
