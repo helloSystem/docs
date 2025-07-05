@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware Probe &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Install helloSystem" href="install.html" />
+    <link rel="prev" title="Create Live Media" href="create-live-media.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../../../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../components.html">Getting to know the system</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../applications.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autostart.html">Autostart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filesystems.html">Filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preferences.html">Preferences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system.html">System components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../utilities.html">Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="calculator.html">Calculator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calendar.html">Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create-live-media.html">Create Live Media</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hardware Probe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-privacy">Data Privacy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install.html">Install helloSystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mountarchive.html">mountarchive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote-assistance.html">Remote Assistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sticky-notes.html">Sticky Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../windows.html">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../components.html">Getting to know the system</a></li>
+          <li class="breadcrumb-item"><a href="../utilities.html">Utilities</a></li>
+      <li class="breadcrumb-item active">Hardware Probe</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/components/utilities/hardware-probe.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="hardware-probe">
+<h1>Hardware Probe<a class="headerlink" href="#hardware-probe" title="Permalink to this heading"></a></h1>
+<p>The <strong>Hardware Probe</strong> utility collects hardware details of your computer and can anonymously upload them to the public database at <a class="reference external" href="https://bsd-hardware.info/?d=helloSystem">bsd-hardware.info</a>.</p>
+<p><img alt="" src="https://user-images.githubusercontent.com/2480569/103484839-12564480-4df2-11eb-8c57-d6ee6ef48e2b.png" /></p>
+<p>This can help users and operating system developers to collaboratively debug hardware related issues, check for operating system compatibility and find drivers.</p>
+<p>You will get a permanent probe URL to view and share collected information.</p>
+<div class="section" id="data-privacy">
+<h2>Data Privacy<a class="headerlink" href="#data-privacy" title="Permalink to this heading"></a></h2>
+<p>The Hardware Probe utility can upload the hardware probe to the hardware database. The probe will be published publicly under a permanent URL to view the probe.</p>
+<p>Private information (including the username, machine’s hostname, IP addresses, MAC addresses, UUIDs and serial numbers) is NOT uploaded to the database.</p>
+<p>The tool uploads 32-byte prefix of salted SHA512 hash of MAC addresses/UUIDs and serial numbers to properly identify unique computers and hard drives. All the data is uploaded securely via HTTPS.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By using this utility to upload your hardware probe, you agree that information about your hardware will be uploaded to a publicly visible database.</p>
+<p>Do not use this utility if you do not agree with this.</p>
+</div>
+<p>By uploading your hardware probe you confirm uploading of 32-byte prefix of salted SHA512 hash of MAC addresses and serial numbers to prevent duplication of computers in the database.</p>
+<p>The web service and the database are operated by linux-hardware.org. The authors of the graphical Hardware Probe utility are not associated with the operator of the web service. Please contact https://linux-hardware.org/index.php?view=contacts in case of questions and in case you wish accidentally submitted probes to be removed from the database.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="create-live-media.html" class="btn btn-neutral float-left" title="Create Live Media" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Install helloSystem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

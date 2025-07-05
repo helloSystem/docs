@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting to know the system" href="components.html" />
+    <link rel="prev" title="hello" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#downloading">Downloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-live-media">Creating Live Media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ventoy">Ventoy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tested-hardware">Tested hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#networking-hardware">Networking hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#virtualization-environments">Virtualization environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qemu">QEMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parallels">Parallels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proxmox-ve">Proxmox VE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vmware-workstation">VMware Workstation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/getting-started.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<div class="section" id="system-requirements">
+<h2>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>2 GHz dual core Intel/AMD 64-bit processor</p></li>
+<li><p>2 GiB RAM system memory (4 GiB recommended; before 0.7.0: 4 GiB minimum)</p></li>
+<li><p>VGA capable of 800x600 screen resolution (1024x768 or more recommended)</p></li>
+<li><p>Either a CD/DVD drive or a USB port for booting the installer media</p></li>
+<li><p>On non-Macintosh hardware, a <a class="reference external" href="https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/">Raspberry Pi Keyboard and Hub</a> is recommended as it allows the keyboard and system language to be detected automatically if it is attached while the system is starting up. On Macintosh hardware, the <code class="docutils literal notranslate"><span class="pre">prev-lang:kbd</span></code> EFI variable is usually set and is used to detect the keyboard and system language. Note that the key left to the space bar is used as the Command key (Alt key on PC keyboards, Apple key on Apple keyboards).</p></li>
+</ul>
+<p>Please refer to <a class="reference external" href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/faq/hardware.html">FreeBSD Hardware Compatibility</a> for more information on individual components.</p>
+</div>
+<div class="section" id="downloading">
+<h2>Downloading<a class="headerlink" href="#downloading" title="Permalink to this heading"></a></h2>
+<p>The latest helloSystem release ISO image is available for download here:</p>
+<p><a class="reference external" href="https://github.com/helloSystem/ISO/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/helloSystem/ISO" /></a></p>
+<p>Experimental and pre-release images are available for download here:</p>
+<p><a class="reference external" href="https://github.com/helloSystem/ISO/releases"><img alt="GitHub release (latest SemVer including pre-releases)" src="https://img.shields.io/github/v/release/helloSystem/ISO?include_prereleases" /></a></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Experimental images get built automatically whenever source code is committed. Not every build is tested. Builds marked as “Pre-Release” are strictly for developers, may be broken and may not even boot.</p>
+</div>
+</div>
+<div class="section" id="creating-live-media">
+<h2>Creating Live Media<a class="headerlink" href="#creating-live-media" title="Permalink to this heading"></a></h2>
+<p>The ISO file needs to be written to a device, e.g., to a USB stick, in order to a computer being able to start from it. This will overwrite and destroy all data on that device.</p>
+<p>If you are already running helloSystem, then you can use the built-in <strong>Create Live Media</strong> utility to download and write live media.</p>
+<p>If you are not running helloSystem yet or would like to use the command line, the following command should work on all BSD flavors:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>&lt;path<span class="w"> </span>to<span class="w"> </span>ISO<span class="w"> </span>file&gt;<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/daX<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>4m<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+<p>On GNU-style systems (e.g., most Linux distributions), <code class="docutils literal notranslate"><span class="pre">status=progress</span></code> does not work and can be left away.</p>
+</div>
+<div class="section" id="ventoy">
+<h2>Ventoy<a class="headerlink" href="#ventoy" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/ventoy/Ventoy/">Ventoy</a> is a tool that lets you boot the operating systems of multiple ISO files that are residing on the same disk, without the need to write the ISO to a physical device. Starting with version 1.0.62, Ventoy can boot helloSystem 0.7.0 and later.</p>
+<p>If you are not running helloSystem yet, then please refer to the Ventoy documentation on how to create a bootable Ventoy disk (that you put your ISOs on) using Windows or Linux.</p>
+<p>If you are already running helloSystem and would like to create a bootable Ventoy disk, please follow these steps instead since the Ventoy installation instructions since the Ventoy documentation only describes installation using Windows and Linux:</p>
+<p><img alt="image" src="https://user-images.githubusercontent.com/2480569/142038823-d7413735-73d9-44b4-84e5-c50768c2f271.png" /></p>
+<ol class="arabic simple">
+<li><p>Run The <strong>Create Live Media</strong> utility in helloSystem</p></li>
+<li><p>From the drop-down menu, select <strong>Ventoy</strong>. Select the latest version (at least 1.0.62), and create a Ventoy Live medium (a 1 GB USB stick is sufficient for this)</p></li>
+<li><p>Boot from the Ventoy Live medium you just created, and use it to install Ventoy to a disk (a SSD with hundreds of GB of space is recommended if you want to store hundreds of different operating system ISOs)</p></li>
+<li><p>At this point, you don’t need the Ventoy Live medium anymore (the 1 GB USB stick)</p></li>
+<li><p>Put one or more helloSystem ISOs (and potentially ISOs of other operating systems supported by Ventoy) onto the Ventoy disk (the one with hundreds of GB of space)</p></li>
+<li><p>Once a new version of Ventoy comes out, put the latest Ventoy Live ISO onto your Ventoy disk, just like any other operating system ISO. Boot it to update the Ventoy installation on the Ventoy disk itself (yes, it can update the disk it is running from)</p></li>
+</ol>
+</div>
+<div class="section" id="tested-hardware">
+<h2>Tested hardware<a class="headerlink" href="#tested-hardware" title="Permalink to this heading"></a></h2>
+<p>hello is known to boot to a graphical desktop on the following machines. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. has not yet been tested systematically.</p>
+<p>helloSystem developers currently have access to the following hardware:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://frame.work/de/de/products/mainboard">Framework Mainboard</a> (11th Gen Intel® Core™)</p></li>
+<li><p>Acer TravelMate B117</p></li>
+<li><p>Acer Revo RL85</p></li>
+<li><p>Dell Inc. OptiPlex 780</p></li>
+</ul>
+<p>Please contact us if you would like to sponsor the project with a hardware donation. We are especially looking for Apple and Lenovo devices from the previous generations that should be available second-hand inexpensively.</p>
+<p>To see Hardware Probes of systems running helloSystem, please see the <a class="reference external" href="http://bsd-hardware.info/?d=helloSystem&amp;amp;view=computers">helloSystem Hardware Database</a> provided by bsd-hardware.info. It is reasonable to assume that every system listed there can at least successfully boot helloSystem. Auxiliary functionality such as wireless networking, sound over HDMI, sleep, graphics acceleration, etc. may or may not be working.</p>
+<div class="section" id="networking-hardware">
+<h3>Networking hardware<a class="headerlink" href="#networking-hardware" title="Permalink to this heading"></a></h3>
+<p>Not all networking devices may be supported by FreeBSD yet. In those cases, you may want to consider using a USB based networking devices. helloSystem developers currently have access to the following USB based networking devices which are known to work:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vermaden.wordpress.com/2020/10/30/realtek-usb-wifi-review/">USB 802.11n WLAN Adapters based on <code class="docutils literal notranslate"><span class="pre">ID</span> <span class="pre">0bda:8176</span> <span class="pre">Realtek</span> <span class="pre">Semiconductor</span> <span class="pre">Corp.</span> <span class="pre">RTL8188CUS</span></code></a></p></li>
+<li><p><a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?query=axe">USB Wired Ethernet Adapters based on <code class="docutils literal notranslate"><span class="pre">ID</span> <span class="pre">0b95:772b</span> <span class="pre">ASIX</span> <span class="pre">Electronics</span> <span class="pre">Corp.</span> <span class="pre">AX88772B</span></code></a></p></li>
+</ul>
+<p>Detailed information on #FreeBSD wireless network card compatibility is available at <a class="reference external" href="https://wiki.freebsd.org/dev">https://wiki.freebsd.org/dev</a>.</p>
+</div>
+</div>
+<div class="section" id="virtualization-environments">
+<h2>Virtualization environments<a class="headerlink" href="#virtualization-environments" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend running helloSystem on real hardware (“bare metal”) if possible. This should give you the best possible performance and hardware support.</p>
+</div>
+<p>Users have reported success in running helloSystem in the following virtualization environments:</p>
+<ul class="simple">
+<li><p>VirtualBox host (on FreeBSD and on macOS), known to work in BIOS and EFI modes</p></li>
+<li><p>VMware Workstation works in BIOS and EFI modes (see below)</p></li>
+<li><p>QEMU host (on Linux), works in both BIOS and EFI modes (see below). Note that for acceptable performance, QEMU needs KVM which is currently not available on FreeBSD hosts yet</p></li>
+<li><p>Parallels host, reported to work in EFI mode (see below)</p></li>
+<li><p>Proxmox VE</p></li>
+</ul>
+<p>Please note:</p>
+<ul class="simple">
+<li><p>The VM needs to be <strong>64-bit</strong></p></li>
+<li><p>The VM needs <strong>at least 2 GB of RAM</strong></p></li>
+<li><p>The VM needs <strong>at least 2 CPU cores</strong></p></li>
+<li><p>The boot process takes longer than you might expect; boot in verbose mode to see the details</p></li>
+<li><p>For best results set <strong>EFI/UEFI</strong> boot mode (not BIOS)</p></li>
+</ul>
+<p>Please report back about the results on your virtualization environment.</p>
+<div class="section" id="qemu">
+<h3>QEMU<a class="headerlink" href="#qemu" title="Permalink to this heading"></a></h3>
+<p>Create an 8 GiB (or larger) <code class="docutils literal notranslate"><span class="pre">hello.img</span></code> image file on which you can install the system:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">pwd</span>
+<span class="go">/home/user</span>
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>.qemu/hello
+<span class="gp">$ </span>fallocate<span class="w"> </span>-l<span class="w"> </span><span class="k">$((</span><span class="w"> </span><span class="m">8</span><span class="o">*</span><span class="m">1024</span><span class="o">*</span><span class="m">1024</span><span class="o">*</span><span class="m">1024</span><span class="w"> </span><span class="k">))</span><span class="w"> </span>.qemu/hello/hello.img
+</pre></div>
+</div>
+<p>Then, boot helloSystem:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>qemu-system-x86_64<span class="w"> </span>-machine<span class="w"> </span><span class="nv">type</span><span class="o">=</span>q35,accel<span class="o">=</span>kvm<span class="w"> </span><span class="se">\</span>
+-enable-kvm<span class="w"> </span>-cpu<span class="w"> </span>host<span class="w"> </span>-smp<span class="w"> </span><span class="m">2</span><span class="w"> </span>-m<span class="w"> </span><span class="m">4096</span><span class="w"> </span><span class="se">\</span>
+-device<span class="w"> </span>virtio-net,netdev<span class="o">=</span>vmnic<span class="w"> </span>-netdev<span class="w"> </span>user,id<span class="o">=</span>vmnic,hostfwd<span class="o">=</span>tcp::5222-:22<span class="w"> </span><span class="se">\</span>
+-vga<span class="w"> </span>std<span class="w"> </span>-soundhw<span class="w"> </span>hda<span class="w"> </span>-no-quit<span class="w"> </span><span class="se">\</span>
+-drive<span class="w"> </span><span class="nv">format</span><span class="o">=</span>raw,file<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.qemu/hello/hello.img<span class="w"> </span><span class="se">\</span>
+-drive<span class="w"> </span><span class="nv">format</span><span class="o">=</span>raw,file<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/Downloads/hello-0.4.0_0D26-FreeBSD-12.1-amd64.iso<span class="w"> </span><span class="se">\</span>
+-boot<span class="w"> </span><span class="nv">menu</span><span class="o">=</span>on
+</pre></div>
+</div>
+<p>When QEMU starts, press <code class="docutils literal notranslate"><span class="pre">esc</span></code> and select <code class="docutils literal notranslate"><span class="pre">2</span></code> to boot the ISO.</p>
+<p>Use the <strong>Install FreeBSD</strong> utility (System -&gt; Applications -&gt; Utilities -&gt; Install FreeBSD) to install helloSystem to the disk image.</p>
+<p>Then restart QEMU, you now remove the last two options from the above command.</p>
+<p>Notes</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">hostfwd=</span></code> option creates a port forward from your host port <code class="docutils literal notranslate"><span class="pre">5222</span></code> to the Qemu VM port <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p></li>
+<li><p>Unfortunately the qemu-system-x86_64 USB tablet options do not work; you will need to press Ctrl+Alt+g to release the mouse pointer from the QEMU window</p></li>
+<li><p>To make QEMU full screen, press Ctrl+Alt+F</p></li>
+</ul>
+<p>To boot/install hello in UEFI mode, first install <a class="reference external" href="https://github.com/tianocore/tianocore.github.io/wiki/OVMF">OVMF Open Virtual Machine Firmware</a> on your host side. The package name for Fedora 32 is <code class="docutils literal notranslate"><span class="pre">edk2-ovmf</span></code></p>
+<p>Then add these two <code class="docutils literal notranslate"><span class="pre">qemu-system-x86_64</span></code> options:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
+-smbios type=0,vendor=0vendor,version=0version,date=0date,release=0.0,uefi=on \
+</pre></div>
+</div>
+</div>
+<div class="section" id="parallels">
+<h3>Parallels<a class="headerlink" href="#parallels" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Select Hardware &gt; Boot Order.</p></li>
+<li><p>Expand <strong>Advanced Settings</strong>. Set <strong>BIOS</strong> to “EFI 64-bit” and in the Boot flags field, enter <code class="docutils literal notranslate"><span class="pre">vm.bios.efi=1</span></code>.</p></li>
+</ul>
+<p><img alt="Screenshot" src="https://docs.01.org/clearlinux/latest/zh_CN/_images/parallels-07.png" /></p>
+</div>
+<div class="section" id="proxmox-ve">
+<h3>Proxmox VE<a class="headerlink" href="#proxmox-ve" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Memory: 4GB (not ballooned)</p></li>
+<li><p>Processors: 2 (1 socket 2 cores)</p></li>
+<li><p>BIOS: OVMF (UEFI)</p></li>
+<li><p>Display: Default (VGA)</p></li>
+<li><p>Machine: q35</p></li>
+<li><p>SATA Controller: VirtIO SATA for attaching virtual disk to (to install the system on)</p></li>
+<li><p>CD Drive: helloSystem ISO</p></li>
+<li><p>Hard Disk: At least 8GB Raw</p></li>
+<li><p>Network Device: VirtIO</p></li>
+</ul>
+<p>To set resolution, press F2 at boot to access OVMF settings. Select ‘Device Manager &gt; OVMF Platform Configuration &gt; Change Preferred’, save and reboot.</p>
+</div>
+<div class="section" id="vmware-workstation">
+<h3>VMware Workstation<a class="headerlink" href="#vmware-workstation" title="Permalink to this heading"></a></h3>
+<p>Tested on VMware Workstation 16.2.1</p>
+<div class="warning admonition">
+<p class="admonition-title">Installation issue</p>
+<p>For best results while installing, please set your CPU to 1 socket, and no more than 4 cores</p>
+<p>After installation, you can set the CPU socket and core count to your desire.</p>
+</div>
+<ul class="simple">
+<li><p>Memory: 4GB</p></li>
+<li><p>Processors: 4 (1 socket, 4 cores)</p></li>
+<li><p>Hard Disk: At least 8GB</p></li>
+<li><p>Guest Operating System Version: FreeBSD 12 64-bit</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="hello" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="components.html" class="btn btn-neutral float-right" title="Getting to know the system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

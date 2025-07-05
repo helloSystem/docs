@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raspberry Pi &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Building on Linux" href="linux.html" />
+    <link rel="prev" title="Writing man pages" href="man.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-hardware">Optional hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-an-sd-card">Preparing an SD card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-a-bootable-ssd-drive-optional-but-recommended">Preparing a bootable SSD drive (optional but recommended)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#booting-into-the-system">Booting into the system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-a-graphical-session">Starting a graphical session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiling-and-installing-hellodesktop-core-components">Compiling and installing helloDesktop core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-prerequisites">Install prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch">launch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menu">Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filer">Filer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dock">Dock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qtplugin">QtPlugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#icons-and-other-assets">Icons and other assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-required-packages">Installing required packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-overlays">Installing overlays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-fstab">Adjusting fstab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-d-bus-and-avahi">Enabling D-Bus and Avahi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-start-hello">Editing start-hello</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-hellodesktop-session">Starting helloDesktop session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-user">Adding a user</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improving-system-performance">Improving system performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-swap-for-greater-system-memory-capabilities">Setting up SWAP for greater system memory capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overclocking-your-system">Overclocking your system</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#known-issues">Known issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#missing-login-window">Missing login window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-browser">Web browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ram-compression">RAM compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-icons">Missing icons</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Raspberry Pi</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/rpi.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="raspberry-pi">
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading"></a></h1>
+<p><img alt="" src="https://camo.githubusercontent.com/9e96cf15fbd387092abc4fd6ede84e29cee79892d4d912d0a44b63ca7fe8cb5e/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f457a48427433575845414d7131556e3f666f726d61743d6a7067266e616d653d736d616c6c" /></p>
+<p>Although we are currently not providing installation images for Raspberry Pi, we are investigating whether doing so would be feasible and beneficial.</p>
+<p>The same instructions are roughly applicable to other aarch64 based systems such as rk3399 ones like the PineBook Pro and the <a class="reference external" href="https://bsd-hardware.info/?id=board:pine64-pinebook-pro-rk3399">pine64 rockpro64_rk3399</a> as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is intended for technically advanced users and developers, not for end users. This page is work in progress. Instructions are brief and assume prior knowledge with the subject.</p>
+</div>
+<p>This page describes how to run the main components of helloSystem (referred to collectively as helloDesktop) on Raspberry Pi 3 and Raspberry Pi 4 devices, starting with the official FreeBSD 13 image that does not even contain Xorg.</p>
+<p>It describes how to build and set up the main components of helloSystem by hand, so this is a good walkthrough in case you are interested in bringing up the helloDesktop on other systems as well.</p>
+<p>If there is enough interest, we might eventually provide readymade helloSystem images for Raspberry Pi in the future. This depends on how usable helloSystem will be on the Raspberry Pi (e.g., whether we can get decent graphics performance).</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Raspberry Pi 3 Model B or B+, Raspberry Pi 4 Model B, or Raspberry Pi 400</p></li>
+<li><p>Suitable power supply</p></li>
+<li><p>Class-1 or faster microSD card with at least 8 GB of memory</p></li>
+<li><p>HDMI display</p></li>
+<li><p>Keyboard and mouse (we recommend the official Raspberry Pi keyboard since helloSystem can automatically detect its language)</p></li>
+<li><p>Ethernet (WLAN is not yet covered on this page)</p></li>
+</ul>
+</div>
+<div class="section" id="optional-hardware">
+<h2>Optional hardware<a class="headerlink" href="#optional-hardware" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>SATA SSD drive (not NVME)</p></li>
+</ul>
+</div>
+<div class="section" id="preparing-an-sd-card">
+<h2>Preparing an SD card<a class="headerlink" href="#preparing-an-sd-card" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Install the official FreeBSD 13 image (not FreeBSD 14) to a microSD card</p></li>
+<li><p>Copy this file to the microSD card you are running the Raspberry Pi from. You will need it because you will not have an internet browser at hand</p></li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">config.txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">MSDOSBOOT</span></code> partition to contain the correct resolution for your screen.</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>hdmi_safe=0
+disable_overscan=1
+display_auto_detect=1
+max_framebuffer_width=3840
+max_framebuffer_height=2160
+max_framebuffers=2
+gpu_mem=512
+
+[pi4]
+dtoverlay=vc4-kms-v3d-pi4
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If, for some reason, the display does not work, simply remove or comment out the <code class="docutils literal notranslate"><span class="pre">max_framebuffer*</span></code> lines and replace them with the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>framebuffer_width=&lt;display resolution width&gt;
+framebuffer_height=&lt;display resolution height&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="preparing-a-bootable-ssd-drive-optional-but-recommended">
+<h2>Preparing a bootable SSD drive (optional but recommended)<a class="headerlink" href="#preparing-a-bootable-ssd-drive-optional-but-recommended" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.raspberrystreet.com/learn/how-to-boot-raspberrypi-from-usb-ssd">Update your firmware if USB boot is not working</a></p></li>
+<li><p>Follow the instructions in the SD card section, but write the image to your SSD</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Raspberry Pi 4/400 doesn’t have a PCIe bus, so booting off an NVMe drive over USB protocol is not supported by the hardware. You will need to use a SATA SSD. This works for either M.2 or traditional drive form factors.</p>
+</div>
+</div>
+<div class="section" id="booting-into-the-system">
+<h2>Booting into the system<a class="headerlink" href="#booting-into-the-system" title="Permalink to this heading"></a></h2>
+<p>We will be doing all subsequent steps on the Raspberry Pi system itself since we are assuming you don’t have any other 64-bit ARM (<code class="docutils literal notranslate"><span class="pre">aarch64</span></code>) machines at hand.</p>
+<ul class="simple">
+<li><p>Insert the microSD card into the Raspberry Pi</p></li>
+<li><p>Attach keyboard and mouse (we recommend the official Raspberry Pi keyboard since helloSystem can automatically detect its language)</p></li>
+<li><p>Attach the display (If you don’t see anything, DO NOT power off your machine. Simply switch the HDMI port.)</p></li>
+<li><p>Attach Ethernet</p></li>
+<li><p>Power on the Raspberry Pi</p></li>
+<li><p>After some time, you should land in a login screen</p></li>
+<li><p>Log in with <code class="docutils literal notranslate"><span class="pre">root</span></code>, password <code class="docutils literal notranslate"><span class="pre">root</span></code></p></li>
+<li><p>Install some basic software with <code class="docutils literal notranslate"><span class="pre">pkg</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">xorg</span> <span class="pre">xterm</span> <span class="pre">nano</span> <span class="pre">openbox</span> <span class="pre">fluxbox</span> <span class="pre">git-lite</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">fluxbox</span></code> is not strictly needed and can be removed later on, but it gives us a graphical desktop session while we are working on installing helloDesktop</p>
+</div>
+</div>
+<div class="section" id="starting-a-graphical-session">
+<h2>Starting a graphical session<a class="headerlink" href="#starting-a-graphical-session" title="Permalink to this heading"></a></h2>
+<p>Start Xorg with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="nb">echo</span><span class="w"> </span>startfluxbox<span class="w"> </span>&gt;<span class="w"> </span>~/.xinitrc
+<span class="gp"># </span>startx
+</pre></div>
+</div>
+<p>Doing it like this is the easiest way since the display <code class="docutils literal notranslate"><span class="pre">DISPLAY</span></code> environment variable and other things will be set automatically.</p>
+</div>
+<div class="section" id="compiling-and-installing-hellodesktop-core-components">
+<h2>Compiling and installing helloDesktop core components<a class="headerlink" href="#compiling-and-installing-hellodesktop-core-components" title="Permalink to this heading"></a></h2>
+<div class="section" id="install-prerequisites">
+<h3>Install prerequisites<a class="headerlink" href="#install-prerequisites" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>pkg<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cmake<span class="w"> </span>pkgconf<span class="w"> </span>qt5-qmake<span class="w"> </span>qt5-buildtools<span class="w"> </span>kf5-kdbusaddons<span class="w"> </span>kf5-kwindowsystem<span class="w"> </span>libdbusmenu-qt5<span class="w"> </span>qt5-concurrent<span class="w"> </span>qt5-quickcontrols2<span class="w"> </span>libfm<span class="w"> </span>libqtxdg<span class="w"> </span>wget
+</pre></div>
+</div>
+</div>
+<div class="section" id="launch">
+<h3>launch<a class="headerlink" href="#launch" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">launch</span></code> command is central to helloSystem and is used to launch applications throughout the system.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/launch
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>launch/
+<span class="gp"># </span>mkdir<span class="w"> </span>build
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>build/
+<span class="gp"># </span>cmake<span class="w"> </span>..
+<span class="gp"># </span>make<span class="w"> </span>-j4
+<span class="gp"># </span>./launch
+<span class="gp"># </span>make<span class="w"> </span>install
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>../../
+</pre></div>
+</div>
+</div>
+<div class="section" id="menu">
+<h3>Menu<a class="headerlink" href="#menu" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/Menu
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>Menu
+<span class="gp"># </span>mkdir<span class="w"> </span>build
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="gp"># </span>cmake<span class="w"> </span>..
+<span class="gp"># </span>make<span class="w"> </span>-j4
+<span class="gp"># </span>make<span class="w"> </span>install
+<span class="gp"># </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bin/menubar<span class="w"> </span>/usr/local/bin/Menu<span class="w"> </span><span class="c1"># Workaround for the &#39;launch&#39; command to find it</span>
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>../../
+</pre></div>
+</div>
+</div>
+<div class="section" id="filer">
+<h3>Filer<a class="headerlink" href="#filer" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/Filer
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>Filer/
+<span class="gp"># </span>mkdir<span class="w"> </span>build
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>build/
+<span class="gp"># </span>cmake<span class="w"> </span>..
+<span class="gp"># </span>make<span class="w"> </span>-j4
+<span class="gp"># </span>make<span class="w"> </span>install
+<span class="gp"># </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bin/filer-qt<span class="w"> </span>/usr/local/bin/Filer<span class="w"> </span><span class="c1"># Workaround for the &#39;launch&#39; command to find it</span>
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>../../
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It seems like Filer refuses to start if D-Bus is missing. We should change it so that it can also work without D-Bus and at prints a clear warning if D-Bus is missing. Currently all you see if D-Bus is missing is the following: ‘** (process:3691): WARNING **:  The directory ‘~/Templates’ doesn’t exist, ignoring it’, and then Filer exits.</p>
+</div>
+</div>
+<div class="section" id="dock">
+<h3>Dock<a class="headerlink" href="#dock" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>pkg<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>&lt;...&gt;
+<span class="gp"># </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/Dock
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>Dock
+<span class="gp"># </span>mkdir<span class="w"> </span>build
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="gp"># </span>cmake<span class="w"> </span>..
+<span class="gp"># </span>make<span class="w"> </span>-j4
+<span class="gp"># </span>make<span class="w"> </span>install
+<span class="go">// Currently Dock is installed to /usr/bin/cyber-dock. In the future is should be in /usr/local/bin/.</span>
+<span class="gp"># </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/cyber-dock<span class="w"> </span>/usr/local/bin/Dock<span class="w"> </span><span class="c1"># Workaround for the &#39;launch&#39; command to find it</span>
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>../../
+</pre></div>
+</div>
+</div>
+<div class="section" id="qtplugin">
+<h3>QtPlugin<a class="headerlink" href="#qtplugin" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/QtPlugin
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>QtPlugin/
+<span class="gp"># </span>mkdir<span class="w"> </span>build
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>build/
+<span class="gp"># </span>cmake<span class="w"> </span>..
+<span class="gp"># </span>make<span class="w"> </span>-j4
+<span class="gp"># </span>make<span class="w"> </span>install
+<span class="gp"># </span>cp<span class="w"> </span>../stylesheet.qss<span class="w"> </span>/usr/local/etc/xdg/
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>../../
+</pre></div>
+</div>
+</div>
+<div class="section" id="icons-and-other-assets">
+<h3>Icons and other assets<a class="headerlink" href="#icons-and-other-assets" title="Permalink to this heading"></a></h3>
+<p>Install icons and other helloSystem assets that are not packaged as FreeBSD packages (yet). It is easiest to run <code class="docutils literal notranslate"><span class="pre">bash</span></code>, then <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">uzip=/</span></code>, and then run the corresponding sections of <a class="reference external" href="https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/script.hello">script.hello</a>. Here are some examples.</p>
+<p>For the system icons:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>wget<span class="w"> </span>-c<span class="w"> </span>-q<span class="w"> </span>http://archive.ubuntu.com/ubuntu/pool/universe/x/xubuntu-artwork/xubuntu-icon-theme_16.04.2_all.deb
+<span class="gp"># </span>tar<span class="w"> </span>xf<span class="w"> </span>xubuntu-icon-theme_16.04.2_all.deb
+<span class="gp"># </span>tar<span class="w"> </span>xf<span class="w"> </span>data.tar.xz
+<span class="gp"># </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">&quot;</span>/usr/local/share/icons/
+<span class="gp"># </span>mv<span class="w"> </span>./usr/share/icons/elementary-xfce<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">&quot;</span>/usr/local/share/icons/
+<span class="gp"># </span>mv<span class="w"> </span>./usr/share/doc/xubuntu-icon-theme/copyright<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">&quot;</span>/usr/local/share/icons/<span class="w"> </span>elementary-xfce/
+<span class="gp"># </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|usr/share|usr/local/share|g&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">&quot;</span>/usr/local/share/icons/elementary-xfce/copyright
+<span class="gp"># </span>rm<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">&quot;</span>/usr/local/share/icons/elementary-xfce/copyright-e
+<span class="gp"># </span>wget<span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/helloSystem/hello/master/branding/computer-hello.png&quot;</span><span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">&quot;</span>/usr/local/share/icons/elementary-xfce/devices/128/computer-hello.png
+</pre></div>
+</div>
+<p>For the system fonts:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>wget<span class="w"> </span>-c<span class="w"> </span>-q<span class="w"> </span>https://github.com/ArtifexSoftware/urw-base35-fonts/archive/20200910.zip
+<span class="gp"># </span>unzip<span class="w"> </span>-q<span class="w"> </span><span class="m">20200910</span>.zip
+<span class="gp"># </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">/usr/local/share/fonts/TTF/&quot;</span>
+<span class="gp"># </span>cp<span class="w"> </span>-R<span class="w"> </span>urw-base35-fonts-20200910/fonts/*.ttf<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">uzip</span><span class="si">}</span><span class="s2">/usr/local/share/fonts/TTF/&quot;</span>
+<span class="gp"># </span>rm<span class="w"> </span>-rf<span class="w"> </span>urw-base35-fonts-20200910/<span class="w"> </span><span class="m">20200910</span>.zip
+</pre></div>
+</div>
+<p>Proceed similarly for the cursor theme, wallpaper, applications from the helloSystem/Utilities repository, and other assets.</p>
+</div>
+<div class="section" id="installing-required-packages">
+<h3>Installing required packages<a class="headerlink" href="#installing-required-packages" title="Permalink to this heading"></a></h3>
+<p>Install every package that is not commented out in <a class="reference external" href="https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/packages.hello">packages.hello</a> that are installable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not every package will be installable. This probably means that the package in question has not been compiled for the <code class="docutils literal notranslate"><span class="pre">aarch64</span></code> architecture on FreeBSD 13 yet.</p>
+</div>
+<p>You can use this script to automatically install all listed packages:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/helloSystem/ISO/experimental/settings/packages.hello&quot;</span>
+curl<span class="w"> </span>-fsS<span class="w"> </span><span class="nv">$url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;^#&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>pkg<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>-U<span class="w"> </span><span class="nv">$line</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[error] </span><span class="nv">$line</span><span class="s2"> cannot be installed&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>To enable <code class="docutils literal notranslate"><span class="pre">automount</span></code>, run <code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">devd</span> <span class="pre">restart</span></code>.</p>
+</div>
+<div class="section" id="installing-overlays">
+<h3>Installing overlays<a class="headerlink" href="#installing-overlays" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/helloSystem/ISO
+<span class="gp"># </span>cp<span class="w"> </span>-Rfv<span class="w"> </span>ISO/overlays/uzip/hello/files/<span class="w"> </span>/<span class="w"> </span>
+<span class="gp"># </span>cp<span class="w"> </span>-Rfv<span class="w"> </span>ISO/overlays/uzip/localize/files/<span class="w"> </span>/<span class="w"> </span>
+<span class="gp"># </span>cp<span class="w"> </span>-Rfv<span class="w"> </span>ISO/overlays/uzip/openbox-theme/files/<span class="w"> </span>/
+<span class="gp"># </span>cp<span class="w"> </span>-Rfv<span class="w"> </span>ISO/overlays/uzip/mountarchive/files/<span class="w"> </span>/<span class="w"> </span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If we provided the temporary packages that are used in the helloSystem ISO build process for download, then one could just install those instead of having to do the above.</p>
+</div>
+</div>
+</div>
+<div class="section" id="adjusting-fstab">
+<h2>Adjusting fstab<a class="headerlink" href="#adjusting-fstab" title="Permalink to this heading"></a></h2>
+<p>Edit <code class="file docutils literal notranslate"><span class="pre">/etc/fstab</span></code> to look like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/dev/mmcsd0s2a  /       ufs     rw      0       0
+</pre></div>
+</div>
+<p>Otherwise the root device may not be found upon reboot.</p>
+<div class="section" id="enabling-d-bus-and-avahi">
+<h3>Enabling D-Bus and Avahi<a class="headerlink" href="#enabling-d-bus-and-avahi" title="Permalink to this heading"></a></h3>
+<p>Filer does not launch and Zeroconf does not work if <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/dbus-daemon</span> <span class="pre">--system</span></code> is not running. Hence add the following lines to `/etc/rc.conf’ to enable it:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dbus_enable=&quot;YES&quot;
+avahi_enable=&quot;YES&quot; 
+</pre></div>
+</div>
+<p>and then start it <code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">dbus</span> <span class="pre">start</span></code>.</p>
+</div>
+<div class="section" id="editing-start-hello">
+<h3>Editing start-hello<a class="headerlink" href="#editing-start-hello" title="Permalink to this heading"></a></h3>
+<p>Edit the <code class="docutils literal notranslate"><span class="pre">start-hello</span></code> script to use the <code class="docutils literal notranslate"><span class="pre">launch</span></code> command instead of hardcoding <code class="docutils literal notranslate"><span class="pre">/Applications/...</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#################################
+# Details to be inserted here.
+# This script is work in progress.
+#################################
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-hellodesktop-session">
+<h3>Starting helloDesktop session<a class="headerlink" href="#starting-hellodesktop-session" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="nb">echo</span><span class="w"> </span>start-hello<span class="w"> </span>&gt;<span class="w"> </span>~/.xinitrc
+<span class="gp"># </span>killall<span class="w"> </span>Xorg
+</pre></div>
+</div>
+<p>Type <code class="docutils literal notranslate"><span class="pre">startx</span></code> to start an Xorg session; it should now load a helloDesktop session.</p>
+<p>Sometimes it does not load all the way, in this case it is necessary to start xterm (right-click the desktop) and invoke <code class="docutils literal notranslate"><span class="pre">start-hello</span></code> from there again. The reason for this is unknown.</p>
+</div>
+<div class="section" id="adding-a-user">
+<h3>Adding a user<a class="headerlink" href="#adding-a-user" title="Permalink to this heading"></a></h3>
+<p>Added a new user with Applications -&gt; Preferences -&gt; Users</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>cp<span class="w"> </span>/home/user/.openbox*<span class="w"> </span>.
+<span class="gp"># </span>cp<span class="w"> </span>-r<span class="w"> </span>/home/user/.config/*<span class="w"> </span>.config/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="improving-system-performance">
+<h2>Improving system performance<a class="headerlink" href="#improving-system-performance" title="Permalink to this heading"></a></h2>
+<div class="section" id="setting-up-swap-for-greater-system-memory-capabilities">
+<h3>Setting up SWAP for greater system memory capabilities<a class="headerlink" href="#setting-up-swap-for-greater-system-memory-capabilities" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While this will work on an SD card, it will be slow and wear out your drive quickly. Take it from me, SD cards SUCK for quick memory page access. It is highly recommended to use a SATA SSD when using SWAP. This section was adapted from <a class="reference external" href="https://www.cyberciti.biz/faq/create-a-freebsd-swap-file/">a guide on nixCraft</a>. It goes into more detail and even breifly covers encryption.</p>
+</div>
+<ul>
+<li><p>Create a SWAP file using</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/swap<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">8192</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will create a swap file holding up to 8192 MB (8 GB) of memory. To go much further beyond that would recommend some further tweaking. 8 GB should be more than enough. It’s easy enough to convert what you want in GB to MB, but for the sake of convenience, multiply how much memory you want in gigabytes (GB) by 1024. For example, if you wanted 4 GB, you’d do 4*1024=4096.</p>
+</div>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">chmod</span> <span class="pre">0600</span> <span class="pre">/swap</span></code> to give it the correct permissions.</p></li>
+<li><p>Edit /etc/fstab and append the following line:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>md42	none	swap	sw,file=/swap	0	0
+</pre></div>
+</div>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">swapon</span> <span class="pre">-aq</span></code> to immediately enable SWAP</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">swapinfo</span> <span class="pre">-k</span></code> to verify that it’s been attached correctly</p></li>
+</ul>
+</div>
+<div class="section" id="overclocking-your-system">
+<h3>Overclocking your system<a class="headerlink" href="#overclocking-your-system" title="Permalink to this heading"></a></h3>
+<p>With an SSD, SWAP, and several GPU enhancements enabled, you should immediately notice a speed boost. This will give you a much better development system and may even replace your desktop. However, you can quickly and easily take it a step further by overclocking your system. Please note, overclocking can lead to reduced hardware lifespan and can cause permenant damage. That said, I’ve found that a decent heat sing and a good fan go the trick. This is necessary as not having a somewhat competatant cooling solution will bite you in the ass. If you let it heat too much, it will thermal throttle and kill your performance. Do keep in mind, you need a good power supply to run this thing, especially overclocked. A Raspberry Pi power supply is a little different than a normal phone charger by design. Your new iPhone or MacBook charger probably won’t cut it. I’d recommend getting the <a class="reference external" href="https://www.amazon.com/Raspberry-Power-Supply-USB-C-Listed/dp/B07Z8P61DQ">official Rasbperry Pi power supply</a>, manufactured by the Rasbperry Pi Foundation or whatever. Ir’s OEM, it’s good. Another great option is the <a class="reference external" href="https://www.amazon.com/Argon-Raspberry-Supply-Listed-Adapter/dp/B07TW4Q693">Argon ONE</a> power supply.</p>
+<p>Overclocking is inherently dangerous as you are pushing the device beyond the intended spec. However, it is a very simple and robust machine that will most likely experience no ussues doing this. The Raspberry Pi is very affordable and modular, making the risk of hardware failure less of an issue. The main board can easily be swapped out and EEPROM flashed and you have your whole system back. There’s a hard limit to how far you can push your Pi, so don’t even worry about overdoing it. No 8 GHz liquid nitrogen overclocks I’m afraid.</p>
+<p>To overclock you Raspberry Pi 4 to the max, edit <code class="file docutils literal notranslate"><span class="pre">/boot/msdos/config.txt</span></code> and append the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>over_voltage=6
+arm_freq=2147
+gpu_freq=700
+</pre></div>
+</div>
+<p>2147 MHz is the maximum the device can go. Unlike Raspberry Pi OS, FreeBSD will boot even if you set these values higher. Even though you can set it higher, I can see no difference, even at 3000. You can set the gpu_freq up to “900” before it refuses to boot on FreeBSD. However, I can’t tell if it is actually working or not. Even if you can push it past its limits, you will probaby see diminishing returns. In the event that you actually can overclock it to these badass levels, I’d recommend investing in a monster CPU cooler, maybe even running liquid cooling or higher as 2147 MHz is already pretty warm.</p>
+</div>
+</div>
+<div class="section" id="known-issues">
+<h2>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any help in improving the situation is appreciated.</p>
+</div>
+<p>Not sure whether <code class="docutils literal notranslate"><span class="pre">vc4-kms-v3d</span></code> is usable with FreeBSD.</p>
+<p>Also see: https://papers.freebsd.org/2019/bsdcan/vadot-adventure_in_drmland/</p>
+<div class="section" id="missing-login-window">
+<h3>Missing login window<a class="headerlink" href="#missing-login-window" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">slim</span></code> package is missing, hence we don’t have a login window at the moment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Web browser performance may be improved and the following issues may not be relevant anymore. This will require more user feedback and testing.</p>
+</div>
+</div>
+<div class="section" id="web-browser">
+<h3>Web browser<a class="headerlink" href="#web-browser" title="Permalink to this heading"></a></h3>
+<p>The Falkon browser can be launched, but trying to load more than the most basic web pages such as http://frogfind.com/ leads to an instant crash:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>cat<span class="w"> </span>/root/.config/falkon/crashlog/Crash-2021-04-17T10:21:20.txt
+<span class="go">Time: Sa. Apr. 17 10:21:20 2021</span>
+<span class="go">Qt version: 5.15.2 (compiled with 5.15.2)</span>
+<span class="go">Falkon version: 3.1.0</span>
+<span class="go">Rendering engine: QtWebEngine</span>
+
+<span class="go">============== BACKTRACE ==============</span>
+<span class="gp">#</span><span class="m">0</span>:<span class="w"> </span>0x213810<span class="w"> </span>&lt;???&gt;<span class="w"> </span>at<span class="w"> </span>/usr/local/bin/falkon
+<span class="gp">#</span><span class="m">1</span>:<span class="w"> </span>0x499b4994<span class="w"> </span>&lt;_pthread_sigmask+0x524&gt;<span class="w"> </span>at<span class="w"> </span>/lib/libthr.so.3
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exact same crash also happens on a RockPro64 with 4GB of RAM.</p>
+</div>
+</div>
+<div class="section" id="ram-compression">
+<h3>RAM compression<a class="headerlink" href="#ram-compression" title="Permalink to this heading"></a></h3>
+<p>On Linux, there is also <strong>zram</strong> which is enabled by default on Android and Chromium OS. Did anything ever come out of https://wiki.freebsd.org/SummerOfCode2019Projects/VirtualMemoryCompression?</p>
+<p>macOS also does RAM compression when memory is getting low: https://www.lifewire.com/understanding-compressed-memory-os-x-2260327.</p>
+<p>Windows also does RAM compression: https://www.tenforums.com/windows-10-news/17993-windows-10-memory-compression.html.</p>
+<p>The following seems to “work” but can make the Raspberry Pi unacceptably slow:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>mdconfig<span class="w"> </span>-a<span class="w"> </span>-t<span class="w"> </span>malloc<span class="w"> </span>-o<span class="w"> </span>compress<span class="w"> </span>-o<span class="w"> </span>reserve<span class="w"> </span>-s<span class="w"> </span>700m<span class="w"> </span>-u<span class="w"> </span><span class="m">7</span>
+<span class="gp"># </span>swapon<span class="w"> </span>/dev/md7
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please let us know if you know how to properly use RAM compression on FreeBSD.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not use ZFS on memory-constrained machines.</p>
+</div>
+</div>
+<div class="section" id="missing-icons">
+<h3>Missing icons<a class="headerlink" href="#missing-icons" title="Permalink to this heading"></a></h3>
+<p>Set <code class="docutils literal notranslate"><span class="pre">QT_QPA_PLATFORMTHEME</span></code> env variable before staring Xorg session.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">setenv QT_QPA_PLATFORMTHEME panda</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="man.html" class="btn btn-neutral float-left" title="Writing man pages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral float-right" title="Building on Linux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

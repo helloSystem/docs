@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>geom_rowr kernel module &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Graphics hardware autoconfiguration" href="graphics.html" />
+    <link rel="prev" title="Boot process" href="boot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">geom_rowr kernel module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-case">Use case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theory-of-operation">Theory of operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test">Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-in-the-live-iso-boot-process">Use in the Live ISO boot process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#caveats">Caveats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#device-size">Device size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reroot">Reroot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zfs">ZFS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">geom_rowr kernel module</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/geom_rowr.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="geom-rowr-kernel-module">
+<h1>geom_rowr kernel module<a class="headerlink" href="#geom-rowr-kernel-module" title="Permalink to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">geom_rowr</span></code> kernel module for FreeBSD makes a read-only device writable by combining it with a read-write device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This kernel module is currently under development and is being tested for adoption in helloSystem.</p>
+</div>
+<div class="section" id="use-case">
+<h2>Use case<a class="headerlink" href="#use-case" title="Permalink to this heading"></a></h2>
+<p>When creating a Live ISO, we want to use a read-only filesystem (that can reside on a medium that is physically read-only, such as a DVD) but make it appear to the system as if it was read-write (since some parts of the system may not work on a read-only system).</p>
+</div>
+<div class="section" id="theory-of-operation">
+<h2>Theory of operation<a class="headerlink" href="#theory-of-operation" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">geom_rowr</span></code> is a FreeBSD kernel module using the <a class="reference external" href="https://docs.freebsd.org/en/books/handbook/geom.html">GEOM Modular Disk Transformation Framework</a>. It allows you to take a read-only device (e.g. a DVD) and combine it with a read-write device (e.g., a swap-backed <code class="docutils literal notranslate"><span class="pre">md</span></code> memory disk) to get a new device that contains the data from the read-only device but is writable.</p>
+<p>It is designed to work with any filesystem, including ZFS. It is compatible with <code class="docutils literal notranslate"><span class="pre">geom_uzip</span></code> so the read-only filesystem can be compressed with uzip.</p>
+<p>The principle of operation is as follows:</p>
+<ul class="simple">
+<li><p>Reading a sector from the combined device reads it from the read-only device. Writing a sector writes it to the read-write device</p></li>
+<li><p>After a sector is written, future reads of that sector are satisfied from the read-write device as it contains the latest version of the sector’s contents</p></li>
+</ul>
+<p>As a result, immediately after creating the combined device, it appears to contain all the data from the read-only device. This means zero wait time for the user.</p>
+</div>
+<div class="section" id="test">
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this heading"></a></h2>
+<p>Execute the following commands as root:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">// Prepare filesystem image</span>
+<span class="gp"># </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>test.img<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">512</span>
+<span class="gp"># </span>mdconfig<span class="w"> </span>-a<span class="w"> </span>-t<span class="w"> </span>vnode<span class="w"> </span>-f<span class="w"> </span>test.img<span class="w"> </span>-u<span class="w"> </span><span class="m">9</span>
+<span class="gp"># </span>newfs<span class="w"> </span>/dev/md9
+<span class="gp"># </span>mount<span class="w"> </span>/dev/md9<span class="w"> </span>/mnt
+<span class="go">// Populate the filesystem</span>
+<span class="gp"># </span>cp<span class="w"> </span>-R<span class="w"> </span>/boot/<span class="w"> </span>/mnt
+<span class="gp"># </span>umount<span class="w"> </span>/mnt
+<span class="gp"># </span>mdconfig<span class="w"> </span>-d<span class="w"> </span>-u<span class="w"> </span><span class="m">9</span>
+
+<span class="go">// Load kernel module</span>
+<span class="gp"># </span>kldload<span class="w"> </span>./geom_rowr.ko
+<span class="go">// prepare the read-only device md0 </span>
+<span class="gp"># </span>mdconfig<span class="w"> </span>-a<span class="w"> </span>-t<span class="w"> </span>vnode<span class="w"> </span>-o<span class="w"> </span><span class="nb">readonly</span><span class="w"> </span>-f<span class="w"> </span>test.img<span class="w"> </span>-u<span class="w"> </span><span class="m">0</span>
+<span class="go">// prepare the read-write device md1</span>
+<span class="gp"># </span>mdconfig<span class="w"> </span>-a<span class="w"> </span>-t<span class="w"> </span>swap<span class="w"> </span>-s<span class="w"> </span>512M<span class="w"> </span>-u<span class="w"> </span><span class="m">1</span>
+<span class="go">// Make sure the geom(8) tool will find the .so</span>
+<span class="gp"># </span>cp<span class="w"> </span>geom_rowr.so<span class="w"> </span>/lib/geom
+<span class="go">// Create the new device that combines md0 and md1</span>
+<span class="gp"># </span>geom<span class="w"> </span>rowr<span class="w"> </span>create<span class="w"> </span>rowr0<span class="w"> </span>md0<span class="w"> </span>md1
+<span class="gp"># </span>mount<span class="w"> </span>/dev/rowr0<span class="w"> </span>/mnt
+
+<span class="go">// See that the files are already there</span>
+<span class="gp"># </span>ls<span class="w"> </span>/mnt
+<span class="go">// make changes to the filesystem to see that it is read-write</span>
+<span class="gp"># </span>mv<span class="w"> </span>/mnt/*.4th<span class="w"> </span>/mnt/lua<span class="p">;</span><span class="w"> </span>rm<span class="w"> </span>/mnt/pxeboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-in-the-live-iso-boot-process">
+<h2>Use in the Live ISO boot process<a class="headerlink" href="#use-in-the-live-iso-boot-process" title="Permalink to this heading"></a></h2>
+<p>This can be used for a Live ISO like this:</p>
+<ul class="simple">
+<li><p>On the ISO, there is a small <code class="docutils literal notranslate"><span class="pre">ramdisk.ufs</span></code> that contains the logic to mount the main filesystem using <code class="docutils literal notranslate"><span class="pre">geom_rowr</span></code></p></li>
+<li><p>On the ISO, there is also the main filesystem <code class="docutils literal notranslate"><span class="pre">system.ufs</span></code> which is a UFS image compressed with <code class="docutils literal notranslate"><span class="pre">geom_uzip</span></code></p></li>
+<li><p>At boot time, the code in the ramdisk creates a r/w swap-backed <code class="docutils literal notranslate"><span class="pre">md</span></code> device with the same size as the main r/o filesystem image, mounts it together with the main filesystem using <code class="docutils literal notranslate"><span class="pre">geom_rowr</span></code>, and chroots into the combined r/w filesystem. From there, the boot process continues as usual</p></li>
+</ul>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this heading"></a></h2>
+<div class="section" id="device-size">
+<h3>Device size<a class="headerlink" href="#device-size" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The r/o image must have as much free space as you would like to have on the combined device. This can be achieved, e.g., like this: <code class="docutils literal notranslate"><span class="pre">makefs</span> <span class="pre">-b</span> <span class="pre">20%</span> <span class="pre">-f</span> <span class="pre">20%</span> <span class="pre">/usr/local/furybsd/cdroot/data/system.ufs</span> <span class="pre">/usr/local/furybsd/uzip</span></code> which will add an extra 20% of free space to the main filesystem image</p></li>
+<li><p>The free space is compressed very efficiently when the image is compressed with <code class="docutils literal notranslate"><span class="pre">geom_uzip</span></code>. This can be achieved, e.g., like this: <code class="docutils literal notranslate"><span class="pre">mkuzip</span> <span class="pre">-o</span> <span class="pre">/usr/local/furybsd/cdroot/data/system.uzip</span> <span class="pre">/usr/local/furybsd/cdroot/data/system.ufs</span></code></p></li>
+<li><p>The uncompressed r/o image and the r/w device need to be the exact same size in bytes. Assuming variable <code class="docutils literal notranslate"><span class="pre">${x}</span></code> holds the size of the uncompressed r/o image in bytes, a matching r/w device with the same size in bytes can be created using <code class="docutils literal notranslate"><span class="pre">mdconfig</span> <span class="pre">-a</span> <span class="pre">-t</span> <span class="pre">swap</span> <span class="pre">-s</span> <span class="pre">${x}b</span> <span class="pre">-u</span> <span class="pre">2</span></code> (note the <code class="docutils literal notranslate"><span class="pre">b</span></code> suffix to the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option). If this is not done correctly, we get the <code class="docutils literal notranslate"><span class="pre">geom:</span> <span class="pre">mediasize</span> <span class="pre">mismatch</span></code> error</p></li>
+</ul>
+<p>You can have an <a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?md%284%29">md(4)</a> device be of size 3GB without it consuming 3GB of RAM.
+This is valid for vnode-backed md devices, swap-backed md devices and malloc-backed when the <code class="docutils literal notranslate"><span class="pre">reserve</span></code> option to <a class="reference external" href="https://www.freebsd.org/cgi/man.cgi?mdconfig(8)">mdconfig(8)</a> isn’t used.</p>
+<p>A swap-backed <code class="docutils literal notranslate"><span class="pre">md</span></code> device consumes close to zero memory when created and grows its memory use the more you write to it.</p>
+</div>
+<div class="section" id="reroot">
+<h3>Reroot<a class="headerlink" href="#reroot" title="Permalink to this heading"></a></h3>
+<p>Because <code class="docutils literal notranslate"><span class="pre">reroot</span></code> cannot be made to work with <code class="docutils literal notranslate"><span class="pre">geom_rowr</span></code> at this time, we need to use <code class="docutils literal notranslate"><span class="pre">chroot</span></code>.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">chroot</span></code>, some kernel modules that load firmware (e.g., for Intel WLAN drivers) fail to load the firmware if the places where kernel modules are located - <code class="file docutils literal notranslate"><span class="pre">/boot/kernel</span></code> and <code class="file docutils literal notranslate"><span class="pre">/boot/modules</span></code> - will look differently inside vs. outside the chroot.</p>
+<p>This can be fixed.</p>
+<p>Recommended way (to be tested):</p>
+<p>Provided that <code class="docutils literal notranslate"><span class="pre">ramdisk.ufs</span></code> does not contain <code class="file docutils literal notranslate"><span class="pre">/boot</span></code>, create a symlink on <code class="docutils literal notranslate"><span class="pre">ramdisk.ufs</span></code> from <code class="file docutils literal notranslate"><span class="pre">/boot</span></code> to <code class="file docutils literal notranslate"><span class="pre">/sysroot/boot</span></code>. The symlink can be made at image creation time or by a script that runs at runtime. This combined with the <em>default</em> <code class="docutils literal notranslate"><span class="pre">kern.module_path</span></code> should be enough to create a common view between the kernel and chrooted userland utilities. The places where kernel modules are located - <code class="file docutils literal notranslate"><span class="pre">/boot/kernel</span></code> and <code class="file docutils literal notranslate"><span class="pre">/boot/modules</span></code> - will look the same inside and outside of the chroot.</p>
+<p>Alternative way (known to work):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/sysroot/sysroot/boot<span class="w"> </span><span class="c1"># Needed?</span>
+<span class="gp"># </span>mount<span class="w"> </span>-t<span class="w"> </span>nullfs<span class="w"> </span>/sysroot/boot<span class="w"> </span>/sysroot/sysroot/boot<span class="w"> </span><span class="c1"># Needed?</span>
+
+<span class="gp"># </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==&gt; Set kernel module path for chroot&quot;</span>
+<span class="gp"># </span>sysctl<span class="w"> </span>kern.module_path<span class="o">=</span>/sysroot/boot/kernel
+</pre></div>
+</div>
+</div>
+<div class="section" id="zfs">
+<h3>ZFS<a class="headerlink" href="#zfs" title="Permalink to this heading"></a></h3>
+<p>With ZFS there is a problem unrelated to the <code class="docutils literal notranslate"><span class="pre">geom_rowr</span></code> code. When ZFS performs discovery of devices which are part of a zpool, the read-only device could be found before the combined rowr device which leads to inability to import the pool read-write.</p>
+<p>(TODO: Insert tested workaround here)</p>
+</div>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>geom_rowr.ko, geom_rowr.so: Copyright (c) 2021, Jordan Gordeev
+</pre></div>
+</div>
+<p>The author states that once the code reaches a certain level of maturity, it will be published under the license used by the FreeBSD project.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="boot.html" class="btn btn-neutral float-left" title="Boot process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="graphics.html" class="btn btn-neutral float-right" title="Graphics hardware autoconfiguration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

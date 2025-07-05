@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filer &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="launch" href="launch.html" />
+    <link rel="prev" title="Dock" href="dock.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../../../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../components.html">Getting to know the system</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../applications.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autostart.html">Autostart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filesystems.html">Filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preferences.html">Preferences</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../system.html">System components</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dock.html">Dock</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Filer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#launching-applications">Launching applications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#making-applications-available-to-the-system">Making applications available to the system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-applications">Removing applications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-files-on-remote-computers">Accessing files on remote computers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="launch.html">launch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="menu.html">Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows.html">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../components.html">Getting to know the system</a></li>
+          <li class="breadcrumb-item"><a href="../system.html">System components</a></li>
+      <li class="breadcrumb-item active">Filer</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/components/system/filer.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="filer">
+<h1>Filer<a class="headerlink" href="#filer" title="Permalink to this heading"></a></h1>
+<p><strong>Filer</strong> is the application that you can use to manage objects like files, folders, and applications on your computer.</p>
+<p>Filer can perform typical tasks of a file manager:</p>
+<ul class="simple">
+<li><p>Open files and folders</p></li>
+<li><p>Create, move, and delete files and folders</p></li>
+</ul>
+<p>In helloSystem, many tasks are done in the Filer that would require extra tools in other operating systems. For example, you can use the Filer to</p>
+<ul class="simple">
+<li><p>Launch applications (instead of using a dedicated launcher)</p></li>
+<li><p>Make applications available to the system (instead of using a package manager or compiling from source)</p></li>
+<li><p>Remove applications (instead of using a package manager)</p></li>
+<li><p>Accessing files on remote computers (instead of using a dedicated application that can access files over ssh/sftp)</p></li>
+</ul>
+<div class="section" id="launching-applications">
+<h2>Launching applications<a class="headerlink" href="#launching-applications" title="Permalink to this heading"></a></h2>
+<p>To launch an application, double-click it in Filer (you can also use the <code class="docutils literal notranslate"><span class="pre">⌘O</span></code> shortcut to open an application, or press <code class="docutils literal notranslate"><span class="pre">⌘↓</span></code>). In case you double-click on a binary that is lacking the execute permission, a dialog will ask you whether you would like to make the binary executable.</p>
+</div>
+<div class="section" id="making-applications-available-to-the-system">
+<h2>Making applications available to the system<a class="headerlink" href="#making-applications-available-to-the-system" title="Permalink to this heading"></a></h2>
+<p>Applications for helloSystem typically come as application bundles. An application bundle looks like a file but is actually stored as a directory on disk. To make an application available to the system, simply move or copy it to one of the well-known locations for applications, such as <code class="docutils literal notranslate"><span class="pre">/Applications</span></code> for system-wide applications, or <code class="docutils literal notranslate"><span class="pre">~/Applications</span></code> (in your home directory) for per-user applications.</p>
+<p>In addition to applications specifically offered for helloSystem, advanced users can use the tools provided by FreeBSD to compile applications from the ports tree, and/or to install FreeBSD packages.</p>
+</div>
+<div class="section" id="removing-applications">
+<h2>Removing applications<a class="headerlink" href="#removing-applications" title="Permalink to this heading"></a></h2>
+<p>To remove an application from the system, move it to the Trash.</p>
+</div>
+<div class="section" id="accessing-files-on-remote-computers">
+<h2>Accessing files on remote computers<a class="headerlink" href="#accessing-files-on-remote-computers" title="Permalink to this heading"></a></h2>
+<p>Computers on the local area network that are offering access via  SFTP are automatically discovered and are shown in the “Network” area of Filer. Double-click on a network directory to access it. You will be asked to provide valid credentials (username, password) of an account on the remote computer. For this to work, computers need to provide SFTP services and announce them over dns-sd (Zeroconf, Bonjour).</p>
+<p>It is also possible to access files on computers that are not on the local area network. To do so, enter <code class="docutils literal notranslate"><span class="pre">sftp://hostname.tld</span></code> in the address bar of Filer and press the Enter key.</p>
+</div>
+<div class="section" id="keyboard-shortcuts">
+<h2>Keyboard shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this heading"></a></h2>
+<p>In addition to the shortcuts documented in the menus, the following shortcuts exist when Filer is running in Spatial Mode (which is the default on helloSystem):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">⌘↓</span></code>: Open the selected application, file, or folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">⌘↑</span></code>: Go up one folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">⌘⇧O</span></code>: Open the selected application, file, or folder, and close the current window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">⌘⇧↓</span></code>: Open the selected application, file, or folder, and close the current window</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">⌘⇧↑</span></code>: Go up one folder, and close the current window</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dock.html" class="btn btn-neutral float-left" title="Dock" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="launch.html" class="btn btn-neutral float-right" title="launch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

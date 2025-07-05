@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with FreeBSD Ports &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with the FreeBSD base system" href="base.html" />
+    <link rel="prev" title="Localization" href="localization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with FreeBSD Ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pulling-the-ports-tree">Pulling the ports tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-port-without-changes">Building the port without changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-changes-to-the-port">Making changes to the port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-packages">Making packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-port-from-scratch">Creating a port from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-existing-ports">Updating existing ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-cirrus-ci">Working with Cirrus CI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Working with FreeBSD Ports</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/ports.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="working-with-freebsd-ports">
+<h1>Working with FreeBSD Ports<a class="headerlink" href="#working-with-freebsd-ports" title="Permalink to this heading"></a></h1>
+<p>In some situations it may be necessary to make changes to existing software that comes in FreeBSD packages.</p>
+<p>This section describes how to make such changes using an example.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<p>Suppose you would like to make a small change to the source code of software that comes as a FreeBSD package. Since packages are built from FreeBSD Ports, you need to modify the corresponding FreeBSD port.</p>
+<p>Here is a real-life example on how to do that:</p>
+<p>https://github.com/lxqt/qterminal/issues/474 can be fixed by changing a few lines in</p>
+<p>https://github.com/lxqt/qtermwidget/blob/059d832086facb19035a07d975ea4fd05d36b1ec/lib/TerminalDisplay.cpp#L3206</p>
+<p>Here is how to do it using FreeBSD Ports:</p>
+</div>
+<div class="section" id="pulling-the-ports-tree">
+<h2>Pulling the ports tree<a class="headerlink" href="#pulling-the-ports-tree" title="Permalink to this heading"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://git.freebsd.org/ports.git<span class="w"> </span>/usr/ports<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>If you are running an end-of-life FreeBSD version such as 12.1, you also need to</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOW_UNSUPPORTED_SYSTEM</span><span class="o">=</span><span class="m">1</span>
+<span class="go">// Or in csh</span>
+<span class="gp">% </span>setenv<span class="w"> </span>ALLOW_UNSUPPORTED_SYSTEM<span class="w"> </span>YES
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-the-port-without-changes">
+<h2>Building the port without changes<a class="headerlink" href="#building-the-port-without-changes" title="Permalink to this heading"></a></h2>
+<p>Build the port without changes first to ensure it builds and works as expected.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/usr/ports/x11-toolkits/qtermwidget/
+
+<span class="go">// Install all build-time dependencies from packages</span>
+<span class="gp">$ </span>make<span class="w"> </span>build-depends-list<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">12</span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>-y
+
+<span class="go">// Build the library</span>
+<span class="go">// NOTE: Applications that have a library that is used by nothing but that application are just</span>
+<span class="go">// annoying because now you have to deal with two entities rather than one</span>
+<span class="gp">$ </span><span class="nv">MAKE_JOBS_UNSAFE</span><span class="o">=</span>yes<span class="w"> </span>sudo<span class="w"> </span>-E<span class="w"> </span>make<span class="w"> </span>-j4
+
+<span class="go">// Now, the application itself</span>
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/usr/ports/x11/qterminal
+
+<span class="go">// Install all build-time dependencies from packages</span>
+<span class="gp">$ </span>make<span class="w"> </span>build-depends-list<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">12</span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>-y
+
+<span class="go">// Build the application</span>
+<span class="gp">$ </span><span class="nv">QTermWidget5_DIR</span><span class="o">=</span>/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/cmake/qtermwidget5/<span class="w">  </span><span class="nv">MAKE_JOBS_UNSAFE</span><span class="o">=</span>yes<span class="w"> </span>sudo<span class="w"> </span>-E<span class="w"> </span>make<span class="w"> </span>-j4
+
+<span class="go">// Run the application with the changed library</span>
+<span class="gp">$ </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/<span class="w"> </span>/usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-changes-to-the-port">
+<h2>Making changes to the port<a class="headerlink" href="#making-changes-to-the-port" title="Permalink to this heading"></a></h2>
+<p>Now make changes to the port.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the ports system you cannot just change the source code because it would be overwritten during the build process.</p>
+<p>You first need to make a copy of the source code, then make the changes in the copy, then create a patch that will get applied automatically at build time.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">// Copy the file to be changed</span>
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/usr/ports/x11-toolkits/qtermwidget
+<span class="gp">$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>work/qtermwidget-*/lib/TerminalDisplay.cpp<span class="w"> </span>work/qtermwidget-*/lib/TerminalDisplay.cpp.orig
+
+<span class="go">// Make the change in the library</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>nano<span class="w"> </span>work/qtermwidget-*/lib/TerminalDisplay.cpp
+<span class="go">        QChar q(QLatin1Char(&#39;\&#39;&#39;));</span>
+<span class="go">        dropText += q + QString(urlText).replace(q, QLatin1String(&quot;&#39;\\&#39;&#39;&quot;)) + q;</span>
+<span class="go">        dropText += QLatin1Char(&#39; &#39;);</span>
+
+<span class="go">// Make a patch</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>makepatch
+
+<span class="go">// Build the library again</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>clean<span class="w"> </span><span class="c1"># Run this only if the next line does nothing</span>
+<span class="gp">$ </span><span class="nv">MAKE_JOBS_UNSAFE</span><span class="o">=</span>yes<span class="w"> </span>sudo<span class="w"> </span>-E<span class="w"> </span>make<span class="w"> </span>-j4
+
+<span class="go">// Run the application with the changed library</span>
+<span class="gp">$ </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/ports/x11-toolkits/qtermwidget/work/stage/usr/local/lib/<span class="w"> </span>/usr/ports/x11/qterminal/work/stage/usr/local/bin/qterminal
+</pre></div>
+</div>
+<p>As a result we have a patch:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat<span class="w"> </span>files/patch-lib_TerminalDisplay.cpp
+<span class="go">--- lib/TerminalDisplay.cpp.orig        2020-11-03 08:19:26 UTC</span>
+<span class="go">+++ lib/TerminalDisplay.cpp</span>
+<span class="go">@@ -3099,7 +3099,9 @@ void TerminalDisplay::dropEvent(QDropEvent* event)</span>
+<span class="go">         // without quoting them (this only affects paths with spaces in)</span>
+<span class="go">         //urlText = KShell::quoteArg(urlText);</span>
+<span class="go"> </span>
+<span class="go">-        dropText += urlText;</span>
+<span class="go">+        QChar q(QLatin1Char(&#39;\&#39;&#39;));</span>
+<span class="go">+        dropText += q + QString(urlText).replace(q, QLatin1String(&quot;&#39;\\&#39;&#39;&quot;)) + q;</span>
+<span class="go">+        dropText += QLatin1Char(&#39; &#39;);</span>
+<span class="go"> </span>
+<span class="go">         if ( i != urls.count()-1 )</span>
+<span class="go">             dropText += QLatin1Char(&#39; &#39;);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-packages">
+<h2>Making packages<a class="headerlink" href="#making-packages" title="Permalink to this heading"></a></h2>
+<p>Optionally, make packages for the ports. Note that <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code> needs to have run already before this step.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">// Library</span>
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/usr/ports/x11-toolkits/qtermwidget/
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>package
+<span class="gp">$ </span>ls<span class="w"> </span>work/pkg
+
+<span class="go">// Application</span>
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/usr/ports/x11/qterminal
+<span class="gp">$ </span>sudo<span class="w"> </span>make<span class="w"> </span>package
+<span class="gp">$ </span>ls<span class="w"> </span>work/pkg
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-port-from-scratch">
+<h2>Creating a port from scratch<a class="headerlink" href="#creating-a-port-from-scratch" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/">FreeBSD Porter’s Handbook</a> is the authoritative source on how to write new ports from scratch. This section shows a hands-on example on how to package a set of tools from a GitHub repository.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is a work in progress. Corrections are welcome.</p>
+</div>
+<p>First, prepare the Ports environment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>su
+<span class="gp"># </span>pkg<span class="w"> </span>install<span class="w"> </span>portlint
+<span class="gp"># </span><span class="nb">echo</span><span class="w"> </span><span class="nv">DEVELOPER</span><span class="o">=</span>yes<span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/make.conf
+</pre></div>
+</div>
+<p>Next, create a directory for the new port:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>mkdir<span class="w"> </span>/usr/ports/sysutils/fluxengine
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>/usr/ports/sysutils/fluxengine
+</pre></div>
+</div>
+<p>Create <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> with the following content:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># $FreeBSD$
+
+PORTNAME=       fluxengine
+DISTVERSION=    572
+CATEGORIES=     sysutils
+
+MAINTAINER=     probono@puredarwin.org
+COMMENT=        USB floppy disk interface for reading and writing non-PC disk formats
+
+LICENSE=        MIT
+
+LIB_DEPENDS=    libsqlite3.so:databases/sqlite3 \
+                libstdc++.so:lang/gcc9
+
+BUILD_DEPENDS=  ninja:devel/ninja
+
+USES=           gmake
+
+USE_GITHUB=     yes
+GH_ACCOUNT=     davidgiven
+GH_TAGNAME=     61ff48c
+
+do-install:
+        ${INSTALL_PROGRAM} ${WRKSRC}/brother120tool ${STAGEDIR}${PREFIX}/bin/
+        ${INSTALL_PROGRAM} ${WRKSRC}/brother240tool ${STAGEDIR}${PREFIX}/bin/
+        ${INSTALL_PROGRAM} ${WRKSRC}/fluxengine ${STAGEDIR}${PREFIX}/bin/
+
+.include &lt;bsd.port.mk&gt;
+</pre></div>
+</div>
+<p>Run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>make<span class="w"> </span>makeplist<span class="w"> </span>&gt;<span class="w"> </span>pkg-plist
+</pre></div>
+</div>
+<p>to create that file. Check and edit it by hand, especially the first line.</p>
+<p>Notes</p>
+<ul class="simple">
+<li><p>See <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/usr/ports/</span></code> for possible categories, such as <code class="docutils literal notranslate"><span class="pre">sysutils</span></code></p></li>
+<li><p>See <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/makefile-naming.html">5.2. Naming</a> for naming and versioning conventions</p></li>
+<li><p>The lines must be in a defined order. Run <code class="docutils literal notranslate"><span class="pre">portlint</span></code> to get information on this. When <code class="docutils literal notranslate"><span class="pre">portlint</span></code> complains about <code class="docutils literal notranslate"><span class="pre">appears</span> <span class="pre">out-of-order</span></code>, the blocks and lines in the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> need to be reshuffled to match the order described at <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/order/">https://docs.freebsd.org/en/books/porters-handbook/order/</a>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">stage-qa</span></code> to find out dependencies. Using something like <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">stage-qa</span> <span class="pre">2&gt;&amp;1</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;you</span> <span class="pre">need&quot;</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d</span> <span class="pre">&quot;</span> <span class="pre">&quot;</span> <span class="pre">-f</span> <span class="pre">4</span></code> can speed this up</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">do-install</span></code> section is needed in this example because there is no <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> in the original software’s Makefile</p></li>
+</ul>
+<p>Create <code class="docutils literal notranslate"><span class="pre">pkg-descr</span></code> based on the description on the GitHub <a class="reference external" href="https://github.com/davidgiven/fluxengine">README.md</a>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>The FluxEngine is a very cheap USB floppy disk interface capable of
+reading and writing exotic non-PC floppy disk formats.
+It allows you to use a conventional PC drive to accept Amiga disks,
+CLV Macintosh disks, bizarre 128-sector CP/M disks,
+and other weird and bizarre formats.
+ :
+The hardware consists of a single, commodity part with a floppy drive
+connector soldered onto it. No ordering custom boards,
+no fiddly surface mount assembly, and no fuss:
+nineteen simpler solder joints and you&#39;re done.
+
+WWW: http://cowlark.com/fluxengine/
+</pre></div>
+</div>
+<p>Notes</p>
+<ul class="simple">
+<li><p>For details please refer to <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/porting-desc.html">3.2. Writing the Description Files</a>.</p></li>
+</ul>
+<p>Create the checksum file by running</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>make<span class="w"> </span>makesum
+</pre></div>
+</div>
+<p>Check the Makefile with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>portlint
+</pre></div>
+</div>
+<p>and correct any mistakes it reports, then repeat.</p>
+<p>Once <code class="docutils literal notranslate"><span class="pre">portlint</span></code> says <code class="docutils literal notranslate"><span class="pre">looks</span> <span class="pre">fine</span></code>, try to build by running</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>make
+</pre></div>
+</div>
+<p>Note that the compilation will fail. This is because in this case the application needs to be built with <code class="docutils literal notranslate"><span class="pre">gmake</span></code> rather than <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
+<p>Run tests</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>make<span class="w"> </span>stage
+<span class="gp"># </span>make<span class="w"> </span>stage-qa
+<span class="gp"># </span>make<span class="w"> </span>package
+<span class="gp"># </span>make<span class="w"> </span>install
+<span class="gp"># </span>make<span class="w"> </span>deinstall
+</pre></div>
+</div>
+<p>None of these must produce errors. See <a class="reference external" href="https://docs.freebsd.org/en/books/porters-handbook/porting-testing.html">3.4. Testing the Port</a> for details.</p>
+<p>At this point it may be a good idea to have an experienced FreeBSD Ports developer have a look at your new port.</p>
+<p>Once everything looks good, prepare a <code class="docutils literal notranslate"><span class="pre">.shar</span></code> file for submitting it to https://bugs.freebsd.org/submit/:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>rm<span class="w"> </span>-rf<span class="w"> </span>work/
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="gp"># </span>tar<span class="w"> </span>cf<span class="w">  </span>fluxengine.shar<span class="w"> </span>--format<span class="w"> </span>shar<span class="w"> </span>fluxengine
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-existing-ports">
+<h2>Updating existing ports<a class="headerlink" href="#updating-existing-ports" title="Permalink to this heading"></a></h2>
+<p>This real-life example shows how to update a port, e.g., <code class="docutils literal notranslate"><span class="pre">x11/qterminal</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>su
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>/usr/ports
+<span class="gp"># </span>git<span class="w"> </span>pull
+<span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>x11/qterminal
+</pre></div>
+</div>
+<p>Change  <code class="docutils literal notranslate"><span class="pre">PORTVERSION=</span>&#160;&#160;&#160; <span class="pre">1.1.0</span></code> to <code class="docutils literal notranslate"><span class="pre">PORTVERSION=</span>&#160;&#160;&#160; <span class="pre">1.2.0</span></code>. Turns out that one has to update <code class="docutils literal notranslate"><span class="pre">x11-toolkits/qtermwidget</span></code> and <code class="docutils literal notranslate"><span class="pre">devel/lxqt-build-tools</span></code> too for it to compile.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>portlint<span class="w"> </span><span class="c1"># Fix errors, if any</span>
+<span class="gp"># </span>rm<span class="w"> </span>pkg-plist
+<span class="gp"># </span>make<span class="w"> </span>clean
+<span class="gp"># </span>make<span class="w"> </span>package<span class="w"> </span>reinstall
+<span class="gp"># </span>make<span class="w"> </span>makeplist<span class="w"> </span>&gt;<span class="w"> </span>pkg-plist
+<span class="gp"># </span>nano<span class="w"> </span>pkg-plist<span class="w"> </span><span class="c1"># Remove first line and check the others</span>
+<span class="gp"># </span>make<span class="w"> </span>clean
+<span class="gp"># </span>make<span class="w"> </span>package<span class="w"> </span>reinstall
+</pre></div>
+</div>
+<p>Finally, once everything is tested, create separate patches for each port with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="nb">cd</span><span class="w"> </span>/usr/ports
+<span class="gp"># </span>git<span class="w"> </span>diff<span class="w"> </span>-U999999<span class="w"> </span>x11/qterminal<span class="w"> </span>&gt;<span class="w"> </span>/home/user/Desktop/x11_qterminal.diff
+<span class="gp"># </span>git<span class="w"> </span>diff<span class="w"> </span>-U999999<span class="w"> </span>devel/lxqt-build-tools<span class="w"> </span>&gt;<span class="w"> </span>/home/user/Desktop/devel_lxqt-build-tools.diff
+<span class="gp"># </span>git<span class="w"> </span>diff<span class="w"> </span>-U999999<span class="w"> </span>x11-toolkits/qtermwidget<span class="w"> </span>&gt;<span class="w"> </span>/home/user/Desktop/x11-toolkits_qtermwidget.diff
+</pre></div>
+</div>
+<p>Go to https://reviews.freebsd.org/differential/, click “Create Diff”, can log in using GitHub credentials, subject <code class="docutils literal notranslate"><span class="pre">devel/lxqt-build-tools:</span> <span class="pre">Update</span> <span class="pre">to</span> <span class="pre">0.12.0</span></code>, under “Reviewers” add the maintainer.</p>
+<p>Result:</p>
+<ul class="simple">
+<li><p>https://reviews.freebsd.org/D37378</p></li>
+<li><p>https://reviews.freebsd.org/D37379</p></li>
+<li><p>https://reviews.freebsd.org/D37380</p></li>
+</ul>
+<p>If a reviewer requires changes to be made, make the changes and upload (paste) a new diff (like the original diff; not a “diff of the diff”!) by clicking on “Update Diff” on the respective Phabricator page, e.g., https://reviews.freebsd.org/D37378.</p>
+</div>
+<div class="section" id="working-with-cirrus-ci">
+<h2>Working with Cirrus CI<a class="headerlink" href="#working-with-cirrus-ci" title="Permalink to this heading"></a></h2>
+<p>To build packages on Cirrus CI, a <code class="docutils literal notranslate"><span class="pre">.cirrus.yml</span></code> file similar to https://github.com/b-aaz/xlibre-ports/blob/master/.cirrus.yml can be used.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="localization.html" class="btn btn-neutral float-left" title="Localization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="base.html" class="btn btn-neutral float-right" title="Working with the FreeBSD base system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

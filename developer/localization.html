@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Localization &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with FreeBSD Ports" href="ports.html" />
+    <link rel="prev" title="Tracing with DTrace/dtruss" href="tracing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Localization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-translations">Contributing translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-strings-available-for-translation">Making strings available for translation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qt">Qt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Localization</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/localization.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="localization">
+<h1>Localization<a class="headerlink" href="#localization" title="Permalink to this heading"></a></h1>
+<p>helloSystem is localized on <a class="reference external" href="https://hosted.weblate.org/projects/hellosystem/">Hosted Weblate</a>.</p>
+<p><a class="reference external" href="https://hosted.weblate.org/engage/hellosystem/"><img alt="Translation status" src="https://hosted.weblate.org/widgets/hellosystem/-/multi-auto.svg" /></a></p>
+<div class="section" id="contributing-translations">
+<h2>Contributing translations<a class="headerlink" href="#contributing-translations" title="Permalink to this heading"></a></h2>
+<p>helloSystem is translated into many languages by volunteers all over the world.</p>
+<p>Translation happens on <a class="reference external" href="https://hosted.weblate.org/engage/hellosystem/">Weblate</a>. Everyone can contribute! Be sure to use the “Automatic suggestions” button which suggests translations from Deepl, Google Translate, Microsoft Translator, and various open source projects. This reduces the work to picking the most appropriate translation in many cases.</p>
+</div>
+<div class="section" id="making-strings-available-for-translation">
+<h2>Making strings available for translation<a class="headerlink" href="#making-strings-available-for-translation" title="Permalink to this heading"></a></h2>
+<div class="section" id="qt">
+<h3>Qt<a class="headerlink" href="#qt" title="Permalink to this heading"></a></h3>
+<p>Follow the best practices for internationalization of Qt projects. To be documented.</p>
+</div>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h3>
+<p>helloSystem uses <code class="docutils literal notranslate"><span class="pre">tstranslator.py</span></code> to translate applications using Qt <code class="docutils literal notranslate"><span class="pre">.ts</span></code> files without the need for compilation. To achieve this, import and set up tstranslator as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Translate this application using Qt .ts files without the need for compilation</span>
+<span class="kn">import</span> <span class="nn">tstranslator</span>
+<span class="n">tstr</span> <span class="o">=</span> <span class="n">tstranslator</span><span class="o">.</span><span class="n">TsTranslator</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/i18n&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">tr</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tstr</span><span class="o">.</span><span class="n">tr</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the class that defines your MainWindow or Wizard, do the following:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Wizard</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWizard</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="c1"># Translate the widgets in the UI objects in the Wizard</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">windowTitle</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QObject</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">FindChildrenRecursively</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;setText&#39;</span><span class="p">):</span>
+                <span class="n">e</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>To make new strings available for translation, a developer runs in the respective application directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>Resources/
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>i18n
+
+<span class="go">// Create/update .ts file for English</span>
+<span class="gp">$ </span>pylupdate5<span class="w"> </span>-noobsolete<span class="w"> </span>*.<span class="o">{</span>py,ui<span class="o">}</span><span class="w"> </span>-ts<span class="w"> </span>i18n/en.ts
+
+<span class="go">// Remove unneeded location tags</span>
+<span class="gp">$ </span>xml<span class="w"> </span>ed<span class="w"> </span>-L<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;//location&#39;</span><span class="w"> </span>i18n/en.ts<span class="w"> </span>
+
+<span class="go">// Remove translations from en, since en is not to be further translated</span>
+<span class="gp">$ </span>xml<span class="w"> </span>ed<span class="w"> </span>-L<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;//translation&#39;</span><span class="w"> </span>i18n/en.ts<span class="w"> </span>
+</pre></div>
+</div>
+<p>Translators do not need to do this.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tracing.html" class="btn btn-neutral float-left" title="Tracing with DTrace/dtruss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ports.html" class="btn btn-neutral float-right" title="Working with FreeBSD Ports" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

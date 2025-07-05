@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Experience Guidelines &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Architecture" href="architecture.html" />
+    <link rel="prev" title="Reviewer Guide" href="../reviewer/guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/components.html">Getting to know the system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Experience Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#macintosh-human-interface-guidelines">Macintosh Human Interface Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-global-menu-bar">Using the global menu bar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#walker-n-smelcer-1990-superiority-of-the-global-menu-bar">Walker, N &amp; Smelcer, 1990 (Superiority of the global menu bar)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#avoiding-hidden-menus-hamburger-icons">Avoiding hidden menus hamburger icons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#avoiding-configuration-options">Avoiding configuration options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">User Experience Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/developer/ux-guidelines.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="user-experience-guidelines">
+<h1>User Experience Guidelines<a class="headerlink" href="#user-experience-guidelines" title="Permalink to this heading"></a></h1>
+<p>Since helloSystem is intended to be friendly and welcoming to switchers from the Mac, it is important to understand the underlying concepts and design considerations that went into the Mac. We are not aiming to create a 1:1 replica, but something that is generally consistent with the underlying general user experience (UX) philosophy, which has been openly documented.</p>
+<div class="section" id="macintosh-human-interface-guidelines">
+<h2>Macintosh Human Interface Guidelines<a class="headerlink" href="#macintosh-human-interface-guidelines" title="Permalink to this heading"></a></h2>
+<p>What are the design principles that make user interfaces “Mac-like”? Apple spelled them out for us publicly 30 years ago in a book, the Macintosh Human Interface Guidelines. Besides describing what makes user interfaces “Mac-like”, the book also explains general concepts like how to perform user testing.</p>
+<blockquote>
+<div><p>If you are a designer, a human interface professional, or an engineer, this book contains information you can use to design and create products that fit the Macintosh model. It provides background information that can help you plan and make decisions about your product design. <strong>Even if you don’t design and develop products for the Macintosh, reading this book will help you to understand the Macintosh interface.</strong></p>
+</div></blockquote>
+<p>Source: <a class="reference external" href="https://dl.acm.org/doi/book/10.5555/573097">Apple Computer, Inc., 1992, Macintosh Human Interface Guidelines, First Printing, November 1992. Addison-Wesley Publishing Company. ISBN 0-201-62216-5</a></p>
+</div>
+<div class="section" id="using-the-global-menu-bar">
+<h2>Using the global menu bar<a class="headerlink" href="#using-the-global-menu-bar" title="Permalink to this heading"></a></h2>
+<div class="section" id="walker-n-smelcer-1990-superiority-of-the-global-menu-bar">
+<h3>Walker, N &amp; Smelcer, 1990 (Superiority of the global menu bar)<a class="headerlink" href="#walker-n-smelcer-1990-superiority-of-the-global-menu-bar" title="Permalink to this heading"></a></h3>
+<p>Referred to in the Macintosh Human Interface Guidelines with highest praise:</p>
+<blockquote>
+<div><p>A seminal paper on why pull-down menus are superior to any other kind.
+Everyone who designs for the screen must read this paper.</p>
+</div></blockquote>
+<p>This paper provides empirical evidence on the superiority of global menus.</p>
+<blockquote>
+<div><p>Systems that maximize the percentage of menu items with borders will have a decided
+advantage over other menu systems.</p>
+<p>In this experiment the initial movement to the pull-down menus was larger that
+average distance required to reach the top of a 19 inch diagonal screen, yet the pull-downs still significantly outperformed the walking menus. Therefore, it may be
+more efficient to place menus at the top of the window</p>
+</div></blockquote>
+<p>Source: Walker, N &amp; Smelcer, JB 1990, A comparison of selection times from walking and pull-down menus. in JC Chew &amp; J Whiteside (eds), Proceedings of the SIGCHI Conference on Human Factors in Computing Systems, CHI 1990. Association for Computing Machinery, pp. 221-225, 1990 SIGCHI Conference on Human Factors in Computing Systems, CHI 1990, Seattle, United States, 4/1/90. <a class="reference external" href="https://dl.acm.org/doi/pdf/10.1145/97243.97277">https://dl.acm.org/doi/pdf/10.1145/97243.97277</a></p>
+</div>
+</div>
+<div class="section" id="avoiding-hidden-menus-hamburger-icons">
+<h2>Avoiding hidden menus hamburger icons<a class="headerlink" href="#avoiding-hidden-menus-hamburger-icons" title="Permalink to this heading"></a></h2>
+<p>Menus hidden behind hamburger menus have been <a class="reference external" href="https://www.nngroup.com/articles/hamburger-menus/">proven to hurt user experience</a>. They should not be used. The global menu bar should be used instead.</p>
+</div>
+<div class="section" id="avoiding-configuration-options">
+<h2>Avoiding configuration options<a class="headerlink" href="#avoiding-configuration-options" title="Permalink to this heading"></a></h2>
+<p>Configuration options add complexity to software, increase the test matrix, and make software harder to support (e.g., over the phone) because no two systems behave exactly the same way depending on how they were configured. Hence in helloSystem we want to avoid unnecessary user-facing configuration options whenever possible. We take great care to set sensible defaults and make things “just work” as expected (in line with our design objectives) out of the box, without the need for configuration. KDE Plasma is recommended as an alternative for users who wish to configure and customize every aspect of the system.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../reviewer/guide.html" class="btn btn-neutral float-left" title="Reviewer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

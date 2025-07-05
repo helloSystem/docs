@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install helloSystem &mdash; helloSystem  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="mountarchive" href="mountarchive.html" />
+    <link rel="prev" title="Hardware Probe" href="hardware-probe.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            helloSystem
+              <img src="../../../_static/hello_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../components.html">Getting to know the system</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../applications.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../autostart.html">Autostart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filesystems.html">Filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preferences.html">Preferences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system.html">System components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../utilities.html">Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="calculator.html">Calculator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calendar.html">Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create-live-media.html">Create Live Media</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-probe.html">Hardware Probe</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Install helloSystem</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-hellosystem">Installing helloSystem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mountarchive.html">mountarchive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="remote-assistance.html">Remote Assistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sticky-notes.html">Sticky Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html">Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../windows.html">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feedback.html">Providing feedback</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reviewer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reviewer/guide.html">Reviewer Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ux-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/boot.html">Boot process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/geom_rowr.html">geom_rowr kernel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/graphics.html">Graphics hardware autoconfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/binary-compatibility.html">Binary Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/application-bundles.html">Application Bundles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/menu.html">Global Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/filer-context-menus.html">Extending Filer context menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/developer-tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/midi.html">MIDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/building.html">Building the Live ISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/monkey-patch.html">Monkey Patching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/tracing.html">Tracing with DTrace/dtruss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/ports.html">Working with FreeBSD Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/base.html">Working with the FreeBSD base system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/man.html">Writing man pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/rpi.html">Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/linux.html">Building on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/distributions.html">Note to distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">helloSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../components.html">Getting to know the system</a></li>
+          <li class="breadcrumb-item"><a href="../utilities.html">Utilities</a></li>
+      <li class="breadcrumb-item active">Install helloSystem</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/helloSystem/docs/blob/main/user/components/utilities/install.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="install-hellosystem">
+<h1>Install helloSystem<a class="headerlink" href="#install-hellosystem" title="Permalink to this heading"></a></h1>
+<p>Once you have tried out helloSystem from the live medium, you may want to install the system to the hard disk in your computer, or an externally attached storage device.</p>
+<p>The __Install helloSystem utility lets you install helloSystem on your computer from a running Live system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The utility is called  <strong>Install helloSystem</strong> to signify that helloSystem contains a largely unmodified FreeBSD core operating system. It might be renamed “Install helloSystem” in the future.</p>
+</div>
+<p><img alt="Install FreeBSD" src="https://user-images.githubusercontent.com/2480569/93003377-7d77c480-f53e-11ea-9e2d-aed1b41a17df.png" /></p>
+<p>When you install helloSystem using the __Install helloSystem utility, the installed system will behave like the Live system in most aspects.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>A bootable helloSystem Live Medium</p></li>
+<li><p>A computer capable of starting from the Live Medium</p></li>
+<li><p>An internal or external storage device with 8 GB of storage space. More space is highly recommended to allow for adding applications and documents</p></li>
+</ul>
+</div>
+<div class="section" id="installing-hellosystem">
+<h2>Installing helloSystem<a class="headerlink" href="#installing-hellosystem" title="Permalink to this heading"></a></h2>
+<p>Start your computer from a helloSystem Live Medium. Open the __Install helloSystem utility and follow the instructions on screen.</p>
+<p>The installer starts by presenting a summary. Click on “Continue”. To install the software, you must agree to the terms of the software license agreement. Click on “Continue” to proceed. Click on a destination disk on which the operating system should be installed. A warning will inform you that the entire disk will be erased. Confirm whether you want to do this by clicking on the appropriate button.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>Install helloSystem</strong> utility will overwrite the entire contents of the selected device, including all of its pre-existing partitions. Take extra caution when selecting the target device.</p>
+<p>This operation cannot be undone.</p>
+</div>
+<p>If you are really sure that you have selected the correct device, click “Continue”.</p>
+<p>In the next step, you will create an account for the main user of the computer. The information entered here is used to identify the main user of the computer. This user will have administrative permissions (will be member of the <code class="docutils literal notranslate"><span class="pre">wheel</span></code> group).</p>
+<ul class="simple">
+<li><p>In the field <strong>Full Name</strong>, enter your first name(s), followed by a blank, followed by your last name. Example: <code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Doe</span></code>. This field can be left blank if you prefer not to provide your full name</p></li>
+<li><p>The field <strong>Username</strong> will be automatically populated with a suggested username. It must not contain any special characters such as blanks. You can override the suggested default if you like. Example: <code class="docutils literal notranslate"><span class="pre">jdoe</span></code></p></li>
+<li><p>Enter a password into the <strong>Password</strong> field. Repeat the same password in the <strong>Retype Password</strong> field. These fields can be left blank if you prefer not to use a password, but this will mean that anyone with access to your computer will be able to log in, and you will not be able to log in over the network</p></li>
+<li><p>The field <strong>Computer Name</strong> will be automatically populated with a suggested computer name (hostname). This name will be used to identify your computer on the local area network. It must not contain any special characters such as blanks. You can override the suggested default if you like. Example: <code class="docutils literal notranslate"><span class="pre">Johns-TravelMate-B117-M</span></code></p></li>
+<li><p>Check the checkbox <strong>Enable users to log in over the network (ssh)</strong> if you would like to allow accessing the computer remotely. By default, this requires a password to be set for the computer account</p></li>
+<li><p>Check the checkbox <strong>Set time zone based on current location</strong> if you would like timezone on the installed system to be set automatically. This feature requires an active internet connection</p></li>
+<li><p>Check the checkbox <strong>Disable swap (recommended for USB sticks and SD cards)</strong> if you are installing the operating system to a medium on which no swap space should be used. This may be advisable on small system disks, and when installing to slower flash based media such as USB sticks and SD cards</p></li>
+</ul>
+<p>Click “Continue” to proceed. The system will be installed to the selected disk. This process typically takes a couple of minutes depending on your system configuration, during which a progress bar will be shown.</p>
+<p>You can click on “Installer Log” at any time to see a detailed log of the actions performed by the installer and details on any possible errors.</p>
+<p>Once the installation has completed, remove the Live medium from your computer and click the “Restart” button to start the newly installed system.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hardware-probe.html" class="btn btn-neutral float-left" title="Hardware Probe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mountarchive.html" class="btn btn-neutral float-right" title="mountarchive" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
