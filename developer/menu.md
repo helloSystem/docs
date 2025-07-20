@@ -287,6 +287,10 @@ Changing this to `"1"` does not make any difference for Cura, though.
 
 _To be written._
 
+### Visual Studio Code, Code OSS (vscode, code-oss)
+
+Go to File -> Preferences -> Settings and set "Title Bar Style" to "Native" to get a working global menu.
+
 ### Chromium, Chrome
 
 Starting with version 0.7.0 of helloSystem, Menu can handle Chrome and (patched) Firefox and Thunderbird, thanks Jesper Schmitz Mouridsen ([__jsm222__](https://github.com/jsm222/)).
